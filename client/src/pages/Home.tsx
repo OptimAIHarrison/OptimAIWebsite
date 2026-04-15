@@ -60,20 +60,20 @@ export default function Home() {
           animate="visible"
         >
           {/* Centered Content in Glass Container */}
-          <motion.div variants={itemVariants} className="backdrop-blur-2xl bg-white/30 border border-white/40 rounded-3xl p-16 lg:p-20 space-y-8 text-center max-w-5xl shadow-2xl">
-              <div className="space-y-4">
+          <motion.div variants={itemVariants} className="backdrop-blur-2xl bg-white/30 border border-white/40 rounded-3xl p-8 md:p-16 lg:p-20 space-y-6 md:space-y-8 text-center max-w-5xl shadow-2xl">
+              <div className="space-y-3 md:space-y-4">
                 <motion.div
                   className="inline-block"
                   variants={itemVariants}
                 >
-                  <span className="px-4 py-2 rounded-full bg-purple-600/20 border border-purple-500/50 text-foreground text-sm font-medium">
+                  <span className="px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-purple-600/20 border border-purple-500/50 text-foreground text-xs md:text-sm font-medium whitespace-nowrap">
                     Your Growth Partner in AI & Automation
                   </span>
                 </motion.div>
 
                 <motion.h1
                   variants={itemVariants}
-                  className="text-5xl lg:text-7xl font-bold leading-tight"
+                  className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight"
                 >
                   <span className="bg-gradient-to-r from-purple-600 to-purple-900 bg-clip-text text-transparent">Scale Your Business</span>
                   <br />
