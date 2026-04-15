@@ -82,7 +82,7 @@ export default function WhyOptimAI() {
             </p>
             <Link href="/free-audit">
               <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 text-lg px-8 py-6 rounded-xl">
-                Get Your Free Audit
+                Get Your Free AI Audit
                 <ArrowRight className="ml-2" size={20} />
               </Button>
             </Link>

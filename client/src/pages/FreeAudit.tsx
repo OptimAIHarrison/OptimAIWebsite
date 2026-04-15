@@ -55,7 +55,7 @@ export default function FreeAudit() {
           animate="visible"
         >
           <motion.h1 variants={itemVariants} className="text-5xl lg:text-6xl font-bold mb-6">
-            Get Your <span className="gradient-text">Free Audit</span>
+            Get Your <span className="gradient-text">Free AI and Automation Audit</span>
           </motion.h1>
           <motion.p variants={itemVariants} className="text-xl text-foreground/70 max-w-2xl mx-auto">
             Discover where your business can optimize with AI and automation. Our experts will analyze your operations and provide actionable insights.

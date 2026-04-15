@@ -75,7 +75,7 @@ export function Navigation() {
             </Link>
             <Link href="/free-audit">
               <Button className="hidden sm:inline-flex bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0">
-                Get Free Audit
+                Get Free AI Audit
               </Button>
             </Link>
 
@@ -146,7 +146,7 @@ export function Navigation() {
             </Link>
             <Link href="/free-audit">
               <Button className="w-full mt-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0">
-                Get Free Audit
+                Get Free AI Audit
               </Button>
             </Link>
           </div>

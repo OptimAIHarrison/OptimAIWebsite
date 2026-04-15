@@ -179,7 +179,7 @@ export const PRICING_TIERS = [
       "Technology Stack Recommendations",
       "Executive Summary Report",
     ],
-    cta: "Get Your Free Audit",
+    cta: "Get Your Free AI and Automation Audit",
     highlighted: false,
   },
   {

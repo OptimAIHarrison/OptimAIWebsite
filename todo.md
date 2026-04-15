@@ -223,3 +223,9 @@
 - [x] Edit home page "What We Actually Do" section to emphasize flexibility
 - [x] Edit "What We Actually Do" page to show customers can enter/exit at any stage
 - [x] Add messaging that services can be simple or technical, short-term or long-term
+
+
+## Latest Refinements (Round 11)
+- [x] Reorganize ROI Calculator layout: Business Details left, Services right, Results below in row
+- [x] Add calculation explanation left and Free Audit CTA right below results
+- [x] Rename all "Audit" to "AI and Automation Audit" across entire site

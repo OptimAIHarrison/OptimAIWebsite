@@ -4,6 +4,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Info } from "lucide-react";
+import { Link } from "wouter";
 
 const SERVICES_ROI = [
   { id: "strategic", name: "Strategic Advisory", timeSavingPercent: 15 },
@@ -63,7 +64,7 @@ export default function ROICalculator() {
       <main className="pt-40 pb-20">
         <div className="container mx-auto px-4">
           <motion.div
-            className="max-w-4xl mx-auto"
+            className="max-w-6xl mx-auto"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -83,12 +84,11 @@ export default function ROICalculator() {
               </div>
             </motion.div>
 
-            {/* Two Column Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Left Column: Inputs */}
+            {/* Top Row: Business Details (Left) and Services (Right) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+              {/* Left: Business Details */}
               <motion.div variants={itemVariants}>
-                {/* Sliders Section */}
-                <motion.div className="glass-card p-8 rounded-2xl mb-8" variants={itemVariants}>
+                <motion.div className="glass-card p-8 rounded-2xl h-full" variants={itemVariants}>
                   <h2 className="text-2xl font-bold mb-8">Your Business Details</h2>
 
                   {/* Employees Slider */}
@@ -172,9 +172,11 @@ export default function ROICalculator() {
                     </div>
                   </div>
                 </motion.div>
+              </motion.div>
 
-                {/* Services Selection */}
-                <motion.div className="glass-card p-8 rounded-2xl" variants={itemVariants}>
+              {/* Right: Services Selection */}
+              <motion.div variants={itemVariants}>
+                <motion.div className="glass-card p-8 rounded-2xl h-full" variants={itemVariants}>
                   <h2 className="text-2xl font-bold mb-6">Select Services</h2>
                   <div className="grid grid-cols-1 gap-3">
                     {SERVICES_ROI.map((service) => (
@@ -194,57 +196,65 @@ export default function ROICalculator() {
                   </div>
                 </motion.div>
               </motion.div>
+            </div>
 
-              {/* Right Column: Results */}
-              <motion.div variants={itemVariants} className="flex flex-col gap-8">
-                {/* Results Card */}
-                <motion.div
-                  className="glass-card p-8 rounded-2xl bg-gradient-to-r from-purple-600/10 to-pink-600/10 border-2 border-purple-300/50 flex-1"
-                  variants={itemVariants}
-                >
-                  <h2 className="text-2xl font-bold mb-6 text-center">Your Potential Savings</h2>
-                  <div className="space-y-6">
-                    <div className="text-center pb-6 border-b border-purple-200/50">
-                      <div className="text-4xl font-bold text-purple-600 mb-2">
-                        {hoursAutomatePerYear.toFixed(0)}
-                      </div>
-                      <div className="text-foreground/70 text-sm">Hours Automated Per Year</div>
+            {/* Results Row */}
+            <motion.div variants={itemVariants} className="mb-8">
+              <motion.div
+                className="glass-card p-8 rounded-2xl bg-gradient-to-r from-purple-600/10 to-pink-600/10 border-2 border-purple-300/50"
+                variants={itemVariants}
+              >
+                <h2 className="text-2xl font-bold mb-6 text-center">Your Potential Savings</h2>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="text-center pb-6 md:pb-0 md:border-r border-purple-200/50">
+                    <div className="text-4xl font-bold text-purple-600 mb-2">
+                      {hoursAutomatePerYear.toFixed(0)}
                     </div>
-                    <div className="text-center pb-6 border-b border-purple-200/50">
-                      <div className="text-4xl font-bold text-pink-600 mb-2">
-                        ${(yearlySavings / 1000).toFixed(0)}k
-                      </div>
-                      <div className="text-foreground/70 text-sm">Annual Cost Savings</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="text-4xl font-bold text-purple-600 mb-2">
-                        {totalTimeSavingPercent.toFixed(0)}%
-                      </div>
-                      <div className="text-foreground/70 text-sm">Total Automation Potential</div>
-                    </div>
+                    <div className="text-foreground/70 text-sm">Hours Automated Per Year</div>
                   </div>
-                </motion.div>
+                  <div className="text-center pb-6 md:pb-0 md:border-r border-purple-200/50">
+                    <div className="text-4xl font-bold text-pink-600 mb-2">
+                      ${(yearlySavings / 1000).toFixed(0)}k
+                    </div>
+                    <div className="text-foreground/70 text-sm">Annual Cost Savings</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-4xl font-bold text-purple-600 mb-2">
+                      {totalTimeSavingPercent.toFixed(0)}%
+                    </div>
+                    <div className="text-foreground/70 text-sm">Total Automation Potential</div>
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
 
-                {/* Calculation Logic */}
-                <motion.div className="glass-card p-8 rounded-2xl bg-purple-50/50" variants={itemVariants}>
+            {/* Bottom Row: Calculation Logic (Left) and CTA (Right) */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Left: Calculation Logic */}
+              <motion.div variants={itemVariants}>
+                <motion.div className="glass-card p-8 rounded-2xl bg-purple-50/50 h-full" variants={itemVariants}>
                   <h3 className="font-bold text-lg mb-4 text-foreground">How We Calculate</h3>
-                  <div className="space-y-2 text-xs text-foreground/80">
+                  <div className="space-y-2 text-sm text-foreground/80">
                     <p><span className="font-semibold">Step 1:</span> Current automation ({automationPercent}%) + service savings (+{avgTimeSavingPercent.toFixed(0)}%)</p>
                     <p><span className="font-semibold">Step 2:</span> Total potential: {totalTimeSavingPercent.toFixed(0)}% of {employees} employees</p>
                     <p><span className="font-semibold">Step 3:</span> {hoursAutomatePerYear.toFixed(0)} hours/year × ${costPerHour.toFixed(2)}/hour</p>
                     <p><span className="font-semibold">Result:</span> ${yearlySavings.toFixed(0)} annual savings</p>
                   </div>
                 </motion.div>
+              </motion.div>
 
-                {/* CTA */}
-                <motion.div className="text-center" variants={itemVariants}>
-                  <p className="text-foreground/70 mb-4 text-sm">
+              {/* Right: CTA */}
+              <motion.div variants={itemVariants} className="flex flex-col justify-center">
+                <motion.div className="glass-card p-8 rounded-2xl bg-gradient-to-r from-purple-600/10 to-pink-600/10 border-2 border-purple-300/50 text-center h-full flex flex-col justify-center" variants={itemVariants}>
+                  <p className="text-foreground/70 mb-6 text-lg font-semibold">
                     Ready to unlock these savings?
                   </p>
-                  <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2 w-full justify-center">
-                    Get Your Free Audit
-                    <ArrowRight size={20} />
-                  </Button>
+                  <Link href="/free-audit">
+                    <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center gap-2 w-full justify-center">
+                      Get Your Free AI and Automation Audit
+                      <ArrowRight size={20} />
+                    </Button>
+                  </Link>
                 </motion.div>
               </motion.div>
             </div>
