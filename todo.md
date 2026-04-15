@@ -262,4 +262,4 @@
 - [x] Add Instagram embed capability
 - [x] Add social sharing preview section
 - [x] Generate Open Graph meta tags for social sharing
-- [ ] Create PDF download tracking/analytics (future enhancement)
+- [x] Darker borders on article editor boxes
