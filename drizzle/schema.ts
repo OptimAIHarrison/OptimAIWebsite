@@ -1,4 +1,4 @@
-import { int, mysqlEnum, mysqlTable, text, timestamp, varchar } from "drizzle-orm/mysql-core";
+import { int, mysqlEnum, mysqlTable, text, timestamp, varchar, boolean } from "drizzle-orm/mysql-core";
 
 /**
  * Core user table backing auth flow.
@@ -43,6 +43,14 @@ export const articles = mysqlTable("articles", {
   publishedAt: timestamp("publishedAt"),
   scheduledFor: timestamp("scheduledFor"),
   views: int("views").default(0),
+  // PDF & Lead Capture
+  pdfUrl: varchar("pdfUrl", { length: 500 }),
+  pdfTitle: varchar("pdfTitle", { length: 255 }),
+  enablePdfDownload: boolean("enablePdfDownload").default(false),
+  // Embeds (YouTube, LinkedIn, TikTok, Instagram)
+  embeds: text("embeds"), // JSON array of embed objects
+  // Social Sharing
+  socialImage: varchar("socialImage", { length: 500 }),
   createdAt: timestamp("createdAt").defaultNow().notNull(),
   updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
 });

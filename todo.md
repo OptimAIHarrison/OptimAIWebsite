@@ -250,3 +250,16 @@
 - [x] Add tRPC routers for article management
 - [x] Create upload router for image handling
 - [x] Add admin routes to App.tsx
+
+
+## Latest Refinements (Round 14 - Article Editor Enhancements)
+- [x] Add PDF upload option to article editor
+- [x] Create lead capture form for PDF downloads (name, email, company, phone)
+- [x] Make PDF download optional in editor
+- [x] Add video embed capability (YouTube, LinkedIn, TikTok, Instagram)
+- [x] Add LinkedIn post embed capability
+- [x] Add TikTok embed capability
+- [x] Add Instagram embed capability
+- [x] Add social sharing preview section
+- [x] Generate Open Graph meta tags for social sharing
+- [ ] Create PDF download tracking/analytics (future enhancement)

@@ -26,6 +26,14 @@ interface ArticleFormData {
   readTime: number;
   status: "draft" | "published" | "scheduled";
   scheduledFor?: string;
+  // PDF & Lead Capture
+  pdfUrl?: string;
+  pdfTitle?: string;
+  enablePdfDownload?: boolean;
+  // Embeds
+  embeds?: Array<{ type: string; url: string }>;
+  // Social
+  socialImage?: string;
 }
 
 export default function AdminArticleEditor() {
@@ -292,7 +300,7 @@ export default function AdminArticleEditor() {
 
               <div className="bg-white/5 border-2 border-white/20 rounded-lg p-6">
                 <label className="block text-sm font-semibold mb-3">Tags</label>
-                <div className="flex gap-2 mb-3">
+                <div className="flex gap-2 mb-4">
                   <input
                     type="text"
                     value={tagInput}
@@ -306,6 +314,31 @@ export default function AdminArticleEditor() {
                   <Button onClick={handleAddTag} className="bg-accent hover:bg-accent/90">
                     Add Tag
                   </Button>
+                </div>
+                <div className="mb-4">
+                  <p className="text-xs text-foreground/60 mb-2">Quick select:</p>
+                  <div className="flex flex-wrap gap-2">
+                    {["AI & Automation", "Marketing", "Process Automation", "AI Integration", "Best Practices", "Industry Trends"].map((tag) => (
+                      <button
+                        key={tag}
+                        onClick={() => {
+                          if (!formData.tags.includes(tag)) {
+                            setFormData((prev) => ({
+                              ...prev,
+                              tags: [...prev.tags, tag],
+                            }));
+                          }
+                        }}
+                        className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
+                          formData.tags.includes(tag)
+                            ? "bg-accent/30 border border-accent text-accent"
+                            : "bg-white/5 border border-white/20 text-foreground/70 hover:border-accent hover:text-accent"
+                        }`}
+                      >
+                        {tag}
+                      </button>
+                    ))}
+                  </div>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {formData.tags.map((tag) => (
@@ -453,6 +486,135 @@ export default function AdminArticleEditor() {
                         min="1"
                       />
                     </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* PDF & Lead Capture Section */}
+              <div className="bg-white/5 border-2 border-white/20 rounded-lg p-6">
+                <h3 className="text-lg font-bold mb-4">PDF & Lead Capture (Optional)</h3>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <input
+                      type="checkbox"
+                      checked={formData.enablePdfDownload || false}
+                      onChange={(e) =>
+                        setFormData((prev) => ({
+                          ...prev,
+                          enablePdfDownload: e.target.checked,
+                        }))
+                      }
+                      className="w-4 h-4 cursor-pointer"
+                      id="enablePdf"
+                    />
+                    <label htmlFor="enablePdf" className="text-sm font-semibold cursor-pointer">
+                      Enable PDF Download with Lead Capture
+                    </label>
+                  </div>
+
+                  {formData.enablePdfDownload && (
+                    <div className="space-y-4 bg-white/5 border border-white/20 rounded-lg p-4">
+                      <div>
+                        <label className="block text-sm font-semibold mb-2">PDF Title</label>
+                        <input
+                          type="text"
+                          value={formData.pdfTitle || ""}
+                          onChange={(e) =>
+                            setFormData((prev) => ({
+                              ...prev,
+                              pdfTitle: e.target.value,
+                            }))
+                          }
+                          className="w-full bg-white/5 border-2 border-white/30 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
+                          placeholder="e.g., AI Implementation Guide"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm font-semibold mb-2">PDF File URL</label>
+                        <input
+                          type="text"
+                          value={formData.pdfUrl || ""}
+                          onChange={(e) =>
+                            setFormData((prev) => ({
+                              ...prev,
+                              pdfUrl: e.target.value,
+                            }))
+                          }
+                          className="w-full bg-white/5 border-2 border-white/30 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
+                          placeholder="https://example.com/guide.pdf"
+                        />
+                      </div>
+                      <p className="text-xs text-foreground/60">Readers will need to submit their name, email, company, and phone to download this PDF.</p>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Embeds Section */}
+              <div className="bg-white/5 border-2 border-white/20 rounded-lg p-6">
+                <h3 className="text-lg font-bold mb-4">Media Embeds (Optional)</h3>
+                <p className="text-sm text-foreground/70 mb-4">Add YouTube, LinkedIn, TikTok, or Instagram embeds to your article.</p>
+                <div className="space-y-3">
+                  <div className="grid grid-cols-2 gap-3">
+                    {["YouTube", "LinkedIn", "TikTok", "Instagram"].map((platform) => (
+                      <button
+                        key={platform}
+                        onClick={() => {
+                          const url = prompt(`Enter ${platform} embed URL:`);
+                          if (url) {
+                            setFormData((prev) => ({
+                              ...prev,
+                              embeds: [
+                                ...(prev.embeds || []),
+                                { type: platform.toLowerCase(), url },
+                              ],
+                            }));
+                            toast.success(`${platform} embed added`);
+                          }
+                        }}
+                        className="bg-white/5 border-2 border-white/30 hover:border-accent rounded-lg px-4 py-2 text-sm font-semibold transition-colors"
+                      >
+                        + Add {platform}
+                      </button>
+                    ))}
+                  </div>
+                  {formData.embeds && formData.embeds.length > 0 && (
+                    <div className="mt-4 space-y-2">
+                      <p className="text-sm font-semibold">Added Embeds:</p>
+                      {formData.embeds.map((embed, idx) => (
+                        <div key={idx} className="flex items-center justify-between bg-white/5 border border-white/20 rounded-lg p-3">
+                          <div className="text-sm">
+                            <span className="font-semibold capitalize">{embed.type}:</span>
+                            <span className="text-foreground/70 ml-2 truncate">{embed.url}</span>
+                          </div>
+                          <button
+                            onClick={() => {
+                              setFormData((prev) => ({
+                                ...prev,
+                                embeds: prev.embeds?.filter((_, i) => i !== idx),
+                              }));
+                            }}
+                            className="text-red-400 hover:text-red-300"
+                          >
+                            <X size={18} />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              {/* Social Sharing Section */}
+              <div className="bg-white/5 border-2 border-white/20 rounded-lg p-6">
+                <h3 className="text-lg font-bold mb-4">Social Sharing</h3>
+                <p className="text-sm text-foreground/70 mb-4">This article will automatically include social sharing buttons and Open Graph meta tags for Twitter, LinkedIn, and Facebook.</p>
+                <div className="bg-white/5 border border-white/20 rounded-lg p-4">
+                  <p className="text-sm font-semibold mb-2">Share Preview:</p>
+                  <div className="text-xs text-foreground/70 space-y-1">
+                    <p>Title: {formData.metaTitle || formData.title}</p>
+                    <p>Description: {formData.metaDescription || formData.excerpt}</p>
+                    <p>Image: {formData.featuredImage ? "✓ Featured image included" : "✗ No image"}</p>
                   </div>
                 </div>
               </div>
