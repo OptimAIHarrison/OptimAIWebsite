@@ -14,8 +14,8 @@ export function Navigation() {
           {/* Logo */}
           <Link href="/">
             <a className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-              <img src={LOGO_URL} alt="OptimAI" className="h-12 w-auto" />
-              <span className="text-2xl font-bold text-foreground hidden sm:inline">OptimAI</span>
+              <img src={LOGO_URL} alt="OptimAI" className="h-16 w-auto" />
+              <span className="text-2xl font-medium text-foreground hidden sm:inline">OptimAI</span>
             </a>
           </Link>
 
@@ -28,8 +28,13 @@ export function Navigation() {
                 <ChevronDown size={16} />
               </button>
               <div className="absolute left-0 mt-0 w-48 bg-background border border-foreground/15 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                <Link href="/about">
+                <Link href="/why-optimai">
                   <a className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-secondary rounded-t-lg transition-colors">
+                    Why Choose OptimAI
+                  </a>
+                </Link>
+                <Link href="/about">
+                  <a className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-secondary transition-colors">
                     About OptimAI
                   </a>
                 </Link>
@@ -47,7 +52,7 @@ export function Navigation() {
             </div>
 
             {/* Main Navigation Items */}
-            {NAVIGATION.map((item) => (
+            {NAVIGATION.filter((item) => item.label !== "Why OptimAI").map((item) => (
               <Link key={item.href} href={item.href}>
                 <a className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent transition-colors">
                   {item.label}
@@ -82,7 +87,7 @@ export function Navigation() {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="lg:hidden mt-4 pt-4 border-t border-white/10 space-y-2">
-            {NAVIGATION.map((item) => (
+            {NAVIGATION.filter((item) => item.label !== "Why OptimAI").map((item) => (
               <Link key={item.href} href={item.href}>
                 <a
                   className="block px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-white/5 rounded-lg transition-colors"

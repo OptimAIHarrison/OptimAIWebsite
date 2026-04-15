@@ -78,20 +78,28 @@ export default function Services() {
               Technical Details
             </button>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-            {SERVICES.map((service) => (
-              <button
-                key={service.id}
-                onClick={() => setExpanded(expanded === service.id ? null : service.id)}
-                className={`p-4 rounded-lg font-medium text-sm transition-all text-center ${
-                  expanded === service.id
-                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
-                    : "bg-white/10 text-foreground/70 hover:bg-white/20"
-                }`}
-              >
-                {service.title.split(' - ')[1]}
-              </button>
-            ))}
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
+            {SERVICES.map((service) => {
+              let serviceLabel = "Service";
+              if (service.title.includes("Strategic")) serviceLabel = "Strategic Advisory";
+              else if (service.title.includes("Marketing")) serviceLabel = "Marketing Automation";
+              else if (service.title.includes("Business Process")) serviceLabel = "Business Process Automation";
+              else if (service.title.includes("End-to-End")) serviceLabel = "AI Integration";
+              else if (service.title.includes("Managed")) serviceLabel = "Managed Services";
+              return (
+                <button
+                  key={service.id}
+                  onClick={() => setExpanded(expanded === service.id ? null : service.id)}
+                  className={`p-3 rounded-lg font-semibold text-xs md:text-sm transition-all text-center border-2 ${
+                    expanded === service.id
+                      ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-purple-600"
+                      : "bg-transparent text-foreground border-purple-300/50 hover:border-purple-500 hover:bg-purple-500/5"
+                  }`}
+                >
+                  <span className="block">{serviceLabel}</span>
+                </button>
+              );
+            })}
           </div>
         </motion.div>
       </section>

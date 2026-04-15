@@ -80,19 +80,19 @@ export default function Home() {
                   <span className="text-foreground">with Practical AI and Automation</span>
                 </motion.h1>
 
-                <motion.div
-                  variants={itemVariants}
-                  className="text-sm text-foreground/60 font-medium"
-                >
-                  Enough of the jargon and buzzwords.
-                </motion.div>
-
                 <motion.p
                   variants={itemVariants}
                   className="text-xl text-foreground/70 max-w-2xl mx-auto"
                 >
                   Understandable, scalable, and human-centered AI solutions that drive real results. We make automation practical and accessible, so your team can focus on what matters most.
                 </motion.p>
+
+                <motion.div
+                  variants={itemVariants}
+                  className="text-sm text-foreground/60 font-medium"
+                >
+                  Enough of the jargon and buzzwords.
+                </motion.div>
               </div>
 
               {/* CTA Buttons */}

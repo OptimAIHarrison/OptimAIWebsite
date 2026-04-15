@@ -163,3 +163,13 @@
 - [x] Change "Explore Services" to "Check out what we do" and put before Free Audit button
 - [x] Update Services page with navigation boxes for Simple/Technical views
 - [x] Improve technical overviews with more detail
+
+
+## Latest Refinements (Round 4)
+- [x] Fix service buttons visibility - make all 5 service button texts visible and clear
+- [x] Make service buttons look more like buttons with better styling
+- [x] Make logo bigger in header
+- [x] Reduce OptimAI font weight in header
+- [x] Add "Why Choose OptimAI" page link to dropdown
+- [x] Remove Why Optimai page duplication from nav
+- [x] Move "Enough of the jargon..." below the subheadline text
