@@ -44,29 +44,29 @@ export default function Home() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen pt-24 pb-20 overflow-hidden flex items-center">
+      <section className="relative min-h-screen pt-24 pb-20 overflow-hidden flex items-center bg-gradient-to-br from-purple-200/40 via-purple-100/20 to-pink-100/20">
         {/* Animated background gradient */}
         <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-600/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-400/10 rounded-full blur-3xl animate-pulse" />
         </div>
 
         <motion.div
-          className="container mx-auto px-4"
+          className="container mx-auto px-4 w-full"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left: Content */}
-            <motion.div variants={itemVariants} className="space-y-8">
+          <div className="flex justify-center">
+            {/* Centered Content */}
+            <motion.div variants={itemVariants} className="space-y-8 text-center max-w-3xl">
               <div className="space-y-4">
                 <motion.div
                   className="inline-block"
                   variants={itemVariants}
                 >
                   <span className="px-4 py-2 rounded-full bg-purple-600/20 border border-purple-500/50 text-purple-300 text-sm font-medium">
-                    ✨ Your Growth Partner in AI & Automation
+                    Your Growth Partner in AI & Automation
                   </span>
                 </motion.div>
 
@@ -76,21 +76,21 @@ export default function Home() {
                 >
                   <span className="gradient-text">Scale Your Business</span>
                   <br />
-                  <span className="text-foreground">with Practical AI</span>
+                  <span className="text-foreground">with Practical AI and Automation</span>
                 </motion.h1>
 
                 <motion.p
                   variants={itemVariants}
-                  className="text-xl text-foreground/70 max-w-lg"
+                  className="text-xl text-foreground/70 max-w-2xl"
                 >
-                  Unlock efficiency, drive profit, and accelerate growth. Tailored automation and AI solutions designed specifically for SMEs and startups.
+                  Understandable, scalable, and human-centered AI solutions that drive real results. We make automation practical and accessible, so your team can focus on what matters most.
                 </motion.p>
               </div>
 
               {/* CTA Buttons */}
               <motion.div
                 variants={itemVariants}
-                className="flex flex-col sm:flex-row gap-4"
+                className="flex flex-col sm:flex-row gap-4 justify-center"
               >
                 <Link href="/free-audit">
                   <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 text-lg px-8 py-6 rounded-xl">
@@ -112,7 +112,7 @@ export default function Home() {
               {/* Trust badges */}
               <motion.div
                 variants={itemVariants}
-                className="flex gap-8 pt-8 border-t border-white/10"
+                className="flex gap-8 pt-8 border-t border-white/10 justify-center flex-wrap"
               >
                 <div>
                   <p className="text-2xl font-bold text-accent">150+</p>
@@ -129,24 +129,6 @@ export default function Home() {
               </motion.div>
             </motion.div>
 
-            {/* Right: Animated Logo */}
-            <motion.div
-              variants={itemVariants}
-              className="relative h-96 lg:h-full flex items-center justify-center"
-            >
-              <motion.div
-                animate={{ y: [0, 20, 0] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="relative"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-full blur-3xl" />
-                <img
-                  src={LOGO_URL}
-                  alt="Optimai"
-                  className="w-64 h-64 object-contain relative z-10"
-                />
-              </motion.div>
-            </motion.div>
           </div>
         </motion.div>
       </section>

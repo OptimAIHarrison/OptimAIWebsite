@@ -119,19 +119,19 @@ export default function Pricing() {
             </p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <span className="text-accent mt-1">✓</span>
+                <span className="text-accent mt-1">•</span>
                 <span className="text-foreground/80">Transparent API cost pass-through</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-accent mt-1">✓</span>
+                <span className="text-accent mt-1">•</span>
                 <span className="text-foreground/80">Scale up or down without fixed overheads</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-accent mt-1">✓</span>
+                <span className="text-accent mt-1">•</span>
                 <span className="text-foreground/80">Small administrative markup for management</span>
               </li>
               <li className="flex items-start gap-3">
-                <span className="text-accent mt-1">✓</span>
+                <span className="text-accent mt-1">•</span>
                 <span className="text-foreground/80">Detailed usage reports and optimization recommendations</span>
               </li>
             </ul>

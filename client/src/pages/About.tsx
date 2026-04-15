@@ -53,7 +53,7 @@ export default function About() {
                 "Proven track record with 150+ successful projects",
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3">
-                  <span className="text-accent mt-1">✓</span>
+                  <span className="text-accent mt-1">•</span>
                   <span className="text-foreground/80">{item}</span>
                 </li>
               ))}

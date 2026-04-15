@@ -131,7 +131,7 @@ export default function Services() {
                       <ul className="space-y-3">
                         {service.details.map((detail, idx) => (
                           <li key={idx} className="flex items-start gap-3">
-                            <span className="text-accent mt-1">✓</span>
+                            <span className="text-accent mt-1 font-bold">•</span>
                             <span className="text-foreground/80">{detail}</span>
                           </li>
                         ))}

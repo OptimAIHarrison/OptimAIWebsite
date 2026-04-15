@@ -110,3 +110,12 @@
 - [x] Final checkpoint
 - [x] GitHub-ready project structure
 - [x] Live preview URL
+
+
+## User Refinements (Current)
+- [x] Remove all emojis from the website
+- [x] Center hero homepage text
+- [x] Remove logo from hero section
+- [x] Lighten background to match purple gradient inspiration
+- [x] Use soft purple/lavender palette for hero background
+- [x] Update hero headline and subheadline messaging to emphasize understandable, scalable, practical, and human-centered approach
