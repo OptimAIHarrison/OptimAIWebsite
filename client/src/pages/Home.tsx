@@ -5,7 +5,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { LOGO_URL, SERVICES, TESTIMONIALS, CASE_STUDIES } from "@/const";
-import { ChevronRight, ArrowRight, Star } from "lucide-react";
+import { ChevronRight, ArrowRight, Star, Search, ClipboardList, Hammer, Rocket } from "lucide-react";
 
 export default function Home() {
   const [activeService, setActiveService] = useState(0);
@@ -238,39 +238,45 @@ export default function Home() {
             <h2 className="text-4xl lg:text-5xl font-bold mb-4">
               What We <span className="gradient-text">Actually Do</span>
             </h2>
-            <p className="text-foreground/70 max-w-2xl mx-auto text-lg">
+            <p className="text-foreground/70 max-w-2xl mx-auto text-lg mb-4">
               No jargon. No fluff. Just a simple, step-by-step journey from where you are now to a fully automated, AI-powered business.
+            </p>
+            <p className="text-foreground/60 max-w-2xl mx-auto text-base italic">
+              You can start anywhere, go as simple or technical as you like, and stay as long or short as you need. This is your journey.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             <motion.div variants={itemVariants} className="glass-card p-8 rounded-2xl text-center">
-              <div className="text-5xl mb-4">🔍</div>
+              <Search size={48} className="text-purple-600 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">Look & Audit</h3>
               <p className="text-foreground/70 text-sm">We understand how your business works right now and identify opportunities.</p>
             </motion.div>
 
             <motion.div variants={itemVariants} className="glass-card p-8 rounded-2xl text-center">
-              <div className="text-5xl mb-4">📋</div>
+              <ClipboardList size={48} className="text-purple-600 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">Take a Brief</h3>
               <p className="text-foreground/70 text-sm">We listen to your goals, challenges, and what success means for your team.</p>
             </motion.div>
 
             <motion.div variants={itemVariants} className="glass-card p-8 rounded-2xl text-center">
-              <div className="text-5xl mb-4">🏗️</div>
+              <Hammer size={48} className="text-purple-600 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">Build & Test</h3>
               <p className="text-foreground/70 text-sm">We design, build, and thoroughly test your custom automation solution.</p>
             </motion.div>
 
             <motion.div variants={itemVariants} className="glass-card p-8 rounded-2xl text-center">
-              <div className="text-5xl mb-4">🚀</div>
+              <Rocket size={48} className="text-purple-600 mx-auto mb-4" />
               <h3 className="text-xl font-bold mb-2">Implement & Evolve</h3>
               <p className="text-foreground/70 text-sm">We launch and continuously optimize as your business grows and changes.</p>
             </motion.div>
           </div>
 
           <motion.div variants={itemVariants} className="glass-card p-12 rounded-2xl bg-gradient-to-r from-purple-600/10 to-pink-600/10 border-2 border-purple-300/50 text-center mb-12">
-            <h3 className="text-2xl font-bold mb-4">Throughout Every Step: We're Your Partner</h3>
+            <h3 className="text-2xl font-bold mb-4">Your Way, Your Timeline, Your Complexity Level</h3>
+            <p className="text-foreground/70 max-w-3xl mx-auto leading-relaxed mb-6">
+              You can enter at any stage and exit whenever you're ready. Need just an audit? Perfect. Want a quick fix? We've got you. Ready for a full transformation? Let's go. Whether you need simple solutions or advanced AI integration, short-term projects or long-term partnerships, we adapt to what works for you.
+            </p>
             <p className="text-foreground/70 max-w-3xl mx-auto leading-relaxed">
               We explain everything in simple, human terms. No jargon. No confusion. Just clarity, guidance, and results. Your team understands and owns the process every step of the way.
             </p>

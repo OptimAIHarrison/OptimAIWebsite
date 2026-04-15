@@ -217,3 +217,9 @@
 - [x] Create "What We Actually Do" page under Why OptimAI dropdown
 - [x] Add workflow diagram to "What We Actually Do" page (simple to advanced progression)
 - [x] Add "What We Actually Do" section to home page under Core Services
+
+
+## Latest Refinements (Round 10)
+- [x] Edit home page "What We Actually Do" section to emphasize flexibility
+- [x] Edit "What We Actually Do" page to show customers can enter/exit at any stage
+- [x] Add messaging that services can be simple or technical, short-term or long-term

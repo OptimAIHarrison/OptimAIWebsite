@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, Search, ClipboardList, Eye, Hammer, CheckSquare, Rocket, TrendingUp, Zap } from "lucide-react";
 
 export default function WhatWeActuallyDo() {
   const containerVariants = {
@@ -28,7 +28,7 @@ export default function WhatWeActuallyDo() {
         "Document what's working and what's not",
       ],
       complexity: "Simple",
-      icon: "🔍",
+      icon: Search,
     },
     {
       number: "2",
@@ -41,7 +41,7 @@ export default function WhatWeActuallyDo() {
         "Discuss budget and timeline",
       ],
       complexity: "Simple",
-      icon: "📋",
+      icon: ClipboardList,
     },
     {
       number: "3",
@@ -54,7 +54,7 @@ export default function WhatWeActuallyDo() {
         "Plan integration points",
       ],
       complexity: "Simple → Intermediate",
-      icon: "🔧",
+      icon: Eye,
     },
     {
       number: "4",
@@ -67,7 +67,7 @@ export default function WhatWeActuallyDo() {
         "Create your personalized solution",
       ],
       complexity: "Intermediate",
-      icon: "🏗️",
+      icon: Hammer,
     },
     {
       number: "5",
@@ -80,7 +80,7 @@ export default function WhatWeActuallyDo() {
         "Get your approval before launch",
       ],
       complexity: "Intermediate",
-      icon: "✅",
+      icon: CheckSquare,
     },
     {
       number: "6",
@@ -93,7 +93,7 @@ export default function WhatWeActuallyDo() {
         "Provide hands-on support",
       ],
       complexity: "Intermediate → Advanced",
-      icon: "🚀",
+      icon: Rocket,
     },
     {
       number: "7",
@@ -106,7 +106,7 @@ export default function WhatWeActuallyDo() {
         "Scale as your business grows",
       ],
       complexity: "Advanced",
-      icon: "📈",
+      icon: TrendingUp,
     },
     {
       number: "8",
@@ -119,7 +119,7 @@ export default function WhatWeActuallyDo() {
         "Continuous improvement engine",
       ],
       complexity: "Full Advanced",
-      icon: "🤖",
+      icon: Zap,
     },
   ];
 
@@ -138,8 +138,11 @@ export default function WhatWeActuallyDo() {
           <motion.h1 variants={itemVariants} className="text-5xl lg:text-6xl font-bold mb-6">
             What We <span className="gradient-text">Actually Do</span>
           </motion.h1>
-          <motion.p variants={itemVariants} className="text-xl text-foreground/70 max-w-3xl mx-auto">
+          <motion.p variants={itemVariants} className="text-xl text-foreground/70 max-w-3xl mx-auto mb-4">
             No jargon. No fluff. Just a simple, step-by-step journey from where you are now to a fully automated, AI-powered business.
+          </motion.p>
+          <motion.p variants={itemVariants} className="text-lg text-foreground/60 max-w-3xl mx-auto italic">
+            You can enter at any stage, go as simple or technical as you need, and stay for as long or short as works for you.
           </motion.p>
         </motion.div>
       </section>
@@ -153,90 +156,107 @@ export default function WhatWeActuallyDo() {
             whileInView="visible"
             viewport={{ once: true }}
           >
-            {/* Consultancy Line Message */}
+            {/* Flexibility & Partnership Message */}
             <motion.div variants={itemVariants} className="mb-16 text-center">
-              <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-                Throughout every step, we're here with you as your consultancy partner. We guide you, explain everything in simple terms, and make sure your team understands and owns the process.
-              </p>
+              <div className="glass-card p-8 rounded-2xl bg-gradient-to-r from-purple-600/10 to-pink-600/10 border-2 border-purple-300/50">
+                <h2 className="text-2xl font-bold mb-4 text-foreground">Your Journey, Your Way</h2>
+                <p className="text-lg text-foreground/70 max-w-2xl mx-auto mb-4">
+                  This isn't a one-size-fits-all process. You can enter at any stage and exit whenever you're ready. Need just an audit? Perfect. Want a quick automation fix? We've got you. Ready for a full transformation? Let's go.
+                </p>
+                <p className="text-lg text-foreground/70 max-w-2xl mx-auto mb-4">
+                  Whether you need simple solutions or advanced AI integration, short-term projects or long-term partnerships, we adapt to what works for you.
+                </p>
+                <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+                  Throughout every step, we're here with you as your consultancy partner. We guide you, explain everything in simple terms, and make sure your team understands and owns the process.
+                </p>
+              </div>
             </motion.div>
 
             {/* Workflow Phases */}
             <div className="space-y-8">
-              {phases.map((phase, idx) => (
-                <motion.div key={idx} variants={itemVariants}>
-                  <div className="glass-card p-8 rounded-2xl">
-                    <div className="flex gap-6">
-                      {/* Left: Number and Icon */}
-                      <div className="flex flex-col items-center gap-4">
-                        <div className="flex-shrink-0">
-                          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center text-white font-bold text-2xl">
-                            {phase.number}
-                          </div>
-                        </div>
-                        <div className="text-4xl">{phase.icon}</div>
-                        {idx < phases.length - 1 && (
-                          <div className="hidden sm:block w-1 h-12 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full" />
-                        )}
-                      </div>
-
-                      {/* Right: Content */}
-                      <div className="flex-1 pt-2">
-                        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
-                          <div>
-                            <h3 className="text-2xl font-bold text-foreground mb-2">{phase.title}</h3>
-                            <p className="text-foreground/70 text-lg mb-4">{phase.description}</p>
-                          </div>
+              {phases.map((phase, idx) => {
+                const IconComponent = phase.icon;
+                return (
+                  <motion.div key={idx} variants={itemVariants}>
+                    <div className="glass-card p-8 rounded-2xl">
+                      <div className="flex gap-6">
+                        {/* Left: Number and Icon */}
+                        <div className="flex flex-col items-center gap-4">
                           <div className="flex-shrink-0">
-                            <span className="inline-block px-4 py-2 bg-purple-100/50 text-purple-700 rounded-full text-sm font-semibold whitespace-nowrap">
-                              {phase.complexity}
-                            </span>
+                            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center text-white font-bold text-2xl">
+                              {phase.number}
+                            </div>
                           </div>
+                          <IconComponent size={40} className="text-purple-600" />
+                          {idx < phases.length - 1 && (
+                            <div className="hidden sm:block w-1 h-12 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full" />
+                          )}
                         </div>
 
-                        {/* Details */}
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                          {phase.details.map((detail, detailIdx) => (
-                            <div key={detailIdx} className="flex items-start gap-3">
-                              <CheckCircle size={20} className="text-purple-600 flex-shrink-0 mt-0.5" />
-                              <span className="text-foreground/80">{detail}</span>
+                        {/* Right: Content */}
+                        <div className="flex-1 pt-2">
+                          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
+                            <div>
+                              <h3 className="text-2xl font-bold text-foreground mb-2">{phase.title}</h3>
+                              <p className="text-foreground/70 text-lg mb-4">{phase.description}</p>
                             </div>
-                          ))}
+                            <div className="flex-shrink-0">
+                              <span className="inline-block px-4 py-2 bg-purple-100/50 text-purple-700 rounded-full text-sm font-semibold whitespace-nowrap">
+                                {phase.complexity}
+                              </span>
+                            </div>
+                          </div>
+
+                          {/* Details */}
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            {phase.details.map((detail, detailIdx) => (
+                              <div key={detailIdx} className="flex items-start gap-3">
+                                <CheckCircle size={20} className="text-purple-600 flex-shrink-0 mt-0.5" />
+                                <span className="text-foreground/80">{detail}</span>
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </motion.div>
-              ))}
+                  </motion.div>
+                );
+              })}
             </div>
 
             {/* Summary Section */}
             <motion.div variants={itemVariants} className="mt-16 glass-card p-12 rounded-2xl bg-gradient-to-r from-purple-600/10 to-pink-600/10 border-2 border-purple-300/50">
               <h2 className="text-3xl font-bold mb-6 text-center">The Journey in Simple Terms</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div>
                   <h3 className="text-xl font-bold mb-4 text-foreground">Phases 1-3: Understanding</h3>
                   <p className="text-foreground/70 leading-relaxed">
-                    We start by understanding your business, your challenges, and your goals. We listen more than we talk and make sure we truly understand what matters to you.
+                    We start by understanding your business, your challenges, and your goals. We listen more than we talk and make sure we truly understand what matters to you. Many clients stop here with just the audit and recommendations.
                   </p>
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-4 text-foreground">Phases 4-6: Building & Launching</h3>
                   <p className="text-foreground/70 leading-relaxed">
-                    We design, build, test, and launch your custom solution. Every step is done with your input, and we make sure your team is trained and ready.
+                    We design, build, test, and launch your custom solution. Every step is done with your input, and we make sure your team is trained and ready. You can go simple or technical, depending on your needs.
                   </p>
                 </div>
                 <div>
                   <h3 className="text-xl font-bold mb-4 text-foreground">Phases 7-8: Growing & Evolving</h3>
                   <p className="text-foreground/70 leading-relaxed">
-                    We don't just launch and leave. We continuously monitor, optimize, and evolve your systems as your business grows and your needs change.
+                    We don't just launch and leave. We continuously monitor, optimize, and evolve your systems as your business grows and your needs change. Stay with us for as long as it makes sense.
                   </p>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-4 text-foreground">Throughout: Partnership</h3>
+                  <h3 className="text-xl font-bold mb-4 text-foreground">Throughout: Your Way</h3>
                   <p className="text-foreground/70 leading-relaxed">
-                    We're your consultancy partner every step of the way. We explain everything in simple, human terms. No jargon. No confusion. Just clarity and results.
+                    You're in control. Enter at any stage. Exit whenever you're ready. Need just an audit? Perfect. Want a quick fix? We've got you. Ready for a full transformation? Let's go. We adapt to you.
                   </p>
                 </div>
+              </div>
+              <div className="border-t border-purple-300/50 pt-8">
+                <p className="text-center text-foreground/70 leading-relaxed">
+                  We're your consultancy partner every step of the way. We explain everything in simple, human terms. No jargon. No confusion. Just clarity and results.
+                </p>
               </div>
             </motion.div>
 
