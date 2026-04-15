@@ -15,8 +15,8 @@ export const formsRouter = router({
     .mutation(async ({ input }) => {
       try {
         await notifyOwner({
-          title: "New Contact Form Submission",
-          content: `Name: ${input.name}\nEmail: ${input.email}\nCompany: ${input.company}\nMessage: ${input.message}`,
+          title: "New Contact Form Submission - hello@optimai.com.au",
+          content: `Name: ${input.name}\nEmail: ${input.email}\nCompany: ${input.company}\nMessage: ${input.message}\n\nReply to: ${input.email}`,
         });
         return { success: true, message: "Thank you! We'll be in touch soon." };
       } catch (error) {
@@ -38,8 +38,8 @@ export const formsRouter = router({
     .mutation(async ({ input }) => {
       try {
         await notifyOwner({
-          title: "New Free Audit Request",
-          content: `Name: ${input.name}\nEmail: ${input.email}\nCompany: ${input.company}\nTeam Size: ${input.teamSize}\nChallenge: ${input.challenge}`,
+          title: "New Free Audit Request - hello@optimai.com.au",
+          content: `Name: ${input.name}\nEmail: ${input.email}\nCompany: ${input.company}\nTeam Size: ${input.teamSize}\nChallenge: ${input.challenge}\n\nReply to: ${input.email}`,
         });
         return { success: true, message: "Audit request submitted! We'll contact you within 24 hours." };
       } catch (error) {

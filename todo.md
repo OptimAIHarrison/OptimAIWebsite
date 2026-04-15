@@ -119,3 +119,4 @@
 - [x] Lighten background to match purple gradient inspiration
 - [x] Use soft purple/lavender palette for hero background
 - [x] Update hero headline and subheadline messaging to emphasize understandable, scalable, practical, and human-centered approach
+- [x] Configure forms to send submissions to hello@optimai.com.au
