@@ -8,6 +8,13 @@
       "when": 1776215408218,
       "tag": "0000_foamy_ben_grimm",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1776286390118,
+      "tag": "0001_fearless_maestro",
+      "breakpoints": true
     }
   ]
 }

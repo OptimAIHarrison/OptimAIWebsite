@@ -25,4 +25,29 @@ export const users = mysqlTable("users", {
 export type User = typeof users.$inferSelect;
 export type InsertUser = typeof users.$inferInsert;
 
+export const articles = mysqlTable("articles", {
+  id: int("id").autoincrement().primaryKey(),
+  title: varchar("title", { length: 255 }).notNull(),
+  slug: varchar("slug", { length: 255 }).notNull().unique(),
+  content: text("content").notNull(),
+  excerpt: text("excerpt"),
+  featuredImage: varchar("featuredImage", { length: 500 }),
+  category: varchar("category", { length: 100 }),
+  tags: text("tags"), // JSON array stored as string
+  metaTitle: varchar("metaTitle", { length: 255 }),
+  metaDescription: varchar("metaDescription", { length: 500 }),
+  metaKeywords: varchar("metaKeywords", { length: 500 }),
+  author: varchar("author", { length: 255 }),
+  readTime: int("readTime"), // in minutes
+  status: mysqlEnum("status", ["draft", "published", "scheduled"]).default("draft").notNull(),
+  publishedAt: timestamp("publishedAt"),
+  scheduledFor: timestamp("scheduledFor"),
+  views: int("views").default(0),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+  updatedAt: timestamp("updatedAt").defaultNow().onUpdateNow().notNull(),
+});
+
+export type Article = typeof articles.$inferSelect;
+export type InsertArticle = typeof articles.$inferInsert;
+
 // TODO: Add your tables here

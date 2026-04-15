@@ -3,10 +3,14 @@ import { getSessionCookieOptions } from "./_core/cookies";
 import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { formsRouter } from "./routers/forms";
+import { articlesRouter } from "./routers/articles";
+import { uploadRouter } from "./routers/upload";
 
 export const appRouter = router({
   system: systemRouter,
   forms: formsRouter,
+  articles: articlesRouter,
+  upload: uploadRouter,
   auth: router({
     me: publicProcedure.query(opts => opts.ctx.user),
     logout: publicProcedure.mutation(({ ctx }) => {

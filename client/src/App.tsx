@@ -20,6 +20,8 @@ import Contact from "./pages/Contact";
 import FreeAudit from "./pages/FreeAudit";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import AdminArticles from "./pages/AdminArticles";
+import AdminArticleEditor from "./pages/AdminArticleEditor";
 
 function Router() {
   const [location] = useLocation();
@@ -44,6 +46,8 @@ function Router() {
       <Route path={"/free-audit"} component={FreeAudit} />
       <Route path={"/privacy"} component={Privacy} />
       <Route path={"/terms"} component={Terms} />
+      <Route path={"/admin/articles"} component={AdminArticles} />
+      <Route path={"/admin/article-editor"} component={AdminArticleEditor} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

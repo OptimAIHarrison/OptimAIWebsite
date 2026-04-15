@@ -237,3 +237,16 @@
 - [x] Configure contact form, audit form, and chatbot to send to hello@optimai.com.au
 - [x] Redesign ROI Calculator CTA section: bigger button + add Contact Us button below
 - [x] Update all "Get Free AI Audit" to "Get Free AI & Automation Audit"
+
+
+## Latest Refinements (Round 13 - Article Management System)
+- [x] Create database schema for articles (title, content, tags, SEO, images, status, schedule)
+- [x] Build admin article editor page with rich text editor (TipTap or similar)
+- [x] Implement image upload with base64 preview
+- [x] Add SEO fields (meta title, meta description, slug)
+- [x] Add tags management and filtering
+- [x] Create publish/schedule functionality with date picker
+- [x] Build admin dashboard to list, edit, delete articles
+- [x] Add tRPC routers for article management
+- [x] Create upload router for image handling
+- [x] Add admin routes to App.tsx

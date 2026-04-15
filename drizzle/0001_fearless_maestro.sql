@@ -1,0 +1,23 @@
+CREATE TABLE `articles` (
+	`id` int AUTO_INCREMENT NOT NULL,
+	`title` varchar(255) NOT NULL,
+	`slug` varchar(255) NOT NULL,
+	`content` text NOT NULL,
+	`excerpt` text,
+	`featuredImage` varchar(500),
+	`category` varchar(100),
+	`tags` text,
+	`metaTitle` varchar(255),
+	`metaDescription` varchar(500),
+	`metaKeywords` varchar(500),
+	`author` varchar(255),
+	`readTime` int,
+	`status` enum('draft','published','scheduled') NOT NULL DEFAULT 'draft',
+	`publishedAt` timestamp,
+	`scheduledFor` timestamp,
+	`views` int DEFAULT 0,
+	`createdAt` timestamp NOT NULL DEFAULT (now()),
+	`updatedAt` timestamp NOT NULL DEFAULT (now()) ON UPDATE CURRENT_TIMESTAMP,
+	CONSTRAINT `articles_id` PRIMARY KEY(`id`),
+	CONSTRAINT `articles_slug_unique` UNIQUE(`slug`)
+);
