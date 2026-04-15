@@ -121,3 +121,7 @@
 - [x] Update hero headline and subheadline messaging to emphasize understandable, scalable, practical, and human-centered approach
 - [x] Configure forms to send submissions to hello@optimai.com.au
 - [x] Update all page backgrounds to match the purple gradient inspiration image (soft lavender, light purples, flowing gradient effect)
+- [x] Change theme to darker purple throughout (remove greys from header/footer)
+- [x] Use uploaded purple gradient image as hero background
+- [x] Ensure color harmony without contrasting or hiding elements
+- [x] Center-align all hero content (headline, subheadline, buttons, badges)

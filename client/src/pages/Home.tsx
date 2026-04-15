@@ -44,24 +44,23 @@ export default function Home() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen pt-24 pb-20 overflow-hidden flex items-center">
-        {/* Premium gradient background matching inspiration */}
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-purple-100 via-purple-50 to-pink-50">
-          {/* Flowing diagonal gradient elements */}
-          <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-purple-200/30 via-purple-100/20 to-transparent" />
-          <div className="absolute top-1/4 right-0 w-2/3 h-3/4 bg-gradient-to-bl from-pink-200/20 via-purple-100/15 to-transparent" />
-          <div className="absolute bottom-0 left-1/3 w-1/2 h-1/3 bg-gradient-to-t from-purple-100/25 via-transparent to-transparent" />
-        </div>
+      <section className="relative min-h-screen pt-32 pb-20 overflow-hidden flex items-center justify-center" style={{
+        backgroundImage: 'url(https://d2xsxph8kpxj0f.cloudfront.net/310519663450259077/VZWvecVBL3bTuGctm3Rvj5/Screenshot2026-04-15at11.08.49am_b8405e5d.webp)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed'
+      }}>
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 -z-10 bg-black/20" />
 
         <motion.div
-          className="container mx-auto px-4 w-full"
+          className="container mx-auto px-4 w-full flex justify-center"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <div className="flex justify-center">
-            {/* Centered Content */}
-            <motion.div variants={itemVariants} className="space-y-8 text-center max-w-3xl">
+          {/* Centered Content */}
+          <motion.div variants={itemVariants} className="space-y-8 text-center max-w-3xl">
               <div className="space-y-4">
                 <motion.div
                   className="inline-block"
@@ -129,14 +128,12 @@ export default function Home() {
                   <p className="text-foreground/70 text-sm">Client Satisfaction</p>
                 </div>
               </motion.div>
-            </motion.div>
-
-          </div>
+          </motion.div>
         </motion.div>
       </section>
 
       {/* Services Preview Section */}
-      <section className="py-20 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
+      <section className="py-20 bg-background">
         <motion.div
           className="container mx-auto px-4"
           variants={containerVariants}
@@ -280,7 +277,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Carousel */}
-      <section className="py-20 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
+      <section className="py-20 bg-background">
         <motion.div
           className="container mx-auto px-4"
           variants={containerVariants}
