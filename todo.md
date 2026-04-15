@@ -208,3 +208,12 @@
 - [x] Create comprehensive copy editing guide for all pages
 - [x] Add sample articles to Resources page
 - [x] Create CONTENT_EDITING.md documentation file
+
+
+## Latest Refinements (Round 9)
+- [x] Add three more reasons to Why Choose OptimAI page (including Human Touch)
+- [x] Redesign ROI Calculator to two-column layout
+- [x] Reorder navigation: Home, All Services, Resources, Why OptimAI, Contact
+- [x] Create "What We Actually Do" page under Why OptimAI dropdown
+- [x] Add workflow diagram to "What We Actually Do" page (simple to advanced progression)
+- [x] Add "What We Actually Do" section to home page under Core Services

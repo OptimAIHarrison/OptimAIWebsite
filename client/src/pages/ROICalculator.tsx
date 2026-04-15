@@ -83,162 +83,171 @@ export default function ROICalculator() {
               </div>
             </motion.div>
 
-            {/* Sliders Section */}
-            <motion.div className="glass-card p-8 mb-8 rounded-2xl" variants={itemVariants}>
-              <h2 className="text-2xl font-bold mb-8">Your Business Details</h2>
+            {/* Two Column Layout */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Left Column: Inputs */}
+              <motion.div variants={itemVariants}>
+                {/* Sliders Section */}
+                <motion.div className="glass-card p-8 rounded-2xl mb-8" variants={itemVariants}>
+                  <h2 className="text-2xl font-bold mb-8">Your Business Details</h2>
 
-              {/* Employees Slider */}
-              <div className="mb-8">
-                <div className="flex justify-between items-center mb-3">
-                  <label className="text-lg font-semibold">Number of Employees</label>
-                  <span className="text-2xl font-bold text-purple-600">{employees}+</span>
-                </div>
-                <input
-                  type="range"
-                  min="1"
-                  max="100"
-                  value={employees}
-                  onChange={(e) => setEmployees(Number(e.target.value))}
-                  className="w-full h-2 bg-purple-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
-                />
-                <div className="flex justify-between text-xs text-foreground/50 mt-2">
-                  <span>1</span>
-                  <span>100+</span>
-                </div>
-              </div>
-
-              {/* Automation % Slider */}
-              <div className="mb-8">
-                <div className="flex justify-between items-center mb-3">
-                  <label className="text-lg font-semibold">Current Automation Level</label>
-                  <span className="text-2xl font-bold text-purple-600">{automationPercent}%</span>
-                </div>
-                <input
-                  type="range"
-                  min="0"
-                  max="100"
-                  value={automationPercent}
-                  onChange={(e) => setAutomationPercent(Number(e.target.value))}
-                  className="w-full h-2 bg-purple-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
-                />
-                <div className="flex justify-between text-xs text-foreground/50 mt-2">
-                  <span>0%</span>
-                  <span>100%</span>
-                </div>
-              </div>
-
-              {/* Revenue Slider */}
-              <div className="mb-8">
-                <div className="flex justify-between items-center mb-3">
-                  <label className="text-lg font-semibold">Average Annual Revenue</label>
-                  <span className="text-2xl font-bold text-purple-600">${(revenue / 1000).toFixed(0)}k</span>
-                </div>
-                <input
-                  type="range"
-                  min="10000"
-                  max="1000000"
-                  step="10000"
-                  value={revenue}
-                  onChange={(e) => setRevenue(Number(e.target.value))}
-                  className="w-full h-2 bg-purple-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
-                />
-                <div className="flex justify-between text-xs text-foreground/50 mt-2">
-                  <span>$10k</span>
-                  <span>$1m+</span>
-                </div>
-              </div>
-
-              {/* Manual Hours Slider */}
-              <div className="mb-8">
-                <div className="flex justify-between items-center mb-3">
-                  <label className="text-lg font-semibold">Manual Hours Per Week (per employee)</label>
-                  <span className="text-2xl font-bold text-purple-600">{manualHours}h</span>
-                </div>
-                <input
-                  type="range"
-                  min="5"
-                  max="40"
-                  value={manualHours}
-                  onChange={(e) => setManualHours(Number(e.target.value))}
-                  className="w-full h-2 bg-purple-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
-                />
-                <div className="flex justify-between text-xs text-foreground/50 mt-2">
-                  <span>5h</span>
-                  <span>40h</span>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Services Selection */}
-            <motion.div className="glass-card p-8 mb-8 rounded-2xl" variants={itemVariants}>
-              <h2 className="text-2xl font-bold mb-6">Select Services</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {SERVICES_ROI.map((service) => (
-                  <button
-                    key={service.id}
-                    onClick={() => toggleService(service.id)}
-                    className={`p-4 rounded-lg border-2 font-semibold transition-all text-left ${
-                      selectedServices.includes(service.id)
-                        ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-purple-600"
-                        : "bg-white text-foreground border-purple-300/50 hover:border-purple-500 hover:bg-purple-50"
-                    }`}
-                  >
-                    <div className="font-bold">{service.name}</div>
-                    <div className="text-sm opacity-80">+{service.timeSavingPercent}% time savings</div>
-                  </button>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Calculation Logic */}
-            <motion.div className="glass-card p-8 mb-8 rounded-2xl bg-purple-50/50" variants={itemVariants}>
-              <h3 className="font-bold text-lg mb-4 text-foreground">How We Calculate Your ROI</h3>
-              <div className="space-y-3 text-sm text-foreground/80">
-                <p>1. We take your current automation level ({automationPercent}%) and add the time savings from your selected services (+{avgTimeSavingPercent.toFixed(0)}%)</p>
-                <p>2. Total automation potential: {totalTimeSavingPercent.toFixed(0)}% of {employees} employees working {manualHours}h/week</p>
-                <p>3. Hours automated per year: {hoursAutomatePerYear.toFixed(0)} hours</p>
-                <p>4. Cost per hour: ${costPerHour.toFixed(2)} (based on ${(revenue / 1000).toFixed(0)}k annual revenue)</p>
-                <p>5. Annual savings: {hoursAutomatePerYear.toFixed(0)} hours × ${costPerHour.toFixed(2)} = ${yearlySavings.toFixed(0)}</p>
-              </div>
-            </motion.div>
-
-            {/* Results */}
-            <motion.div
-              className="glass-card p-8 rounded-2xl bg-gradient-to-r from-purple-600/10 to-pink-600/10 border-2 border-purple-300/50"
-              variants={itemVariants}
-            >
-              <h2 className="text-3xl font-bold mb-8 text-center">Your Potential Savings</h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="text-center">
-                  <div className="text-5xl font-bold text-purple-600 mb-2">
-                    {hoursAutomatePerYear.toFixed(0)}
+                  {/* Employees Slider */}
+                  <div className="mb-8">
+                    <div className="flex justify-between items-center mb-3">
+                      <label className="text-lg font-semibold">Number of Employees</label>
+                      <span className="text-2xl font-bold text-purple-600">{employees}+</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="1"
+                      max="100"
+                      value={employees}
+                      onChange={(e) => setEmployees(Number(e.target.value))}
+                      className="w-full h-2 bg-purple-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
+                    />
+                    <div className="flex justify-between text-xs text-foreground/50 mt-2">
+                      <span>1</span>
+                      <span>100+</span>
+                    </div>
                   </div>
-                  <div className="text-foreground/70">Hours Automated Per Year</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-5xl font-bold text-pink-600 mb-2">
-                    ${(yearlySavings / 1000).toFixed(0)}k
-                  </div>
-                  <div className="text-foreground/70">Annual Cost Savings</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-5xl font-bold text-purple-600 mb-2">
-                    {totalTimeSavingPercent.toFixed(0)}%
-                  </div>
-                  <div className="text-foreground/70">Total Automation Potential</div>
-                </div>
-              </div>
 
-              <div className="text-center">
-                <p className="text-foreground/70 mb-6">
-                  Ready to unlock these savings? Let's discuss how OptimAI can help you automate your business.
-                </p>
-                <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2">
-                  Get Your Free Audit
-                  <ArrowRight size={20} />
-                </Button>
-              </div>
-            </motion.div>
+                  {/* Automation % Slider */}
+                  <div className="mb-8">
+                    <div className="flex justify-between items-center mb-3">
+                      <label className="text-lg font-semibold">Current Automation Level</label>
+                      <span className="text-2xl font-bold text-purple-600">{automationPercent}%</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="0"
+                      max="100"
+                      value={automationPercent}
+                      onChange={(e) => setAutomationPercent(Number(e.target.value))}
+                      className="w-full h-2 bg-purple-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
+                    />
+                    <div className="flex justify-between text-xs text-foreground/50 mt-2">
+                      <span>0%</span>
+                      <span>100%</span>
+                    </div>
+                  </div>
+
+                  {/* Revenue Slider */}
+                  <div className="mb-8">
+                    <div className="flex justify-between items-center mb-3">
+                      <label className="text-lg font-semibold">Average Annual Revenue</label>
+                      <span className="text-2xl font-bold text-purple-600">${(revenue / 1000).toFixed(0)}k</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="10000"
+                      max="1000000"
+                      step="10000"
+                      value={revenue}
+                      onChange={(e) => setRevenue(Number(e.target.value))}
+                      className="w-full h-2 bg-purple-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
+                    />
+                    <div className="flex justify-between text-xs text-foreground/50 mt-2">
+                      <span>$10k</span>
+                      <span>$1m+</span>
+                    </div>
+                  </div>
+
+                  {/* Manual Hours Slider */}
+                  <div className="mb-0">
+                    <div className="flex justify-between items-center mb-3">
+                      <label className="text-lg font-semibold">Manual Hours Per Week (per employee)</label>
+                      <span className="text-2xl font-bold text-purple-600">{manualHours}h</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="5"
+                      max="40"
+                      value={manualHours}
+                      onChange={(e) => setManualHours(Number(e.target.value))}
+                      className="w-full h-2 bg-purple-200 rounded-lg appearance-none cursor-pointer accent-purple-600"
+                    />
+                    <div className="flex justify-between text-xs text-foreground/50 mt-2">
+                      <span>5h</span>
+                      <span>40h</span>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Services Selection */}
+                <motion.div className="glass-card p-8 rounded-2xl" variants={itemVariants}>
+                  <h2 className="text-2xl font-bold mb-6">Select Services</h2>
+                  <div className="grid grid-cols-1 gap-3">
+                    {SERVICES_ROI.map((service) => (
+                      <button
+                        key={service.id}
+                        onClick={() => toggleService(service.id)}
+                        className={`p-4 rounded-lg border-2 font-semibold transition-all text-left ${
+                          selectedServices.includes(service.id)
+                            ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-purple-600"
+                            : "bg-white text-foreground border-purple-300/50 hover:border-purple-500 hover:bg-purple-50"
+                        }`}
+                      >
+                        <div className="font-bold">{service.name}</div>
+                        <div className="text-sm opacity-80">+{service.timeSavingPercent}% time savings</div>
+                      </button>
+                    ))}
+                  </div>
+                </motion.div>
+              </motion.div>
+
+              {/* Right Column: Results */}
+              <motion.div variants={itemVariants} className="flex flex-col gap-8">
+                {/* Results Card */}
+                <motion.div
+                  className="glass-card p-8 rounded-2xl bg-gradient-to-r from-purple-600/10 to-pink-600/10 border-2 border-purple-300/50 flex-1"
+                  variants={itemVariants}
+                >
+                  <h2 className="text-2xl font-bold mb-6 text-center">Your Potential Savings</h2>
+                  <div className="space-y-6">
+                    <div className="text-center pb-6 border-b border-purple-200/50">
+                      <div className="text-4xl font-bold text-purple-600 mb-2">
+                        {hoursAutomatePerYear.toFixed(0)}
+                      </div>
+                      <div className="text-foreground/70 text-sm">Hours Automated Per Year</div>
+                    </div>
+                    <div className="text-center pb-6 border-b border-purple-200/50">
+                      <div className="text-4xl font-bold text-pink-600 mb-2">
+                        ${(yearlySavings / 1000).toFixed(0)}k
+                      </div>
+                      <div className="text-foreground/70 text-sm">Annual Cost Savings</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-4xl font-bold text-purple-600 mb-2">
+                        {totalTimeSavingPercent.toFixed(0)}%
+                      </div>
+                      <div className="text-foreground/70 text-sm">Total Automation Potential</div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Calculation Logic */}
+                <motion.div className="glass-card p-8 rounded-2xl bg-purple-50/50" variants={itemVariants}>
+                  <h3 className="font-bold text-lg mb-4 text-foreground">How We Calculate</h3>
+                  <div className="space-y-2 text-xs text-foreground/80">
+                    <p><span className="font-semibold">Step 1:</span> Current automation ({automationPercent}%) + service savings (+{avgTimeSavingPercent.toFixed(0)}%)</p>
+                    <p><span className="font-semibold">Step 2:</span> Total potential: {totalTimeSavingPercent.toFixed(0)}% of {employees} employees</p>
+                    <p><span className="font-semibold">Step 3:</span> {hoursAutomatePerYear.toFixed(0)} hours/year × ${costPerHour.toFixed(2)}/hour</p>
+                    <p><span className="font-semibold">Result:</span> ${yearlySavings.toFixed(0)} annual savings</p>
+                  </div>
+                </motion.div>
+
+                {/* CTA */}
+                <motion.div className="text-center" variants={itemVariants}>
+                  <p className="text-foreground/70 mb-4 text-sm">
+                    Ready to unlock these savings?
+                  </p>
+                  <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2 w-full justify-center">
+                    Get Your Free Audit
+                    <ArrowRight size={20} />
+                  </Button>
+                </motion.div>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </main>

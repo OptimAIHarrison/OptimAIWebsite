@@ -24,6 +24,7 @@ export const NAVIGATION = [
   { label: "Home", href: "/" },
   { label: "All Services", href: "/services" },
   { label: "Resources", href: "/resources" },
+  { label: "Why OptimAI", href: "/why-optimai" },
   { label: "Contact", href: "/contact" },
 ];
 

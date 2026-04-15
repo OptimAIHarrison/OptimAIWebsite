@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Services from "./pages/Services";
 import About from "./pages/About";
 import WhyOptimAI from "./pages/WhyOptimAI";
+import WhatWeActuallyDo from "./pages/WhatWeActuallyDo";
 import CaseStudies from "./pages/CaseStudies";
 import ROICalculator from "./pages/ROICalculator";
 import Pricing from "./pages/Pricing";
@@ -33,6 +34,7 @@ function Router() {
       <Route path={"/services"} component={Services} />
       <Route path={"/about"} component={About} />
       <Route path={"/why-optimai"} component={WhyOptimAI} />
+      <Route path={"/what-we-actually-do"} component={WhatWeActuallyDo} />
       <Route path={"/case-studies"} component={CaseStudies} />
       <Route path={"/roi-calculator"} component={ROICalculator} />
       <Route path={"/pricing"} component={Pricing} />

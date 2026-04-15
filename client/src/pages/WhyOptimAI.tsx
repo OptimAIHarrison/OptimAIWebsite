@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Shield, Zap, Users } from "lucide-react";
+import { ArrowRight, Shield, Zap, Users, Heart, TrendingUp, Lightbulb } from "lucide-react";
 
 export default function WhyOptimAI() {
   const containerVariants = {
@@ -32,6 +32,21 @@ export default function WhyOptimAI() {
       title: "Expert Support",
       description: "Dedicated team of AI and automation experts available throughout your journey.",
     },
+    {
+      icon: <Heart size={32} />,
+      title: "Human Touch",
+      description: "We don't just implement technology. We work closely with your team, ensuring everyone understands and embraces the changes.",
+    },
+    {
+      icon: <TrendingUp size={32} />,
+      title: "Proven Results",
+      description: "Our clients see an average of 40% time savings and 35% cost reduction within the first year of implementation.",
+    },
+    {
+      icon: <Lightbulb size={32} />,
+      title: "Practical Solutions",
+      description: "No jargon, no unnecessary complexity. We focus on solutions that actually work for your business, not theoretical concepts.",
+    },
   ];
 
   return (
@@ -50,12 +65,12 @@ export default function WhyOptimAI() {
 
       <section className="py-20">
         <motion.div className="container mx-auto px-4" variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {reasons.map((reason, idx) => (
-              <motion.div key={idx} variants={itemVariants} className="glass-card p-8 text-center">
-                <div className="text-accent mb-4 flex justify-center">{reason.icon}</div>
-                <h3 className="text-xl font-bold mb-4">{reason.title}</h3>
-                <p className="text-foreground/70">{reason.description}</p>
+              <motion.div key={idx} variants={itemVariants} className="glass-card p-8 text-center hover:shadow-lg transition-shadow">
+                <div className="text-purple-600 mb-4 flex justify-center">{reason.icon}</div>
+                <h3 className="text-xl font-bold mb-4 text-foreground">{reason.title}</h3>
+                <p className="text-foreground/70 leading-relaxed">{reason.description}</p>
               </motion.div>
             ))}
           </div>

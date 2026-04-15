@@ -21,13 +21,22 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
-            {/* Why Optimai Dropdown */}
+            {/* Main Navigation Items - excluding Why OptimAI */}
+            {NAVIGATION.filter((item) => item.label !== "Why OptimAI").map((item) => (
+              <Link key={item.href} href={item.href}>
+                <a className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent transition-colors">
+                  {item.label}
+                </a>
+              </Link>
+            ))}
+
+            {/* Why OptimAI Dropdown */}
             <div className="relative group">
               <button className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent transition-colors flex items-center gap-1">
                 Why OptimAI
                 <ChevronDown size={16} />
               </button>
-              <div className="absolute left-0 mt-0 w-48 bg-background border border-foreground/15 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div className="absolute right-0 mt-0 w-48 bg-background border border-foreground/15 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <Link href="/why-optimai">
                   <a className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-secondary rounded-t-lg transition-colors">
                     Why Choose OptimAI
@@ -44,21 +53,17 @@ export function Navigation() {
                   </a>
                 </Link>
                 <Link href="/faq">
-                  <a className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-secondary rounded-b-lg transition-colors">
+                  <a className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-secondary transition-colors">
                     FAQ
+                  </a>
+                </Link>
+                <Link href="/what-we-actually-do">
+                  <a className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-secondary rounded-b-lg transition-colors">
+                    What We Actually Do
                   </a>
                 </Link>
               </div>
             </div>
-
-            {/* Main Navigation Items */}
-            {NAVIGATION.filter((item) => item.label !== "Why OptimAI").map((item) => (
-              <Link key={item.href} href={item.href}>
-                <a className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent transition-colors">
-                  {item.label}
-                </a>
-              </Link>
-            ))}
           </div>
 
           {/* CTA Buttons + Mobile Menu */}
@@ -87,6 +92,18 @@ export function Navigation() {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="lg:hidden mt-4 pt-4 border-t border-white/10 space-y-2">
+            {/* Main Navigation Items */}
+            {NAVIGATION.filter((item) => item.label !== "Why OptimAI").map((item) => (
+              <Link key={item.href} href={item.href}>
+                <a
+                  className="block px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-white/5 rounded-lg transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </a>
+              </Link>
+            ))}
+            
             {/* Why OptimAI Dropdown for Mobile */}
             <div className="space-y-1">
               <button className="w-full text-left px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-white/5 rounded-lg transition-colors flex items-center justify-between">
@@ -114,21 +131,21 @@ export function Navigation() {
                     FAQ
                   </a>
                 </Link>
+                <Link href="/what-we-actually-do">
+                  <a className="block px-3 py-2 text-sm font-medium text-foreground/70 hover:text-accent hover:bg-white/5 rounded-lg transition-colors" onClick={() => setIsOpen(false)}>
+                    What We Actually Do
+                  </a>
+                </Link>
               </div>
             </div>
             
-            {NAVIGATION.filter((item) => item.label !== "Why OptimAI").map((item) => (
-              <Link key={item.href} href={item.href}>
-                <a
-                  className="block px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-white/5 rounded-lg transition-colors"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </a>
-              </Link>
-            ))}
+            <Link href="/roi-calculator">
+              <Button className="w-full mt-2 bg-transparent border-2 border-purple-600 text-purple-600 hover:bg-purple-600/10">
+                ROI Calculator
+              </Button>
+            </Link>
             <Link href="/free-audit">
-              <Button className="w-full mt-4 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0">
+              <Button className="w-full mt-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0">
                 Get Free Audit
               </Button>
             </Link>

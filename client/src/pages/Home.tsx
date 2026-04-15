@@ -225,6 +225,68 @@ export default function Home() {
         </motion.div>
       </section>
 
+      {/* What We Actually Do Section */}
+      <section className="py-20 bg-gradient-to-b from-purple-100/20 to-transparent">
+        <motion.div
+          className="container mx-auto px-4"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <motion.div variants={itemVariants} className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+              What We <span className="gradient-text">Actually Do</span>
+            </h2>
+            <p className="text-foreground/70 max-w-2xl mx-auto text-lg">
+              No jargon. No fluff. Just a simple, step-by-step journey from where you are now to a fully automated, AI-powered business.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <motion.div variants={itemVariants} className="glass-card p-8 rounded-2xl text-center">
+              <div className="text-5xl mb-4">🔍</div>
+              <h3 className="text-xl font-bold mb-2">Look & Audit</h3>
+              <p className="text-foreground/70 text-sm">We understand how your business works right now and identify opportunities.</p>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="glass-card p-8 rounded-2xl text-center">
+              <div className="text-5xl mb-4">📋</div>
+              <h3 className="text-xl font-bold mb-2">Take a Brief</h3>
+              <p className="text-foreground/70 text-sm">We listen to your goals, challenges, and what success means for your team.</p>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="glass-card p-8 rounded-2xl text-center">
+              <div className="text-5xl mb-4">🏗️</div>
+              <h3 className="text-xl font-bold mb-2">Build & Test</h3>
+              <p className="text-foreground/70 text-sm">We design, build, and thoroughly test your custom automation solution.</p>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="glass-card p-8 rounded-2xl text-center">
+              <div className="text-5xl mb-4">🚀</div>
+              <h3 className="text-xl font-bold mb-2">Implement & Evolve</h3>
+              <p className="text-foreground/70 text-sm">We launch and continuously optimize as your business grows and changes.</p>
+            </motion.div>
+          </div>
+
+          <motion.div variants={itemVariants} className="glass-card p-12 rounded-2xl bg-gradient-to-r from-purple-600/10 to-pink-600/10 border-2 border-purple-300/50 text-center mb-12">
+            <h3 className="text-2xl font-bold mb-4">Throughout Every Step: We're Your Partner</h3>
+            <p className="text-foreground/70 max-w-3xl mx-auto leading-relaxed">
+              We explain everything in simple, human terms. No jargon. No confusion. Just clarity, guidance, and results. Your team understands and owns the process every step of the way.
+            </p>
+          </motion.div>
+
+          <motion.div variants={itemVariants} className="text-center">
+            <Link href="/what-we-actually-do">
+              <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 text-lg px-8 py-6 rounded-xl">
+                See Our Full Process
+                <ArrowRight className="ml-2" size={20} />
+              </Button>
+            </Link>
+          </motion.div>
+        </motion.div>
+      </section>
+
       {/* Case Studies Preview */}
       <section className="py-20">
         <motion.div
