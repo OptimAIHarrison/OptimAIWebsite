@@ -82,7 +82,7 @@ export default function Home() {
 
                 <motion.p
                   variants={itemVariants}
-                  className="text-xl text-foreground/70 max-w-2xl mx-auto"
+                  className="text-base md:text-lg lg:text-xl text-foreground/70 max-w-2xl mx-auto"
                 >
                   Understandable, scalable, and human-centered AI solutions that drive real results. We make automation practical and accessible, so your team can focus on what matters most.
                 </motion.p>
