@@ -87,6 +87,36 @@ export function Navigation() {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="lg:hidden mt-4 pt-4 border-t border-white/10 space-y-2">
+            {/* Why OptimAI Dropdown for Mobile */}
+            <div className="space-y-1">
+              <button className="w-full text-left px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-white/5 rounded-lg transition-colors flex items-center justify-between">
+                Why OptimAI
+                <ChevronDown size={16} />
+              </button>
+              <div className="pl-4 space-y-1">
+                <Link href="/why-optimai">
+                  <a className="block px-3 py-2 text-sm font-medium text-foreground/70 hover:text-accent hover:bg-white/5 rounded-lg transition-colors" onClick={() => setIsOpen(false)}>
+                    Why Choose OptimAI
+                  </a>
+                </Link>
+                <Link href="/about">
+                  <a className="block px-3 py-2 text-sm font-medium text-foreground/70 hover:text-accent hover:bg-white/5 rounded-lg transition-colors" onClick={() => setIsOpen(false)}>
+                    About OptimAI
+                  </a>
+                </Link>
+                <Link href="/case-studies">
+                  <a className="block px-3 py-2 text-sm font-medium text-foreground/70 hover:text-accent hover:bg-white/5 rounded-lg transition-colors" onClick={() => setIsOpen(false)}>
+                    Case Studies
+                  </a>
+                </Link>
+                <Link href="/faq">
+                  <a className="block px-3 py-2 text-sm font-medium text-foreground/70 hover:text-accent hover:bg-white/5 rounded-lg transition-colors" onClick={() => setIsOpen(false)}>
+                    FAQ
+                  </a>
+                </Link>
+              </div>
+            </div>
+            
             {NAVIGATION.filter((item) => item.label !== "Why OptimAI").map((item) => (
               <Link key={item.href} href={item.href}>
                 <a

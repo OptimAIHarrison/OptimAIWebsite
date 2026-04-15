@@ -165,12 +165,18 @@ export default function Home() {
                 className="group cursor-pointer"
                 onClick={() => setActiveService(index)}
               >
-                <div className="glass-card p-6 h-full hover:border-purple-500/50 transition-all duration-300">
+                <div className="glass-card p-6 h-full hover:border-purple-500/50 transition-all duration-300 flex flex-col">
                   <div className="text-4xl mb-4">{service.icon}</div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-accent transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-foreground/70 text-sm">{service.description}</p>
+                  <p className="text-foreground/70 text-sm flex-grow">{service.description}</p>
+                  <Link href="/services">
+                    <a className="text-accent hover:text-accent/80 font-medium text-sm mt-4 inline-flex items-center gap-1">
+                      More
+                      <ArrowRight size={16} />
+                    </a>
+                  </Link>
                 </div>
               </motion.div>
             ))}

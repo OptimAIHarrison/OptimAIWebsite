@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Link } from "wouter";
 import { Navigation } from "@/components/Navigation";
@@ -10,6 +10,17 @@ import { ChevronDown, ArrowRight } from "lucide-react";
 export default function Services() {
   const [expanded, setExpanded] = useState<string | null>(SERVICES[0].id);
   const [viewMode, setViewMode] = useState<"simple" | "technical">("simple");
+  const serviceRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+
+  const handleServiceButtonClick = (serviceId: string) => {
+    setExpanded(serviceId);
+    setTimeout(() => {
+      const element = serviceRefs.current[serviceId];
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    }, 100);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -89,7 +100,7 @@ export default function Services() {
               return (
                 <button
                   key={service.id}
-                  onClick={() => setExpanded(expanded === service.id ? null : service.id)}
+                  onClick={() => handleServiceButtonClick(service.id)}
                   className={`p-3 rounded-lg font-semibold text-xs md:text-sm transition-all text-center border-2 ${
                     expanded === service.id
                       ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-purple-600"
@@ -117,6 +128,9 @@ export default function Services() {
             {SERVICES.map((service) => (
               <motion.div
                 key={service.id}
+                ref={(el) => {
+                  if (el) serviceRefs.current[service.id] = el;
+                }}
                 variants={itemVariants}
                 className="glass-card p-8 cursor-pointer hover:border-purple-500/50 transition-all"
                 onClick={() =>

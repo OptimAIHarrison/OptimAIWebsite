@@ -173,3 +173,12 @@
 - [x] Add "Why Choose OptimAI" page link to dropdown
 - [x] Remove Why Optimai page duplication from nav
 - [x] Move "Enough of the jargon..." below the subheadline text
+
+
+## Latest Refinements (Round 5)
+- [x] Make service buttons scroll to their container on Services page
+- [x] Add technical descriptions to home page services
+- [x] Add "More" button to each service on home page linking to Services page
+- [x] Animate service details box to appear when clicked
+- [x] Move Why OptimAI dropdown to second to last position in menu bar
+- [x] Ensure Why OptimAI dropdown appears on mobile
