@@ -125,3 +125,6 @@
 - [x] Use uploaded purple gradient image as hero background
 - [x] Ensure color harmony without contrasting or hiding elements
 - [x] Center-align all hero content (headline, subheadline, buttons, badges)
+- [x] Reverse theme back to light background with darker text for better readability
+- [x] Increase container opacity so they don't get lost in the background
+- [x] Ensure all text has sufficient contrast for vision accessibility
