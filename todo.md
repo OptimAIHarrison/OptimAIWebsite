@@ -182,3 +182,12 @@
 - [x] Animate service details box to appear when clicked
 - [x] Move Why OptimAI dropdown to second to last position in menu bar
 - [x] Ensure Why OptimAI dropdown appears on mobile
+
+
+## Latest Refinements (Round 6)
+- [x] Ensure scroll-to-top on all page navigation
+- [x] Add uniform pt-40 spacing to all pages missing it
+- [x] Add more top/bottom padding to service page buttons
+- [x] Make Simple/Technical buttons look like radio buttons (touching in middle)
+- [x] Make logo bigger in header
+- [x] Make OptimAI text smaller in header

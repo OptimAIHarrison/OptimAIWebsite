@@ -67,23 +67,23 @@ export default function Services() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <div className="flex justify-center gap-4 mb-8">
+          <div className="flex justify-center gap-0 mb-8">
             <button
               onClick={() => setViewMode("simple")}
-              className={`px-6 py-2 rounded-lg font-medium transition-all ${
+              className={`px-8 py-3 font-medium transition-all rounded-l-lg border-2 ${
                 viewMode === "simple"
-                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
-                  : "bg-white/10 text-foreground/70 hover:bg-white/20"
+                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-purple-600"
+                  : "bg-white/10 text-foreground/70 border-purple-300/50 hover:bg-white/20"
               }`}
             >
               Simple Overview
             </button>
             <button
               onClick={() => setViewMode("technical")}
-              className={`px-6 py-2 rounded-lg font-medium transition-all ${
+              className={`px-8 py-3 font-medium transition-all rounded-r-lg border-2 border-l-0 ${
                 viewMode === "technical"
-                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
-                  : "bg-white/10 text-foreground/70 hover:bg-white/20"
+                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-purple-600"
+                  : "bg-white/10 text-foreground/70 border-purple-300/50 hover:bg-white/20"
               }`}
             >
               Technical Details
