@@ -5,7 +5,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { LOGO_URL, SERVICES, TESTIMONIALS, CASE_STUDIES } from "@/const";
-import { ChevronRight, ArrowRight, Star, Search, ClipboardList, Hammer, Rocket } from "lucide-react";
+import { ChevronRight, ArrowRight, Star, Search, ClipboardList, Hammer, Rocket, Target, TrendingUp, Settings, Cpu, Shield } from "lucide-react";
 
 export default function Home() {
   const [activeService, setActiveService] = useState(0);
@@ -166,7 +166,13 @@ export default function Home() {
                 onClick={() => setActiveService(index)}
               >
                 <div className="glass-card p-6 h-full hover:border-purple-500/50 transition-all duration-300 flex flex-col">
-                  <div className="text-4xl mb-4">{service.icon}</div>
+                  <div className="mb-4">
+                    {service.icon === 'target' && <Target size={48} className="text-purple-600" />}
+                    {service.icon === 'trending-up' && <TrendingUp size={48} className="text-purple-600" />}
+                    {service.icon === 'settings' && <Settings size={48} className="text-purple-600" />}
+                    {service.icon === 'cpu' && <Cpu size={48} className="text-purple-600" />}
+                    {service.icon === 'shield' && <Shield size={48} className="text-purple-600" />}
+                  </div>
                   <h3 className="font-bold text-lg mb-2 group-hover:text-accent transition-colors">
                     {service.title}
                   </h3>

@@ -5,7 +5,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { SERVICES } from "@/const";
-import { ChevronDown, ArrowRight } from "lucide-react";
+import { ChevronDown, ArrowRight, Target, TrendingUp, Settings, Cpu, Shield } from "lucide-react";
 
 export default function Services() {
   const [expanded, setExpanded] = useState<string | null>(SERVICES[0].id);
@@ -140,7 +140,13 @@ export default function Services() {
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center gap-4 mb-2">
-                      <span className="text-4xl">{service.icon}</span>
+                      <div>
+                        {service.icon === 'target' && <Target size={48} className="text-purple-600" />}
+                        {service.icon === 'trending-up' && <TrendingUp size={48} className="text-purple-600" />}
+                        {service.icon === 'settings' && <Settings size={48} className="text-purple-600" />}
+                        {service.icon === 'cpu' && <Cpu size={48} className="text-purple-600" />}
+                        {service.icon === 'shield' && <Shield size={48} className="text-purple-600" />}
+                      </div>
                       <div>
                         <h3 className="text-2xl font-bold">{service.title}</h3>
                         <p className="text-foreground/70">{service.description}</p>

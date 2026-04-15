@@ -25,8 +25,9 @@ export const NAVIGATION = [
   { label: "All Services", href: "/services" },
   { label: "Resources", href: "/resources" },
   { label: "Why OptimAI", href: "/why-optimai" },
-  { label: "Contact", href: "/contact" },
 ];
+
+export const CONTACT_NAV = { label: "Contact", href: "/contact" };
 
 export const WHY_OPTIMAI_HREF = "/why-optimai";
 
@@ -35,7 +36,7 @@ export const SERVICES = [
     id: "strategic-advisory",
     title: "Our Core Services - Strategic Advisory & Consulting",
     description: "Expert guidance on automation and AI adoption tailored for your business",
-    icon: "🎯",
+    icon: "target",
     details: [
       "Automation & AI Readiness Assessment",
       "Growth Strategy & Roadmapping",
@@ -47,7 +48,7 @@ export const SERVICES = [
     id: "marketing-automation",
     title: "Marketing & Growth Automation",
     description: "Automated marketing systems to enhance visibility and lead generation",
-    icon: "📈",
+    icon: "trending-up",
     details: [
       "AI Search Optimization (AIO)",
       "AI Answer Optimization (AEO)",
@@ -60,7 +61,7 @@ export const SERVICES = [
     id: "business-automation",
     title: "Business Process Automation (BPA)",
     description: "Streamline operational workflows and reduce manual effort",
-    icon: "⚙️",
+    icon: "settings",
     details: [
       "Process Discovery & Optimization",
       "Robotic Process Automation (RPA)",
@@ -73,7 +74,7 @@ export const SERVICES = [
     id: "ai-integration",
     title: "End-to-End AI Integration",
     description: "Seamless integration of advanced AI capabilities with existing systems",
-    icon: "🤖",
+    icon: "cpu",
     details: [
       "Intelligent Document Processing (IDP)",
       "AI-Powered Data Analytics",
@@ -86,7 +87,7 @@ export const SERVICES = [
     id: "managed-services",
     title: "Managed Services & Training",
     description: "Ongoing support, optimization, and team upskilling",
-    icon: "🛡️",
+    icon: "shield",
     details: [
       "Ongoing Support & Maintenance",
       "Performance Monitoring & Optimization",

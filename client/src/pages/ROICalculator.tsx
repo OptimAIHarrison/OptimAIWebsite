@@ -245,14 +245,19 @@ export default function ROICalculator() {
 
               {/* Right: CTA */}
               <motion.div variants={itemVariants} className="flex flex-col justify-center">
-                <motion.div className="glass-card p-8 rounded-2xl bg-gradient-to-r from-purple-600/10 to-pink-600/10 border-2 border-purple-300/50 text-center h-full flex flex-col justify-center" variants={itemVariants}>
-                  <p className="text-foreground/70 mb-6 text-lg font-semibold">
+                <motion.div className="glass-card p-12 rounded-2xl bg-gradient-to-r from-purple-600/10 to-pink-600/10 border-2 border-purple-300/50 text-center h-full flex flex-col justify-center gap-6" variants={itemVariants}>
+                  <p className="text-foreground/70 text-lg font-semibold">
                     Ready to unlock these savings?
                   </p>
                   <Link href="/free-audit">
-                    <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center gap-2 w-full justify-center">
-                      Get Your Free AI and Automation Audit
-                      <ArrowRight size={20} />
+                    <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-6 rounded-xl font-semibold inline-flex items-center gap-2 w-full justify-center text-lg">
+                      Get Your Free AI & Automation Audit
+                      <ArrowRight size={24} />
+                    </Button>
+                  </Link>
+                  <Link href="/contact">
+                    <Button variant="outline" className="border-purple-500/50 hover:bg-purple-600/10 px-8 py-6 rounded-xl font-semibold w-full text-lg">
+                      Contact Us
                     </Button>
                   </Link>
                 </motion.div>

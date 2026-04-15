@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { LOGO_URL, NAVIGATION } from "@/const";
+import { LOGO_URL, NAVIGATION, CONTACT_NAV } from "@/const";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 
@@ -64,6 +64,13 @@ export function Navigation() {
                 </Link>
               </div>
             </div>
+
+            {/* Contact Link */}
+            <Link href={CONTACT_NAV.href}>
+              <a className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent transition-colors">
+                {CONTACT_NAV.label}
+              </a>
+            </Link>
           </div>
 
           {/* CTA Buttons + Mobile Menu */}
@@ -75,7 +82,7 @@ export function Navigation() {
             </Link>
             <Link href="/free-audit">
               <Button className="hidden sm:inline-flex bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0">
-                Get Free AI Audit
+                Get Free AI & Automation Audit
               </Button>
             </Link>
 
@@ -139,6 +146,16 @@ export function Navigation() {
               </div>
             </div>
             
+            {/* Contact Link for Mobile */}
+            <Link href={CONTACT_NAV.href}>
+              <a
+                className="block px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-white/5 rounded-lg transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                {CONTACT_NAV.label}
+              </a>
+            </Link>
+            
             <Link href="/roi-calculator">
               <Button className="w-full mt-2 bg-transparent border-2 border-purple-600 text-purple-600 hover:bg-purple-600/10">
                 ROI Calculator
@@ -146,7 +163,7 @@ export function Navigation() {
             </Link>
             <Link href="/free-audit">
               <Button className="w-full mt-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0">
-                Get Free AI Audit
+                Get Free AI & Automation Audit
               </Button>
             </Link>
           </div>

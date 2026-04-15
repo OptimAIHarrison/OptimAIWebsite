@@ -47,4 +47,23 @@ export const formsRouter = router({
         return { success: false, message: "Failed to submit. Please try again." };
       }
     }),
+
+  submitChatbotMessage: publicProcedure
+    .input(
+      z.object({
+        message: z.string().min(1, "Message is required"),
+      })
+    )
+    .mutation(async ({ input }) => {
+      try {
+        await notifyOwner({
+          title: "New Chatbot Message - hello@optimai.com.au",
+          content: `Message: ${input.message}`,
+        });
+        return { success: true, message: "Message sent!" };
+      } catch (error) {
+        console.error("Chatbot message error:", error);
+        return { success: false, message: "Failed to send message." };
+      }
+    }),
 });

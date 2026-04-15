@@ -229,3 +229,11 @@
 - [x] Reorganize ROI Calculator layout: Business Details left, Services right, Results below in row
 - [x] Add calculation explanation left and Free Audit CTA right below results
 - [x] Rename all "Audit" to "AI and Automation Audit" across entire site
+
+
+## Latest Refinements (Round 12)
+- [x] Replace all emoji service icons (🎯📈⚙️🤖🛡️) with lucide-react components on home and services pages
+- [x] Move Contact to last position in navigation menu
+- [x] Configure contact form, audit form, and chatbot to send to hello@optimai.com.au
+- [x] Redesign ROI Calculator CTA section: bigger button + add Contact Us button below
+- [x] Update all "Get Free AI Audit" to "Get Free AI & Automation Audit"
