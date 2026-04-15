@@ -22,6 +22,9 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import AdminArticles from "./pages/AdminArticles";
 import AdminArticleEditor from "./pages/AdminArticleEditor";
+import AdminLogin from "./pages/AdminLogin";
+import { AdminProvider } from "./contexts/AdminContext";
+import { ProtectedRoute } from "./components/ProtectedRoute";
 
 function Router() {
   const [location] = useLocation();
@@ -46,8 +49,17 @@ function Router() {
       <Route path={"/free-audit"} component={FreeAudit} />
       <Route path={"/privacy"} component={Privacy} />
       <Route path={"/terms"} component={Terms} />
-      <Route path={"/admin/articles"} component={AdminArticles} />
-      <Route path={"/admin/article-editor"} component={AdminArticleEditor} />
+      <Route path={"/admin/login"} component={AdminLogin} />
+      <Route path={"/admin/articles"}>
+        <ProtectedRoute>
+          <AdminArticles />
+        </ProtectedRoute>
+      </Route>
+      <Route path={"/admin/article-editor"}>
+        <ProtectedRoute>
+          <AdminArticleEditor />
+        </ProtectedRoute>
+      </Route>
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
@@ -62,15 +74,17 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="dark"
-      >
-        <TooltipProvider>
-          <Toaster />
-          <Router />
-          <ChatbotWidget />
-        </TooltipProvider>
-      </ThemeProvider>
+      <AdminProvider>
+        <ThemeProvider
+          defaultTheme="dark"
+        >
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+            <ChatbotWidget />
+          </TooltipProvider>
+        </ThemeProvider>
+      </AdminProvider>
     </ErrorBoundary>
   );
 }
