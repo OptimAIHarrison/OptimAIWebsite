@@ -22,7 +22,7 @@ export default function AdminLogin() {
       // Client-side validation against admin config
       if (email === "harrison@optimai.com.au" && password === "optimai") {
         // Store auth token in localStorage
-        const token = Buffer.from(`${email}:${Date.now()}`).toString("base64");
+        const token = btoa(`${email}:${Date.now()}`);
         localStorage.setItem("adminToken", token);
         localStorage.setItem("adminEmail", email);
         
