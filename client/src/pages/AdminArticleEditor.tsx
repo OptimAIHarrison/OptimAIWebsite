@@ -32,6 +32,8 @@ interface ArticleFormData {
   enablePdfDownload?: boolean;
   // Embeds
   embeds?: Array<{ type: string; url: string }>;
+  // Embed Links
+  embedLinks?: Array<{ title: string; url: string }>;
   // Social
   socialImage?: string;
 }
@@ -52,6 +54,7 @@ export default function AdminArticleEditor() {
     author: "OptimAI",
     readTime: 5,
     status: "draft",
+    embedLinks: [],
   });
 
   const [tagInput, setTagInput] = useState("");
@@ -167,7 +170,7 @@ export default function AdminArticleEditor() {
 
           {!showPreview ? (
             <div className="space-y-8">
-              <div className="bg-white/5 border-2 border-white/40 rounded-lg p-6 space-y-4">
+              <div className="bg-white/5 border-2 border-purple-500/50 rounded-lg p-6 space-y-4">
                 <h3 className="text-lg font-bold">Basic Information</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -178,7 +181,7 @@ export default function AdminArticleEditor() {
                       onChange={(e) =>
                         setFormData((prev) => ({ ...prev, title: e.target.value }))
                       }
-                      className="w-full bg-white/5 border-2 border-white/50 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
+                      className="w-full bg-white/5 border-2 border-purple-500/60 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
                       placeholder="Enter article title"
                     />
                   </div>
@@ -190,14 +193,14 @@ export default function AdminArticleEditor() {
                       onChange={(e) =>
                         setFormData((prev) => ({ ...prev, slug: e.target.value }))
                       }
-                      className="w-full bg-white/5 border-2 border-white/50 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
+                      className="w-full bg-white/5 border-2 border-purple-500/60 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
                       placeholder="auto-generated-from-title"
                     />
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white/5 border-2 border-white/40 rounded-lg p-6">
+              <div className="bg-white/5 border-2 border-purple-500/50 rounded-lg p-6">
                 <label className="block text-sm font-semibold mb-3">Excerpt</label>
                 <textarea
                   value={formData.excerpt}
@@ -208,15 +211,15 @@ export default function AdminArticleEditor() {
                     }))
                   }
                   rows={2}
-                  className="w-full bg-white/5 border-2 border-white/50 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
+                  className="w-full bg-white/5 border-2 border-purple-500/60 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
                   placeholder="Brief summary of the article"
                 />
               </div>
 
-              <div className="bg-white/5 border-2 border-white/40 rounded-lg p-6">
+              <div className="bg-white/5 border-2 border-purple-500/50 rounded-lg p-6">
                 <label className="block text-sm font-semibold mb-3">Featured Image</label>
                 <div className="flex gap-4">
-                  <label className="flex-1 flex items-center justify-center gap-2 bg-white/5 border-2 border-dashed border-white/40 rounded-lg px-4 py-8 cursor-pointer hover:border-accent transition-colors">
+                  <label className="flex-1 flex items-center justify-center gap-2 bg-white/5 border-2 border-dashed border-purple-500/50 rounded-lg px-4 py-8 cursor-pointer hover:border-accent transition-colors">
                     <Upload size={20} />
                     <span>Click to upload</span>
                     <input
@@ -250,9 +253,9 @@ export default function AdminArticleEditor() {
                 </div>
               </div>
 
-              <div className="bg-white/5 border-2 border-white/40 rounded-lg p-6">
+              <div className="bg-white/5 border-2 border-purple-500/50 rounded-lg p-6">
                 <label className="block text-sm font-semibold mb-3">Content</label>
-                <div className="bg-white/5 border-2 border-white/50 rounded-lg overflow-hidden">
+                <div className="bg-white/5 border-2 border-purple-500/60 rounded-lg overflow-hidden">
                   <div className="border-b border-white/10 bg-white/5 p-3 flex gap-2 flex-wrap">
                     <button
                       onClick={() =>
@@ -298,7 +301,7 @@ export default function AdminArticleEditor() {
                 </div>
               </div>
 
-              <div className="bg-white/5 border-2 border-white/40 rounded-lg p-6">
+              <div className="bg-white/5 border-2 border-purple-500/50 rounded-lg p-6">
                 <label className="block text-sm font-semibold mb-3">Tags</label>
                 <div className="flex gap-2 mb-4">
                   <input
@@ -308,7 +311,7 @@ export default function AdminArticleEditor() {
                     onKeyPress={(e) =>
                       e.key === "Enter" && handleAddTag()
                     }
-                    className="flex-1 bg-white/5 border-2 border-white/50 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
+                    className="flex-1 bg-white/5 border-2 border-purple-500/60 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
                     placeholder="Add a tag and press Enter"
                   />
                   <Button onClick={handleAddTag} className="bg-accent hover:bg-accent/90">
@@ -332,7 +335,7 @@ export default function AdminArticleEditor() {
                         className={`px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                           formData.tags.includes(tag)
                             ? "bg-accent/30 border border-accent text-accent"
-                            : "bg-white/5 border border-white/40 text-foreground/70 hover:border-accent hover:text-accent"
+                            : "bg-white/5 border border-purple-500/50 text-foreground/70 hover:border-accent hover:text-accent"
                         }`}
                       >
                         {tag}
@@ -358,7 +361,7 @@ export default function AdminArticleEditor() {
                 </div>
               </div>
 
-              <div className="bg-white/5 border-2 border-white/40 rounded-lg p-6">
+              <div className="bg-white/5 border-2 border-purple-500/50 rounded-lg p-6">
                 <h3 className="text-lg font-bold mb-4">SEO Settings</h3>
                 <div className="space-y-4">
                   <div>
@@ -373,7 +376,7 @@ export default function AdminArticleEditor() {
                         }))
                       }
                       maxLength={60}
-                      className="w-full bg-white/5 border-2 border-white/50 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors text-sm"
+                      className="w-full bg-white/5 border-2 border-purple-500/60 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors text-sm"
                       placeholder="SEO title (max 60 chars)"
                     />
                     <p className="text-xs text-foreground/50 mt-1">
@@ -392,7 +395,7 @@ export default function AdminArticleEditor() {
                       }
                       maxLength={160}
                       rows={2}
-                      className="w-full bg-white/5 border-2 border-white/50 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors text-sm"
+                      className="w-full bg-white/5 border-2 border-purple-500/60 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors text-sm"
                       placeholder="SEO description (max 160 chars)"
                     />
                     <p className="text-xs text-foreground/50 mt-1">
@@ -410,14 +413,14 @@ export default function AdminArticleEditor() {
                           metaKeywords: e.target.value,
                         }))
                       }
-                      className="w-full bg-white/5 border-2 border-white/50 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors text-sm"
+                      className="w-full bg-white/5 border-2 border-purple-500/60 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors text-sm"
                       placeholder="Comma-separated keywords"
                     />
                   </div>
                 </div>
               </div>
 
-              <div className="bg-white/5 border-2 border-white/40 rounded-lg p-6">
+              <div className="bg-white/5 border-2 border-purple-500/50 rounded-lg p-6">
                 <h3 className="text-lg font-bold mb-4">Publishing Options</h3>
                 <div className="space-y-4">
                   <div>
@@ -430,7 +433,7 @@ export default function AdminArticleEditor() {
                           status: e.target.value as any,
                         }))
                       }
-                      className="w-full bg-white/5 border-2 border-white/50 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
+                      className="w-full bg-white/5 border-2 border-purple-500/60 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
                     >
                       <option value="draft">Draft</option>
                       <option value="published">Published</option>
@@ -450,7 +453,7 @@ export default function AdminArticleEditor() {
                             scheduledFor: e.target.value,
                           }))
                         }
-                        className="w-full bg-white/5 border-2 border-white/50 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
+                        className="w-full bg-white/5 border-2 border-purple-500/60 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
                       />
                     </div>
                   )}
@@ -467,7 +470,7 @@ export default function AdminArticleEditor() {
                             category: e.target.value,
                           }))
                         }
-                        className="w-full bg-white/5 border-2 border-white/50 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
+                        className="w-full bg-white/5 border-2 border-purple-500/60 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
                         placeholder="e.g., AI, Automation"
                       />
                     </div>
@@ -482,7 +485,7 @@ export default function AdminArticleEditor() {
                             readTime: parseInt(e.target.value) || 0,
                           }))
                         }
-                        className="w-full bg-white/5 border-2 border-white/50 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
+                        className="w-full bg-white/5 border-2 border-purple-500/60 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
                         min="1"
                       />
                     </div>
@@ -491,7 +494,7 @@ export default function AdminArticleEditor() {
               </div>
 
               {/* PDF & Lead Capture Section */}
-              <div className="bg-white/5 border-2 border-white/40 rounded-lg p-6">
+              <div className="bg-white/5 border-2 border-purple-500/50 rounded-lg p-6">
                 <h3 className="text-lg font-bold mb-4">PDF & Lead Capture (Optional)</h3>
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 mb-4">
@@ -513,7 +516,7 @@ export default function AdminArticleEditor() {
                   </div>
 
                   {formData.enablePdfDownload && (
-                    <div className="space-y-4 bg-white/5 border border-white/40 rounded-lg p-4">
+                    <div className="space-y-4 bg-white/5 border border-purple-500/50 rounded-lg p-4">
                       <div>
                         <label className="block text-sm font-semibold mb-2">PDF Title</label>
                         <input
@@ -525,24 +528,49 @@ export default function AdminArticleEditor() {
                               pdfTitle: e.target.value,
                             }))
                           }
-                          className="w-full bg-white/5 border-2 border-white/50 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
+                          className="w-full bg-white/5 border-2 border-purple-500/60 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
                           placeholder="e.g., AI Implementation Guide"
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-semibold mb-2">PDF File URL</label>
-                        <input
-                          type="text"
-                          value={formData.pdfUrl || ""}
-                          onChange={(e) =>
-                            setFormData((prev) => ({
-                              ...prev,
-                              pdfUrl: e.target.value,
-                            }))
-                          }
-                          className="w-full bg-white/5 border-2 border-white/50 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
-                          placeholder="https://example.com/guide.pdf"
-                        />
+                        <label className="block text-sm font-semibold mb-2">PDF File (URL or Upload)</label>
+                        <div className="space-y-2">
+                          <input
+                            type="text"
+                            value={formData.pdfUrl || ""}
+                            onChange={(e) =>
+                              setFormData((prev) => ({
+                                ...prev,
+                                pdfUrl: e.target.value,
+                              }))
+                            }
+                            className="w-full bg-white/5 border-2 border-purple-500/60 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
+                            placeholder="https://example.com/guide.pdf or paste file URL"
+                          />
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs text-foreground/60">Or upload a file:</span>
+                            <input
+                              type="file"
+                              accept=".pdf"
+                              onChange={(e) => {
+                                const file = e.target.files?.[0];
+                                if (file) {
+                                  const reader = new FileReader();
+                                  reader.onload = (event) => {
+                                    const base64 = event.target?.result as string;
+                                    setFormData((prev) => ({
+                                      ...prev,
+                                      pdfUrl: base64,
+                                    }));
+                                    toast.success('PDF attached');
+                                  };
+                                  reader.readAsDataURL(file);
+                                }
+                              }}
+                              className="text-xs"
+                            />
+                          </div>
+                        </div>
                       </div>
                       <p className="text-xs text-foreground/60">Readers will need to submit their name, email, company, and phone to download this PDF.</p>
                     </div>
@@ -551,7 +579,7 @@ export default function AdminArticleEditor() {
               </div>
 
               {/* Embeds Section */}
-              <div className="bg-white/5 border-2 border-white/40 rounded-lg p-6">
+              <div className="bg-white/5 border-2 border-purple-500/50 rounded-lg p-6">
                 <h3 className="text-lg font-bold mb-4">Media Embeds (Optional)</h3>
                 <p className="text-sm text-foreground/70 mb-4">Add YouTube, LinkedIn, TikTok, or Instagram embeds to your article.</p>
                 <div className="space-y-3">
@@ -572,7 +600,7 @@ export default function AdminArticleEditor() {
                             toast.success(`${platform} embed added`);
                           }
                         }}
-                        className="bg-white/5 border-2 border-white/50 hover:border-accent rounded-lg px-4 py-2 text-sm font-semibold transition-colors"
+                        className="bg-white/5 border-2 border-purple-500/60 hover:border-accent rounded-lg px-4 py-2 text-sm font-semibold transition-colors"
                       >
                         + Add {platform}
                       </button>
@@ -582,7 +610,7 @@ export default function AdminArticleEditor() {
                     <div className="mt-4 space-y-2">
                       <p className="text-sm font-semibold">Added Embeds:</p>
                       {formData.embeds.map((embed, idx) => (
-                        <div key={idx} className="flex items-center justify-between bg-white/5 border border-white/40 rounded-lg p-3">
+                        <div key={idx} className="flex items-center justify-between bg-white/5 border border-purple-500/50 rounded-lg p-3">
                           <div className="text-sm">
                             <span className="font-semibold capitalize">{embed.type}:</span>
                             <span className="text-foreground/70 ml-2 truncate">{embed.url}</span>
@@ -605,11 +633,78 @@ export default function AdminArticleEditor() {
                 </div>
               </div>
 
+              {/* Embed Links Section */}
+              <div className="bg-white/5 border-2 border-purple-500/50 rounded-lg p-6">
+                <h3 className="text-lg font-bold mb-4">Embed Links (Optional)</h3>
+                <p className="text-sm text-foreground/70 mb-4">Add related links or resources at the end of the article.</p>
+                <div className="space-y-3">
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      placeholder="Link title"
+                      id="linkTitle"
+                      className="flex-1 bg-white/5 border-2 border-purple-500/60 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
+                    />
+                    <input
+                      type="url"
+                      placeholder="https://example.com"
+                      id="linkUrl"
+                      className="flex-1 bg-white/5 border-2 border-purple-500/60 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
+                    />
+                    <button
+                      onClick={() => {
+                        const titleInput = document.getElementById('linkTitle') as HTMLInputElement;
+                        const urlInput = document.getElementById('linkUrl') as HTMLInputElement;
+                        if (titleInput.value && urlInput.value) {
+                          setFormData((prev) => ({
+                            ...prev,
+                            embedLinks: [
+                              ...(prev.embedLinks || []),
+                              { title: titleInput.value, url: urlInput.value },
+                            ],
+                          }));
+                          titleInput.value = '';
+                          urlInput.value = '';
+                          toast.success('Link added');
+                        }
+                      }}
+                      className="bg-accent hover:bg-accent/90 text-white font-semibold px-4 py-2 rounded-lg transition-colors"
+                    >
+                      Add Link
+                    </button>
+                  </div>
+                  {formData.embedLinks && formData.embedLinks.length > 0 && (
+                    <div className="mt-4 space-y-2">
+                      <p className="text-sm font-semibold">Added Links:</p>
+                      {formData.embedLinks.map((link, idx) => (
+                        <div key={idx} className="flex items-center justify-between bg-white/5 border border-purple-500/50 rounded-lg p-3">
+                          <div className="text-sm">
+                            <span className="font-semibold">{link.title}</span>
+                            <span className="text-foreground/70 ml-2">→ {link.url}</span>
+                          </div>
+                          <button
+                            onClick={() => {
+                              setFormData((prev) => ({
+                                ...prev,
+                                embedLinks: prev.embedLinks?.filter((_, i) => i !== idx),
+                              }));
+                            }}
+                            className="text-red-400 hover:text-red-300"
+                          >
+                            <X size={18} />
+                          </button>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+
               {/* Social Sharing Section */}
-              <div className="bg-white/5 border-2 border-white/40 rounded-lg p-6">
+              <div className="bg-white/5 border-2 border-purple-500/50 rounded-lg p-6">
                 <h3 className="text-lg font-bold mb-4">Social Sharing</h3>
                 <p className="text-sm text-foreground/70 mb-4">This article will automatically include social sharing buttons and Open Graph meta tags for Twitter, LinkedIn, and Facebook.</p>
-                <div className="bg-white/5 border border-white/40 rounded-lg p-4">
+                <div className="bg-white/5 border border-purple-500/50 rounded-lg p-4">
                   <p className="text-sm font-semibold mb-2">Share Preview:</p>
                   <div className="text-xs text-foreground/70 space-y-1">
                     <p>Title: {formData.metaTitle || formData.title}</p>

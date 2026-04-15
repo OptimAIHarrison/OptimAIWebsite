@@ -272,3 +272,10 @@
 - [x] Add password protection to admin routes (/admin/*)
 - [x] Create logout functionality
 - [x] Add login error handling and validation
+
+
+## Latest Refinements (Round 16 - UI and Article Editor Enhancements)
+- [x] Change article editor box borders from white to purple
+- [x] Change admin login box borders from white to purple
+- [x] Add PDF attachment capability to article editor (not just upload)
+- [x] Add embed links section to article editor

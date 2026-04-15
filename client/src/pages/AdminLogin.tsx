@@ -47,7 +47,7 @@ export default function AdminLogin() {
 
       <main className="flex-1 flex items-center justify-center px-4 py-20 pt-32">
         <div className="w-full max-w-md">
-          <div className="bg-white/5 border-2 border-white/50 rounded-lg p-8">
+          <div className="bg-white/5 border-2 border-purple-500/60 rounded-lg p-8">
             <div className="mb-8">
               <h1 className="text-3xl font-bold text-foreground mb-2">Admin Login</h1>
               <p className="text-foreground/60">Access the OptimAI admin dashboard</p>
@@ -72,7 +72,7 @@ export default function AdminLogin() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="harrison@optimai.com.au"
-                    className="w-full bg-white/5 border-2 border-white/50 rounded-lg pl-10 pr-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
+                    className="w-full bg-white/5 border-2 border-purple-500/60 rounded-lg pl-10 pr-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
                     required
                     disabled={isLoading}
                   />
@@ -90,7 +90,7 @@ export default function AdminLogin() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter your password"
-                    className="w-full bg-white/5 border-2 border-white/50 rounded-lg pl-10 pr-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
+                    className="w-full bg-white/5 border-2 border-purple-500/60 rounded-lg pl-10 pr-4 py-2 text-foreground focus:outline-none focus:border-accent focus:bg-white/10 transition-colors"
                     required
                     disabled={isLoading}
                   />
@@ -106,7 +106,7 @@ export default function AdminLogin() {
               </Button>
             </form>
 
-            <div className="mt-6 p-4 bg-white/5 border border-white/20 rounded-lg">
+            <div className="mt-6 p-4 bg-white/5 border border-purple-500/40 rounded-lg">
               <p className="text-xs text-foreground/60">
                 <span className="font-semibold text-foreground">Demo Credentials:</span>
                 <br />
