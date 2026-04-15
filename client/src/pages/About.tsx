@@ -19,7 +19,7 @@ export default function About() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <section className="pt-32 pb-20 bg-background">
+      <section className="pt-40 pb-20 bg-background">
         <motion.div className="container mx-auto px-4 text-center" variants={containerVariants} initial="hidden" animate="visible">
           <motion.h1 variants={itemVariants} className="text-5xl lg:text-6xl font-bold mb-6">
             About <span className="gradient-text">Optimai</span>

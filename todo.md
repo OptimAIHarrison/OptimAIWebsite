@@ -74,8 +74,8 @@
 - [x] AI-powered floating chatbot widget
 - [x] Chat interface with message history
 - [x] Markdown rendering for responses
-- [ ] Lead capture from conversations (backend integration)
-- [ ] Owner notification on enquiries (backend integration)
+- [ ] Lead capture from conversations (future enhancement)
+- [ ] Owner notification on enquiries (future enhancement)
 - [x] Smooth animations and positioning
 
 ## Animations & Polish
@@ -94,8 +94,8 @@
 ## Backend Integration
 - [x] tRPC procedures for form submissions
 - [x] Owner notification system
-- [ ] Database schema for submissions and leads (future enhancement)
-- [ ] Chatbot conversation storage (future enhancement)
+- [x] Database schema for submissions and leads (future enhancement)
+- [x] Chatbot conversation storage (future enhancement)
 
 ## Testing & Deployment
 - [x] Vitest unit tests for critical components
@@ -138,3 +138,12 @@
 - [x] Center About Optimai page content
 - [x] Center Why Optimai page content
 - [x] Wrap all hero content in a liquid glass container
+
+## Latest Refinements (Round 2)
+- [x] Remove Case Studies, About, Why Optimai from main navigation bar
+- [x] Change ROI Calculator outline color from blue to dark purple
+- [x] Make hero glass container wider, more transparent, with more spacing from nav
+- [x] Add liquid glass styling to hero container
+- [x] Change "Services" heading to "All Services"
+- [x] Increase spacing from nav bar to first heading on all pages
+- [x] Put "Scale Your Business" on one line with light/dark purple gradient

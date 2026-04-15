@@ -6,7 +6,6 @@ import { Menu, X, ChevronDown } from "lucide-react";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background backdrop-blur-xl border-b border-foreground/15">
@@ -24,48 +23,45 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
-            {NAVIGATION.map((item) => {
-              if (item.label === "Why Optimai") {
-                return (
-                  <div key={item.href} className="relative group">
-                    <button className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent transition-colors flex items-center gap-1">
-                      {item.label}
-                      <ChevronDown size={16} />
-                    </button>
-                    <div className="absolute left-0 mt-0 w-48 bg-background border border-foreground/15 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                      <Link href="/about">
-                        <a className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-secondary rounded-t-lg transition-colors">
-                          About Optimai
-                        </a>
-                      </Link>
-                      <Link href="/case-studies">
-                        <a className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-secondary transition-colors">
-                          Case Studies
-                        </a>
-                      </Link>
-                      <Link href="/faq">
-                        <a className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-secondary rounded-b-lg transition-colors">
-                          FAQ
-                        </a>
-                      </Link>
-                    </div>
-                  </div>
-                );
-              }
-              return (
-                <Link key={item.href} href={item.href}>
-                  <a className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent transition-colors">
-                    {item.label}
+            {/* Why Optimai Dropdown */}
+            <div className="relative group">
+              <button className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent transition-colors flex items-center gap-1">
+                Why Optimai
+                <ChevronDown size={16} />
+              </button>
+              <div className="absolute left-0 mt-0 w-48 bg-background border border-foreground/15 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <Link href="/about">
+                  <a className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-secondary rounded-t-lg transition-colors">
+                    About Optimai
                   </a>
                 </Link>
-              );
-            })}
+                <Link href="/case-studies">
+                  <a className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-secondary transition-colors">
+                    Case Studies
+                  </a>
+                </Link>
+                <Link href="/faq">
+                  <a className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-secondary rounded-b-lg transition-colors">
+                    FAQ
+                  </a>
+                </Link>
+              </div>
+            </div>
+
+            {/* Main Navigation Items */}
+            {NAVIGATION.map((item) => (
+              <Link key={item.href} href={item.href}>
+                <a className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent transition-colors">
+                  {item.label}
+                </a>
+              </Link>
+            ))}
           </div>
 
           {/* CTA Buttons + Mobile Menu */}
           <div className="flex items-center gap-3">
             <Link href="/roi-calculator">
-              <Button className="hidden sm:inline-flex bg-transparent border-2 border-accent text-accent hover:bg-accent/10">
+              <Button className="hidden sm:inline-flex bg-transparent border-2 border-purple-600 text-purple-600 hover:bg-purple-600/10">
                 ROI Calculator
               </Button>
             </Link>

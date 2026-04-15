@@ -22,19 +22,14 @@ export const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/31051966345025907
 export const NAVIGATION = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
-  { label: "About Us", href: "/about" },
-  { label: "Why Optimai", href: "/why-optimai" },
-  { label: "Case Studies", href: "/case-studies" },
-  { label: "ROI Calculator", href: "/roi-calculator" },
   { label: "Resources", href: "/resources" },
-  { label: "FAQ", href: "/faq" },
   { label: "Contact", href: "/contact" },
 ];
 
 export const SERVICES = [
   {
     id: "strategic-advisory",
-    title: "Strategic Advisory & Consulting",
+    title: "All Services - Strategic Advisory & Consulting",
     description: "Expert guidance on automation and AI adoption tailored for your business",
     icon: "🎯",
     details: [

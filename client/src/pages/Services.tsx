@@ -29,7 +29,7 @@ export default function Services() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
+      <section className="pt-40 pb-20 bg-background">
         <motion.div
           className="container mx-auto px-4"
           variants={containerVariants}
@@ -38,7 +38,7 @@ export default function Services() {
         >
           <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto">
             <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-              Our <span className="gradient-text">Services</span>
+              <span className="gradient-text">All Services</span>
             </h1>
             <p className="text-xl text-foreground/70">
               Comprehensive AI and automation solutions across five core pillars, designed to transform your business operations and accelerate growth.

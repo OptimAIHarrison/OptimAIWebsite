@@ -44,14 +44,14 @@ export default function Home() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen pt-32 pb-20 overflow-hidden flex items-center justify-center" style={{
+      <section className="relative min-h-screen pt-40 pb-20 overflow-hidden flex items-center justify-center" style={{
         backgroundImage: 'url(https://d2xsxph8kpxj0f.cloudfront.net/310519663450259077/VZWvecVBL3bTuGctm3Rvj5/Screenshot2026-04-15at11.08.49am_b8405e5d.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'
       }}>
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 -z-10 bg-black/20" />
+        <div className="absolute inset-0 -z-10 bg-black/10" />
 
         <motion.div
           className="container mx-auto px-4 w-full flex justify-center"
@@ -60,7 +60,7 @@ export default function Home() {
           animate="visible"
         >
           {/* Centered Content in Glass Container */}
-          <motion.div variants={itemVariants} className="glass-card p-12 lg:p-16 space-y-8 text-center max-w-3xl">
+          <motion.div variants={itemVariants} className="backdrop-blur-2xl bg-white/30 border border-white/40 rounded-3xl p-16 lg:p-20 space-y-8 text-center max-w-5xl shadow-2xl">
               <div className="space-y-4">
                 <motion.div
                   className="inline-block"
@@ -75,9 +75,7 @@ export default function Home() {
                   variants={itemVariants}
                   className="text-5xl lg:text-7xl font-bold leading-tight"
                 >
-                  <span className="text-foreground">Scale Your Business</span>
-                  <br />
-                  <span className="text-foreground">with Practical AI and Automation</span>
+                  <span className="bg-gradient-to-r from-purple-600 to-purple-900 bg-clip-text text-transparent">Scale Your Business with Practical AI and Automation</span>
                 </motion.h1>
 
                 <motion.p
