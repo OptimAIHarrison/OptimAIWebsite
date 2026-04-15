@@ -145,5 +145,5 @@
 - [x] Make hero glass container wider, more transparent, with more spacing from nav
 - [x] Add liquid glass styling to hero container
 - [x] Change "Services" heading to "All Services"
-- [x] Increase spacing from nav bar to first heading on all pages
+- [x] Increase spacing from nav bar to first heading on ALL pages (including Contact, FAQ, Pricing, ROI, Resources, etc.)
 - [x] Put "Scale Your Business" on one line with light/dark purple gradient
