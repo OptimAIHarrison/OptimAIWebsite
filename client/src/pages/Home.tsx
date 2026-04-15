@@ -73,7 +73,7 @@ export default function Home() {
 
                 <motion.h1
                   variants={itemVariants}
-                  className="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight"
+                  className="text-4xl md:text-5xl lg:text-7xl font-bold leading-tight"
                 >
                   <span className="bg-gradient-to-r from-purple-600 to-purple-900 bg-clip-text text-transparent">Scale Your Business</span>
                   <br />
