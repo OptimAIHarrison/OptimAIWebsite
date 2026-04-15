@@ -1,7 +1,8 @@
 import { Toaster } from "@/components/ui/sonner";
+import { useEffect } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { ChatbotWidget } from "./components/ChatbotWidget";
@@ -20,6 +21,12 @@ import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 
 function Router() {
+  const [location] = useLocation();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+  
   return (
     <Switch>
       <Route path={"/"} component={Home} />

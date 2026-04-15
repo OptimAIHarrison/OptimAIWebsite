@@ -75,12 +75,21 @@ export default function Home() {
                   variants={itemVariants}
                   className="text-5xl lg:text-7xl font-bold leading-tight"
                 >
-                  <span className="bg-gradient-to-r from-purple-600 to-purple-900 bg-clip-text text-transparent">Scale Your Business with Practical AI and Automation</span>
+                  <span className="bg-gradient-to-r from-purple-600 to-purple-900 bg-clip-text text-transparent">Scale Your Business</span>
+                  <br />
+                  <span className="text-foreground">with Practical AI and Automation</span>
                 </motion.h1>
+
+                <motion.div
+                  variants={itemVariants}
+                  className="text-sm text-foreground/60 font-medium"
+                >
+                  Enough of the jargon and buzzwords.
+                </motion.div>
 
                 <motion.p
                   variants={itemVariants}
-                  className="text-xl text-foreground/70 max-w-2xl ml-auto"
+                  className="text-xl text-foreground/70 max-w-2xl mx-auto"
                 >
                   Understandable, scalable, and human-centered AI solutions that drive real results. We make automation practical and accessible, so your team can focus on what matters most.
                 </motion.p>
@@ -91,19 +100,19 @@ export default function Home() {
                 variants={itemVariants}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
-                <Link href="/free-audit">
-                  <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 text-lg px-8 py-6 rounded-xl">
-                    Get Your Free Audit
-                    <ArrowRight className="ml-2" size={20} />
-                  </Button>
-                </Link>
                 <Link href="/services">
                   <Button
                     variant="outline"
                     className="border-purple-500/50 hover:bg-purple-600/10 text-lg px-8 py-6 rounded-xl"
                   >
-                    Explore Services
+                    Check out what we do
                     <ChevronRight className="ml-2" size={20} />
+                  </Button>
+                </Link>
+                <Link href="/free-audit">
+                  <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 text-lg px-8 py-6 rounded-xl">
+                    Get Your Free Audit
+                    <ArrowRight className="ml-2" size={20} />
                   </Button>
                 </Link>
               </motion.div>

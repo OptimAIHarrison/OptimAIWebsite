@@ -10,7 +10,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div>
-            <img src={LOGO_URL} alt="Optimai" className="h-12 w-auto mb-4" />
+            <img src={LOGO_URL} alt="OptimAI" className="h-12 w-auto mb-4" />
             <p className="text-foreground/70 text-sm">
               Your growth partner in AI & automation for SMEs and startups.
             </p>
@@ -104,7 +104,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-foreground/50 text-sm">
-            © {currentYear} Optimai. All rights reserved.
+            © {currentYear} OptimAI. All rights reserved.
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="#" className="text-foreground/50 hover:text-accent transition-colors">

@@ -19,14 +19,14 @@ export default function Terms() {
               <h2 className="text-2xl font-bold text-foreground mb-4">Terms & Conditions</h2>
               <p>Last updated: April 2026</p>
               <p className="mt-4">
-                Please read these terms and conditions carefully before using Optimai's website and services.
+                Please read these terms and conditions carefully before using OptimAI's website and services.
               </p>
             </div>
 
             <div>
               <h3 className="text-xl font-bold text-foreground mb-4">Use License</h3>
               <p>
-                Permission is granted to temporarily download one copy of the materials (information or software) on Optimai's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
+                Permission is granted to temporarily download one copy of the materials (information or software) on OptimAI's website for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title, and under this license you may not:
               </p>
               <ul className="list-disc list-inside mt-4 space-y-2">
                 <li>Modify or copy the materials</li>
@@ -39,14 +39,14 @@ export default function Terms() {
             <div>
               <h3 className="text-xl font-bold text-foreground mb-4">Disclaimer</h3>
               <p>
-                The materials on Optimai's website are provided on an 'as is' basis. Optimai makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+                The materials on OptimAI's website are provided on an 'as is' basis. OptimAI makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
               </p>
             </div>
 
             <div>
               <h3 className="text-xl font-bold text-foreground mb-4">Limitations</h3>
               <p>
-                In no event shall Optimai or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Optimai's website.
+                In no event shall OptimAI or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on OptimAI's website.
               </p>
             </div>
 

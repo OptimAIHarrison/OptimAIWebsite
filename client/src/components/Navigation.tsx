@@ -14,10 +14,8 @@ export function Navigation() {
           {/* Logo */}
           <Link href="/">
             <a className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-              <div className="bg-secondary rounded-lg p-2">
-                <img src={LOGO_URL} alt="Optimai" className="h-14 w-auto" />
-              </div>
-              <span className="text-2xl font-bold text-foreground hidden sm:inline">Optimai</span>
+              <img src={LOGO_URL} alt="OptimAI" className="h-12 w-auto" />
+              <span className="text-2xl font-bold text-foreground hidden sm:inline">OptimAI</span>
             </a>
           </Link>
 
@@ -26,13 +24,13 @@ export function Navigation() {
             {/* Why Optimai Dropdown */}
             <div className="relative group">
               <button className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent transition-colors flex items-center gap-1">
-                Why Optimai
+                Why OptimAI
                 <ChevronDown size={16} />
               </button>
               <div className="absolute left-0 mt-0 w-48 bg-background border border-foreground/15 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
                 <Link href="/about">
                   <a className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-secondary rounded-t-lg transition-colors">
-                    About Optimai
+                    About OptimAI
                   </a>
                 </Link>
                 <Link href="/case-studies">

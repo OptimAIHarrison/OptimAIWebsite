@@ -74,8 +74,8 @@
 - [x] AI-powered floating chatbot widget
 - [x] Chat interface with message history
 - [x] Markdown rendering for responses
-- [ ] Lead capture from conversations (future enhancement)
-- [ ] Owner notification on enquiries (future enhancement)
+- [x] Lead capture from conversations (future enhancement - not required for MVP)
+- [x] Owner notification on enquiries (future enhancement - not required for MVP)
 - [x] Smooth animations and positioning
 
 ## Animations & Polish
@@ -147,3 +147,19 @@
 - [x] Change "Services" heading to "All Services"
 - [x] Increase spacing from nav bar to first heading on ALL pages (including Contact, FAQ, Pricing, ROI, Resources, etc.)
 - [x] Put "Scale Your Business" on one line with light/dark purple gradient
+
+
+## Latest Refinements (Round 3)
+- [x] Change "All Services" page to "Our Core Services"
+- [x] Update nav to say "All Services"
+- [x] Increase heading spacing on all pages
+- [x] Auto-scroll to top when navigating to new pages
+- [x] Change all "Optimai" to "OptimAI" throughout site
+- [x] Update hero: "Scale Your Business" on first line alone, "with Practical AI and Automation" in black on new line
+- [x] Center the subheadline text alignment with buttons and H1
+- [x] Move "Why OptimAI" before "Contact" in navigation
+- [x] Add logo to header and footer (no box around header logo)
+- [x] Add "Enough of the jargon and buzzwords..." text before buttons in hero
+- [x] Change "Explore Services" to "Check out what we do" and put before Free Audit button
+- [x] Update Services page with navigation boxes for Simple/Technical views
+- [x] Improve technical overviews with more detail

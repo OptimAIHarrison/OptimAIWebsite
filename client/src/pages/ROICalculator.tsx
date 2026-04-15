@@ -72,7 +72,7 @@ export default function ROICalculator() {
             Calculate Your <span className="gradient-text">ROI</span>
           </motion.h1>
           <motion.p variants={itemVariants} className="text-xl text-foreground/70 max-w-2xl mx-auto">
-            Discover how much time, money, and productivity you can gain with Optimai's solutions.
+            Discover how much time, money, and productivity you can gain with OptimAI's solutions.
           </motion.p>
         </motion.div>
       </section>

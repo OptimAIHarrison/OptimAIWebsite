@@ -40,7 +40,7 @@ export default function WhyOptimAI() {
       <section className="pt-40 pb-20 bg-background">
         <motion.div className="container mx-auto px-4 text-center" variants={containerVariants} initial="hidden" animate="visible">
           <motion.h1 variants={itemVariants} className="text-5xl lg:text-6xl font-bold mb-6">
-            Why <span className="gradient-text">Optimai</span> is Your Best Choice
+            Why <span className="gradient-text">OptimAI</span> is Your Best Choice
           </motion.h1>
           <motion.p variants={itemVariants} className="text-xl text-foreground/70 max-w-3xl mx-auto">
             We're not just another consulting firm. We're your growth partner, committed to your success.
@@ -63,7 +63,7 @@ export default function WhyOptimAI() {
           <motion.div variants={itemVariants} className="glass-card p-12 text-center">
             <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Business?</h2>
             <p className="text-foreground/70 mb-8 max-w-2xl mx-auto">
-              Join 150+ companies that have already discovered the power of AI and automation with Optimai.
+              Join 150+ companies that have already discovered the power of AI and automation with OptimAI.
             </p>
             <Link href="/free-audit">
               <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 text-lg px-8 py-6 rounded-xl">

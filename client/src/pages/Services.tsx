@@ -38,7 +38,7 @@ export default function Services() {
         >
           <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto">
             <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-              <span className="gradient-text">All Services</span>
+              <span className="gradient-text">Our Core Services</span>
             </h1>
             <p className="text-xl text-foreground/70">
               Comprehensive AI and automation solutions across five core pillars, designed to transform your business operations and accelerate growth.
@@ -48,34 +48,51 @@ export default function Services() {
       </section>
 
       {/* View Mode Toggle */}
-      <section className="py-8 border-b border-white/10">
+      <section className="py-12 border-b border-white/10">
         <motion.div
-          className="container mx-auto px-4 flex justify-center gap-4"
+          className="container mx-auto px-4"
           variants={itemVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <button
-            onClick={() => setViewMode("simple")}
-            className={`px-6 py-2 rounded-lg font-medium transition-all ${
-              viewMode === "simple"
-                ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
-                : "bg-white/10 text-foreground/70 hover:bg-white/20"
-            }`}
-          >
-            Simple Overview
-          </button>
-          <button
-            onClick={() => setViewMode("technical")}
-            className={`px-6 py-2 rounded-lg font-medium transition-all ${
-              viewMode === "technical"
-                ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
-                : "bg-white/10 text-foreground/70 hover:bg-white/20"
-            }`}
-          >
-            Technical Details
-          </button>
+          <div className="flex justify-center gap-4 mb-8">
+            <button
+              onClick={() => setViewMode("simple")}
+              className={`px-6 py-2 rounded-lg font-medium transition-all ${
+                viewMode === "simple"
+                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                  : "bg-white/10 text-foreground/70 hover:bg-white/20"
+              }`}
+            >
+              Simple Overview
+            </button>
+            <button
+              onClick={() => setViewMode("technical")}
+              className={`px-6 py-2 rounded-lg font-medium transition-all ${
+                viewMode === "technical"
+                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                  : "bg-white/10 text-foreground/70 hover:bg-white/20"
+              }`}
+            >
+              Technical Details
+            </button>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+            {SERVICES.map((service) => (
+              <button
+                key={service.id}
+                onClick={() => setExpanded(expanded === service.id ? null : service.id)}
+                className={`p-4 rounded-lg font-medium text-sm transition-all text-center ${
+                  expanded === service.id
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                    : "bg-white/10 text-foreground/70 hover:bg-white/20"
+                }`}
+              >
+                {service.title.split(' - ')[1]}
+              </button>
+            ))}
+          </div>
         </motion.div>
       </section>
 
@@ -141,9 +158,15 @@ export default function Services() {
                         <p className="text-foreground/80 leading-relaxed">
                           {service.technicalDetails}
                         </p>
-                        <div className="bg-purple-600/10 border border-purple-500/30 rounded-lg p-4">
+                        <div className="bg-purple-600/10 border border-purple-500/30 rounded-lg p-4 space-y-3">
                           <p className="text-sm text-foreground/70">
                             <strong>Implementation:</strong> Our team handles all technical setup, integration, and deployment. We ensure minimal disruption to your operations while maximizing the value delivered.
+                          </p>
+                          <p className="text-sm text-foreground/70">
+                            <strong>Integration:</strong> Seamless integration with your existing systems including CRM, ERP, accounting software, and custom applications.
+                          </p>
+                          <p className="text-sm text-foreground/70">
+                            <strong>Support & Optimization:</strong> Continuous monitoring, performance tuning, and proactive optimization to ensure your solutions deliver maximum ROI.
                           </p>
                         </div>
                       </div>

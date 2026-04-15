@@ -16,12 +16,14 @@ export const getLoginUrl = () => {
   return url.toString();
 };
 
-// Optimai branding and content constants
-export const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663450259077/VZWvecVBL3bTuGctm3Rvj5/optimai-logo_fe7fc21e.png";
+// OptimAI branding and content constants
+export const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663450259077/VZWvecVBL3bTuGctm3Rvj5/OptimAI_Light_Purple_InifnityArrow_be421b66.png";
+export const LOGO_ICON_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663450259077/VZWvecVBL3bTuGctm3Rvj5/OptimAI_Light_Purple_InifnityArrow_be421b66.png";
 
 export const NAVIGATION = [
   { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
+  { label: "All Services", href: "/services" },
+  { label: "Why OptimAI", href: "/why-optimai" },
   { label: "Resources", href: "/resources" },
   { label: "Contact", href: "/contact" },
 ];
@@ -29,7 +31,7 @@ export const NAVIGATION = [
 export const SERVICES = [
   {
     id: "strategic-advisory",
-    title: "All Services - Strategic Advisory & Consulting",
+    title: "Our Core Services - Strategic Advisory & Consulting",
     description: "Expert guidance on automation and AI adoption tailored for your business",
     icon: "🎯",
     details: [
@@ -96,13 +98,13 @@ export const TESTIMONIALS = [
   {
     name: "Sarah Chen",
     role: "Founder & CEO, TechStart Co",
-    content: "Optimai transformed our operations. We went from manual processes taking 40 hours per week to fully automated workflows. The ROI was immediate.",
+    content: "OptimAI transformed our operations. We went from manual processes taking 40 hours per week to fully automated workflows. The ROI was immediate.",
     image: "👩‍💼",
   },
   {
     name: "Marcus Johnson",
     role: "Operations Director, GrowthHub SME",
-    content: "The team at Optimai understood our pain points instantly. Their AI integration saved us $150k annually while improving our customer satisfaction scores.",
+    content: "The team at OptimAI understood our pain points instantly. Their AI integration saved us $150k annually while improving our customer satisfaction scores.",
     image: "👨‍💼",
   },
   {
@@ -189,7 +191,7 @@ export const PRICING_TIERS = [
       "Team Training & Documentation",
       "3-Month Support Included",
     ],
-    cta: "Explore Services",
+    cta: "Check out what we do",
     highlighted: true,
   },
   {

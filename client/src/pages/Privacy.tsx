@@ -19,7 +19,7 @@ export default function Privacy() {
               <h2 className="text-2xl font-bold text-foreground mb-4">Privacy Policy</h2>
               <p>Last updated: April 2026</p>
               <p className="mt-4">
-                At Optimai, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
+                At OptimAI, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
               </p>
             </div>
 
