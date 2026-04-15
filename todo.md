@@ -94,8 +94,8 @@
 ## Backend Integration
 - [x] tRPC procedures for form submissions
 - [x] Owner notification system
-- [ ] Database schema for submissions and leads (optional)
-- [ ] Chatbot conversation storage (optional)
+- [ ] Database schema for submissions and leads (future enhancement)
+- [ ] Chatbot conversation storage (future enhancement)
 
 ## Testing & Deployment
 - [x] Vitest unit tests for critical components
