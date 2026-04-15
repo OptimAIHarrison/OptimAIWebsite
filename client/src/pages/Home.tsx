@@ -59,14 +59,14 @@ export default function Home() {
           initial="hidden"
           animate="visible"
         >
-          {/* Centered Content */}
-          <motion.div variants={itemVariants} className="space-y-8 text-center max-w-3xl">
+          {/* Centered Content in Glass Container */}
+          <motion.div variants={itemVariants} className="glass-card p-12 lg:p-16 space-y-8 text-center max-w-3xl">
               <div className="space-y-4">
                 <motion.div
                   className="inline-block"
                   variants={itemVariants}
                 >
-                  <span className="px-4 py-2 rounded-full bg-purple-600/20 border border-purple-500/50 text-purple-300 text-sm font-medium">
+                  <span className="px-4 py-2 rounded-full bg-purple-600/20 border border-purple-500/50 text-foreground text-sm font-medium">
                     Your Growth Partner in AI & Automation
                   </span>
                 </motion.div>
@@ -75,14 +75,14 @@ export default function Home() {
                   variants={itemVariants}
                   className="text-5xl lg:text-7xl font-bold leading-tight"
                 >
-                  <span className="gradient-text">Scale Your Business</span>
+                  <span className="text-foreground">Scale Your Business</span>
                   <br />
                   <span className="text-foreground">with Practical AI and Automation</span>
                 </motion.h1>
 
                 <motion.p
                   variants={itemVariants}
-                  className="text-xl text-foreground/70 max-w-2xl"
+                  className="text-xl text-foreground/70 max-w-2xl ml-auto"
                 >
                   Understandable, scalable, and human-centered AI solutions that drive real results. We make automation practical and accessible, so your team can focus on what matters most.
                 </motion.p>
@@ -128,8 +128,8 @@ export default function Home() {
                   <p className="text-foreground/70 text-sm">Client Satisfaction</p>
                 </div>
               </motion.div>
+            </motion.div>
           </motion.div>
-        </motion.div>
       </section>
 
       {/* Services Preview Section */}

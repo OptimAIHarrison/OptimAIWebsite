@@ -128,3 +128,13 @@
 - [x] Reverse theme back to light background with darker text for better readability
 - [x] Increase container opacity so they don't get lost in the background
 - [x] Ensure all text has sufficient contrast for vision accessibility
+- [x] Create dropdown under Why Optimai for Case Studies, About Optimai, and FAQ
+- [x] Add ROI Calculator outline button next to Free Audit in header
+- [x] Redesign logo: bigger, remove white space, prominent infinity arrow, black text, purple background
+- [x] Make header slightly bigger
+- [x] Align subheadline text to the right
+- [x] Make "Your Growth Partner" text black
+- [x] Darken "Scale Your Business" headline
+- [x] Center About Optimai page content
+- [x] Center Why Optimai page content
+- [x] Wrap all hero content in a liquid glass container

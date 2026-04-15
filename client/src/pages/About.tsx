@@ -19,12 +19,12 @@ export default function About() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <section className="pt-32 pb-20 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
-        <motion.div className="container mx-auto px-4" variants={containerVariants} initial="hidden" animate="visible">
+      <section className="pt-32 pb-20 bg-background">
+        <motion.div className="container mx-auto px-4 text-center" variants={containerVariants} initial="hidden" animate="visible">
           <motion.h1 variants={itemVariants} className="text-5xl lg:text-6xl font-bold mb-6">
             About <span className="gradient-text">Optimai</span>
           </motion.h1>
-          <motion.p variants={itemVariants} className="text-xl text-foreground/70 max-w-3xl">
+          <motion.p variants={itemVariants} className="text-xl text-foreground/70 max-w-3xl mx-auto">
             We're a team of AI and automation experts dedicated to helping SMEs and startups unlock their full potential through practical, results-driven solutions.
           </motion.p>
         </motion.div>

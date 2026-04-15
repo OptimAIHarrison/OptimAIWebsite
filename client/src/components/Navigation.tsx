@@ -2,36 +2,73 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { LOGO_URL, NAVIGATION } from "@/const";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background backdrop-blur-xl border-b border-foreground/15">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-5">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/">
-            <a className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-              <img src={LOGO_URL} alt="Optimai" className="h-10 w-auto" />
-              <span className="text-xl font-bold gradient-text hidden sm:inline">Optimai</span>
+            <a className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+              <div className="bg-secondary rounded-lg p-2">
+                <img src={LOGO_URL} alt="Optimai" className="h-14 w-auto" />
+              </div>
+              <span className="text-2xl font-bold text-foreground hidden sm:inline">Optimai</span>
             </a>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
-            {NAVIGATION.map((item) => (
-              <Link key={item.href} href={item.href}>
-                <a className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent transition-colors">
-                  {item.label}
-                </a>
-              </Link>
-            ))}
+            {NAVIGATION.map((item) => {
+              if (item.label === "Why Optimai") {
+                return (
+                  <div key={item.href} className="relative group">
+                    <button className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent transition-colors flex items-center gap-1">
+                      {item.label}
+                      <ChevronDown size={16} />
+                    </button>
+                    <div className="absolute left-0 mt-0 w-48 bg-background border border-foreground/15 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                      <Link href="/about">
+                        <a className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-secondary rounded-t-lg transition-colors">
+                          About Optimai
+                        </a>
+                      </Link>
+                      <Link href="/case-studies">
+                        <a className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-secondary transition-colors">
+                          Case Studies
+                        </a>
+                      </Link>
+                      <Link href="/faq">
+                        <a className="block px-4 py-2 text-sm font-medium text-foreground/80 hover:text-accent hover:bg-secondary rounded-b-lg transition-colors">
+                          FAQ
+                        </a>
+                      </Link>
+                    </div>
+                  </div>
+                );
+              }
+              return (
+                <Link key={item.href} href={item.href}>
+                  <a className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent transition-colors">
+                    {item.label}
+                  </a>
+                </Link>
+              );
+            })}
           </div>
 
-          {/* CTA Button + Mobile Menu */}
-          <div className="flex items-center gap-4">
+          {/* CTA Buttons + Mobile Menu */}
+          <div className="flex items-center gap-3">
+            <Link href="/roi-calculator">
+              <Button className="hidden sm:inline-flex bg-transparent border-2 border-accent text-accent hover:bg-accent/10">
+                ROI Calculator
+              </Button>
+            </Link>
             <Link href="/free-audit">
               <Button className="hidden sm:inline-flex bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0">
                 Get Free Audit
