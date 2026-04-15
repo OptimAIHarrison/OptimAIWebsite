@@ -171,12 +171,16 @@ export default function Home() {
                     {service.title}
                   </h3>
                   <p className="text-foreground/70 text-sm flex-grow">{service.description}</p>
-                  <Link href="/services">
-                    <a className="text-accent hover:text-accent/80 font-medium text-sm mt-4 inline-flex items-center gap-1">
-                      More
-                      <ArrowRight size={16} />
-                    </a>
-                  </Link>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      window.location.href = '/services';
+                    }}
+                    className="text-accent hover:text-accent/80 font-medium text-xs mt-4 inline-flex items-center gap-1 bg-transparent border-0 p-0 cursor-pointer"
+                  >
+                    More
+                    <ArrowRight size={14} />
+                  </button>
                 </div>
               </motion.div>
             ))}

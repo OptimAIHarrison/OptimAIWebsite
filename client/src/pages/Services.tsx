@@ -101,7 +101,7 @@ export default function Services() {
                 <button
                   key={service.id}
                   onClick={() => handleServiceButtonClick(service.id)}
-                  className={`p-3 rounded-lg font-semibold text-xs md:text-sm transition-all text-center border-2 ${
+                  className={`px-6 py-4 rounded-lg font-semibold text-sm md:text-base transition-all text-center border-2 ${
                     expanded === service.id
                       ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-purple-600"
                       : "bg-transparent text-foreground border-purple-300/50 hover:border-purple-500 hover:bg-purple-500/5"

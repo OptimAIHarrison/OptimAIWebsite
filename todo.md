@@ -191,3 +191,14 @@
 - [x] Make Simple/Technical buttons look like radio buttons (touching in middle)
 - [x] Make logo bigger in header
 - [x] Make OptimAI text smaller in header
+
+
+## Latest Refinements (Round 7)
+- [x] Make buttons on Services page bigger
+- [x] Redesign ROI Calculator with employee, automation %, revenue, and manual hours sliders
+- [x] Add clear ROI calculation logic explanation
+- [x] Add "no data captured or stored" message to ROI Calculator
+- [x] Move Why OptimAI to before Contact (after Resources) in navigation
+- [x] Fix nested anchor tag error in Home page service cards
+- [ ] Add extended technical details to home page service containers (future enhancement)
+- [x] Make More buttons smaller and only navigate when clicked
