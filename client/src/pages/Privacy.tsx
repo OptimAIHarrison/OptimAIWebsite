@@ -6,7 +6,7 @@ export default function Privacy() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      <section className="pt-32 pb-20 bg-gradient-to-b from-purple-900/10 to-transparent">
+      <section className="pt-32 pb-20 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
         <motion.div className="container mx-auto px-4">
           <h1 className="text-5xl lg:text-6xl font-bold mb-6">Privacy Policy</h1>
         </motion.div>

@@ -44,11 +44,13 @@ export default function Home() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen pt-24 pb-20 overflow-hidden flex items-center bg-gradient-to-br from-purple-200/40 via-purple-100/20 to-pink-100/20">
-        {/* Animated background gradient */}
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-400/10 rounded-full blur-3xl animate-pulse" />
+      <section className="relative min-h-screen pt-24 pb-20 overflow-hidden flex items-center">
+        {/* Premium gradient background matching inspiration */}
+        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-purple-100 via-purple-50 to-pink-50">
+          {/* Flowing diagonal gradient elements */}
+          <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-purple-200/30 via-purple-100/20 to-transparent" />
+          <div className="absolute top-1/4 right-0 w-2/3 h-3/4 bg-gradient-to-bl from-pink-200/20 via-purple-100/15 to-transparent" />
+          <div className="absolute bottom-0 left-1/3 w-1/2 h-1/3 bg-gradient-to-t from-purple-100/25 via-transparent to-transparent" />
         </div>
 
         <motion.div
@@ -134,7 +136,7 @@ export default function Home() {
       </section>
 
       {/* Services Preview Section */}
-      <section className="py-20 bg-gradient-to-b from-purple-900/10 to-transparent">
+      <section className="py-20 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
         <motion.div
           className="container mx-auto px-4"
           variants={containerVariants}
@@ -278,7 +280,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Carousel */}
-      <section className="py-20 bg-gradient-to-b from-purple-900/10 to-transparent">
+      <section className="py-20 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
         <motion.div
           className="container mx-auto px-4"
           variants={containerVariants}
