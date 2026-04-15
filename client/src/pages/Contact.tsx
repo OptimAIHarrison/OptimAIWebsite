@@ -1,10 +1,16 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { trpc } from "@/lib/trpc";
+import { toast } from "sonner";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({ name: "", email: "", company: "", message: "" });
+  const submitContact = trpc.forms.submitContact.useMutation();
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -96,41 +102,73 @@ export default function Contact() {
             {/* Contact Form */}
             <motion.div variants={itemVariants} className="glass-card p-8">
               <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
-              <form className="space-y-6">
+              <form
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  try {
+                    const result = await submitContact.mutateAsync(formData);
+                    if (result.success) {
+                      toast.success(result.message);
+                      setFormData({ name: "", email: "", company: "", message: "" });
+                    } else {
+                      toast.error(result.message);
+                    }
+                  } catch (error: any) {
+                    toast.error(error.message || "Failed to send message");
+                  }
+                }}
+                className="space-y-6"
+              >
                 <div>
                   <label className="block text-sm font-medium mb-2">Name</label>
                   <input
                     type="text"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent"
                     placeholder="Your name"
+                    required
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">Email</label>
                   <input
                     type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent"
                     placeholder="your@email.com"
+                    required
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">Company</label>
                   <input
                     type="text"
+                    value={formData.company}
+                    onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent"
                     placeholder="Your company"
+                    required
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium mb-2">Message</label>
                   <textarea
                     rows={4}
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent"
                     placeholder="Tell us about your project..."
+                    required
                   />
                 </div>
-                <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 text-lg py-6 rounded-xl">
-                  Send Message
+                <Button
+                  type="submit"
+                  disabled={submitContact.isPending}
+                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 text-lg py-6 rounded-xl disabled:opacity-50"
+                >
+                  {submitContact.isPending ? "Sending..." : "Send Message"}
                   <ArrowRight className="ml-2" size={20} />
                 </Button>
               </form>
