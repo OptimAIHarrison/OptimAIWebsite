@@ -45,9 +45,9 @@ export default function AdminLogin() {
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-accent/5 flex flex-col">
       <Navigation />
 
-      <main className="flex-1 flex items-center justify-center px-4 py-12">
+      <main className="flex-1 flex items-center justify-center px-4 py-20 pt-32">
         <div className="w-full max-w-md">
-          <div className="bg-white/5 border-2 border-white/40 rounded-lg p-8">
+          <div className="bg-white/5 border-2 border-white/50 rounded-lg p-8">
             <div className="mb-8">
               <h1 className="text-3xl font-bold text-foreground mb-2">Admin Login</h1>
               <p className="text-foreground/60">Access the OptimAI admin dashboard</p>
