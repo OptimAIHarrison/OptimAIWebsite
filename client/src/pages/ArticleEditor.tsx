@@ -204,7 +204,7 @@ export default function ArticleEditor() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-white/10">
+      <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-purple-900/20">
         <div className="container mx-auto px-4 max-w-6xl flex items-center justify-between h-20">
           <button
             onClick={() => setLocation('/admin')}
@@ -230,7 +230,7 @@ export default function ArticleEditor() {
           {/* Editor */}
           <div className="lg:col-span-2 space-y-8">
             {/* Title & Slug */}
-            <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-4">
+            <div className="bg-white/5 border border-purple-900/20 rounded-lg p-6 space-y-4">
               <h2 className="text-xl font-bold text-foreground">Content</h2>
               
               <div>
@@ -240,7 +240,7 @@ export default function ArticleEditor() {
                   value={article.title}
                   onChange={(e) => setArticle({ ...article, title: e.target.value, slug: e.target.value.toLowerCase().replace(/\s+/g, '-') })}
                   placeholder="Article title"
-                  className="w-full px-4 py-3 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
+                  className="w-full px-4 py-3 bg-white/5 border-2 border-purple-900/40 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-purple-700/50 focus:border-purple-700/60 transition-all"
                 />
               </div>
 
@@ -251,7 +251,7 @@ export default function ArticleEditor() {
                   value={article.slug}
                   onChange={(e) => setArticle({ ...article, slug: e.target.value })}
                   placeholder="article-slug"
-                  className="w-full px-4 py-3 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
+                  className="w-full px-4 py-3 bg-white/5 border-2 border-purple-900/40 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-purple-700/50 focus:border-purple-700/60 transition-all"
                 />
               </div>
 
@@ -262,7 +262,7 @@ export default function ArticleEditor() {
                   onChange={(e) => setArticle({ ...article, excerpt: e.target.value })}
                   placeholder="Brief summary of the article"
                   rows={3}
-                  className="w-full px-4 py-3 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
+                  className="w-full px-4 py-3 bg-white/5 border-2 border-purple-900/40 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-purple-700/50 focus:border-purple-700/60 transition-all"
                 />
               </div>
 
@@ -273,13 +273,13 @@ export default function ArticleEditor() {
                   onChange={(e) => setArticle({ ...article, content: e.target.value })}
                   placeholder="Write your article content here..."
                   rows={15}
-                  className="w-full px-4 py-3 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all font-mono text-sm"
+                  className="w-full px-4 py-3 bg-white/5 border-2 border-purple-900/40 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-purple-700/50 focus:border-purple-700/60 transition-all font-mono text-sm"
                 />
               </div>
             </div>
 
             {/* Tags */}
-            <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-4">
+            <div className="bg-white/5 border border-purple-900/20 rounded-lg p-6 space-y-4">
               <h3 className="text-lg font-bold text-foreground">Tags</h3>
               <div className="flex gap-2">
                 <input
@@ -288,7 +288,7 @@ export default function ArticleEditor() {
                   onChange={(e) => setNewTag(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleAddTag()}
                   placeholder="Add a tag..."
-                  className="flex-1 px-4 py-2 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                  className="flex-1 px-4 py-2 bg-white/5 border-2 border-purple-900/40 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50"
                 />
                 <Button onClick={handleAddTag} className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-lg">
                   Add
@@ -333,7 +333,7 @@ export default function ArticleEditor() {
             </div>
 
             {/* Embeds */}
-            <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-6">
+            <div className="bg-white/5 border border-purple-900/20 rounded-lg p-6 space-y-6">
               <h3 className="text-lg font-bold text-foreground">Embed Links & Videos</h3>
               
               {/* Links */}
@@ -345,7 +345,7 @@ export default function ArticleEditor() {
                     value={newLink}
                     onChange={(e) => setNewLink(e.target.value)}
                     placeholder="https://example.com"
-                    className="flex-1 px-4 py-2 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="flex-1 px-4 py-2 bg-white/5 border-2 border-purple-900/40 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                   <Button onClick={handleAddLink} className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-lg">
                     Add Link
@@ -353,7 +353,7 @@ export default function ArticleEditor() {
                 </div>
                 <div className="space-y-2">
                   {article.embedLinks.map((link, idx) => (
-                    <div key={idx} className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10">
+                    <div key={idx} className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-purple-900/20">
                       <a href={link} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline text-sm truncate">
                         {link}
                       </a>
@@ -374,7 +374,7 @@ export default function ArticleEditor() {
                     value={newVideo}
                     onChange={(e) => setNewVideo(e.target.value)}
                     placeholder="https://youtube.com/watch?v=..."
-                    className="flex-1 px-4 py-2 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="flex-1 px-4 py-2 bg-white/5 border-2 border-purple-900/40 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                   <Button onClick={handleAddVideo} className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-lg">
                     Add Video
@@ -382,7 +382,7 @@ export default function ArticleEditor() {
                 </div>
                 <div className="space-y-2">
                   {article.embedVideos.map((video, idx) => (
-                    <div key={idx} className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-white/10">
+                    <div key={idx} className="flex items-center justify-between p-3 bg-white/5 rounded-lg border border-purple-900/20">
                       <span className="text-accent text-sm truncate">{video}</span>
                       <button onClick={() => setArticle({ ...article, embedVideos: article.embedVideos.filter((_, i) => i !== idx) })}>
                         <X className="w-4 h-4 text-foreground/60" />
@@ -397,12 +397,12 @@ export default function ArticleEditor() {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Status */}
-            <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-4">
+            <div className="bg-white/5 border border-purple-900/20 rounded-lg p-6 space-y-4">
               <h3 className="text-lg font-bold text-foreground">Status</h3>
               <select
                 value={article.status}
                 onChange={(e) => setArticle({ ...article, status: e.target.value as any })}
-                className="w-full px-4 py-2 bg-white/5 border-2 border-white/30 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50"
+                className="w-full px-4 py-2 bg-white/5 border-2 border-purple-900/40 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50"
               >
                 <option value="draft">Draft</option>
                 <option value="published">Published</option>
@@ -412,7 +412,7 @@ export default function ArticleEditor() {
 
             {/* Schedule */}
             {article.status === 'scheduled' && (
-              <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-4">
+              <div className="bg-white/5 border border-purple-900/20 rounded-lg p-6 space-y-4">
                 <h3 className="text-lg font-bold text-foreground">Schedule (AEST)</h3>
                 <div>
                   <label className="block text-sm font-semibold text-foreground mb-2">Date</label>
@@ -420,7 +420,7 @@ export default function ArticleEditor() {
                     type="date"
                     value={scheduleDate}
                     onChange={(e) => setScheduleDate(e.target.value)}
-                    className="w-full px-4 py-2 bg-white/5 border-2 border-white/30 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="w-full px-4 py-2 bg-white/5 border-2 border-purple-900/40 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
                 <div>
@@ -429,7 +429,7 @@ export default function ArticleEditor() {
                     type="time"
                     value={scheduleTime}
                     onChange={(e) => setScheduleTime(e.target.value)}
-                    className="w-full px-4 py-2 bg-white/5 border-2 border-white/30 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="w-full px-4 py-2 bg-white/5 border-2 border-purple-900/40 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
                 {scheduleDate && scheduleTime && (
@@ -441,7 +441,7 @@ export default function ArticleEditor() {
             )}
 
             {/* SEO */}
-            <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-4">
+            <div className="bg-white/5 border border-purple-900/20 rounded-lg p-6 space-y-4">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-bold text-foreground">SEO</h3>
                 <label className="flex items-center gap-2 cursor-pointer">
@@ -463,7 +463,7 @@ export default function ArticleEditor() {
                   onChange={(e) => setArticle({ ...article, seoTitle: e.target.value })}
                   placeholder="SEO title (60 chars)"
                   maxLength={60}
-                  className="w-full px-4 py-2 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 text-sm"
+                  className="w-full px-4 py-2 bg-white/5 border-2 border-purple-900/40 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 text-sm"
                 />
                 <p className="text-xs text-foreground/40 mt-1">{article.seoTitle.length}/60</p>
               </div>
@@ -476,7 +476,7 @@ export default function ArticleEditor() {
                   placeholder="Meta description (160 chars)"
                   maxLength={160}
                   rows={3}
-                  className="w-full px-4 py-2 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 text-sm"
+                  className="w-full px-4 py-2 bg-white/5 border-2 border-purple-900/40 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 text-sm"
                 />
                 <p className="text-xs text-foreground/40 mt-1">{article.seoDescription.length}/160</p>
               </div>
@@ -488,13 +488,13 @@ export default function ArticleEditor() {
                   value={article.seoKeywords}
                   onChange={(e) => setArticle({ ...article, seoKeywords: e.target.value })}
                   placeholder="keyword1, keyword2, keyword3"
-                  className="w-full px-4 py-2 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 text-sm"
+                  className="w-full px-4 py-2 bg-white/5 border-2 border-purple-900/40 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 text-sm"
                 />
               </div>
             </div>
 
             {/* PDF Upload */}
-            <div className="bg-white/5 border border-white/10 rounded-lg p-6 space-y-4">
+            <div className="bg-white/5 border border-purple-900/20 rounded-lg p-6 space-y-4">
               <h3 className="text-lg font-bold text-foreground">PDF Download</h3>
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
@@ -509,7 +509,7 @@ export default function ArticleEditor() {
               {article.pdf && (
                 <div className="space-y-3">
                   {article.pdf.url ? (
-                    <div className="p-3 bg-white/10 rounded-lg flex items-center justify-between border border-white/10">
+                    <div className="p-3 bg-white/10 rounded-lg flex items-center justify-between border border-purple-900/20">
                       <span className="text-sm text-accent truncate">PDF uploaded</span>
                       <button
                         onClick={() => setArticle({ ...article, pdf: { ...article.pdf!, url: '' } })}
@@ -558,23 +558,23 @@ export default function ArticleEditor() {
       {/* Preview Modal */}
       {showPreview && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-background rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border-2 border-white/30">
+          <div className="bg-background rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border-2 border-purple-900/40">
             <div className="p-8">
               <h2 className="text-3xl font-bold mb-4 text-foreground">Preview Article</h2>
-              <div className="mb-6 pb-6 border-b border-white/10">
+              <div className="mb-6 pb-6 border-b border-purple-900/20">
                 <p className="text-sm text-foreground/60 mb-2">Status: <span className="font-semibold text-accent">{article.status.toUpperCase()}</span></p>
                 <h3 className="text-2xl font-bold text-foreground mb-2">{article.title}</h3>
                 <p className="text-foreground/70">{article.excerpt}</p>
               </div>
               
-              <div className="mb-6 pb-6 border-b border-white/10">
+              <div className="mb-6 pb-6 border-b border-purple-900/20">
                 <h4 className="font-semibold text-foreground mb-2">Content Preview</h4>
                 <p className="text-foreground/70 whitespace-pre-wrap line-clamp-4">{article.content}</p>
               </div>
 
               {article.tags.length > 0 && (
-                <div className="mb-6 pb-6 border-b border-white/10">
-                  <h4 className="font-semibold text-foreground mb-2">Tags</h4>
+                <div className="mb-6 pb-6 border-b border-purple-900/20">
+                  <h4 className="font-semibold mb-2">Tags</h4>
                   <div className="flex flex-wrap gap-2">
                     {article.tags.map(tag => (
                       <span key={tag} className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm">{tag}</span>
@@ -605,7 +605,7 @@ export default function ArticleEditor() {
       {/* Confirmation Modal */}
       {showConfirm && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-background rounded-2xl max-w-md w-full border-2 border-white/30">
+          <div className="bg-background rounded-2xl max-w-md w-full border-2 border-purple-900/40">
             <div className="p-8">
               <h2 className="text-2xl font-bold mb-4 text-foreground">Confirm Publication</h2>
               <p className="text-foreground/70 mb-6">

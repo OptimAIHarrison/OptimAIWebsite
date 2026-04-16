@@ -125,7 +125,7 @@ export default function Contact() {
                     type="text"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-white/5 border-2 border-white/30 rounded-lg px-4 py-2 text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent"
+                    className="w-full bg-white/5 border-2 border-purple-900/40 rounded-lg px-4 py-2 text-foreground placeholder-foreground/50 focus:outline-none focus:border-purple-700/60"
                     placeholder="Your name"
                     required
                   />
@@ -136,7 +136,7 @@ export default function Contact() {
                     type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-white/5 border-2 border-white/30 rounded-lg px-4 py-2 text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent"
+                    className="w-full bg-white/5 border-2 border-purple-900/40 rounded-lg px-4 py-2 text-foreground placeholder-foreground/50 focus:outline-none focus:border-purple-700/60"
                     placeholder="your@email.com"
                     required
                   />
@@ -147,7 +147,7 @@ export default function Contact() {
                     type="text"
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                    className="w-full bg-white/5 border-2 border-white/30 rounded-lg px-4 py-2 text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent"
+                    className="w-full bg-white/5 border-2 border-purple-900/40 rounded-lg px-4 py-2 text-foreground placeholder-foreground/50 focus:outline-none focus:border-purple-700/60"
                     placeholder="Your company"
                     required
                   />
@@ -158,7 +158,7 @@ export default function Contact() {
                     rows={4}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full bg-white/5 border-2 border-white/30 rounded-lg px-4 py-2 text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent"
+                    className="w-full bg-white/5 border-2 border-purple-900/40 rounded-lg px-4 py-2 text-foreground placeholder-foreground/50 focus:outline-none focus:border-purple-700/60"
                     placeholder="Tell us about your project..."
                     required
                   />

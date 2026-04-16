@@ -40,7 +40,7 @@ export default function Login() {
 
       {/* Login Card */}
       <div className="relative z-10 w-full max-w-md">
-        <div className="bg-white/5 border-2 border-white/30 backdrop-blur-xl rounded-2xl p-8 md:p-10">
+        <div className="bg-white/5 border-2 border-purple-900/40 backdrop-blur-xl rounded-2xl p-8 md:p-10">
           {/* Header */}
           <div className="text-center mb-8">
             <div className="flex justify-center mb-4">
@@ -66,7 +66,7 @@ export default function Login() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="harrison@optimai.com.au"
-                  className="w-full pl-10 pr-4 py-3 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
+                  className="w-full pl-10 pr-4 py-3 bg-white/5 border-2 border-purple-900/40 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-purple-700/50 focus:border-purple-700/60 transition-all"
                   required
                 />
               </div>
@@ -84,7 +84,7 @@ export default function Login() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter your password"
-                  className="w-full pl-10 pr-4 py-3 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
+                  className="w-full pl-10 pr-4 py-3 bg-white/5 border-2 border-purple-900/40 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-purple-700/50 focus:border-purple-700/60 transition-all"
                   required
                 />
               </div>

@@ -323,3 +323,9 @@
 - [x] Darken borders on Contact form (reduce contrast, darker purple)
 - [x] Darken borders on Login page (reduce contrast, darker purple)
 - [x] Darken borders on Article Editor (reduce contrast, darker purple)
+
+
+## Current Work (Round 23 - Border Fix + Article Routes)
+- [x] Fix borders: Replace white-tinted borders with actual dark purple (border-purple-900/40 or similar) on Contact, Login, Article Editor
+- [x] Create `/articles/:slug` route to display full article pages
+- [x] Fix "Read Article" button in Resources popup to navigate to `/articles/:slug`

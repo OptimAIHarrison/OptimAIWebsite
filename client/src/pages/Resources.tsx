@@ -9,6 +9,7 @@ import { ArrowRight, X } from "lucide-react";
 const DEFAULT_ARTICLES = [
   {
     id: "ai-automation-smb",
+    slug: "ai-automation-smb",
     title: "The Complete Guide to AI Automation for SMBs",
     excerpt: "Discover how small and medium-sized businesses are leveraging AI to automate operations, reduce costs, and scale faster than ever before.",
     category: "AI & Automation",
@@ -20,6 +21,7 @@ const DEFAULT_ARTICLES = [
   },
   {
     id: "marketing-automation-roi",
+    slug: "marketing-automation-roi",
     title: "Marketing Automation: ROI Strategies That Work",
     excerpt: "Learn how to implement marketing automation that actually drives results. We break down the metrics, tools, and strategies that deliver measurable ROI.",
     category: "Marketing",
@@ -31,6 +33,7 @@ const DEFAULT_ARTICLES = [
   },
   {
     id: "business-process-automation",
+    slug: "business-process-automation",
     title: "Business Process Automation: Where to Start",
     excerpt: "Not sure where to begin with BPA? This guide walks you through identifying automation opportunities and implementing solutions that stick.",
     category: "Process Automation",
@@ -42,6 +45,7 @@ const DEFAULT_ARTICLES = [
   },
   {
     id: "ai-integration-challenges",
+    slug: "ai-integration-challenges",
     title: "Common AI Integration Challenges and How to Solve Them",
     excerpt: "Thinking about integrating AI into your business? Learn about common pitfalls and proven solutions from companies that have successfully made the transition.",
     category: "AI Integration",
@@ -53,6 +57,7 @@ const DEFAULT_ARTICLES = [
   },
   {
     id: "automation-best-practices",
+    slug: "automation-best-practices",
     title: "5 Best Practices for Successful Automation",
     excerpt: "Whether you're automating marketing, sales, or operations, these five principles will help ensure your automation projects deliver real value.",
     category: "Best Practices",
@@ -64,6 +69,7 @@ const DEFAULT_ARTICLES = [
   },
   {
     id: "future-of-automation",
+    slug: "future-of-automation",
     title: "The Future of Automation: What's Next?",
     excerpt: "Explore emerging trends in automation and AI, and discover how to prepare your business for the opportunities ahead.",
     category: "Industry Trends",
@@ -303,10 +309,12 @@ export default function Resources() {
                 </div>
               )}
 
-              <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2">
-                Read Full Article
-                <ArrowRight size={20} />
-              </Button>
+              <a href={`/articles/${selectedArticleData.slug || selectedArticleData.id}`}>
+                <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2">
+                  Read Full Article
+                  <ArrowRight size={20} />
+                </Button>
+              </a>
             </div>
           </motion.div>
         </motion.div>
