@@ -299,3 +299,10 @@
 - [x] Build article management table with edit/delete/view actions
 - [x] Add logout functionality with proper token clearing
 - [x] Update App.tsx routes for new admin structure
+
+
+## Latest Refinements (Round 19 - Admin Bug Fixes)
+- [x] Restore slug auto-generation in ArticleEditor
+- [x] Fix article body editing (restore full editing capabilities)
+- [x] Add borders around all input boxes in ArticleEditor
+- [x] Add borders around all input boxes in Login page
