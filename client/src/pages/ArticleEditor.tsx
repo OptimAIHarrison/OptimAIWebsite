@@ -240,7 +240,7 @@ export default function ArticleEditor() {
                   value={article.title}
                   onChange={(e) => setArticle({ ...article, title: e.target.value, slug: e.target.value.toLowerCase().replace(/\s+/g, '-') })}
                   placeholder="Article title"
-                  className="w-full px-4 py-3 bg-white/5 border-2 border-white/20 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
+                  className="w-full px-4 py-3 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
                 />
               </div>
 
@@ -251,7 +251,7 @@ export default function ArticleEditor() {
                   value={article.slug}
                   onChange={(e) => setArticle({ ...article, slug: e.target.value })}
                   placeholder="article-slug"
-                  className="w-full px-4 py-3 bg-white/5 border-2 border-white/20 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
+                  className="w-full px-4 py-3 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
                 />
               </div>
 
@@ -262,7 +262,7 @@ export default function ArticleEditor() {
                   onChange={(e) => setArticle({ ...article, excerpt: e.target.value })}
                   placeholder="Brief summary of the article"
                   rows={3}
-                  className="w-full px-4 py-3 bg-white/5 border-2 border-white/20 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
+                  className="w-full px-4 py-3 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
                 />
               </div>
 
@@ -273,7 +273,7 @@ export default function ArticleEditor() {
                   onChange={(e) => setArticle({ ...article, content: e.target.value })}
                   placeholder="Write your article content here..."
                   rows={15}
-                  className="w-full px-4 py-3 bg-white/5 border-2 border-white/20 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all font-mono text-sm"
+                  className="w-full px-4 py-3 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all font-mono text-sm"
                 />
               </div>
             </div>
@@ -288,7 +288,7 @@ export default function ArticleEditor() {
                   onChange={(e) => setNewTag(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && handleAddTag()}
                   placeholder="Add a tag..."
-                  className="flex-1 px-4 py-2 bg-white/5 border-2 border-white/20 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                  className="flex-1 px-4 py-2 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50"
                 />
                 <Button onClick={handleAddTag} className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-lg">
                   Add
@@ -345,7 +345,7 @@ export default function ArticleEditor() {
                     value={newLink}
                     onChange={(e) => setNewLink(e.target.value)}
                     placeholder="https://example.com"
-                    className="flex-1 px-4 py-2 bg-white/5 border-2 border-white/20 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="flex-1 px-4 py-2 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                   <Button onClick={handleAddLink} className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-lg">
                     Add Link
@@ -374,7 +374,7 @@ export default function ArticleEditor() {
                     value={newVideo}
                     onChange={(e) => setNewVideo(e.target.value)}
                     placeholder="https://youtube.com/watch?v=..."
-                    className="flex-1 px-4 py-2 bg-white/5 border-2 border-white/20 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="flex-1 px-4 py-2 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                   <Button onClick={handleAddVideo} className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-lg">
                     Add Video
@@ -402,7 +402,7 @@ export default function ArticleEditor() {
               <select
                 value={article.status}
                 onChange={(e) => setArticle({ ...article, status: e.target.value as any })}
-                className="w-full px-4 py-2 bg-white/5 border-2 border-white/20 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50"
+                className="w-full px-4 py-2 bg-white/5 border-2 border-white/30 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50"
               >
                 <option value="draft">Draft</option>
                 <option value="published">Published</option>
@@ -420,7 +420,7 @@ export default function ArticleEditor() {
                     type="date"
                     value={scheduleDate}
                     onChange={(e) => setScheduleDate(e.target.value)}
-                    className="w-full px-4 py-2 bg-white/5 border-2 border-white/20 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="w-full px-4 py-2 bg-white/5 border-2 border-white/30 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
                 <div>
@@ -429,7 +429,7 @@ export default function ArticleEditor() {
                     type="time"
                     value={scheduleTime}
                     onChange={(e) => setScheduleTime(e.target.value)}
-                    className="w-full px-4 py-2 bg-white/5 border-2 border-white/20 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50"
+                    className="w-full px-4 py-2 bg-white/5 border-2 border-white/30 rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
                 </div>
                 {scheduleDate && scheduleTime && (
@@ -463,7 +463,7 @@ export default function ArticleEditor() {
                   onChange={(e) => setArticle({ ...article, seoTitle: e.target.value })}
                   placeholder="SEO title (60 chars)"
                   maxLength={60}
-                  className="w-full px-4 py-2 bg-white/5 border-2 border-white/20 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 text-sm"
+                  className="w-full px-4 py-2 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 text-sm"
                 />
                 <p className="text-xs text-foreground/40 mt-1">{article.seoTitle.length}/60</p>
               </div>
@@ -476,7 +476,7 @@ export default function ArticleEditor() {
                   placeholder="Meta description (160 chars)"
                   maxLength={160}
                   rows={3}
-                  className="w-full px-4 py-2 bg-white/5 border-2 border-white/20 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 text-sm"
+                  className="w-full px-4 py-2 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 text-sm"
                 />
                 <p className="text-xs text-foreground/40 mt-1">{article.seoDescription.length}/160</p>
               </div>
@@ -488,7 +488,7 @@ export default function ArticleEditor() {
                   value={article.seoKeywords}
                   onChange={(e) => setArticle({ ...article, seoKeywords: e.target.value })}
                   placeholder="keyword1, keyword2, keyword3"
-                  className="w-full px-4 py-2 bg-white/5 border-2 border-white/20 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 text-sm"
+                  className="w-full px-4 py-2 bg-white/5 border-2 border-white/30 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50 text-sm"
                 />
               </div>
             </div>
@@ -558,7 +558,7 @@ export default function ArticleEditor() {
       {/* Preview Modal */}
       {showPreview && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-background rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border-2 border-white/20">
+          <div className="bg-background rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border-2 border-white/30">
             <div className="p-8">
               <h2 className="text-3xl font-bold mb-4 text-foreground">Preview Article</h2>
               <div className="mb-6 pb-6 border-b border-white/10">
@@ -605,7 +605,7 @@ export default function ArticleEditor() {
       {/* Confirmation Modal */}
       {showConfirm && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-background rounded-2xl max-w-md w-full border-2 border-white/20">
+          <div className="bg-background rounded-2xl max-w-md w-full border-2 border-white/30">
             <div className="p-8">
               <h2 className="text-2xl font-bold mb-4 text-foreground">Confirm Publication</h2>
               <p className="text-foreground/70 mb-6">

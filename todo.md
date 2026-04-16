@@ -317,3 +317,9 @@
 
 ## Latest Refinements (Round 21 - Favicon Update)
 - [x] Set OptimAI logo as favicon across all pages
+
+
+## Latest Refinements (Round 22 - Darker Borders)
+- [x] Darken borders on Contact form (reduce contrast, darker purple)
+- [x] Darken borders on Login page (reduce contrast, darker purple)
+- [x] Darken borders on Article Editor (reduce contrast, darker purple)
