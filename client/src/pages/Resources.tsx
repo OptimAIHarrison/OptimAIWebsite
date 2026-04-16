@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 
-// EDITABLE: Add or modify articles here
-const ARTICLES = [
+// Default articles
+const DEFAULT_ARTICLES = [
   {
     id: "ai-automation-smb",
     title: "The Complete Guide to AI Automation for SMBs",
@@ -78,14 +78,44 @@ const ARTICLES = [
 const CATEGORIES = ["All", "AI & Automation", "Marketing", "Process Automation", "AI Integration", "Best Practices", "Industry Trends"];
 
 export default function Resources() {
+  const [articles, setArticles] = useState(DEFAULT_ARTICLES);
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedArticle, setSelectedArticle] = useState<string | null>(null);
 
-  const filteredArticles = selectedCategory === "All" 
-    ? ARTICLES 
-    : ARTICLES.filter(article => article.category === selectedCategory);
+  useEffect(() => {
+    // Load published articles from localStorage
+    const savedArticles = JSON.parse(localStorage.getItem('articles') || '[]');
+    const publishedArticles = savedArticles
+      .filter((article: any) => article.status === 'published')
+      .map((article: any) => ({
+        id: article.slug,
+        title: article.title,
+        excerpt: article.excerpt,
+        category: article.tags?.[0] || 'AI & Automation',
+        readTime: article.readTime || '5 min read',
+        author: 'OptimAI Team',
+        date: new Date(article.publishedAt || article.createdAt).toLocaleDateString('en-AU', { year: 'numeric', month: 'short', day: 'numeric' }),
+        image: article.featuredImage || 'https://images.unsplash.com/photo-1677442d019cecf8e5c1a1a10b53d537?w=600&h=400&fit=crop',
+        content: article.content,
+        slug: article.slug,
+        seoTitle: article.seoTitle,
+        seoDescription: article.seoDescription,
+        tags: article.tags,
+        pdf: article.pdf,
+        embedLinks: article.embedLinks,
+        embedVideos: article.embedVideos
+      }));
 
-  const selectedArticleData = ARTICLES.find(a => a.id === selectedArticle);
+    // Combine published articles with defaults
+    const allArticles = [...publishedArticles, ...DEFAULT_ARTICLES];
+    setArticles(allArticles);
+  }, []);
+
+  const filteredArticles = selectedCategory === "All" 
+    ? articles 
+    : articles.filter(article => article.category === selectedCategory);
+
+  const selectedArticleData = articles.find(a => a.id === selectedArticle);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -217,7 +247,7 @@ export default function Resources() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+            className="bg-background rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-white/10"
           >
             <div className="relative h-64 overflow-hidden">
               <img 
@@ -227,9 +257,9 @@ export default function Resources() {
               />
               <button
                 onClick={() => setSelectedArticle(null)}
-                className="absolute top-4 right-4 bg-white rounded-full p-2 hover:bg-gray-100 transition-colors"
+                className="absolute top-4 right-4 bg-background/80 rounded-full p-2 hover:bg-background transition-colors"
               >
-                ✕
+                <X className="w-6 h-6 text-foreground" />
               </button>
             </div>
             <div className="p-8">
@@ -238,7 +268,7 @@ export default function Resources() {
                   {selectedArticleData.category}
                 </span>
               </div>
-              <h2 className="text-3xl font-bold mb-4">{selectedArticleData.title}</h2>
+              <h2 className="text-3xl font-bold mb-4 text-foreground">{selectedArticleData.title}</h2>
               <div className="flex items-center gap-4 mb-6 text-sm text-foreground/70">
                 <span>{selectedArticleData.author}</span>
                 <span>•</span>
@@ -247,8 +277,32 @@ export default function Resources() {
                 <span>{selectedArticleData.readTime}</span>
               </div>
               <div className="prose prose-lg max-w-none mb-8">
-                <p className="text-foreground/80 leading-relaxed">{selectedArticleData.content}</p>
+                <p className="text-foreground/80 leading-relaxed whitespace-pre-wrap">{selectedArticleData.content}</p>
               </div>
+              
+              {/* Embed Links */}
+              {(selectedArticleData as any)?.embedLinks && (selectedArticleData as any)?.embedLinks.length > 0 && (
+                <div className="mb-8">
+                  <h3 className="text-lg font-bold text-foreground mb-4">Related Resources</h3>
+                  <div className="space-y-2">
+                    {(selectedArticleData as any)?.embedLinks?.map((link: string, idx: number) => (
+                      <a key={idx} href={link} target="_blank" rel="noopener noreferrer" className="block text-accent hover:underline text-sm">
+                        {link}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* PDF Download */}
+              {(selectedArticleData as any)?.pdf && (
+                <div className="mb-8">
+                  <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-lg font-semibold">
+                    Download PDF Guide
+                  </Button>
+                </div>
+              )}
+
               <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2">
                 Read Full Article
                 <ArrowRight size={20} />
