@@ -289,3 +289,13 @@
 - [x] Implement edit and delete buttons for each article
 - [x] Add "New Article" button in header
 - [x] Use glass-card styling consistent with OptimAI brand
+
+
+## Latest Refinements (Round 18 - Admin System Rebuild)
+- [x] Create standalone Login page at /login (separate from main site)
+- [x] Create standalone Admin Dashboard at /admin (separate from main site)
+- [x] Create Article Editor at /admin/editor (separate from main site)
+- [x] Implement glass-card styling for login and admin pages
+- [x] Build article management table with edit/delete/view actions
+- [x] Add logout functionality with proper token clearing
+- [x] Update App.tsx routes for new admin structure

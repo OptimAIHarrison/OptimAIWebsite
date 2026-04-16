@@ -20,11 +20,9 @@ import Contact from "./pages/Contact";
 import FreeAudit from "./pages/FreeAudit";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
-import AdminArticles from "./pages/AdminArticles";
-import AdminArticleEditor from "./pages/AdminArticleEditor";
-import AdminLogin from "./pages/AdminLogin";
-import { AdminProvider } from "./contexts/AdminContext";
-import { ProtectedRoute } from "./components/ProtectedRoute";
+import Login from "./pages/Login";
+import Admin from "./pages/Admin";
+import ArticleEditor from "./pages/ArticleEditor";
 
 function Router() {
   const [location] = useLocation();
@@ -49,17 +47,9 @@ function Router() {
       <Route path={"/free-audit"} component={FreeAudit} />
       <Route path={"/privacy"} component={Privacy} />
       <Route path={"/terms"} component={Terms} />
-      <Route path={"/admin/login"} component={AdminLogin} />
-      <Route path={"/admin/articles"}>
-        <ProtectedRoute>
-          <AdminArticles />
-        </ProtectedRoute>
-      </Route>
-      <Route path={"/admin/article-editor"}>
-        <ProtectedRoute>
-          <AdminArticleEditor />
-        </ProtectedRoute>
-      </Route>
+      <Route path={"/login"} component={Login} />
+      <Route path={"/admin"} component={Admin} />
+      <Route path={"/admin/editor"} component={ArticleEditor} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
@@ -74,17 +64,15 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <AdminProvider>
-        <ThemeProvider
-          defaultTheme="dark"
-        >
-          <TooltipProvider>
-            <Toaster />
-            <Router />
-            <ChatbotWidget />
-          </TooltipProvider>
-        </ThemeProvider>
-      </AdminProvider>
+      <ThemeProvider
+        defaultTheme="dark"
+      >
+        <TooltipProvider>
+          <Toaster />
+          <Router />
+          <ChatbotWidget />
+        </TooltipProvider>
+      </ThemeProvider>
     </ErrorBoundary>
   );
 }
