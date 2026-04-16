@@ -311,5 +311,5 @@
 ## Latest Refinements (Round 20 - Article Publishing & Contact Form)
 - [x] Connect ArticleEditor to Resources page (display published articles)
 - [x] Add borders to all input boxes in Contact form
-- [ ] Create preview modal for articles before publishing
-- [ ] Add confirmation step before publishing articles
+- [x] Create preview modal for articles before publishing
+- [x] Add confirmation step before publishing articles

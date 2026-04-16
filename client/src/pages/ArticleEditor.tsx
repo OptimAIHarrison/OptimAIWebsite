@@ -61,6 +61,8 @@ export default function ArticleEditor() {
   const [scheduleDate, setScheduleDate] = useState('');
   const [scheduleTime, setScheduleTime] = useState('');
   const [autoGenerateSEO, setAutoGenerateSEO] = useState(true);
+  const [showPreview, setShowPreview] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem('adminToken');
@@ -105,6 +107,14 @@ export default function ArticleEditor() {
       return;
     }
 
+    if (article.status === 'published' || article.status === 'scheduled') {
+      setShowPreview(true);
+    } else {
+      performSave();
+    }
+  };
+
+  const performSave = () => {
     let publishedAt = article.publishedAt;
     if (article.status === 'scheduled' && scheduleDate && scheduleTime) {
       const dateTimeStr = `${scheduleDate}T${scheduleTime}`;
@@ -117,7 +127,7 @@ export default function ArticleEditor() {
     
     const articleToSave = {
       ...article,
-      publishedAt,
+      publishedAt: article.status === 'published' ? new Date().toISOString() : publishedAt,
       scheduledFor: article.status === 'scheduled' ? publishedAt : undefined,
     };
 
@@ -128,7 +138,7 @@ export default function ArticleEditor() {
     }
     
     localStorage.setItem('articles', JSON.stringify(articles));
-    toast.success('Article saved successfully');
+    toast.success(`Article ${article.status} successfully`);
     setLocation('/admin');
   };
 
@@ -544,6 +554,81 @@ export default function ArticleEditor() {
           </div>
         </div>
       </main>
+
+      {/* Preview Modal */}
+      {showPreview && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-background rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border-2 border-white/20">
+            <div className="p-8">
+              <h2 className="text-3xl font-bold mb-4 text-foreground">Preview Article</h2>
+              <div className="mb-6 pb-6 border-b border-white/10">
+                <p className="text-sm text-foreground/60 mb-2">Status: <span className="font-semibold text-accent">{article.status.toUpperCase()}</span></p>
+                <h3 className="text-2xl font-bold text-foreground mb-2">{article.title}</h3>
+                <p className="text-foreground/70">{article.excerpt}</p>
+              </div>
+              
+              <div className="mb-6 pb-6 border-b border-white/10">
+                <h4 className="font-semibold text-foreground mb-2">Content Preview</h4>
+                <p className="text-foreground/70 whitespace-pre-wrap line-clamp-4">{article.content}</p>
+              </div>
+
+              {article.tags.length > 0 && (
+                <div className="mb-6 pb-6 border-b border-white/10">
+                  <h4 className="font-semibold text-foreground mb-2">Tags</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {article.tags.map(tag => (
+                      <span key={tag} className="bg-accent/20 text-accent px-3 py-1 rounded-full text-sm">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div className="flex gap-3">
+                <button
+                  onClick={() => { setShowPreview(false); setShowConfirm(true); }}
+                  className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 rounded-lg"
+                >
+                  Confirm & Publish
+                </button>
+                <button
+                  onClick={() => setShowPreview(false)}
+                  className="flex-1 bg-white/10 hover:bg-white/20 text-foreground font-semibold py-3 rounded-lg"
+                >
+                  Back to Edit
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Confirmation Modal */}
+      {showConfirm && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
+          <div className="bg-background rounded-2xl max-w-md w-full border-2 border-white/20">
+            <div className="p-8">
+              <h2 className="text-2xl font-bold mb-4 text-foreground">Confirm Publication</h2>
+              <p className="text-foreground/70 mb-6">
+                Are you sure you want to {article.status} this article? {article.status === 'scheduled' && 'It will be published on the scheduled date.'}
+              </p>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => { setShowConfirm(false); performSave(); }}
+                  className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 rounded-lg"
+                >
+                  Yes, Publish
+                </button>
+                <button
+                  onClick={() => { setShowConfirm(false); setShowPreview(true); }}
+                  className="flex-1 bg-white/10 hover:bg-white/20 text-foreground font-semibold py-3 rounded-lg"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
