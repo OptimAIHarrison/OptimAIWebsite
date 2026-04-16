@@ -279,3 +279,13 @@
 - [x] Change admin login box borders from white to purple
 - [x] Add PDF attachment capability to article editor (not just upload)
 - [x] Add embed links section to article editor
+
+
+## Latest Refinements (Round 17 - Admin Dashboard Redesign)
+- [x] Redesign admin dashboard to match provided design example
+- [x] Create clean header with Admin Dashboard title and logout button
+- [x] Build articles table with title, status, created date, and actions
+- [x] Add status badges (published, scheduled, draft) with color coding
+- [x] Implement edit and delete buttons for each article
+- [x] Add "New Article" button in header
+- [x] Use glass-card styling consistent with OptimAI brand
