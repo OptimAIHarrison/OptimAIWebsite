@@ -313,3 +313,7 @@
 - [x] Add borders to all input boxes in Contact form
 - [x] Create preview modal for articles before publishing
 - [x] Add confirmation step before publishing articles
+
+
+## Latest Refinements (Round 21 - Favicon Update)
+- [x] Set OptimAI logo as favicon across all pages
