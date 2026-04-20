@@ -17,8 +17,8 @@ export const getLoginUrl = () => {
 };
 
 // OptimAI branding and content constants
-export const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663450259077/VZWvecVBL3bTuGctm3Rvj5/OptimAI_Light_Purple_InifnityArrow_be421b66.png";
-export const LOGO_ICON_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663450259077/VZWvecVBL3bTuGctm3Rvj5/OptimAI_Light_Purple_InifnityArrow_be421b66.png";
+export const LOGO_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663450259077/HbZCzrQQJzoEYBqv.png";
+export const LOGO_ICON_URL = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663450259077/HbZCzrQQJzoEYBqv.png";
 
 export const NAVIGATION = [
   { label: "Home", href: "/" },
