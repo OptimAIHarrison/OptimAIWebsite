@@ -23,6 +23,7 @@ export const LOGO_ICON_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663450
 export const NAVIGATION = [
   { label: "Home", href: "/" },
   { label: "All Services", href: "/services" },
+  { label: "Products", href: "/products" },
   { label: "Resources", href: "/resources" },
   { label: "Why OptimAI", href: "/why-optimai" },
 ];

@@ -329,3 +329,12 @@
 - [x] Fix borders: Replace white-tinted borders with actual dark purple (border-purple-900/40 or similar) on Contact, Login, Article Editor
 - [x] Create `/articles/:slug` route to display full article pages
 - [x] Fix "Read Article" button in Resources popup to navigate to `/articles/:slug`
+
+
+## Current Work (Round 24 - Products/Services Marketplace Page)
+- [x] Create Products page with product catalog (Chatbots, Email Marketing, CRM Builds, Full Stack Business Setup, etc.)
+- [x] Build product cards with name, description, pricing, and timeline
+- [x] Implement product detail modal with deliverables and what's included
+- [x] Add product selection and lead capture flow
+- [x] Route contact form submissions to hello@optimai.com.au
+- [x] Add Products page to main navigation

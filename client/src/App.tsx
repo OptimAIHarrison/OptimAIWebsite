@@ -24,6 +24,7 @@ import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import ArticleEditor from "./pages/ArticleEditor";
 import ArticleDetail from "./pages/ArticleDetail";
+import Products from "./pages/Products";
 
 function Router() {
   const [location] = useLocation();
@@ -44,6 +45,7 @@ function Router() {
       <Route path={"/pricing"} component={Pricing} />
       <Route path={"/resources"} component={Resources} />
       <Route path={"/articles/:slug"} component={ArticleDetail} />
+      <Route path={"/products"} component={Products} />
       <Route path={"/faq"} component={FAQ} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/free-audit"} component={FreeAudit} />
