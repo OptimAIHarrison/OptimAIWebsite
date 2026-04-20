@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, X, Check, Clock, Package, Send, Search } from "lucide-react";
+import { ArrowRight, X, Check, Clock, Package, Send, Search, Filter } from "lucide-react";
 
 interface Product {
   id: string;
@@ -13,6 +13,7 @@ interface Product {
   currency: string;
   timeline: string;
   tags: string[];
+  businessTypes: string[];
   image: string;
   shortDescription: string;
   deliverables: string[];
@@ -28,6 +29,8 @@ interface InquiryFormData {
   phone: string;
 }
 
+const BUSINESS_TYPES = ["All", "Startups", "SME", "Corporate", "Agencies", "Service Providers"];
+
 const PRODUCTS: Product[] = [
   // Original Products
   {
@@ -39,6 +42,7 @@ const PRODUCTS: Product[] = [
     currency: "AUD",
     timeline: "2-3 weeks",
     tags: ["Automation", "Sales"],
+    businessTypes: ["Startups", "SME", "Corporate", "Agencies"],
     image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "E-commerce, SaaS, Customer Support",
     deliverables: [
@@ -73,6 +77,7 @@ const PRODUCTS: Product[] = [
     currency: "AUD",
     timeline: "1-2 weeks",
     tags: ["Marketing", "Automation"],
+    businessTypes: ["Startups", "SME", "Corporate", "Agencies"],
     image: "https://images.pexels.com/photos/3808517/pexels-photo-3808517.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "E-commerce, SaaS, Agencies",
     deliverables: [
@@ -108,6 +113,7 @@ const PRODUCTS: Product[] = [
     currency: "AUD",
     timeline: "3-4 weeks",
     tags: ["Systems", "Sales"],
+    businessTypes: ["SME", "Corporate", "Agencies", "Service Providers"],
     image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "Sales Teams, Service Providers, Agencies",
     deliverables: [
@@ -145,6 +151,7 @@ const PRODUCTS: Product[] = [
     currency: "AUD",
     timeline: "4-6 weeks",
     tags: ["Complete Setup", "Automation", "Systems"],
+    businessTypes: ["Startups", "SME"],
     image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "Sole Traders, Startups, Small Businesses",
     deliverables: [
@@ -183,6 +190,7 @@ const PRODUCTS: Product[] = [
     currency: "AUD",
     timeline: "2-3 weeks",
     tags: ["Automation"],
+    businessTypes: ["Startups", "SME", "Corporate", "Agencies", "Service Providers"],
     image: "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "Any Business, All Industries",
     deliverables: [
@@ -218,6 +226,7 @@ const PRODUCTS: Product[] = [
     currency: "AUD",
     timeline: "1-2 weeks",
     tags: ["Marketing", "Sales"],
+    businessTypes: ["Startups", "SME", "Corporate", "Service Providers"],
     image: "https://images.pexels.com/photos/3194521/pexels-photo-3194521.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "Service Providers, Consultants, Agencies",
     deliverables: [
@@ -255,6 +264,7 @@ const PRODUCTS: Product[] = [
     currency: "AUD",
     timeline: "1-2 weeks",
     tags: ["Analytics", "Systems"],
+    businessTypes: ["SME", "Corporate"],
     image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "Any Business, All Industries",
     deliverables: [
@@ -290,6 +300,7 @@ const PRODUCTS: Product[] = [
     currency: "AUD",
     timeline: "2-3 weeks",
     tags: ["Strategy", "Marketing"],
+    businessTypes: ["Startups", "SME", "Corporate", "Service Providers"],
     image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "E-commerce, SaaS, Service Providers",
     deliverables: [
@@ -325,6 +336,7 @@ const PRODUCTS: Product[] = [
     currency: "AUD",
     timeline: "1-2 weeks",
     tags: ["Analytics", "Automation"],
+    businessTypes: ["Startups", "SME", "Corporate"],
     image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "Any Business, All Industries",
     deliverables: [
@@ -360,6 +372,7 @@ const PRODUCTS: Product[] = [
     currency: "AUD",
     timeline: "1-2 weeks",
     tags: ["Sales", "Automation"],
+    businessTypes: ["Startups", "SME", "Corporate", "Agencies", "Service Providers"],
     image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "Consultants, Agencies, Service Providers",
     deliverables: [
@@ -395,6 +408,7 @@ const PRODUCTS: Product[] = [
     currency: "AUD",
     timeline: "2-3 weeks",
     tags: ["Systems", "Sales"],
+    businessTypes: ["Startups", "SME", "Corporate"],
     image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "SaaS, Membership Sites, Service Subscriptions",
     deliverables: [
@@ -430,6 +444,7 @@ const PRODUCTS: Product[] = [
     currency: "AUD",
     timeline: "1-2 weeks",
     tags: ["Marketing", "Automation"],
+    businessTypes: ["Startups", "SME", "Corporate", "Agencies"],
     image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "Agencies, Content Creators, E-commerce",
     deliverables: [
@@ -465,6 +480,7 @@ const PRODUCTS: Product[] = [
     currency: "AUD",
     timeline: "2-3 weeks",
     tags: ["Marketing", "Strategy"],
+    businessTypes: ["Startups", "SME", "Corporate"],
     image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "E-commerce, Blogs, Service Websites",
     deliverables: [
@@ -500,6 +516,7 @@ const PRODUCTS: Product[] = [
     currency: "AUD",
     timeline: "1-2 weeks",
     tags: ["Systems", "Analytics"],
+    businessTypes: ["SME", "Corporate"],
     image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "Any Business with Messy Data",
     deliverables: [
@@ -528,13 +545,13 @@ const PRODUCTS: Product[] = [
   }
 ];
 
-const CATEGORIES = ["All", "Automation", "Marketing", "Systems", "Analytics", "Strategy", "Sales", "Complete Setup"];
-
 export default function Products() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [selectedBusinessType, setSelectedBusinessType] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [showForm, setShowForm] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [formData, setFormData] = useState<InquiryFormData>({
     name: "",
     email: "",
@@ -546,9 +563,14 @@ export default function Products() {
   // Get all unique tags from products
   const allTags = Array.from(new Set(PRODUCTS.flatMap(p => p.tags)));
 
-  // Filter products based on selected tags and search query
+  // Filter products based on all criteria
   const filteredProducts = useMemo(() => {
     return PRODUCTS.filter(product => {
+      // Filter by business type
+      if (selectedBusinessType !== "All" && !product.businessTypes.includes(selectedBusinessType)) {
+        return false;
+      }
+
       // Filter by tags
       if (selectedTags.length > 0) {
         const hasMatchingTag = selectedTags.some(tag => product.tags.includes(tag));
@@ -568,7 +590,7 @@ export default function Products() {
 
       return true;
     });
-  }, [selectedTags, searchQuery]);
+  }, [selectedTags, selectedBusinessType, searchQuery]);
 
   const handleTagClick = (tag: string) => {
     setSelectedTags(prev =>
@@ -581,19 +603,7 @@ export default function Products() {
   const clearFilters = () => {
     setSelectedTags([]);
     setSearchQuery("");
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    setSelectedBusinessType("All");
   };
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -634,166 +644,205 @@ export default function Products() {
     }
   };
 
+  const hasActiveFilters = selectedTags.length > 0 || searchQuery.trim() !== "" || selectedBusinessType !== "All";
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
 
       {/* Header */}
-      <section className="pt-40 pb-20 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
+      <section className="pt-32 pb-12 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
         <motion.div
           className="container mx-auto px-4 text-center"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
         >
-          <motion.h1 variants={itemVariants} className="text-5xl lg:text-6xl font-bold mb-6">
+          <h1 className="text-5xl lg:text-6xl font-bold mb-4">
             Our <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Ready to Go</span> Products
-          </motion.h1>
-          <motion.p variants={itemVariants} className="text-xl text-foreground/70 max-w-2xl mx-auto">
+          </h1>
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
             Off-the-shelf solutions ready to deploy. Choose what you need, get started immediately.
-          </motion.p>
+          </p>
         </motion.div>
       </section>
 
-      {/* Search Bar */}
-      <section className="py-8 border-b border-purple-900/20">
-        <motion.div
-          className="container mx-auto px-4"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <div className="relative max-w-2xl mx-auto">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-foreground/40" size={20} />
-            <input
-              type="text"
-              placeholder="Search products by name, description, or use case..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-white/10 border border-purple-900/20 rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20"
-            />
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Tag Filter */}
-      <section className="py-12 border-b border-purple-900/20">
-        <motion.div
-          className="container mx-auto px-4"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <div className="mb-6">
-            <h3 className="text-sm font-semibold text-foreground/70 mb-4">Filter by Category:</h3>
-            <div className="flex flex-wrap gap-3">
-              {allTags.map((tag) => (
-                <motion.button
-                  key={tag}
-                  variants={itemVariants}
-                  onClick={() => handleTagClick(tag)}
-                  className={`px-4 py-2 rounded-full font-semibold transition-all ${
-                    selectedTags.includes(tag)
-                      ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
-                      : "bg-white/10 text-foreground/70 hover:text-foreground hover:bg-white/20"
-                  }`}
-                >
-                  {tag}
-                </motion.button>
-              ))}
-            </div>
-          </div>
-
-          {(selectedTags.length > 0 || searchQuery) && (
-            <button
-              onClick={clearFilters}
-              className="text-sm text-purple-600 hover:text-purple-700 font-medium flex items-center gap-2"
+      {/* Main Content with Sidebar */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <div className="flex gap-8">
+            {/* Sidebar */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="w-full lg:w-72 flex-shrink-0"
             >
-              <X size={16} />
-              Clear all filters
-            </button>
-          )}
-        </motion.div>
-      </section>
+              <div className="bg-white/5 border border-purple-900/20 rounded-xl p-6 sticky top-24">
+                {/* Mobile Toggle */}
+                <div className="lg:hidden mb-4">
+                  <button
+                    onClick={() => setSidebarOpen(!sidebarOpen)}
+                    className="w-full flex items-center gap-2 px-4 py-2 bg-purple-600/20 hover:bg-purple-600/30 rounded-lg transition-colors"
+                  >
+                    <Filter size={18} />
+                    {sidebarOpen ? "Hide Filters" : "Show Filters"}
+                  </button>
+                </div>
 
-      {/* Products Grid */}
-      <section className="py-20">
-        <motion.div
-          className="container mx-auto px-4"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          {filteredProducts.length === 0 ? (
-            <div className="text-center py-12">
-              <p className="text-lg text-foreground/70">No products found matching your filters.</p>
-              <button
-                onClick={clearFilters}
-                className="mt-4 text-purple-600 hover:text-purple-700 font-medium"
-              >
-                Clear filters and try again
-              </button>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredProducts.map((product) => (
-                <motion.div
-                  key={product.id}
-                  variants={itemVariants}
-                  className="group bg-white/5 border border-purple-900/20 rounded-xl overflow-hidden hover:border-purple-600/50 transition-all hover:shadow-lg hover:shadow-purple-600/10"
-                >
-                  <div className="relative h-48 overflow-hidden bg-gradient-to-br from-purple-500/20 to-pink-500/20">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
+                {/* Sidebar Content */}
+                {(sidebarOpen || window.innerWidth >= 1024) && (
+                  <div className="space-y-6">
+                    {/* Search */}
+                    <div>
+                      <label className="block text-sm font-semibold text-foreground/80 mb-3">Search</label>
+                      <div className="relative">
+                        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-foreground/40" size={18} />
+                        <input
+                          type="text"
+                          placeholder="Search products..."
+                          value={searchQuery}
+                          onChange={(e) => setSearchQuery(e.target.value)}
+                          className="w-full pl-10 pr-4 py-2 bg-white/10 border border-purple-900/20 rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Business Type Filter */}
+                    <div>
+                      <label className="block text-sm font-semibold text-foreground/80 mb-3">Business Type</label>
+                      <div className="space-y-2">
+                        {BUSINESS_TYPES.map((type) => (
+                          <button
+                            key={type}
+                            onClick={() => setSelectedBusinessType(type)}
+                            className={`w-full text-left px-3 py-2 rounded-lg font-medium transition-all ${
+                              selectedBusinessType === type
+                                ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                                : "bg-white/10 text-foreground/70 hover:text-foreground hover:bg-white/20"
+                            }`}
+                          >
+                            {type}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Category Tags */}
+                    <div>
+                      <label className="block text-sm font-semibold text-foreground/80 mb-3">Categories</label>
+                      <div className="space-y-2">
+                        {allTags.map((tag) => (
+                          <button
+                            key={tag}
+                            onClick={() => handleTagClick(tag)}
+                            className={`w-full text-left px-3 py-2 rounded-lg font-medium transition-all ${
+                              selectedTags.includes(tag)
+                                ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                                : "bg-white/10 text-foreground/70 hover:text-foreground hover:bg-white/20"
+                            }`}
+                          >
+                            {tag}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Clear Filters */}
+                    {hasActiveFilters && (
+                      <button
+                        onClick={clearFilters}
+                        className="w-full text-sm text-purple-600 hover:text-purple-700 font-medium py-2 px-3 bg-purple-600/10 hover:bg-purple-600/20 rounded-lg transition-colors flex items-center justify-center gap-2"
+                      >
+                        <X size={16} />
+                        Clear all filters
+                      </button>
+                    )}
                   </div>
+                )}
+              </div>
+            </motion.div>
 
-                  <div className="p-6">
-                    <div className="mb-3 flex flex-wrap gap-2">
-                      {product.tags.map(tag => (
-                        <span
-                          key={tag}
-                          className="text-xs px-2 py-1 bg-purple-600/20 text-purple-300 rounded-full"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <h3 className="text-xl font-bold text-foreground mb-2">{product.name}</h3>
-                    <p className="text-foreground/70 text-sm mb-4">{product.shortDescription}</p>
-
-                    <div className="flex items-center gap-4 mb-6 text-sm">
-                      <div className="flex items-center gap-2 text-foreground/60">
-                        <Clock size={16} />
-                        {product.timeline}
-                      </div>
-                      <div className="text-xl font-bold text-purple-600">
-                        ${product.price.toLocaleString()} {product.currency}
-                      </div>
-                    </div>
-
-                    <Button
-                      onClick={() => {
-                        setSelectedProduct(product);
-                        setShowForm(true);
-                      }}
-                      className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+            {/* Products Grid */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="flex-1"
+            >
+              {filteredProducts.length === 0 ? (
+                <div className="text-center py-12 bg-white/5 border border-purple-900/20 rounded-xl p-8">
+                  <p className="text-lg text-foreground/70 mb-4">No products found matching your filters.</p>
+                  <button
+                    onClick={clearFilters}
+                    className="text-purple-600 hover:text-purple-700 font-medium"
+                  >
+                    Clear filters and try again
+                  </button>
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {filteredProducts.map((product, idx) => (
+                    <motion.div
+                      key={product.id}
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: idx * 0.05 }}
+                      className="group bg-white/5 border border-purple-900/20 rounded-xl overflow-hidden hover:border-purple-600/50 transition-all hover:shadow-lg hover:shadow-purple-600/10"
                     >
-                      Get Started
-                      <ArrowRight size={16} className="ml-2" />
-                    </Button>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          )}
-        </motion.div>
+                      <div className="relative h-48 overflow-hidden bg-gradient-to-br from-purple-500/20 to-pink-500/20">
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                        />
+                      </div>
+
+                      <div className="p-6">
+                        <div className="mb-3 flex flex-wrap gap-2">
+                          {product.tags.map(tag => (
+                            <span
+                              key={tag}
+                              className="text-xs px-2 py-1 bg-purple-600/20 text-purple-300 rounded-full"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+
+                        <h3 className="text-xl font-bold text-foreground mb-2">{product.name}</h3>
+                        <p className="text-foreground/70 text-sm mb-4">{product.shortDescription}</p>
+
+                        <div className="flex items-center gap-4 mb-6 text-sm">
+                          <div className="flex items-center gap-2 text-foreground/60">
+                            <Clock size={16} />
+                            {product.timeline}
+                          </div>
+                          <div className="text-xl font-bold text-purple-600">
+                            ${product.price.toLocaleString()} {product.currency}
+                          </div>
+                        </div>
+
+                        <Button
+                          onClick={() => {
+                            setSelectedProduct(product);
+                            setShowForm(true);
+                          }}
+                          className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+                        >
+                          Get Started
+                          <ArrowRight size={16} className="ml-2" />
+                        </Button>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              )}
+
+              {/* Results Count */}
+              <div className="mt-8 text-center text-foreground/60 text-sm">
+                Showing {filteredProducts.length} of {PRODUCTS.length} products
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </section>
 
       {/* Product Detail Modal */}
