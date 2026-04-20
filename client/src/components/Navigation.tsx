@@ -14,7 +14,7 @@ export function Navigation() {
           {/* Logo */}
           <Link href="/">
             <a className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-              <img src={LOGO_URL} alt="OptimAI" className="h-10 w-auto" />
+              <img src={LOGO_URL} alt="OptimAI" className="h-14 w-auto" />
               <span className="text-lg font-light text-foreground hidden sm:inline">OptimAI</span>
             </a>
           </Link>
