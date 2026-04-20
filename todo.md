@@ -354,3 +354,9 @@
 - [x] Add multi-tag support to products (products can have multiple tags)
 - [x] Add search function to top of products page
 - [x] Update navigation menu "Products" label to "Ready to Go Products"
+
+
+## Current Work (Round 27 - Logo & Branding Fixes)
+- [x] Reduce logo size in header navigation (make it smaller)
+- [x] Resize favicon to prevent squashing/distortion
+- [x] Update all page titles to use "OptimAI" with capital AI instead of "Optimai"

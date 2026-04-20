@@ -14,7 +14,7 @@ export function ChatbotWidget() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      text: "Hi! 👋 I'm the Optimai assistant. How can I help you today?",
+      text: "Hi! 👋 I'm the OptimAI assistant. How can I help you today?",
       sender: "bot",
       timestamp: new Date(),
     },
@@ -90,7 +90,7 @@ export function ChatbotWidget() {
             className="fixed bottom-24 right-6 z-40 w-96 max-w-[calc(100vw-2rem)] h-96 rounded-2xl glass-card shadow-2xl flex flex-col overflow-hidden"
           >
             <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-4 text-white">
-              <h3 className="font-bold">Optimai Assistant</h3>
+              <h3 className="font-bold">OptimAI Assistant</h3>
               <p className="text-sm opacity-90">We typically reply within 24 hours</p>
             </div>
 
