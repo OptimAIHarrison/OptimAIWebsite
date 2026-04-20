@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, X, Check, Clock, Package, Send } from "lucide-react";
+import { ArrowRight, X, Check, Clock, Package, Send, Search } from "lucide-react";
 
 interface Product {
   id: string;
@@ -12,13 +12,20 @@ interface Product {
   price: number;
   currency: string;
   timeline: string;
-  category: string;
+  tags: string[];
   image: string;
   shortDescription: string;
   deliverables: string[];
   whatsIncluded: string[];
   process: string[];
   bestFor: string;
+}
+
+interface InquiryFormData {
+  name: string;
+  email: string;
+  company: string;
+  phone: string;
 }
 
 const PRODUCTS: Product[] = [
@@ -31,7 +38,7 @@ const PRODUCTS: Product[] = [
     price: 2500,
     currency: "AUD",
     timeline: "2-3 weeks",
-    category: "Automation",
+    tags: ["Automation", "Sales"],
     image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "E-commerce, SaaS, Customer Support",
     deliverables: [
@@ -65,7 +72,7 @@ const PRODUCTS: Product[] = [
     price: 1800,
     currency: "AUD",
     timeline: "1-2 weeks",
-    category: "Marketing",
+    tags: ["Marketing", "Automation"],
     image: "https://images.pexels.com/photos/3808517/pexels-photo-3808517.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "E-commerce, SaaS, Agencies",
     deliverables: [
@@ -100,7 +107,7 @@ const PRODUCTS: Product[] = [
     price: 3500,
     currency: "AUD",
     timeline: "3-4 weeks",
-    category: "Systems",
+    tags: ["Systems", "Sales"],
     image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "Sales Teams, Service Providers, Agencies",
     deliverables: [
@@ -137,7 +144,7 @@ const PRODUCTS: Product[] = [
     price: 5500,
     currency: "AUD",
     timeline: "4-6 weeks",
-    category: "Complete Setup",
+    tags: ["Complete Setup", "Automation", "Systems"],
     image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "Sole Traders, Startups, Small Businesses",
     deliverables: [
@@ -175,7 +182,7 @@ const PRODUCTS: Product[] = [
     price: 2000,
     currency: "AUD",
     timeline: "2-3 weeks",
-    category: "Automation",
+    tags: ["Automation"],
     image: "https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "Any Business, All Industries",
     deliverables: [
@@ -210,7 +217,7 @@ const PRODUCTS: Product[] = [
     price: 1500,
     currency: "AUD",
     timeline: "1-2 weeks",
-    category: "Marketing",
+    tags: ["Marketing", "Sales"],
     image: "https://images.pexels.com/photos/3194521/pexels-photo-3194521.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "Service Providers, Consultants, Agencies",
     deliverables: [
@@ -247,7 +254,7 @@ const PRODUCTS: Product[] = [
     price: 2200,
     currency: "AUD",
     timeline: "1-2 weeks",
-    category: "Analytics",
+    tags: ["Analytics", "Systems"],
     image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "Any Business, All Industries",
     deliverables: [
@@ -282,7 +289,7 @@ const PRODUCTS: Product[] = [
     price: 2800,
     currency: "AUD",
     timeline: "2-3 weeks",
-    category: "Strategy",
+    tags: ["Strategy", "Marketing"],
     image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "E-commerce, SaaS, Service Providers",
     deliverables: [
@@ -297,246 +304,236 @@ const PRODUCTS: Product[] = [
     whatsIncluded: [
       "Customer research and interviews",
       "Journey mapping workshop",
-      "Touchpoint analysis across all channels",
+      "Touchpoint analysis",
       "Pain point documentation",
       "Optimization recommendations",
-      "Implementation roadmap creation",
-      "Quarterly review and optimization"
+      "Implementation roadmap",
+      "Team training"
     ],
     process: [
-      "Week 1: Research - Conduct customer interviews and analysis",
-      "Week 2: Mapping - Create detailed journey maps",
-      "Week 3: Optimization - Develop improvement strategy"
+      "Week 1: Research - Interview customers and analyze behavior",
+      "Week 2: Map - Create detailed journey map",
+      "Week 3: Optimize - Develop improvement strategies"
     ]
   },
   {
     id: "feedback-automation",
     name: "Feedback Automation System",
     description: "Automated surveys, NPS tracking, and sentiment analysis",
-    shortDescription: "Understand customer satisfaction in real-time",
+    shortDescription: "Understand customer satisfaction and improve continuously",
     price: 1900,
     currency: "AUD",
     timeline: "1-2 weeks",
-    category: "Analytics",
+    tags: ["Analytics", "Automation"],
     image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "Any Business, All Industries",
     deliverables: [
-      "Automated survey system setup",
-      "NPS tracking and reporting",
-      "Sentiment analysis integration",
-      "Feedback collection across channels",
-      "Automated alerts for critical feedback",
-      "Analytics dashboard",
+      "NPS survey setup and automation",
+      "Customer feedback collection system",
+      "Sentiment analysis dashboard",
+      "Automated follow-up workflows",
+      "Feedback reporting and insights",
+      "Integration with CRM",
       "30 days of optimization"
     ],
     whatsIncluded: [
-      "Survey platform setup (Typeform, SurveySparrow, etc.)",
-      "NPS survey creation and automation",
-      "Feedback collection workflow",
-      "Sentiment analysis setup",
-      "Integration with CRM",
-      "Automated alert configuration",
-      "Team training and documentation"
+      "Survey design and setup",
+      "Automation workflow creation",
+      "Feedback collection system",
+      "Analytics dashboard",
+      "Sentiment analysis configuration",
+      "CRM integration",
+      "Team training"
     ],
     process: [
-      "Week 1: Setup - Configure survey platform and NPS tracking",
-      "Week 1-2: Integration - Connect to CRM and automation",
-      "Week 2: Launch - Deploy surveys and monitor feedback"
+      "Week 1: Design - Create surveys and feedback flows",
+      "Week 1-2: Build - Set up automation and analytics",
+      "Week 2: Launch - Deploy and monitor feedback"
     ]
   },
   {
     id: "proposal-automation",
     name: "Proposal & Quote Automation",
     description: "Auto-generate professional proposals and quotes from customer data",
-    shortDescription: "Reduce sales admin time and accelerate deals",
-    price: 1600,
+    shortDescription: "Create proposals in minutes, not hours",
+    price: 2100,
     currency: "AUD",
     timeline: "1-2 weeks",
-    category: "Sales",
-    image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600",
+    tags: ["Sales", "Automation"],
+    image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "Consultants, Agencies, Service Providers",
     deliverables: [
-      "Proposal template library (5-10 templates)",
-      "Automated proposal generation from CRM data",
-      "Quote calculation automation",
+      "Proposal template design",
+      "Automated proposal generation system",
+      "Quote calculator setup",
       "E-signature integration",
-      "Automated follow-up reminders",
       "Proposal tracking and analytics",
-      "30 days of optimization"
+      "CRM integration",
+      "30 days of support"
     ],
     whatsIncluded: [
-      "Proposal template design and creation",
-      "CRM integration for data auto-fill",
-      "Quote calculation setup",
-      "E-signature platform integration (DocuSign, HelloSign)",
-      "Automated reminder workflows",
-      "Tracking and analytics setup",
-      "Team training and documentation"
+      "Proposal template creation",
+      "Automation workflow setup",
+      "Quote calculator configuration",
+      "E-signature integration",
+      "CRM integration",
+      "Team training",
+      "Documentation"
     ],
     process: [
       "Week 1: Design - Create proposal templates",
-      "Week 1-2: Integration - Connect to CRM and e-signature",
-      "Week 2: Launch - Deploy and train sales team"
+      "Week 1-2: Build - Set up automation and integrations",
+      "Week 2: Launch - Deploy and test"
     ]
   },
   {
     id: "subscription-management",
     name: "Subscription Management System",
-    description: "Set up recurring billing, payment automation, and customer lifecycle",
-    shortDescription: "Automate recurring revenue and customer management",
-    price: 2400,
+    description: "Set up recurring billing, payment automation, and customer lifecycle management",
+    shortDescription: "Automate recurring revenue and customer retention",
+    price: 3200,
     currency: "AUD",
     timeline: "2-3 weeks",
-    category: "Systems",
-    image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600",
+    tags: ["Systems", "Sales"],
+    image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "SaaS, Membership Sites, Service Subscriptions",
     deliverables: [
-      "Subscription billing platform setup (Stripe, Chargebee)",
-      "Recurring payment automation",
-      "Customer lifecycle management",
-      "Automated invoicing and receipts",
-      "Churn prevention workflows",
-      "Subscription analytics dashboard",
+      "Subscription platform setup (Stripe, Chargebee, etc.)",
+      "Recurring billing configuration",
+      "Payment automation workflows",
+      "Customer lifecycle automation",
+      "Retention and churn reduction strategies",
+      "Analytics and reporting",
       "60 days of support"
     ],
     whatsIncluded: [
-      "Billing platform selection and setup",
-      "Payment gateway configuration",
-      "Subscription tier creation",
-      "Automated billing workflows",
-      "Customer portal setup",
-      "Churn prevention automation",
-      "Integration with accounting software",
-      "Team training and documentation"
+      "Platform selection and setup",
+      "Subscription tier configuration",
+      "Payment gateway integration",
+      "Billing automation workflows",
+      "Customer lifecycle automation",
+      "Retention strategy implementation",
+      "Team training"
     ],
     process: [
-      "Week 1: Setup - Configure billing platform and payment gateway",
-      "Week 2: Build - Create subscription tiers and workflows",
-      "Week 3: Integration - Connect to accounting and CRM"
+      "Week 1: Setup - Configure subscription platform",
+      "Week 2: Build - Create billing and automation workflows",
+      "Week 3: Launch - Deploy and optimize"
     ]
   },
   {
-    id: "ai-content",
+    id: "ai-content-generation",
     name: "AI Content Generation Suite",
-    description: "Automated blog posts, social media content, email copy using AI",
+    description: "Automated blog posts, social media content, and email copy using AI",
     shortDescription: "Generate on-brand content at scale with AI",
-    price: 1700,
+    price: 2400,
     currency: "AUD",
     timeline: "1-2 weeks",
-    category: "Marketing",
-    image: "https://images.pexels.com/photos/3808517/pexels-photo-3808517.jpeg?auto=compress&cs=tinysrgb&w=600",
-    bestFor: "E-commerce, SaaS, Content Creators",
+    tags: ["Marketing", "Automation"],
+    image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
+    bestFor: "Agencies, Content Creators, E-commerce",
     deliverables: [
       "AI content generation system setup",
-      "Brand voice training and guidelines",
-      "Automated blog post generation",
-      "Social media content calendar automation",
+      "Brand voice training and configuration",
+      "Content calendar automation",
+      "Social media content generation",
       "Email copy generation",
-      "Content scheduling and publishing",
+      "Blog post automation",
       "30 days of optimization"
     ],
     whatsIncluded: [
-      "AI platform setup (ChatGPT, Copy.ai, etc.)",
-      "Brand voice documentation and training",
+      "Brand voice documentation",
+      "AI tool setup and configuration",
       "Content template creation",
       "Automation workflow setup",
-      "Social media integration",
-      "Email platform integration",
-      "Content calendar setup",
-      "Team training and best practices"
+      "Quality control processes",
+      "Team training",
+      "Documentation"
     ],
     process: [
-      "Week 1: Setup - Configure AI platform and brand training",
-      "Week 1-2: Automation - Create content workflows",
-      "Week 2: Launch - Deploy and monitor content quality"
+      "Week 1: Setup - Configure AI tools and brand voice",
+      "Week 1-2: Build - Create content templates and workflows",
+      "Week 2: Launch - Deploy and optimize"
     ]
   },
   {
     id: "seo-optimization",
     name: "SEO & Content Optimization",
-    description: "AI-driven keyword research, content audits, and optimization",
+    description: "AI-driven keyword research, content audits, and optimization recommendations",
     shortDescription: "Improve search rankings and organic traffic",
-    price: 1800,
+    price: 2300,
     currency: "AUD",
     timeline: "2-3 weeks",
-    category: "Marketing",
-    image: "https://images.pexels.com/photos/3808517/pexels-photo-3808517.jpeg?auto=compress&cs=tinysrgb&w=600",
-    bestFor: "Any Business, All Industries",
+    tags: ["Marketing", "Strategy"],
+    image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
+    bestFor: "E-commerce, Blogs, Service Websites",
     deliverables: [
       "Comprehensive SEO audit",
       "Keyword research and strategy",
-      "Content audit and optimization plan",
-      "On-page SEO implementation",
+      "Content optimization recommendations",
       "Technical SEO fixes",
-      "Backlink strategy",
-      "Monthly reporting and optimization"
+      "Backlink analysis and strategy",
+      "Ranking tracking setup",
+      "Monthly optimization recommendations"
     ],
     whatsIncluded: [
-      "Website SEO audit",
-      "Keyword research and competitive analysis",
+      "Website audit and analysis",
+      "Keyword research",
       "Content gap analysis",
-      "On-page optimization recommendations",
-      "Technical SEO improvements",
-      "Backlink strategy development",
-      "Monthly performance reporting",
-      "Quarterly strategy reviews"
+      "Technical SEO review",
+      "Competitor analysis",
+      "Optimization roadmap",
+      "Team training"
     ],
     process: [
-      "Week 1: Audit - Analyze current SEO performance",
-      "Week 2: Strategy - Develop keyword and content strategy",
-      "Week 3: Implementation - Optimize content and technical SEO"
+      "Week 1: Audit - Analyze your website and competition",
+      "Week 2: Research - Conduct keyword and content research",
+      "Week 3: Optimize - Implement recommendations"
     ]
   },
   {
     id: "data-cleanup",
     name: "Data Cleanup & Deduplication",
     description: "Audit and clean messy customer/product databases before automation",
-    shortDescription: "Prepare your data for successful automation",
-    price: 1400,
+    shortDescription: "Get clean data for better automation and insights",
+    price: 1700,
     currency: "AUD",
     timeline: "1-2 weeks",
-    category: "Systems",
-    image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600",
-    bestFor: "Any Business with Legacy Data",
+    tags: ["Systems", "Analytics"],
+    image: "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=600",
+    bestFor: "Any Business with Messy Data",
     deliverables: [
-      "Complete data audit and analysis",
+      "Data audit and quality report",
       "Duplicate record identification and removal",
-      "Data standardization and formatting",
-      "Missing data identification and resolution",
-      "Data quality report",
-      "Cleaned and validated dataset",
-      "Documentation and best practices guide"
+      "Data standardization and normalization",
+      "Missing data analysis and solutions",
+      "Data validation rules setup",
+      "Cleaned and organized database",
+      "Documentation and best practices"
     ],
     whatsIncluded: [
-      "Data source assessment",
+      "Data assessment and analysis",
       "Duplicate detection and removal",
-      "Data standardization (formatting, naming conventions)",
-      "Missing data analysis",
-      "Data quality scoring",
-      "Cleaned dataset delivery",
-      "Data governance recommendations",
-      "Team training on data maintenance"
+      "Data standardization",
+      "Quality validation rules",
+      "Documentation",
+      "Team training on data maintenance",
+      "Preventive measures setup"
     ],
     process: [
       "Week 1: Audit - Analyze data quality and issues",
-      "Week 1-2: Cleanup - Remove duplicates and standardize",
-      "Week 2: Validation - Verify cleaned data quality"
+      "Week 1-2: Clean - Remove duplicates and standardize",
+      "Week 2: Validate - Set up quality controls"
     ]
   }
 ];
 
 const CATEGORIES = ["All", "Automation", "Marketing", "Systems", "Analytics", "Strategy", "Sales", "Complete Setup"];
 
-interface InquiryFormData {
-  name: string;
-  email: string;
-  company: string;
-  phone: string;
-}
-
 export default function Products() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [searchQuery, setSearchQuery] = useState("");
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState<InquiryFormData>({
     name: "",
@@ -546,9 +543,45 @@ export default function Products() {
   });
   const [submitStatus, setSubmitStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  const filteredProducts = selectedCategory === "All" 
-    ? PRODUCTS 
-    : PRODUCTS.filter(p => p.category === selectedCategory);
+  // Get all unique tags from products
+  const allTags = Array.from(new Set(PRODUCTS.flatMap(p => p.tags)));
+
+  // Filter products based on selected tags and search query
+  const filteredProducts = useMemo(() => {
+    return PRODUCTS.filter(product => {
+      // Filter by tags
+      if (selectedTags.length > 0) {
+        const hasMatchingTag = selectedTags.some(tag => product.tags.includes(tag));
+        if (!hasMatchingTag) return false;
+      }
+
+      // Filter by search query
+      if (searchQuery.trim()) {
+        const query = searchQuery.toLowerCase();
+        return (
+          product.name.toLowerCase().includes(query) ||
+          product.description.toLowerCase().includes(query) ||
+          product.shortDescription.toLowerCase().includes(query) ||
+          product.bestFor.toLowerCase().includes(query)
+        );
+      }
+
+      return true;
+    });
+  }, [selectedTags, searchQuery]);
+
+  const handleTagClick = (tag: string) => {
+    setSelectedTags(prev =>
+      prev.includes(tag)
+        ? prev.filter(t => t !== tag)
+        : [...prev, tag]
+    );
+  };
+
+  const clearFilters = () => {
+    setSelectedTags([]);
+    setSearchQuery("");
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -579,7 +612,7 @@ export default function Products() {
         body: JSON.stringify({
           json: {
             ...formData,
-          product: selectedProduct?.name || "",
+            product: selectedProduct?.name || "",
           }
         })
       });
@@ -596,6 +629,7 @@ export default function Products() {
         setSubmitStatus("error");
       }
     } catch (error) {
+      console.error("Submission error:", error);
       setSubmitStatus("error");
     }
   };
@@ -621,7 +655,29 @@ export default function Products() {
         </motion.div>
       </section>
 
-      {/* Category Filter */}
+      {/* Search Bar */}
+      <section className="py-8 border-b border-purple-900/20">
+        <motion.div
+          className="container mx-auto px-4"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <div className="relative max-w-2xl mx-auto">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-foreground/40" size={20} />
+            <input
+              type="text"
+              placeholder="Search products by name, description, or use case..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-12 pr-4 py-3 bg-white/10 border border-purple-900/20 rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20"
+            />
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Tag Filter */}
       <section className="py-12 border-b border-purple-900/20">
         <motion.div
           className="container mx-auto px-4"
@@ -630,22 +686,35 @@ export default function Products() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <div className="flex flex-wrap gap-3 justify-center">
-            {CATEGORIES.map((category) => (
-              <motion.button
-                key={category}
-                variants={itemVariants}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full font-semibold transition-all ${
-                  selectedCategory === category
-                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
-                    : "bg-white/10 text-foreground/70 hover:text-foreground hover:bg-white/20"
-                }`}
-              >
-                {category}
-              </motion.button>
-            ))}
+          <div className="mb-6">
+            <h3 className="text-sm font-semibold text-foreground/70 mb-4">Filter by Category:</h3>
+            <div className="flex flex-wrap gap-3">
+              {allTags.map((tag) => (
+                <motion.button
+                  key={tag}
+                  variants={itemVariants}
+                  onClick={() => handleTagClick(tag)}
+                  className={`px-4 py-2 rounded-full font-semibold transition-all ${
+                    selectedTags.includes(tag)
+                      ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                      : "bg-white/10 text-foreground/70 hover:text-foreground hover:bg-white/20"
+                  }`}
+                >
+                  {tag}
+                </motion.button>
+              ))}
+            </div>
           </div>
+
+          {(selectedTags.length > 0 || searchQuery) && (
+            <button
+              onClick={clearFilters}
+              className="text-sm text-purple-600 hover:text-purple-700 font-medium flex items-center gap-2"
+            >
+              <X size={16} />
+              Clear all filters
+            </button>
+          )}
         </motion.div>
       </section>
 
@@ -658,303 +727,238 @@ export default function Products() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProducts.map((product) => (
-              <motion.div
-                key={product.id}
-                variants={itemVariants}
-                onClick={() => {
-                  setSelectedProduct(product);
-                  setShowForm(false);
-                }}
-                className="glass-card rounded-lg overflow-hidden hover:shadow-lg transition-all cursor-pointer group border border-purple-900/20"
+          {filteredProducts.length === 0 ? (
+            <div className="text-center py-12">
+              <p className="text-lg text-foreground/70">No products found matching your filters.</p>
+              <button
+                onClick={clearFilters}
+                className="mt-4 text-purple-600 hover:text-purple-700 font-medium"
               >
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-                </div>
-
-                <div className="p-6">
-                  <div className="mb-3">
-                    <span className="text-xs font-semibold text-accent uppercase tracking-wider">
-                      {product.category}
-                    </span>
+                Clear filters and try again
+              </button>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredProducts.map((product) => (
+                <motion.div
+                  key={product.id}
+                  variants={itemVariants}
+                  className="group bg-white/5 border border-purple-900/20 rounded-xl overflow-hidden hover:border-purple-600/50 transition-all hover:shadow-lg hover:shadow-purple-600/10"
+                >
+                  <div className="relative h-48 overflow-hidden bg-gradient-to-br from-purple-500/20 to-pink-500/20">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    />
                   </div>
 
-                  <h3 className="text-2xl font-bold mb-2 text-foreground">{product.name}</h3>
-                  <p className="text-foreground/70 mb-4 line-clamp-2">{product.shortDescription}</p>
-
-                  <div className="flex items-center justify-between mb-6">
-                    <div>
-                      <div className="text-3xl font-bold text-foreground">
-                        ${product.price.toLocaleString()}
-                      </div>
-                      <div className="text-sm text-foreground/60">{product.currency}</div>
+                  <div className="p-6">
+                    <div className="mb-3 flex flex-wrap gap-2">
+                      {product.tags.map(tag => (
+                        <span
+                          key={tag}
+                          className="text-xs px-2 py-1 bg-purple-600/20 text-purple-300 rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
-                    <div className="text-right">
-                      <div className="flex items-center gap-1 text-foreground/70 text-sm mb-1">
+
+                    <h3 className="text-xl font-bold text-foreground mb-2">{product.name}</h3>
+                    <p className="text-foreground/70 text-sm mb-4">{product.shortDescription}</p>
+
+                    <div className="flex items-center gap-4 mb-6 text-sm">
+                      <div className="flex items-center gap-2 text-foreground/60">
                         <Clock size={16} />
                         {product.timeline}
                       </div>
+                      <div className="text-xl font-bold text-purple-600">
+                        ${product.price.toLocaleString()} {product.currency}
+                      </div>
                     </div>
-                  </div>
 
-                  <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 rounded-lg inline-flex items-center justify-center gap-2">
-                    View Details
-                    <ArrowRight size={18} />
-                  </Button>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+                    <Button
+                      onClick={() => {
+                        setSelectedProduct(product);
+                        setShowForm(true);
+                      }}
+                      className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+                    >
+                      Get Started
+                      <ArrowRight size={16} className="ml-2" />
+                    </Button>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          )}
         </motion.div>
       </section>
 
       {/* Product Detail Modal */}
       {selectedProduct && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={() => {
-            setSelectedProduct(null);
-            setShowForm(false);
-          }}
-          className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 overflow-y-auto"
-        >
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
           <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            onClick={(e) => e.stopPropagation()}
-            className="bg-background rounded-2xl max-w-3xl w-full my-8 border-2 border-purple-900/40"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            className="bg-background border border-purple-900/20 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
           >
-            <div className="sticky top-0 bg-background/95 backdrop-blur border-b border-purple-900/20 p-6 flex items-center justify-between">
-              <h2 className="text-3xl font-bold text-foreground">{selectedProduct.name}</h2>
+            <div className="sticky top-0 bg-background border-b border-purple-900/20 p-6 flex items-center justify-between">
+              <h2 className="text-2xl font-bold text-foreground">{selectedProduct.name}</h2>
               <button
                 onClick={() => {
                   setSelectedProduct(null);
                   setShowForm(false);
                 }}
-                className="p-2 hover:bg-white/10 rounded-full transition-colors"
+                className="text-foreground/70 hover:text-foreground transition-colors"
               >
-                <X className="w-6 h-6 text-foreground" />
+                <X size={24} />
               </button>
             </div>
 
-            <div className="p-8 space-y-8 max-h-[calc(100vh-200px)] overflow-y-auto">
-              {!showForm ? (
-                <>
-                  {/* Price and Timeline */}
-                  <div className="grid grid-cols-2 gap-6">
-                    <div className="p-4 bg-white/5 border border-purple-900/20 rounded-lg">
-                      <div className="text-sm text-foreground/60 mb-2">Investment</div>
-                      <div className="text-3xl font-bold text-foreground">
-                        ${selectedProduct.price.toLocaleString()} {selectedProduct.currency}
+            <div className="p-6 space-y-8">
+              {/* Overview */}
+              <div>
+                <h3 className="text-lg font-bold text-foreground mb-4">Overview</h3>
+                <p className="text-foreground/70 mb-4">{selectedProduct.description}</p>
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="bg-white/5 border border-purple-900/20 rounded-lg p-4">
+                    <div className="text-sm text-foreground/60 mb-1">Price</div>
+                    <div className="text-2xl font-bold text-purple-600">
+                      ${selectedProduct.price.toLocaleString()}
+                    </div>
+                  </div>
+                  <div className="bg-white/5 border border-purple-900/20 rounded-lg p-4">
+                    <div className="text-sm text-foreground/60 mb-1">Timeline</div>
+                    <div className="text-lg font-bold text-foreground">{selectedProduct.timeline}</div>
+                  </div>
+                  <div className="bg-white/5 border border-purple-900/20 rounded-lg p-4">
+                    <div className="text-sm text-foreground/60 mb-1">Best For</div>
+                    <div className="text-sm font-bold text-foreground">{selectedProduct.bestFor}</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Deliverables */}
+              <div>
+                <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+                  <Package size={20} className="text-purple-600" />
+                  What You Get
+                </h3>
+                <ul className="space-y-3">
+                  {selectedProduct.deliverables.map((item, idx) => (
+                    <li key={idx} className="flex gap-3 text-foreground/80">
+                      <Check size={20} className="text-green-500 flex-shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Process */}
+              <div>
+                <h3 className="text-lg font-bold text-foreground mb-4">Implementation Process</h3>
+                <div className="space-y-3">
+                  {selectedProduct.process.map((step, idx) => (
+                    <div key={idx} className="flex gap-4">
+                      <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                        {idx + 1}
                       </div>
+                      <p className="text-foreground/80 pt-1">{step}</p>
                     </div>
-                    <div className="p-4 bg-white/5 border border-purple-900/20 rounded-lg">
-                      <div className="flex items-center gap-2 text-sm text-foreground/60 mb-2">
-                        <Clock size={16} />
-                        Timeline
-                      </div>
-                      <div className="text-2xl font-bold text-foreground">{selectedProduct.timeline}</div>
-                    </div>
-                  </div>
+                  ))}
+                </div>
+              </div>
 
-                  {/* Description */}
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground mb-3">About This Product</h3>
-                    <p className="text-foreground/70 leading-relaxed">{selectedProduct.description}</p>
-                  </div>
-
-                  {/* Best For */}
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground mb-3">Best For</h3>
-                    <p className="text-foreground/70">{selectedProduct.bestFor}</p>
-                  </div>
-
-                  {/* Process */}
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground mb-4">How It Works</h3>
-                    <div className="space-y-3">
-                      {selectedProduct.process.map((step, idx) => (
-                        <div key={idx} className="flex gap-4">
-                          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white font-bold text-sm">
-                            {idx + 1}
-                          </div>
-                          <div className="pt-1">
-                            <p className="text-foreground/80">{step}</p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Deliverables */}
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-                      <Package size={20} />
-                      Deliverables
-                    </h3>
-                    <div className="space-y-2">
-                      {selectedProduct.deliverables.map((item, idx) => (
-                        <div key={idx} className="flex gap-3 items-start">
-                          <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                          <span className="text-foreground/80">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* What's Included */}
-                  <div>
-                    <h3 className="text-xl font-bold text-foreground mb-4">What's Included</h3>
-                    <div className="space-y-2">
-                      {selectedProduct.whatsIncluded.map((item, idx) => (
-                        <div key={idx} className="flex gap-3 items-start">
-                          <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                          <span className="text-foreground/80">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* CTA */}
-                  <div className="flex gap-3 pt-6 border-t border-purple-900/20">
-                    <button
-                      onClick={() => setShowForm(true)}
-                      className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 rounded-lg transition-all inline-flex items-center justify-center gap-2"
-                    >
-                      Get Started
-                      <ArrowRight size={18} />
-                    </button>
-                    <button
-                      onClick={() => {
-                        setSelectedProduct(null);
-                        setShowForm(false);
-                      }}
-                      className="flex-1 bg-white/10 hover:bg-white/20 text-foreground font-semibold py-3 rounded-lg transition-all"
-                    >
-                      Close
-                    </button>
-                  </div>
-                </>
-              ) : (
-                // Inquiry Form
-                <div>
-                  <h3 className="text-2xl font-bold text-foreground mb-6">Get Started with {selectedProduct.name}</h3>
+              {/* Inquiry Form */}
+              {showForm ? (
+                <div className="bg-white/5 border border-purple-900/20 rounded-lg p-6">
+                  <h3 className="text-lg font-bold text-foreground mb-4">Get Started</h3>
                   <form onSubmit={handleFormSubmit} className="space-y-4">
                     <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">Full Name *</label>
+                      <label className="block text-sm font-medium text-foreground/80 mb-2">Name</label>
                       <input
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleFormChange}
                         required
-                        className="w-full px-4 py-3 bg-white/10 border border-purple-900/40 rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                        className="w-full px-4 py-2 bg-white/10 border border-purple-900/20 rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:border-purple-600"
                         placeholder="Your name"
                       />
                     </div>
-
                     <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">Email *</label>
+                      <label className="block text-sm font-medium text-foreground/80 mb-2">Email</label>
                       <input
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleFormChange}
                         required
-                        className="w-full px-4 py-3 bg-white/10 border border-purple-900/40 rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                        className="w-full px-4 py-2 bg-white/10 border border-purple-900/20 rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:border-purple-600"
                         placeholder="your@email.com"
                       />
                     </div>
-
                     <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">Company</label>
+                      <label className="block text-sm font-medium text-foreground/80 mb-2">Company</label>
                       <input
                         type="text"
                         name="company"
                         value={formData.company}
                         onChange={handleFormChange}
-                        className="w-full px-4 py-3 bg-white/10 border border-purple-900/40 rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:ring-2 focus:ring-purple-600"
+                        className="w-full px-4 py-2 bg-white/10 border border-purple-900/20 rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:border-purple-600"
                         placeholder="Your company"
                       />
                     </div>
-
                     <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">Phone</label>
+                      <label className="block text-sm font-medium text-foreground/80 mb-2">Phone</label>
                       <input
                         type="tel"
                         name="phone"
                         value={formData.phone}
                         onChange={handleFormChange}
-                        className="w-full px-4 py-3 bg-white/10 border border-purple-900/40 rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:ring-2 focus:ring-purple-600"
-                        placeholder="+61 2 XXXX XXXX"
+                        className="w-full px-4 py-2 bg-white/10 border border-purple-900/20 rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:border-purple-600"
+                        placeholder="Your phone"
                       />
                     </div>
 
-                    <div className="pt-4 flex gap-3">
-                      <button
-                        type="submit"
-                        disabled={submitStatus === "loading"}
-                        className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 rounded-lg transition-all inline-flex items-center justify-center gap-2 disabled:opacity-50"
-                      >
-                        {submitStatus === "loading" ? "Sending..." : submitStatus === "success" ? "Sent!" : "Send Inquiry"}
-                        {submitStatus !== "loading" && <Send size={18} />}
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setShowForm(false)}
-                        className="flex-1 bg-white/10 hover:bg-white/20 text-foreground font-semibold py-3 rounded-lg transition-all"
-                      >
-                        Back
-                      </button>
-                    </div>
-
-                    {submitStatus === "error" && (
-                      <div className="p-4 bg-red-500/20 border border-red-500/40 rounded-lg text-red-200">
-                        There was an error submitting your inquiry. Please try again.
+                    {submitStatus === "success" && (
+                      <div className="bg-green-500/20 border border-green-500/50 text-green-300 p-3 rounded-lg text-sm">
+                        Thank you! We'll be in touch soon.
                       </div>
                     )}
+
+                    {submitStatus === "error" && (
+                      <div className="bg-red-500/20 border border-red-500/50 text-red-300 p-3 rounded-lg text-sm">
+                        Something went wrong. Please try again.
+                      </div>
+                    )}
+
+                    <Button
+                      type="submit"
+                      disabled={submitStatus === "loading"}
+                      className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+                    >
+                      {submitStatus === "loading" ? "Submitting..." : "Submit Inquiry"}
+                      <Send size={16} className="ml-2" />
+                    </Button>
                   </form>
                 </div>
+              ) : (
+                <Button
+                  onClick={() => setShowForm(true)}
+                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 text-lg"
+                >
+                  Get Started
+                  <ArrowRight size={18} className="ml-2" />
+                </Button>
               )}
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       )}
-
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 to-pink-600">
-        <motion.div
-          className="container mx-auto px-4 text-center max-w-2xl"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <motion.h2 variants={itemVariants} className="text-4xl font-bold text-white mb-4">
-            Not Sure Which Product Is Right?
-          </motion.h2>
-          <motion.p variants={itemVariants} className="text-white/90 mb-8">
-            Book a free consultation with our team. We'll help you choose the perfect solution for your business.
-          </motion.p>
-          <motion.div variants={itemVariants}>
-            <a href="/contact">
-              <Button className="bg-white hover:bg-white/90 text-purple-600 font-semibold px-8 py-3 rounded-lg inline-flex items-center gap-2">
-                Book Free Consultation
-                <ArrowRight size={20} />
-              </Button>
-            </a>
-          </motion.div>
-        </motion.div>
-      </section>
 
       <Footer />
     </div>

@@ -23,7 +23,7 @@ export const LOGO_ICON_URL = "https://files.manuscdn.com/user_upload_by_module/s
 export const NAVIGATION = [
   { label: "Home", href: "/" },
   { label: "All Services", href: "/services" },
-  { label: "Products", href: "/products" },
+  { label: "Ready to Go Products", href: "/products" },
   { label: "Resources", href: "/resources" },
   { label: "Why OptimAI", href: "/why-optimai" },
 ];
