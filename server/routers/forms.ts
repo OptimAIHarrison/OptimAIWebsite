@@ -66,4 +66,27 @@ export const formsRouter = router({
         return { success: false, message: "Failed to send message." };
       }
     }),
+
+  submitProductInquiry: publicProcedure
+    .input(
+      z.object({
+        name: z.string().min(1, "Name is required"),
+        email: z.string().email("Invalid email"),
+        company: z.string().optional(),
+        phone: z.string().optional(),
+        product: z.string().min(1, "Product is required"),
+      })
+    )
+    .mutation(async ({ input }) => {
+      try {
+        await notifyOwner({
+          title: "New Product Inquiry - hello@optimai.com.au",
+          content: `Product: ${input.product}\nName: ${input.name}\nEmail: ${input.email}\nCompany: ${input.company || "Not provided"}\nPhone: ${input.phone || "Not provided"}\n\nReply to: ${input.email}`,
+        });
+        return { success: true, message: "Thank you! We'll be in touch soon with details about " + input.product };
+      } catch (error) {
+        console.error("Product inquiry submission error:", error);
+        return { success: false, message: "Failed to submit inquiry. Please try again." };
+      }
+    }),
 });
