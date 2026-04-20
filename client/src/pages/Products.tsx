@@ -691,6 +691,16 @@ export default function Products() {
                 {/* Sidebar Content */}
                 {(sidebarOpen || window.innerWidth >= 1024) && (
                   <div className="space-y-6">
+                    {/* All Products Button */}
+                    <div>
+                      <button
+                        onClick={clearFilters}
+                        className="w-full text-left px-4 py-3 rounded-lg font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 transition-all"
+                      >
+                        All Products
+                      </button>
+                    </div>
+
                     {/* Search */}
                     <div>
                       <label className="block text-sm font-semibold text-foreground/80 mb-3">Search</label>
@@ -703,26 +713,6 @@ export default function Products() {
                           onChange={(e) => setSearchQuery(e.target.value)}
                           className="w-full pl-10 pr-4 py-2 bg-white/10 border border-purple-900/20 rounded-lg text-foreground placeholder-foreground/50 focus:outline-none focus:border-purple-600 focus:ring-2 focus:ring-purple-600/20"
                         />
-                      </div>
-                    </div>
-
-                    {/* Business Type Filter */}
-                    <div>
-                      <label className="block text-sm font-semibold text-foreground/80 mb-3">Business Type</label>
-                      <div className="space-y-2">
-                        {BUSINESS_TYPES.map((type) => (
-                          <button
-                            key={type}
-                            onClick={() => setSelectedBusinessType(type)}
-                            className={`w-full text-left px-3 py-2 rounded-lg font-medium transition-all ${
-                              selectedBusinessType === type
-                                ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
-                                : "bg-white/10 text-foreground/70 hover:text-foreground hover:bg-white/20"
-                            }`}
-                          >
-                            {type}
-                          </button>
-                        ))}
                       </div>
                     </div>
 
@@ -741,6 +731,26 @@ export default function Products() {
                             }`}
                           >
                             {tag}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Business Type Filter */}
+                    <div>
+                      <label className="block text-sm font-semibold text-foreground/80 mb-3">Business Type</label>
+                      <div className="space-y-2">
+                        {BUSINESS_TYPES.map((type) => (
+                          <button
+                            key={type}
+                            onClick={() => setSelectedBusinessType(type)}
+                            className={`w-full text-left px-3 py-2 rounded-lg font-medium transition-all ${
+                              selectedBusinessType === type
+                                ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                                : "bg-white/10 text-foreground/70 hover:text-foreground hover:bg-white/20"
+                            }`}
+                          >
+                            {type}
                           </button>
                         ))}
                       </div>
