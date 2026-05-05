@@ -371,6 +371,6 @@
 
 
 ## Current Work (Round 29 - Background Animation)
-- [ ] Add waving/flowing animation to background divider images
-- [ ] Create smooth, continuous motion effect
-- [ ] Ensure animation doesn't impact performance
+- [x] Add waving/flowing animation to background divider images
+- [x] Create smooth, continuous motion effect
+- [x] Ensure animation doesn't impact performance
