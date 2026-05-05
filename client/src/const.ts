@@ -216,3 +216,49 @@ export const SERVICES = [
     technicalDetails: "Comprehensive optimization strategy to maximize visibility across AI-powered search platforms, generative AI engines, and AI chatbots. Ensures your business is recommended to users across all major AI tools and discovery platforms.",
   },
 ];
+
+
+export const TESTIMONIALS = [
+  {
+    name: "Sarah Johnson",
+    company: "Tech Startup",
+    role: "Founder",
+    text: "OptimAI helped us automate our entire customer support process. We went from 40 hours/week of manual work to fully automated responses. Game-changer!",
+    image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=100",
+  },
+  {
+    name: "Michael Chen",
+    company: "E-commerce Business",
+    role: "Operations Manager",
+    text: "The AI chatbot setup was seamless. Our conversion rate increased by 35% and customer satisfaction improved dramatically. Highly recommend!",
+    image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=100",
+  },
+  {
+    name: "Emma Davis",
+    company: "Professional Services",
+    role: "CEO",
+    text: "OptimAI's strategic advisory helped us identify automation opportunities we never knew existed. ROI exceeded expectations within 3 months.",
+    image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=100",
+  },
+];
+
+export const CASE_STUDIES = [
+  {
+    title: "Reduced Manual Work by 80%",
+    company: "Tech Startup",
+    description: "Automated repetitive data entry and reporting tasks",
+    result: "Saved 32 hours/week, allowing team to focus on growth",
+  },
+  {
+    title: "Increased Lead Generation by 150%",
+    company: "SaaS Company",
+    description: "Implemented AI-powered lead capture and nurturing",
+    result: "Generated 300+ qualified leads in first month",
+  },
+  {
+    title: "Improved Customer Support Response Time",
+    company: "E-commerce Business",
+    description: "Deployed AI chatbot for 24/7 customer support",
+    result: "Response time reduced from 24 hours to instant",
+  },
+];

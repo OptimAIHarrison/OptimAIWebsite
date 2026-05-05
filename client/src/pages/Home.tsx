@@ -57,46 +57,46 @@ export default function Home() {
         <div className="absolute inset-0 -z-5 overflow-hidden">
           {/* Top Wave */}
           <motion.svg
-            className="absolute top-0 left-0 w-full h-32 text-purple-600/30"
+            className="absolute top-0 left-0 w-full h-40 text-purple-600/50"
             viewBox="0 0 1200 120"
             preserveAspectRatio="none"
-            animate={{ x: [0, 50, 0] }}
+            animate={{ x: [0, 100, 0] }}
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           >
             <path
               d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z"
               fill="currentColor"
-              opacity="0.3"
+              opacity="0.5"
             />
           </motion.svg>
 
           {/* Middle Wave */}
           <motion.svg
-            className="absolute top-16 left-0 w-full h-32 text-pink-600/20"
+            className="absolute top-20 left-0 w-full h-40 text-pink-600/40"
             viewBox="0 0 1200 120"
             preserveAspectRatio="none"
-            animate={{ x: [0, -50, 0] }}
+            animate={{ x: [0, -100, 0] }}
             transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
           >
             <path
               d="M0,70 Q300,30 600,70 T1200,70 L1200,120 L0,120 Z"
               fill="currentColor"
-              opacity="0.2"
+              opacity="0.4"
             />
           </motion.svg>
 
           {/* Bottom Wave */}
           <motion.svg
-            className="absolute bottom-0 left-0 w-full h-40 text-purple-500/20"
+            className="absolute bottom-0 left-0 w-full h-48 text-purple-500/35"
             viewBox="0 0 1200 120"
             preserveAspectRatio="none"
-            animate={{ x: [0, 40, 0] }}
+            animate={{ x: [0, 80, 0] }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
           >
             <path
               d="M0,60 Q300,20 600,60 T1200,60 L1200,120 L0,120 Z"
               fill="currentColor"
-              opacity="0.15"
+              opacity="0.35"
             />
           </motion.svg>
         </div>
