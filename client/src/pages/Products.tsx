@@ -542,6 +542,41 @@ const PRODUCTS: Product[] = [
       "Week 1-2: Clean - Remove duplicates and standardize",
       "Week 2: Validate - Set up quality controls"
     ]
+  },
+  {
+    id: "ai-search-optimization",
+    name: "AI Search & Answer Optimization",
+    description: "Get found by AI tools like ChatGPT, Perplexity, and Google's AI Overview",
+    shortDescription: "Optimize your visibility in AI-powered search and answer platforms",
+    price: 2200,
+    currency: "AUD",
+    timeline: "2-3 weeks",
+    tags: ["Marketing", "Strategy"],
+    businessTypes: ["Startups", "SME", "Corporate", "Agencies", "Service Providers"],
+    image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600",
+    bestFor: "Any business wanting to be found by AI tools",
+    deliverables: [
+      "AI Answer Optimization (AEO) - Get featured in AI chatbot responses",
+      "Generative Engine Optimization (GEO) - Appear in generative AI outputs",
+      "AI Search Optimization (AIO) - Rank in AI-powered search platforms",
+      "Content audit and optimization strategy",
+      "Cross-platform monitoring dashboard",
+      "Ongoing optimization recommendations"
+    ],
+    whatsIncluded: [
+      "Audit of current AI visibility across platforms",
+      "Content optimization for AI discovery",
+      "Knowledge base and FAQ optimization",
+      "Entity recognition setup in AI systems",
+      "Performance monitoring across ChatGPT, Perplexity, Google AI, and more",
+      "Monthly optimization reports",
+      "Strategy adjustments based on performance"
+    ],
+    process: [
+      "Week 1: Analysis - Audit how AI tools currently answer questions in your industry",
+      "Week 2: Optimization - Optimize your content for AI discovery across all platforms",
+      "Week 3: Monitoring - Set up tracking and begin monitoring AI mentions and recommendations"
+    ]
   }
 ];
 
@@ -651,13 +686,13 @@ export default function Products() {
       <Navigation />
 
       {/* Header */}
-      <section className="pt-32 pb-12 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
+      <section className="pt-40 pb-20 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
         <motion.div
           className="container mx-auto px-4 text-center"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
         >
-          <h1 className="text-5xl lg:text-6xl font-bold mb-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
             Our <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Ready to Go</span> Products
           </h1>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
@@ -669,7 +704,7 @@ export default function Products() {
       {/* Main Content with Sidebar */}
       <section className="py-12">
         <div className="container mx-auto px-4">
-          <div className="flex gap-8">
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
             {/* Sidebar */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}

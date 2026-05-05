@@ -1,4 +1,3 @@
-export { COOKIE_NAME, ONE_YEAR_MS } from "@shared/const";
 
 // Generate login URL at runtime so redirect URI reflects the current origin.
 export const getLoginUrl = () => {
@@ -35,9 +34,26 @@ export const WHY_OPTIMAI_HREF = "/why-optimai";
 export const SERVICES = [
   {
     id: "strategic-advisory",
-    title: "Our Core Services - Strategic Advisory & Consulting",
+    title: "Strategic Advisory & Consulting",
     description: "Expert guidance on automation and AI adoption tailored for your business",
     icon: "target",
+    whatWeDo: "We analyze your business, identify where automation can save time and money, and create a clear roadmap for implementing AI and automation solutions that fit your goals.",
+    options: [
+      { name: "Readiness Assessment", description: "Evaluate your current processes and technology to see where automation fits best" },
+      { name: "Strategy & Roadmap", description: "Create a step-by-step plan for implementing automation over time" },
+      { name: "Technology Review", description: "Assess your current tools and recommend the best stack for your needs" },
+    ],
+    useCases: [
+      "You're unsure where to start with automation",
+      "You want a clear plan before investing in new tools",
+      "You need expert advice on which solutions fit your business",
+    ],
+    process: [
+      "We meet with your team to understand your business and goals",
+      "We analyze your current workflows and identify automation opportunities",
+      "We present findings and create a customized roadmap",
+      "We recommend specific tools and next steps",
+    ],
     details: [
       "Automation & AI Readiness Assessment",
       "Growth Strategy & Roadmapping",
@@ -50,6 +66,24 @@ export const SERVICES = [
     title: "Marketing & Growth Automation",
     description: "Automated marketing systems to enhance visibility and lead generation",
     icon: "trending-up",
+    whatWeDo: "We set up automated systems that find potential customers, nurture them with personalized content, and turn them into paying clients—all while you sleep.",
+    options: [
+      { name: "Lead Generation Automation", description: "Set up systems to automatically find and capture leads from your target audience" },
+      { name: "Email Marketing Sequences", description: "Create automated email campaigns that nurture leads and drive conversions" },
+      { name: "AI Search Optimization", description: "Optimize your content so AI and search engines recommend you to customers" },
+      { name: "Social Media Automation", description: "Schedule and automate your social media presence across platforms" },
+    ],
+    useCases: [
+      "You spend too much time on manual marketing tasks",
+      "You want more leads without hiring a full marketing team",
+      "You need consistent customer engagement without the effort",
+    ],
+    process: [
+      "We audit your current marketing channels and identify gaps",
+      "We set up automated lead capture and nurturing systems",
+      "We create email sequences and content calendars",
+      "We monitor performance and optimize for better results",
+    ],
     details: [
       "AI Search Optimization (AIO)",
       "AI Answer Optimization (AEO)",
@@ -60,9 +94,27 @@ export const SERVICES = [
   },
   {
     id: "business-automation",
-    title: "Business Process Automation (BPA)",
+    title: "Business Process Automation",
     description: "Streamline operational workflows and reduce manual effort",
     icon: "settings",
+    whatWeDo: "We identify repetitive tasks in your business and automate them using AI and software robots, freeing up your team to focus on high-value work.",
+    options: [
+      { name: "Workflow Automation", description: "Automate routine tasks like data entry, approvals, and reporting" },
+      { name: "AI Chatbots", description: "Deploy intelligent chatbots to handle customer inquiries 24/7" },
+      { name: "Document Processing", description: "Automatically extract and process information from documents" },
+      { name: "System Integration", description: "Connect your tools so data flows automatically between systems" },
+    ],
+    useCases: [
+      "Your team spends hours on manual data entry",
+      "You get repetitive customer questions that slow down support",
+      "You need data to flow between multiple tools without manual work",
+    ],
+    process: [
+      "We map out your current workflows and identify bottlenecks",
+      "We design automation solutions tailored to your processes",
+      "We implement and test the automation",
+      "We train your team and provide ongoing support",
+    ],
     details: [
       "Process Discovery & Optimization",
       "Robotic Process Automation (RPA)",
@@ -73,9 +125,27 @@ export const SERVICES = [
   },
   {
     id: "ai-integration",
-    title: "End-to-End AI Integration",
+    title: "AI Integration & Analytics",
     description: "Seamless integration of advanced AI capabilities with existing systems",
     icon: "cpu",
+    whatWeDo: "We integrate powerful AI tools into your existing systems so you can make smarter decisions, predict trends, and automate complex tasks.",
+    options: [
+      { name: "Predictive Analytics", description: "Use AI to forecast trends and make data-driven decisions" },
+      { name: "Customer Intelligence", description: "Analyze customer behavior to personalize experiences and increase sales" },
+      { name: "Content Generation", description: "Use AI to create marketing copy, reports, and content at scale" },
+      { name: "System Integration", description: "Connect AI tools with your CRM, accounting, and other platforms" },
+    ],
+    useCases: [
+      "You want to make decisions based on data, not guesses",
+      "You need to process large amounts of data quickly",
+      "You want to personalize customer experiences at scale",
+    ],
+    process: [
+      "We assess your data and systems to identify AI opportunities",
+      "We select and configure the right AI tools for your needs",
+      "We integrate AI with your existing platforms",
+      "We set up dashboards and reporting so you can see results",
+    ],
     details: [
       "Intelligent Document Processing (IDP)",
       "AI-Powered Data Analytics",
@@ -86,9 +156,27 @@ export const SERVICES = [
   },
   {
     id: "managed-services",
-    title: "Managed Services & Training",
+    title: "Managed Services & Support",
     description: "Ongoing support, optimization, and team upskilling",
     icon: "shield",
+    whatWeDo: "We don't just build and leave. We continuously monitor, optimize, and support your automation systems to ensure they keep delivering results.",
+    options: [
+      { name: "Ongoing Support", description: "Get help when you need it—technical support and troubleshooting" },
+      { name: "Performance Optimization", description: "We monitor your systems and continuously improve performance" },
+      { name: "Team Training", description: "Train your team to use and manage automation tools effectively" },
+      { name: "System Updates", description: "Keep your automation systems current with the latest features" },
+    ],
+    useCases: [
+      "You want peace of mind that your systems are running smoothly",
+      "Your team needs training to manage new tools",
+      "You want ongoing optimization to get better results",
+    ],
+    process: [
+      "We set up monitoring to track system performance",
+      "We provide regular reports on what's working and what can improve",
+      "We make optimizations based on performance data",
+      "We offer training and support to your team as needed",
+    ],
     details: [
       "Ongoing Support & Maintenance",
       "Performance Monitoring & Optimization",
@@ -96,186 +184,35 @@ export const SERVICES = [
     ],
     technicalDetails: "Continuous monitoring and refinement of deployed solutions, regular performance reviews, and comprehensive training programs to empower your team to manage and optimize new technologies.",
   },
-];
-
-export const TESTIMONIALS = [
   {
-    name: "Sarah Chen",
-    role: "Founder & CEO, TechStart Co",
-    content: "OptimAI transformed our operations. We went from manual processes taking 40 hours per week to fully automated workflows. The ROI was immediate.",
-    image: "👩‍💼",
-  },
-  {
-    name: "Marcus Johnson",
-    role: "Operations Director, GrowthHub SME",
-    content: "The team at OptimAI understood our pain points instantly. Their AI integration saved us $150k annually while improving our customer satisfaction scores.",
-    image: "👨‍💼",
-  },
-  {
-    name: "Elena Rodriguez",
-    role: "Founder, Innovation Labs",
-    content: "What impressed me most was how practical and implementable their solutions were. No fluff, just real results that directly impacted our bottom line.",
-    image: "👩‍🔬",
-  },
-];
-
-export const CASE_STUDIES = [
-  {
-    title: "E-Commerce Platform Automation",
-    client: "Digital Retail Solutions",
-    challenge: "Manual order processing taking 20+ hours daily",
-    solution: "Implemented RPA and AI-powered inventory management",
-    results: {
-      timeSaved: "85%",
-      costSavings: "$120,000",
-      productivityGain: "3.5x",
-    },
-    metrics: [
-      { label: "Processing Time", before: "20 hours", after: "3 hours" },
-      { label: "Error Rate", before: "8%", after: "0.5%" },
-      { label: "Customer Satisfaction", before: "78%", after: "94%" },
+    id: "ai-search-optimization",
+    title: "AI Search & Answer Optimization",
+    description: "Get found by AI tools and appear in AI-powered search results and recommendations",
+    icon: "search",
+    whatWeDo: "We optimize your content so AI tools like ChatGPT, Perplexity, and Google's AI Overview recommend your business as the answer to customer questions. We cover AI Answer Optimization (AEO), Generative Engine Optimization (GEO), and AI Search Optimization (AIO) in one comprehensive strategy.",
+    options: [
+      { name: "AI Answer Optimization (AEO)", description: "Get featured in AI chatbot responses and answers" },
+      { name: "Generative Engine Optimization (GEO)", description: "Appear in generative AI outputs and recommendations" },
+      { name: "AI Search Optimization (AIO)", description: "Rank in AI-powered search platforms and discovery tools" },
+      { name: "Full Strategy", description: "Complete optimization across all AI search and answer platforms" },
     ],
-  },
-  {
-    title: "Marketing Automation for SaaS",
-    client: "CloudFlow Technologies",
-    challenge: "Lead generation bottleneck, low conversion rates",
-    solution: "AI-powered lead scoring and marketing automation",
-    results: {
-      timeSaved: "60%",
-      costSavings: "$85,000",
-      productivityGain: "2.8x",
-    },
-    metrics: [
-      { label: "Lead Quality Score", before: "42%", after: "78%" },
-      { label: "Conversion Rate", before: "2.1%", after: "5.8%" },
-      { label: "Sales Cycle", before: "45 days", after: "18 days" },
+    useCases: [
+      "You want to be found by AI search tools like ChatGPT and Perplexity",
+      "You're losing leads to competitors who appear in AI results",
+      "You need to adapt your visibility strategy for the AI-first future",
     ],
-  },
-  {
-    title: "Customer Support AI Integration",
-    client: "ServiceHub Startup",
-    challenge: "Overwhelmed support team, high response times",
-    solution: "Custom AI chatbot with intelligent routing",
-    results: {
-      timeSaved: "70%",
-      costSavings: "$95,000",
-      productivityGain: "4.2x",
-    },
-    metrics: [
-      { label: "Response Time", before: "4 hours", after: "2 minutes" },
-      { label: "Support Tickets Resolved", before: "60%", after: "89%" },
-      { label: "Customer Satisfaction", before: "72%", after: "91%" },
+    process: [
+      "We analyze how AI tools currently answer questions in your industry",
+      "We audit your content and optimize it for AI discovery across all platforms",
+      "We create new content specifically designed for AI recommendations",
+      "We monitor performance across AI platforms and continuously optimize",
     ],
-  },
-];
-
-export const PRICING_TIERS = [
-  {
-    name: "Initial Assessment",
-    description: "Perfect for getting started",
-    price: "Fixed Fee",
-    features: [
-      "Automation & AI Readiness Assessment",
-      "Strategic Roadmap Development",
-      "Technology Stack Recommendations",
-      "Executive Summary Report",
+    details: [
+      "AI Answer Optimization (AEO)",
+      "Generative Engine Optimization (GEO)",
+      "AI Search Optimization (AIO)",
+      "Cross-Platform Monitoring",
     ],
-    cta: "Get Your Free AI and Automation Audit",
-    highlighted: false,
-  },
-  {
-    name: "Project Implementation",
-    description: "For specific automation needs",
-    price: "$3,000 - $50,000+",
-    features: [
-      "Custom Solution Development",
-      "Process Automation Setup",
-      "AI Integration & Deployment",
-      "Team Training & Documentation",
-      "3-Month Support Included",
-    ],
-    cta: "Check out what we do",
-    highlighted: true,
-  },
-  {
-    name: "Managed Services",
-    description: "Ongoing optimization & support",
-    price: "$500 - $5,000+/month",
-    features: [
-      "24/7 Monitoring & Support",
-      "Performance Optimization",
-      "Continuous Improvements",
-      "Monthly Strategy Reviews",
-      "Team Training & Updates",
-    ],
-    cta: "Schedule Consultation",
-    highlighted: false,
-  },
-];
-
-export const FAQ_ITEMS = [
-  {
-    question: "What's the typical ROI timeline for AI and automation projects?",
-    answer: "Most clients see measurable ROI within 3-6 months of implementation. Quick wins like process automation often show results within weeks, while comprehensive AI integration typically delivers full ROI within 6-12 months.",
-  },
-  {
-    question: "Do I need technical expertise to implement your solutions?",
-    answer: "No. Our team handles all technical implementation. We provide comprehensive training to your team so they can manage and optimize the solutions post-deployment. We believe in empowering your team, not creating dependency.",
-  },
-  {
-    question: "How do you ensure data security and compliance?",
-    answer: "We follow industry best practices including encryption, secure API integrations, and compliance with GDPR, CCPA, and other relevant regulations. All solutions are audited for security before deployment.",
-  },
-  {
-    question: "Can your solutions integrate with our existing systems?",
-    answer: "Absolutely. We specialize in seamless integration with existing CRM, ERP, accounting, and other business systems. Our approach is designed to enhance what you already have, not replace it.",
-  },
-  {
-    question: "What if the solution doesn't meet our expectations?",
-    answer: "We provide a 30-day optimization period where we fine-tune the solution based on your feedback. We're committed to your success and won't consider a project complete until you're satisfied with the results.",
-  },
-  {
-    question: "How do you handle ongoing support and updates?",
-    answer: "Our Managed Services tier includes 24/7 monitoring, regular optimization, and proactive updates. We continuously monitor performance metrics and suggest improvements to maximize your ROI.",
-  },
-];
-
-export const PROCESS_STEPS = [
-  {
-    number: "01",
-    title: "Discovery & Assessment",
-    description: "We conduct a comprehensive audit of your current processes, technology stack, and business goals to identify high-impact automation opportunities.",
-    timeline: "Week 1-2",
-  },
-  {
-    number: "02",
-    title: "Strategy & Roadmap",
-    description: "Based on our findings, we develop a tailored roadmap with clear milestones, expected ROI, and implementation timeline aligned with your business objectives.",
-    timeline: "Week 3",
-  },
-  {
-    number: "03",
-    title: "Solution Design",
-    description: "Our team designs custom solutions that integrate seamlessly with your existing systems. We present prototypes and get your approval before development.",
-    timeline: "Week 4-5",
-  },
-  {
-    number: "04",
-    title: "Implementation",
-    description: "We deploy the solution with minimal disruption to your operations. Our team handles all technical work while keeping you informed of progress.",
-    timeline: "Week 6-10",
-  },
-  {
-    number: "05",
-    title: "Training & Optimization",
-    description: "We train your team on the new systems and conduct performance optimization. We're available for support during the critical first 30 days.",
-    timeline: "Week 11-12",
-  },
-  {
-    number: "06",
-    title: "Ongoing Support",
-    description: "Transition to managed services for continuous monitoring, optimization, and strategic guidance. We're your partner for long-term success.",
-    timeline: "Ongoing",
+    technicalDetails: "Comprehensive optimization strategy to maximize visibility across AI-powered search platforms, generative AI engines, and AI chatbots. Ensures your business is recommended to users across all major AI tools and discovery platforms.",
   },
 ];
