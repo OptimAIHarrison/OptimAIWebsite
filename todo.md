@@ -368,3 +368,9 @@
 - [x] Move search, tags, and business type filters to left sidebar
 - [x] Update product grid to fill right side of page
 - [x] Ensure responsive design for mobile (sidebar collapses)
+
+
+## Current Work (Round 29 - Background Animation)
+- [ ] Add waving/flowing animation to background divider images
+- [ ] Create smooth, continuous motion effect
+- [ ] Ensure animation doesn't impact performance

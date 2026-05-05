@@ -53,6 +53,54 @@ export default function Home() {
         {/* Dark overlay for text readability */}
         <div className="absolute inset-0 -z-10 bg-black/10" />
 
+        {/* Animated Wave Elements */}
+        <div className="absolute inset-0 -z-5 overflow-hidden">
+          {/* Top Wave */}
+          <motion.svg
+            className="absolute top-0 left-0 w-full h-32 text-purple-600/30"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+            animate={{ x: [0, 50, 0] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          >
+            <path
+              d="M0,50 Q300,0 600,50 T1200,50 L1200,120 L0,120 Z"
+              fill="currentColor"
+              opacity="0.3"
+            />
+          </motion.svg>
+
+          {/* Middle Wave */}
+          <motion.svg
+            className="absolute top-16 left-0 w-full h-32 text-pink-600/20"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+            animate={{ x: [0, -50, 0] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          >
+            <path
+              d="M0,70 Q300,30 600,70 T1200,70 L1200,120 L0,120 Z"
+              fill="currentColor"
+              opacity="0.2"
+            />
+          </motion.svg>
+
+          {/* Bottom Wave */}
+          <motion.svg
+            className="absolute bottom-0 left-0 w-full h-40 text-purple-500/20"
+            viewBox="0 0 1200 120"
+            preserveAspectRatio="none"
+            animate={{ x: [0, 40, 0] }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          >
+            <path
+              d="M0,60 Q300,20 600,60 T1200,60 L1200,120 L0,120 Z"
+              fill="currentColor"
+              opacity="0.15"
+            />
+          </motion.svg>
+        </div>
+
         <motion.div
           className="container mx-auto px-4 w-full flex justify-center"
           variants={containerVariants}
