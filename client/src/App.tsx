@@ -6,6 +6,7 @@ import { Route, Switch, useLocation } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { ChatbotWidget } from "./components/ChatbotWidget";
+import { StickyProductsLabel } from "./components/StickyProductsLabel";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
 import About from "./pages/About";
@@ -75,6 +76,7 @@ function App() {
           <Toaster />
           <Router />
           <ChatbotWidget />
+          <StickyProductsLabel />
         </TooltipProvider>
       </ThemeProvider>
     </ErrorBoundary>

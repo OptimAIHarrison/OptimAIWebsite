@@ -205,7 +205,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
             {SERVICES.map((service, index) => (
               <motion.div
                 key={service.id}
@@ -213,18 +213,19 @@ export default function Home() {
                 className="group cursor-pointer"
                 onClick={() => setActiveService(index)}
               >
-                <div className="glass-card p-6 h-full hover:border-purple-500/50 transition-all duration-300 flex flex-col">
-                  <div className="mb-4">
-                    {service.icon === 'target' && <Target size={48} className="text-purple-600" />}
-                    {service.icon === 'trending-up' && <TrendingUp size={48} className="text-purple-600" />}
-                    {service.icon === 'settings' && <Settings size={48} className="text-purple-600" />}
-                    {service.icon === 'cpu' && <Cpu size={48} className="text-purple-600" />}
-                    {service.icon === 'shield' && <Shield size={48} className="text-purple-600" />}
+                <div className="glass-card p-4 h-full hover:border-purple-500/50 transition-all duration-300 flex flex-col">
+                  <div className="mb-3">
+                    {service.icon === 'target' && <Target size={36} className="text-purple-600" />}
+                    {service.icon === 'trending-up' && <TrendingUp size={36} className="text-purple-600" />}
+                    {service.icon === 'settings' && <Settings size={36} className="text-purple-600" />}
+                    {service.icon === 'cpu' && <Cpu size={36} className="text-purple-600" />}
+                    {service.icon === 'shield' && <Shield size={36} className="text-purple-600" />}
+                    {service.icon === 'search' && <Search size={36} className="text-purple-600" />}
                   </div>
-                  <h3 className="font-bold text-lg mb-2 group-hover:text-accent transition-colors">
+                  <h3 className="font-bold text-base mb-1 group-hover:text-accent transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-foreground/70 text-sm flex-grow">{service.description}</p>
+                  <p className="text-foreground/70 text-xs flex-grow">{service.description}</p>
                   <button
                     onClick={(e) => {
                       e.stopPropagation();

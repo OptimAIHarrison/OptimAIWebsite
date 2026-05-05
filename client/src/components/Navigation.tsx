@@ -21,8 +21,8 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-1">
-            {/* Main Navigation Items - excluding Why OptimAI */}
-            {NAVIGATION.filter((item) => item.label !== "Why OptimAI").map((item) => (
+            {/* Main Navigation Items - excluding Why OptimAI and Ready to Go Products */}
+            {NAVIGATION.filter((item) => item.label !== "Why OptimAI" && item.label !== "Ready to Go Products").map((item) => (
               <Link key={item.href} href={item.href}>
                 <a className="px-3 py-2 text-sm font-medium text-foreground/80 hover:text-accent transition-colors">
                   {item.label}

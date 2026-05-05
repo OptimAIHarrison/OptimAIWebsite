@@ -97,6 +97,7 @@ export default function Services() {
               else if (service.title.includes("Business Process")) serviceLabel = "Business Process Automation";
               else if (service.title.includes("End-to-End")) serviceLabel = "AI Integration";
               else if (service.title.includes("Managed")) serviceLabel = "Managed Services";
+              else if (service.title.includes("AI Search")) serviceLabel = "AI Visibility";
               return (
                 <button
                   key={service.id}
