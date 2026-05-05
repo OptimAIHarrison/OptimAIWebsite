@@ -386,19 +386,8 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-4 border-t border-white/10 pt-6">
-                  <div>
-                    <p className="text-accent font-bold text-lg">{study.results.timeSaved}</p>
-                    <p className="text-foreground/70 text-xs">Time Saved</p>
-                  </div>
-                  <div>
-                    <p className="text-accent font-bold text-lg">{study.results.costSavings}</p>
-                    <p className="text-foreground/70 text-xs">Cost Savings</p>
-                  </div>
-                  <div>
-                    <p className="text-accent font-bold text-lg">{study.results.productivityGain}</p>
-                    <p className="text-foreground/70 text-xs">Productivity</p>
-                  </div>
+                <div className="border-t border-white/10 pt-6">
+                  <p className="text-accent font-bold text-sm">{study.result}</p>
                 </div>
               </motion.div>
             ))}
