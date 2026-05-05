@@ -275,6 +275,7 @@ export const PRICING_TIERS = [
       "Basic analytics",
       "30-day free trial",
     ],
+    cta: "Get Started",
   },
   {
     name: "Professional",
@@ -288,6 +289,8 @@ export const PRICING_TIERS = [
       "Monthly strategy calls",
     ],
     popular: true,
+    highlighted: true,
+    cta: "Start Free Trial",
   },
   {
     name: "Enterprise",
