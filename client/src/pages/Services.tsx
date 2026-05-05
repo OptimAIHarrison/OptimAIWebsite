@@ -5,7 +5,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { SERVICES } from "@/const";
-import { ChevronDown, ArrowRight, Target, TrendingUp, Settings, Cpu, Shield } from "lucide-react";
+import { ChevronDown, ArrowRight, Target, TrendingUp, Settings, Cpu, Shield, Search } from "lucide-react";
 
 export default function Services() {
   const [expanded, setExpanded] = useState<string | null>(SERVICES[0].id);
@@ -89,7 +89,7 @@ export default function Services() {
               Technical Details
             </button>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-2">
             {SERVICES.map((service) => {
               let serviceLabel = "Service";
               if (service.title.includes("Strategic")) serviceLabel = "Strategic Advisory";
@@ -147,6 +147,7 @@ export default function Services() {
                         {service.icon === 'settings' && <Settings size={48} className="text-purple-600" />}
                         {service.icon === 'cpu' && <Cpu size={48} className="text-purple-600" />}
                         {service.icon === 'shield' && <Shield size={48} className="text-purple-600" />}
+                        {service.icon === 'search' && <Search size={48} className="text-purple-600" />}
                       </div>
                       <div>
                         <h3 className="text-2xl font-bold">{service.title}</h3>
