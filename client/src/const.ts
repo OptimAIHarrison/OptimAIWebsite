@@ -225,6 +225,7 @@ export const TESTIMONIALS = [
     role: "Founder",
     text: "OptimAI helped us automate our entire customer support process. We went from 40 hours/week of manual work to fully automated responses. Game-changer!",
     image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=100",
+    content: "OptimAI helped us automate our entire customer support process. We went from 40 hours/week of manual work to fully automated responses. Game-changer!",
   },
   {
     name: "Michael Chen",
@@ -232,6 +233,7 @@ export const TESTIMONIALS = [
     role: "Operations Manager",
     text: "The AI chatbot setup was seamless. Our conversion rate increased by 35% and customer satisfaction improved dramatically. Highly recommend!",
     image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=100",
+    content: "The AI chatbot setup was seamless. Our conversion rate increased by 35% and customer satisfaction improved dramatically. Highly recommend!",
   },
   {
     name: "Emma Davis",
@@ -239,6 +241,7 @@ export const TESTIMONIALS = [
     role: "CEO",
     text: "OptimAI's strategic advisory helped us identify automation opportunities we never knew existed. ROI exceeded expectations within 3 months.",
     image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=100",
+    content: "OptimAI's strategic advisory helped us identify automation opportunities we never knew existed. ROI exceeded expectations within 3 months.",
   },
 ];
 
@@ -248,18 +251,57 @@ export const CASE_STUDIES = [
     company: "Tech Startup",
     description: "Automated repetitive data entry and reporting tasks",
     result: "Saved 32 hours/week, allowing team to focus on growth",
+    client: "Tech Startup",
+    challenge: "Manual data entry was consuming 40 hours per week",
+    solution: "Implemented automated workflows using Make and Zapier",
+    metrics: [
+      { label: "Manual Work Hours/Week", before: "40 hours", after: "8 hours" },
+      { label: "Error Rate", before: "15%", after: "0.5%" },
+      { label: "Team Productivity Gain", before: "Baseline", after: "+80%" },
+    ],
+    results: {
+      timeSaved: "32 hrs/week",
+      costSavings: "$12,800/month",
+      productivityGain: "+80%",
+    },
   },
   {
     title: "Increased Lead Generation by 150%",
     company: "SaaS Company",
     description: "Implemented AI-powered lead capture and nurturing",
     result: "Generated 300+ qualified leads in first month",
+    client: "SaaS Company",
+    challenge: "Lead generation was stagnant with poor conversion rates",
+    solution: "Deployed AI chatbot and automated lead scoring system",
+    metrics: [
+      { label: "Monthly Leads", before: "120 leads", after: "300+ leads" },
+      { label: "Conversion Rate", before: "2.5%", after: "6.8%" },
+      { label: "Lead Quality Score", before: "3.2/10", after: "8.1/10" },
+    ],
+    results: {
+      timeSaved: "20 hrs/week",
+      costSavings: "$8,500/month",
+      productivityGain: "+150%",
+    },
   },
   {
     title: "Improved Customer Support Response Time",
     company: "E-commerce Business",
     description: "Deployed AI chatbot for 24/7 customer support",
     result: "Response time reduced from 24 hours to instant",
+    client: "E-commerce Business",
+    challenge: "Customer support team was overwhelmed with inquiries",
+    solution: "Implemented AI chatbot with knowledge base integration",
+    metrics: [
+      { label: "Response Time", before: "24 hours", after: "Instant" },
+      { label: "Customer Satisfaction", before: "72%", after: "94%" },
+      { label: "Support Cost Reduction", before: "Baseline", after: "-45%" },
+    ],
+    results: {
+      timeSaved: "15 hrs/week",
+      costSavings: "$6,200/month",
+      productivityGain: "+120%",
+    },
   },
 ];
 
