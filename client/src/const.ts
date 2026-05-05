@@ -262,3 +262,73 @@ export const CASE_STUDIES = [
     result: "Response time reduced from 24 hours to instant",
   },
 ];
+
+
+export const PRICING_TIERS = [
+  {
+    name: "Starter",
+    price: 99,
+    description: "Perfect for small businesses getting started",
+    features: [
+      "Up to 1 automation workflow",
+      "Email support",
+      "Basic analytics",
+      "30-day free trial",
+    ],
+  },
+  {
+    name: "Professional",
+    price: 299,
+    description: "For growing businesses with multiple needs",
+    features: [
+      "Up to 5 automation workflows",
+      "Priority email & chat support",
+      "Advanced analytics",
+      "Custom integrations",
+      "Monthly strategy calls",
+    ],
+    popular: true,
+  },
+  {
+    name: "Enterprise",
+    price: null,
+    description: "Custom solutions for large organizations",
+    features: [
+      "Unlimited automation workflows",
+      "24/7 dedicated support",
+      "Custom development",
+      "API access",
+      "Quarterly business reviews",
+      "SLA guarantee",
+    ],
+    cta: "Contact Sales",
+  },
+];
+
+
+export const FAQ_ITEMS = [
+  {
+    question: "How long does implementation typically take?",
+    answer: "Most projects take 2-6 weeks depending on complexity. We provide a detailed timeline during the discovery phase so you know exactly what to expect.",
+  },
+  {
+    question: "Do I need technical expertise to use your solutions?",
+    answer: "No! We handle all the technical setup and provide training for your team. Our solutions are designed to be user-friendly and require no coding knowledge.",
+  },
+  {
+    question: "What if I need custom changes after implementation?",
+    answer: "We offer ongoing support and optimization. Any custom changes can be discussed with our team, and we'll provide a quote based on the scope of work.",
+  },
+  {
+    question: "Can you integrate with my existing tools?",
+    answer: "Yes! We specialize in integrating with popular platforms like Zapier, Make, HubSpot, Salesforce, and many others. Let us know your tech stack during consultation.",
+  },
+  {
+    question: "What kind of support do you provide?",
+    answer: "We offer email support, documentation, video tutorials, and for premium clients, direct access to our team for strategy calls and optimization.",
+  },
+  {
+    question: "Is there a contract or long-term commitment?",
+    answer: "No long-term contracts required. We work on project basis or monthly retainers if you want ongoing support. You're free to adjust or cancel anytime.",
+  },
+];
