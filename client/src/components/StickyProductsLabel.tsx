@@ -14,9 +14,9 @@ export function StickyProductsLabel() {
         </div>
       </Link>
 
-      {/* Mobile Version - Bigger vertically with text moved down */}
+      {/* Mobile Version - Bigger vertically with text moved down, moved down further */}
       <Link href="/products">
-        <div className="lg:hidden fixed right-4 top-[72px] z-40 cursor-pointer">
+        <div className="lg:hidden fixed right-4 top-[84px] z-40 cursor-pointer">
           <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium text-xs px-3 py-4 pt-5 rounded-b-md rounded-t-none hover:from-purple-700 hover:to-pink-700 transition-all duration-300 flex items-center justify-center gap-1.5 whitespace-nowrap shadow-lg">
             <ShoppingCart size={16} />
             READY TO GO
