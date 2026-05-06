@@ -95,7 +95,7 @@ export default function Services() {
               if (service.title.includes("Strategic")) serviceLabel = "Strategic Advisory";
               else if (service.title.includes("Marketing")) serviceLabel = "Marketing Automation";
               else if (service.title.includes("Business Process")) serviceLabel = "Business Process Automation";
-              else if (service.title.includes("End-to-End")) serviceLabel = "AI Integration";
+              else if (service.title.includes("AI Integration")) serviceLabel = "AI Integration";
               else if (service.title.includes("Managed")) serviceLabel = "Managed Services";
               else if (service.title.includes("AI Search")) serviceLabel = "AI Visibility";
               return (
