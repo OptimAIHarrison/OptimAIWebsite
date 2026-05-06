@@ -1,21 +1,24 @@
 import { Link } from "wouter";
+import { ShoppingCart } from "lucide-react";
 
 export function StickyProductsLabel() {
   return (
     <>
-      {/* Desktop Version - Fully visible, hanging from header */}
+      {/* Desktop Version - Aligned with header, bigger, with shopping cart icon */}
       <Link href="/products">
-        <div className="hidden lg:block fixed right-8 top-[104px] z-40 cursor-pointer">
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium text-sm px-4 py-2 rounded-b-md rounded-t-none hover:from-purple-700 hover:to-pink-700 transition-all duration-300 flex items-center justify-center whitespace-nowrap shadow-lg hover:shadow-xl">
+        <div className="hidden lg:block fixed right-8 top-[76px] z-40 cursor-pointer">
+          <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium text-sm px-4 py-3 rounded-b-md rounded-t-none hover:from-purple-700 hover:to-pink-700 transition-all duration-300 flex items-center justify-center gap-2 whitespace-nowrap shadow-lg hover:shadow-xl">
+            <ShoppingCart size={18} />
             READY TO GO PRODUCTS
           </div>
         </div>
       </Link>
 
-      {/* Mobile Version - Fully visible, hanging from header */}
+      {/* Mobile Version - Aligned with header, bigger, with shopping cart icon */}
       <Link href="/products">
-        <div className="lg:hidden fixed right-4 top-[80px] z-40 cursor-pointer">
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium text-xs px-3 py-1.5 rounded-b-md rounded-t-none hover:from-purple-700 hover:to-pink-700 transition-all duration-300 flex items-center justify-center whitespace-nowrap shadow-lg">
+        <div className="lg:hidden fixed right-4 top-[64px] z-40 cursor-pointer">
+          <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium text-xs px-3 py-2.5 rounded-b-md rounded-t-none hover:from-purple-700 hover:to-pink-700 transition-all duration-300 flex items-center justify-center gap-1.5 whitespace-nowrap shadow-lg">
+            <ShoppingCart size={16} />
             READY TO GO
           </div>
         </div>
