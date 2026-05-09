@@ -18,7 +18,7 @@ export function StickyProductsLabel() {
       <Link href="/products">
         <div className="lg:hidden fixed right-4 top-[84px] z-40 cursor-pointer">
           <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium text-[11px] px-2 py-2 pt-3 rounded-b-md rounded-t-none hover:from-purple-700 hover:to-pink-700 transition-all duration-300 flex flex-col items-center justify-center gap-2 shadow-lg w-20 h-20">
-            <ShoppingCart size={28} className="mt-2" />
+            <ShoppingCart size={36} className="mt-2" />
             <div className="text-center leading-tight">
               <div>Ready</div>
               <div>To Go</div>
