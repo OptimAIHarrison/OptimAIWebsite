@@ -24,6 +24,7 @@ export default function FreeAudit() {
     email: "",
     company: "",
     teamSize: "1-10",
+    challenge: "",
     auditAreas: [] as string[],
     currentChallenges: "",
     automationGoals: "",

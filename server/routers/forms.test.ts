@@ -69,6 +69,11 @@ describe("formsRouter", () => {
         company: "Tech Startup",
         teamSize: "1-10",
         challenge: "We need to automate our manual data entry processes",
+        auditAreas: ["data-processing", "customer-support"],
+        currentChallenges: "Manual data entry is taking 40 hours per week",
+        automationGoals: "Reduce manual work and improve accuracy",
+        timeline: "3-6 months",
+        budget: "10000-50000",
       });
 
       expect(result.success).toBe(true);
@@ -85,6 +90,11 @@ describe("formsRouter", () => {
           company: "Tech Startup",
           teamSize: "1-10",
           challenge: "We need to automate our manual data entry processes",
+          auditAreas: ["data-processing"],
+          currentChallenges: "Manual data entry is taking 40 hours per week",
+          automationGoals: "Reduce manual work and improve accuracy",
+          timeline: "3-6 months",
+          budget: "10000-50000",
         });
         expect.fail("Should have thrown validation error");
       } catch (error: any) {
@@ -102,6 +112,11 @@ describe("formsRouter", () => {
           company: "Tech Startup",
           teamSize: "1-10",
           challenge: "short",
+          auditAreas: ["data-processing"],
+          currentChallenges: "Manual data entry is taking 40 hours per week",
+          automationGoals: "Reduce manual work and improve accuracy",
+          timeline: "3-6 months",
+          budget: "10000-50000",
         });
         expect.fail("Should have thrown validation error");
       } catch (error: any) {

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle, X, Send } from "lucide-react";
+import { findBestMatch, getFallbackResponse, formatResponse } from "../utils/chatbotKnowledgeBase";
 
 interface Message {
   id: string;
@@ -21,6 +22,7 @@ export function ChatbotWidget() {
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [unmatched, setUnmatched] = useState(0);
 
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -48,15 +50,30 @@ export function ChatbotWidget() {
     }
 
     setTimeout(() => {
+      const match = findBestMatch(input);
+      let responseText = "";
+
+      if (match && match.confidence > 0.6) {
+        responseText = formatResponse(match.answer, match.pageSuggestions);
+        setUnmatched(0);
+      } else if (match && match.confidence > 0.4) {
+        responseText = `I think you might be asking about something related to our services. Could you tell me more about what you're looking for?`;
+        setUnmatched((prev) => prev + 1);
+      } else {
+        const fallback = getFallbackResponse(unmatched);
+        responseText = formatResponse(fallback.answer, fallback.pageSuggestions);
+        setUnmatched((prev) => prev + 1);
+      }
+
       const botResponse: Message = {
         id: (Date.now() + 1).toString(),
-        text: "Thanks for your message! Our team will get back to you shortly. In the meantime, feel free to explore our services or schedule a free audit.",
+        text: responseText,
         sender: "bot",
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, botResponse]);
       setIsLoading(false);
-    }, 1000);
+    }, 800);
   };
 
   return (

@@ -400,5 +400,7 @@
 - [x] Create comprehensive chatbot knowledge base file with Q&A flows
 - [x] Add marketplace, audit, and core services links to service questions
 - [x] Implement page suggestions and CTAs to chatbot responses
-- [ ] Update chatbot component to use knowledge base
-- [ ] Test chatbot conversation flows
+- [x] Update chatbot component to use knowledge base
+- [x] Test chatbot conversation flows
+- [x] Create and run chatbot knowledge base utility tests
+- [x] Fix audit form schema and tests with new challenge field
