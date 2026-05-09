@@ -32,14 +32,19 @@ export const formsRouter = router({
         email: z.string().email("Invalid email"),
         company: z.string().min(1, "Company is required"),
         teamSize: z.string(),
-        challenge: z.string().min(10, "Please describe your challenge"),
+        auditAreas: z.array(z.string()).min(1, "Please select at least one audit area"),
+        currentChallenges: z.string().min(10, "Please describe your current challenges"),
+        automationGoals: z.string().min(10, "Please describe your automation goals"),
+        timeline: z.string(),
+        budget: z.string(),
       })
     )
     .mutation(async ({ input }) => {
       try {
+        const auditAreasText = input.auditAreas.join(", ");
         await notifyOwner({
           title: "New Free Audit Request - hello@optimai.com.au",
-          content: `Name: ${input.name}\nEmail: ${input.email}\nCompany: ${input.company}\nTeam Size: ${input.teamSize}\nChallenge: ${input.challenge}\n\nReply to: ${input.email}`,
+          content: `Name: ${input.name}\nEmail: ${input.email}\nCompany: ${input.company}\nTeam Size: ${input.teamSize}\n\nAudit Areas: ${auditAreasText}\n\nCurrent Challenges: ${input.currentChallenges}\n\nAutomation Goals: ${input.automationGoals}\n\nTimeline: ${input.timeline}\nBudget: ${input.budget}\n\nReply to: ${input.email}`,
         });
         return { success: true, message: "Audit request submitted! We'll contact you within 24 hours." };
       } catch (error) {
