@@ -86,11 +86,11 @@ export function ChatbotWidget() {
       >
         <AnimatePresence mode="wait">
           {isOpen ? (
-            <motion.div key="close" initial={{ rotate: -90 }} exit={{ rotate: 90 }} transition={{ duration: 0.2 }}>
+            <motion.div key="close" initial={{ rotate: 0 }} exit={{ rotate: 0 }} transition={{ duration: 0.2 }}>
               <X size={24} />
             </motion.div>
           ) : (
-            <motion.div key="open" initial={{ rotate: 90 }} exit={{ rotate: -90 }} transition={{ duration: 0.2 }}>
+            <motion.div key="open" initial={{ rotate: 0 }} exit={{ rotate: 0 }} transition={{ duration: 0.2 }}>
               <MessageCircle size={24} />
             </motion.div>
           )}

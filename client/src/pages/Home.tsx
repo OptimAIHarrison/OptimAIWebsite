@@ -5,7 +5,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { LOGO_URL, SERVICES, TESTIMONIALS, CASE_STUDIES } from "@/const";
-import { ChevronRight, ArrowRight, Star, Search, ClipboardList, Hammer, Rocket, Target, TrendingUp, Settings, Cpu, Shield } from "lucide-react";
+import { ChevronRight, ArrowRight, Star, Search, ClipboardList, Hammer, Rocket, Target, TrendingUp, Settings, Cpu, Shield, User } from "lucide-react";
 import { ServiceFinderQuiz } from "@/components/ServiceFinderQuiz";
 
 export default function Home() {
@@ -450,7 +450,11 @@ export default function Home() {
               animate={{ opacity: 1 }}
               className="text-center"
             >
-              <p className="text-2xl">{TESTIMONIALS[testimonialIndex].image}</p>
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
+                  <User size={32} className="text-white" />
+                </div>
+              </div>
               <p className="font-bold text-lg mt-4">
                 {TESTIMONIALS[testimonialIndex].name}
               </p>
