@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { LOGO_URL, SERVICES, TESTIMONIALS, CASE_STUDIES } from "@/const";
 import { ChevronRight, ArrowRight, Star, Search, ClipboardList, Hammer, Rocket, Target, TrendingUp, Settings, Cpu, Shield } from "lucide-react";
+import { ServiceFinderQuiz } from "@/components/ServiceFinderQuiz";
 
 export default function Home() {
   const [activeService, setActiveService] = useState(0);
@@ -279,6 +280,9 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </section>
+
+      {/* Service Finder Quiz Section */}
+      <ServiceFinderQuiz />
 
       {/* What We Actually Do Section */}
       <section className="py-20 bg-gradient-to-b from-purple-100/20 to-transparent">
