@@ -90,7 +90,7 @@ export function ChatbotWidget() {
               <X size={24} />
             </motion.div>
           ) : (
-            <motion.div key="open" initial={{ rotate: 0 }} exit={{ rotate: 0 }} transition={{ duration: 0.2 }} style={{ scaleY: -1 }}>
+            <motion.div key="open" initial={{ rotate: 0 }} exit={{ rotate: 0 }} transition={{ duration: 0.2 }} style={{ scaleX: -1 }}>
               <MessageCircle size={24} />
             </motion.div>
           )}
