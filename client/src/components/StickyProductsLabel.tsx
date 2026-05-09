@@ -17,7 +17,7 @@ export function StickyProductsLabel() {
       {/* Mobile Version - Text on separate rows */}
       <Link href="/products">
         <div className="lg:hidden fixed right-4 top-[84px] z-40 cursor-pointer">
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium text-[10px] px-2 py-3 pt-4 rounded-b-md rounded-t-none hover:from-purple-700 hover:to-pink-700 transition-all duration-300 flex flex-col items-center justify-center gap-1 shadow-lg">
+          <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-medium text-[10px] px-3 py-3 pt-4 rounded-b-md rounded-t-none hover:from-purple-700 hover:to-pink-700 transition-all duration-300 flex flex-col items-center justify-center gap-1 shadow-lg w-16 h-16">
             <ShoppingCart size={14} />
             <div className="text-center leading-tight">
               <div>Ready</div>

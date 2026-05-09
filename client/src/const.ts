@@ -224,7 +224,7 @@ export const TESTIMONIALS = [
     company: "Tech Startup",
     role: "Founder",
     text: "OptimAI helped us automate our entire customer support process. We went from 40 hours/week of manual work to fully automated responses. Game-changer!",
-    image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=100",
+    image: "👩‍💼",
     content: "OptimAI helped us automate our entire customer support process. We went from 40 hours/week of manual work to fully automated responses. Game-changer!",
   },
   {
@@ -232,7 +232,7 @@ export const TESTIMONIALS = [
     company: "E-commerce Business",
     role: "Operations Manager",
     text: "The AI chatbot setup was seamless. Our conversion rate increased by 35% and customer satisfaction improved dramatically. Highly recommend!",
-    image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=100",
+    image: "👨‍💼",
     content: "The AI chatbot setup was seamless. Our conversion rate increased by 35% and customer satisfaction improved dramatically. Highly recommend!",
   },
   {
@@ -240,7 +240,7 @@ export const TESTIMONIALS = [
     company: "Professional Services",
     role: "CEO",
     text: "OptimAI's strategic advisory helped us identify automation opportunities we never knew existed. ROI exceeded expectations within 3 months.",
-    image: "https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=100",
+    image: "👩‍💼",
     content: "OptimAI's strategic advisory helped us identify automation opportunities we never knew existed. ROI exceeded expectations within 3 months.",
   },
 ];

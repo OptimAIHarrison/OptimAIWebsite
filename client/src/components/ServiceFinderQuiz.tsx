@@ -217,7 +217,7 @@ export function ServiceFinderQuiz() {
   const recommendations = getRecommendations();
 
   return (
-    <section className="py-20 bg-gradient-to-b from-transparent to-purple-100/20">
+    <section className="py-20 bg-gradient-to-b from-purple-600/5 to-purple-900/10 border-y border-purple-300/20">
       <motion.div
         className="container mx-auto px-4"
         initial={{ opacity: 0 }}
@@ -388,7 +388,7 @@ export function ServiceFinderQuiz() {
                   </Button>
                   <Button
                     onClick={resetQuiz}
-                    className="bg-white/10 hover:bg-white/20 text-white border-2 border-white/20 px-8 py-6 rounded-xl text-lg"
+                    className="bg-purple-900/40 hover:bg-purple-900/60 text-white border-2 border-purple-700/50 px-8 py-6 rounded-xl text-lg"
                   >
                     Retake Quiz
                   </Button>

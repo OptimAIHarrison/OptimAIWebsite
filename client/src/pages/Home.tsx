@@ -116,7 +116,7 @@ export default function Home() {
                   variants={itemVariants}
                 >
                   <span className="px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-purple-600/20 border border-purple-500/50 text-foreground text-xs md:text-sm font-medium whitespace-nowrap">
-                    Your Growth Partner in AI & Automation
+                    Your Practical Access to AI & Automation
                   </span>
                 </motion.div>
 
