@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { publicProcedure, router } from "../_core/trpc";
-import { notifyOwner } from "../_core/notification";
+import { notifyOwner, sendEmail } from "../_core/notification";
 
 export const formsRouter = router({
   submitContact: publicProcedure
@@ -14,22 +14,30 @@ export const formsRouter = router({
     )
     .mutation(async ({ input }) => {
       try {
+        const body = [
+          `Name:    ${input.name}`,
+          `Email:   ${input.email}`,
+          `Company: ${input.company}`,
+          ``,
+          `Message:`,
+          input.message,
+        ].join("\n");
+
         await notifyOwner({
-          title: "New Contact Form Submission - Website",
-          content: `Name: ${input.name}\nEmail: ${input.email}\nCompany: ${input.company}\nMessage: ${input.message}\n\nReply to: ${input.email}`,
+          title: "New Contact Form Submission - OptimAI",
+          content: body,
         });
 
-        return {
-          success: true,
-          message: "Contact form submitted successfully",
-        };
+        await sendEmail(
+          "New Contact Form Submission",
+          body,
+          input.email
+        );
+
+        return { success: true, message: "Thank you! We'll be in touch soon." };
       } catch (error) {
         console.error("Contact form submission error:", error);
-
-        return {
-          success: false,
-          message: "Failed to submit contact form",
-        };
+        return { success: false, message: "Failed to submit. Please try again." };
       }
     }),
 
@@ -50,24 +58,42 @@ export const formsRouter = router({
     )
     .mutation(async ({ input }) => {
       try {
-        const auditAreasText = input.auditAreas.join(", ");
+        const body = [
+          `Name:      ${input.name}`,
+          `Email:     ${input.email}`,
+          `Company:   ${input.company}`,
+          `Team Size: ${input.teamSize}`,
+          `Timeline:  ${input.timeline}`,
+          `Budget:    ${input.budget}`,
+          ``,
+          `Audit Areas:`,
+          input.auditAreas.map(a => `  - ${a}`).join("\n"),
+          ``,
+          `Primary Challenge:`,
+          input.challenge,
+          ``,
+          `Current Challenges:`,
+          input.currentChallenges,
+          ``,
+          `Automation Goals:`,
+          input.automationGoals,
+        ].join("\n");
 
         await notifyOwner({
-          title: "New Free Audit Request",
-          content: `Name: ${input.name}\nEmail: ${input.email}\nCompany: ${input.company}\nTeam Size: ${input.teamSize}\nChallenge: ${input.challenge}\n\nAudit Areas: ${auditAreasText}\n\nCurrent Challenges: ${input.currentChallenges}\n\nAutomation Goals: ${input.automationGoals}\n\nTimeline: ${input.timeline}\nBudget: ${input.budget}\n\nReply to: ${input.email}`,
+          title: "New Free Audit Request - OptimAI",
+          content: body,
         });
 
-        return {
-          success: true,
-          message: "Audit request submitted successfully",
-        };
-      } catch (error) {
-        console.error("Audit submission error:", error);
+        await sendEmail(
+          "New Free Audit Request",
+          body,
+          input.email
+        );
 
-        return {
-          success: false,
-          message: "Failed to submit audit request",
-        };
+        return { success: true, message: "Audit request submitted! We'll contact you within 24 hours." };
+      } catch (error) {
+        console.error("Audit form submission error:", error);
+        return { success: false, message: "Failed to submit. Please try again." };
       }
     }),
 
@@ -79,22 +105,22 @@ export const formsRouter = router({
     )
     .mutation(async ({ input }) => {
       try {
+        const body = `Chatbot Message:\n${input.message}`;
+
         await notifyOwner({
-          title: "New Chatbot Message",
-          content: `Message: ${input.message}`,
+          title: "New Chatbot Message - OptimAI",
+          content: body,
         });
 
-        return {
-          success: true,
-          message: "Message submitted successfully",
-        };
-      } catch (error) {
-        console.error("Chatbot message submission error:", error);
+        await sendEmail(
+          "New Chatbot Message",
+          body
+        );
 
-        return {
-          success: false,
-          message: "Failed to submit chatbot message",
-        };
+        return { success: true, message: "Message sent!" };
+      } catch (error) {
+        console.error("Chatbot message error:", error);
+        return { success: false, message: "Failed to send message." };
       }
     }),
 
@@ -110,24 +136,30 @@ export const formsRouter = router({
     )
     .mutation(async ({ input }) => {
       try {
+        const body = [
+          `Product: ${input.product}`,
+          ``,
+          `Name:    ${input.name}`,
+          `Email:   ${input.email}`,
+          `Company: ${input.company || "Not provided"}`,
+          `Phone:   ${input.phone || "Not provided"}`,
+        ].join("\n");
+
         await notifyOwner({
-          title: "New Product Inquiry",
-          content: `Product: ${input.product}\nName: ${input.name}\nEmail: ${input.email}\nCompany: ${input.company || "Not provided"}\nPhone: ${input.phone || "Not provided"}\n\nReply to: ${input.email}`,
+          title: "New Product Inquiry - OptimAI",
+          content: body,
         });
 
-        return {
-          success: true,
-          message:
-            "Thank you! We'll be in touch soon with details about " +
-            input.product,
-        };
+        await sendEmail(
+          `New Product Inquiry — ${input.product}`,
+          body,
+          input.email
+        );
+
+        return { success: true, message: `Thank you! We'll be in touch soon with details about ${input.product}` };
       } catch (error) {
         console.error("Product inquiry submission error:", error);
-
-        return {
-          success: false,
-          message: "Failed to submit inquiry. Please try again.",
-        };
+        return { success: false, message: "Failed to submit inquiry. Please try again." };
       }
     }),
 });
