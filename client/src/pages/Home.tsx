@@ -173,15 +173,15 @@ export default function Home() {
               >
                 <div>
                   <p className="text-2xl font-bold text-accent">40+ Hours</p>
-                  <p className="text-foreground/70 text-sm">Freed Up Every Month</p>
+                  <p className="text-foreground/70 text-sm">Back. Every Month.</p>
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-accent">15 Days</p>
-                  <p className="text-foreground/70 text-sm">See First Results</p>
+                  <p className="text-foreground/70 text-sm">Measurable Impact</p>
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-accent">5 Stars</p>
-                  <p className="text-foreground/70 text-sm">Rated by Every Client</p>
+                  <p className="text-foreground/70 text-sm">From Every Client</p>
                 </div>
               </motion.div>
             </motion.div>
