@@ -1,11 +1,29 @@
 import { useState, useRef } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { SERVICES } from "@/const";
-import { ChevronDown, ArrowRight, Target, TrendingUp, Settings, Cpu, Shield, Search } from "lucide-react";
+import { ChevronDown, ArrowRight, Target, TrendingUp, Settings, Cpu, Shield, Search, CheckCircle, Clock, Users, Zap } from "lucide-react";
+
+const SERVICE_ICONS: Record<string, React.ReactNode> = {
+  target: <Target size={32} className="text-purple-500" />,
+  "trending-up": <TrendingUp size={32} className="text-purple-500" />,
+  settings: <Settings size={32} className="text-purple-500" />,
+  cpu: <Cpu size={32} className="text-purple-500" />,
+  shield: <Shield size={32} className="text-purple-500" />,
+  search: <Search size={32} className="text-purple-500" />,
+};
+
+const SERVICE_LABELS: Record<string, string> = {
+  "strategic-advisory": "Strategic Advisory",
+  "marketing-automation": "Marketing Automation",
+  "business-automation": "Business Process",
+  "ai-integration": "AI Integration",
+  "managed-services": "Managed Services",
+  "ai-search-optimization": "AI Visibility",
+};
 
 export default function Services() {
   const [expanded, setExpanded] = useState<string | null>(SERVICES[0].id);
@@ -17,211 +35,268 @@ export default function Services() {
     setTimeout(() => {
       const element = serviceRefs.current[serviceId];
       if (element) {
-        element.scrollIntoView({ behavior: "smooth", block: "center" });
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }, 100);
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
   };
 
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="pt-40 pb-20 bg-background">
+      {/* Hero */}
+      <section className="pt-40 pb-16 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
         <motion.div
-          className="container mx-auto px-4"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+          className="container mx-auto px-4 text-center max-w-3xl"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
-          <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto">
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-              <span className="gradient-text">Our Core Services</span>
-            </h1>
-            <p className="text-xl text-foreground/70">
-              Comprehensive AI and automation solutions across five core pillars, designed to transform your business operations and accelerate growth.
-            </p>
-          </motion.div>
+          <h1 className="text-5xl lg:text-6xl font-bold mb-6">
+            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              Our Core Services
+            </span>
+          </h1>
+          <p className="text-xl text-foreground/70">
+            Six specialised practices — from strategy through to ongoing support — designed to transform how your business operates and grows.
+          </p>
         </motion.div>
       </section>
 
-      {/* View Mode Toggle */}
-      <section className="py-12 border-b border-white/10">
-        <motion.div
-          className="container mx-auto px-4"
-          variants={itemVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <div className="flex justify-center gap-0 mb-8">
-            <button
-              onClick={() => setViewMode("simple")}
-              className={`px-8 py-3 font-medium transition-all rounded-l-lg border-2 ${
-                viewMode === "simple"
-                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-purple-600"
-                  : "bg-white/10 text-foreground/70 border-purple-300/50 hover:bg-white/20"
-              }`}
-            >
-              Simple Overview
-            </button>
-            <button
-              onClick={() => setViewMode("technical")}
-              className={`px-8 py-3 font-medium transition-all rounded-r-lg border-2 border-l-0 ${
-                viewMode === "technical"
-                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-purple-600"
-                  : "bg-white/10 text-foreground/70 border-purple-300/50 hover:bg-white/20"
-              }`}
-            >
-              Technical Details
-            </button>
+      {/* Sticky Nav + Toggle */}
+      <section className="sticky top-0 z-30 bg-background/95 backdrop-blur-sm border-b border-white/10 py-4 shadow-sm">
+        <div className="container mx-auto px-4">
+          {/* View toggle */}
+          <div className="flex justify-center mb-4">
+            <div className="inline-flex rounded-lg border-2 border-purple-300/50 overflow-hidden">
+              <button
+                onClick={() => setViewMode("simple")}
+                className={`px-6 py-2 font-medium text-sm transition-all ${
+                  viewMode === "simple"
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                    : "bg-transparent text-foreground/70 hover:bg-purple-500/5"
+                }`}
+              >
+                Simple Overview
+              </button>
+              <button
+                onClick={() => setViewMode("technical")}
+                className={`px-6 py-2 font-medium text-sm transition-all border-l-2 border-purple-300/50 ${
+                  viewMode === "technical"
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                    : "bg-transparent text-foreground/70 hover:bg-purple-500/5"
+                }`}
+              >
+                Technical Details
+              </button>
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-2">
-            {SERVICES.map((service) => {
-              let serviceLabel = "Service";
-              if (service.title.includes("Strategic")) serviceLabel = "Strategic Advisory";
-              else if (service.title.includes("Marketing")) serviceLabel = "Marketing Automation";
-              else if (service.title.includes("Business Process")) serviceLabel = "Business Process Automation";
-              else if (service.title.includes("AI Integration")) serviceLabel = "AI Integration";
-              else if (service.title.includes("Managed")) serviceLabel = "Managed Services";
-              else if (service.title.includes("AI Search")) serviceLabel = "AI Visibility";
-              return (
-                <button
-                  key={service.id}
-                  onClick={() => handleServiceButtonClick(service.id)}
-                  className={`px-6 py-4 rounded-lg font-semibold text-sm md:text-base transition-all text-center border-2 ${
-                    expanded === service.id
-                      ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-purple-600"
-                      : "bg-transparent text-foreground border-purple-300/50 hover:border-purple-500 hover:bg-purple-500/5"
-                  }`}
-                >
-                  <span className="block">{serviceLabel}</span>
-                </button>
-              );
-            })}
-          </div>
-        </motion.div>
-      </section>
 
-      {/* Services Grid */}
-      <section className="py-20">
-        <motion.div
-          className="container mx-auto px-4"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <div className="space-y-6">
+          {/* Service nav pills */}
+          <div className="flex flex-wrap justify-center gap-2">
             {SERVICES.map((service) => (
+              <button
+                key={service.id}
+                onClick={() => handleServiceButtonClick(service.id)}
+                className={`px-4 py-2 rounded-full font-medium text-sm transition-all border-2 ${
+                  expanded === service.id
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-purple-600"
+                    : "bg-transparent text-foreground/70 border-purple-300/50 hover:border-purple-500 hover:bg-purple-500/5"
+                }`}
+              >
+                {SERVICE_LABELS[service.id] || service.title}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section className="py-16">
+        <div className="container mx-auto px-4 max-w-4xl space-y-4">
+          {SERVICES.map((service, index) => {
+            const isOpen = expanded === service.id;
+            return (
               <motion.div
                 key={service.id}
-                ref={(el) => {
-                  if (el) serviceRefs.current[service.id] = el;
-                }}
-                variants={itemVariants}
-                className="glass-card p-8 cursor-pointer hover:border-purple-500/50 transition-all"
-                onClick={() =>
-                  setExpanded(expanded === service.id ? null : service.id)
-                }
+                ref={(el) => { if (el) serviceRefs.current[service.id] = el; }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className={`rounded-xl border-2 transition-all duration-300 overflow-hidden ${
+                  isOpen
+                    ? "border-purple-500/60 shadow-lg shadow-purple-600/10"
+                    : "border-purple-900/20 hover:border-purple-500/40"
+                }`}
               >
-                <div className="flex items-start justify-between">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-4 mb-2">
-                      <div>
-                        {service.icon === 'target' && <Target size={48} className="text-purple-600" />}
-                        {service.icon === 'trending-up' && <TrendingUp size={48} className="text-purple-600" />}
-                        {service.icon === 'settings' && <Settings size={48} className="text-purple-600" />}
-                        {service.icon === 'cpu' && <Cpu size={48} className="text-purple-600" />}
-                        {service.icon === 'shield' && <Shield size={48} className="text-purple-600" />}
-                        {service.icon === 'search' && <Search size={48} className="text-purple-600" />}
+                {/* Header */}
+                <button
+                  onClick={() => setExpanded(isOpen ? null : service.id)}
+                  className="w-full p-6 flex items-center justify-between gap-4 text-left hover:bg-white/5 transition-colors"
+                >
+                  <div className="flex items-center gap-4">
+                    <div className={`p-3 rounded-xl transition-colors ${isOpen ? "bg-purple-600/20" : "bg-white/5"}`}>
+                      {SERVICE_ICONS[service.icon]}
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-3 flex-wrap">
+                        <h3 className="text-xl font-bold text-foreground">{service.title}</h3>
+                        <span className="text-xs px-2.5 py-1 bg-purple-600/15 text-purple-700 font-semibold rounded-full ring-1 ring-purple-400/30">
+                          {SERVICE_LABELS[service.id]}
+                        </span>
                       </div>
-                      <div>
-                        <h3 className="text-2xl font-bold">{service.title}</h3>
-                        <p className="text-foreground/70">{service.description}</p>
-                      </div>
+                      <p className="text-foreground/60 text-sm mt-1">{service.description}</p>
                     </div>
                   </div>
                   <motion.div
-                    animate={{ rotate: expanded === service.id ? 180 : 0 }}
-                    transition={{ duration: 0.3 }}
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.25 }}
+                    className="flex-shrink-0"
                   >
-                    <ChevronDown className="text-accent" size={24} />
+                    <ChevronDown className="text-purple-500" size={22} />
                   </motion.div>
-                </div>
+                </button>
 
-                {/* Expanded Content */}
-                <motion.div
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{
-                    height: expanded === service.id ? "auto" : 0,
-                    opacity: expanded === service.id ? 1 : 0,
-                  }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden"
-                >
-                  <div className="mt-6 pt-6 border-t border-white/10">
-                    {viewMode === "simple" ? (
-                      <ul className="space-y-3">
-                        {service.details.map((detail, idx) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <span className="text-accent mt-1 font-bold">•</span>
-                            <span className="text-foreground/80">{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <div className="space-y-4">
-                        <p className="text-foreground/80 leading-relaxed">
-                          {service.technicalDetails}
-                        </p>
-                        <div className="bg-purple-600/10 border border-purple-500/30 rounded-lg p-4 space-y-3">
-                          <p className="text-sm text-foreground/70">
-                            <strong>Implementation:</strong> Our team handles all technical setup, integration, and deployment. We ensure minimal disruption to your operations while maximizing the value delivered.
-                          </p>
-                          <p className="text-sm text-foreground/70">
-                            <strong>Integration:</strong> Seamless integration with your existing systems including CRM, ERP, accounting software, and custom applications.
-                          </p>
-                          <p className="text-sm text-foreground/70">
-                            <strong>Support & Optimization:</strong> Continuous monitoring, performance tuning, and proactive optimization to ensure your solutions deliver maximum ROI.
-                          </p>
+                {/* Expanded Body */}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key="body"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="border-t border-white/10">
+                        {viewMode === "simple" ? (
+                          <div className="p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+                            {/* What we do */}
+                            <div>
+                              <h4 className="text-sm font-bold text-foreground/50 uppercase tracking-wider mb-4">What We Do</h4>
+                              <p className="text-foreground/80 leading-relaxed mb-6">{service.whatWeDo}</p>
+
+                              <h4 className="text-sm font-bold text-foreground/50 uppercase tracking-wider mb-4">What's Included</h4>
+                              <ul className="space-y-2.5">
+                                {service.details.map((detail, idx) => (
+                                  <li key={idx} className="flex items-start gap-2.5 text-foreground/80">
+                                    <CheckCircle size={16} className="text-green-500 flex-shrink-0 mt-0.5" />
+                                    <span>{detail}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+
+                            {/* Options + Process */}
+                            <div>
+                              <h4 className="text-sm font-bold text-foreground/50 uppercase tracking-wider mb-4">Service Options</h4>
+                              <div className="space-y-3 mb-6">
+                                {service.options.map((option, idx) => (
+                                  <div key={idx} className="p-3 rounded-lg bg-white/5 border border-purple-900/20">
+                                    <div className="font-semibold text-sm text-foreground mb-0.5">{option.name}</div>
+                                    <div className="text-xs text-foreground/60">{option.description}</div>
+                                  </div>
+                                ))}
+                              </div>
+
+                              <h4 className="text-sm font-bold text-foreground/50 uppercase tracking-wider mb-4">Best For</h4>
+                              <ul className="space-y-2">
+                                {service.useCases.map((useCase, idx) => (
+                                  <li key={idx} className="flex items-start gap-2 text-sm text-foreground/70">
+                                    <Zap size={14} className="text-purple-500 flex-shrink-0 mt-0.5" />
+                                    <span>{useCase}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="p-6 space-y-6">
+                            {/* Technical narrative */}
+                            <div>
+                              <h4 className="text-sm font-bold text-foreground/50 uppercase tracking-wider mb-4">Technical Breakdown</h4>
+                              <p className="text-foreground/80 leading-relaxed">{service.technicalDetails}</p>
+                            </div>
+
+                            {/* Process steps */}
+                            <div>
+                              <h4 className="text-sm font-bold text-foreground/50 uppercase tracking-wider mb-4">Implementation Process</h4>
+                              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                {service.process.map((step, idx) => (
+                                  <div key={idx} className="flex gap-3 p-3 rounded-lg bg-white/5 border border-purple-900/20">
+                                    <div className="w-6 h-6 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">
+                                      {idx + 1}
+                                    </div>
+                                    <p className="text-sm text-foreground/80">{step}</p>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+
+                            {/* Integration callouts */}
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                              <div className="bg-purple-600/10 border border-purple-500/30 rounded-lg p-4">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <Clock size={16} className="text-purple-500" />
+                                  <span className="text-sm font-bold text-foreground">Implementation</span>
+                                </div>
+                                <p className="text-xs text-foreground/70">All technical setup, integration, and deployment handled end-to-end with minimal disruption to your operations.</p>
+                              </div>
+                              <div className="bg-purple-600/10 border border-purple-500/30 rounded-lg p-4">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <Settings size={16} className="text-purple-500" />
+                                  <span className="text-sm font-bold text-foreground">Integration</span>
+                                </div>
+                                <p className="text-xs text-foreground/70">Seamless connection with your existing CRM, ERP, accounting software, and custom applications.</p>
+                              </div>
+                              <div className="bg-purple-600/10 border border-purple-500/30 rounded-lg p-4">
+                                <div className="flex items-center gap-2 mb-2">
+                                  <Users size={16} className="text-purple-500" />
+                                  <span className="text-sm font-bold text-foreground">Support</span>
+                                </div>
+                                <p className="text-xs text-foreground/70">Continuous monitoring, performance tuning, and proactive optimisation to ensure maximum ROI.</p>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Footer CTA */}
+                        <div className="px-6 pb-6 flex items-center justify-between flex-wrap gap-4 border-t border-white/10 pt-5">
+                          <p className="text-sm text-foreground/60">Ready to get started with {service.title}?</p>
+                          <Link href="/free-audit">
+                            <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white">
+                              Get a Free Audit
+                              <ArrowRight size={15} className="ml-2" />
+                            </Button>
+                          </Link>
                         </div>
                       </div>
-                    )}
-                  </div>
-                </motion.div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
-            ))}
-          </div>
+            );
+          })}
+        </div>
 
-          {/* CTA */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-16 text-center"
-          >
-            <p className="text-lg text-foreground/70 mb-6">
-              Ready to explore how these services can transform your business?
-            </p>
+        {/* Bottom CTA */}
+        <motion.div
+          className="container mx-auto px-4 mt-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-10 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-white mb-4">Not sure which service fits?</h2>
+            <p className="text-white/90 mb-8 text-lg">Get a free audit and we'll map the right services to your business goals.</p>
             <Link href="/free-audit">
-              <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 text-lg px-8 py-6 rounded-xl">
+              <Button className="bg-white text-purple-600 hover:bg-white/90 text-lg px-8 py-5 font-bold">
                 Get Your Free AI Audit
                 <ArrowRight className="ml-2" size={20} />
               </Button>
             </Link>
-          </motion.div>
+          </div>
         </motion.div>
       </section>
 
