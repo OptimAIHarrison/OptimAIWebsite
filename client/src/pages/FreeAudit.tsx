@@ -194,8 +194,8 @@ export default function FreeAudit() {
                           onClick={() => handleAreaToggle(area.id)}
                           className={`p-4 rounded-lg border-2 transition-all text-left ${
                             selectedAreas.includes(area.id)
-                              ? "border-purple-600 bg-purple-600/10"
-                              : "border-white/10 bg-white/5 hover:border-purple-300/50"
+                              ? "border-purple-600 bg-purple-600/15 shadow-md shadow-purple-600/20"
+                              : "border-purple-300/50 bg-white/5 hover:border-purple-500/80 hover:bg-white/10"
                           }`}
                         >
                           <div className="flex items-start gap-3">
@@ -203,7 +203,7 @@ export default function FreeAudit() {
                               className={`w-5 h-5 rounded border-2 flex-shrink-0 mt-0.5 ${
                                 selectedAreas.includes(area.id)
                                   ? "border-purple-600 bg-purple-600"
-                                  : "border-white/20"
+                                  : "border-purple-300/60"
                               }`}
                             >
                               {selectedAreas.includes(area.id) && (
