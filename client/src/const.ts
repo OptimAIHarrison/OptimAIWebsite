@@ -1,4 +1,3 @@
-
 // Generate login URL at runtime so redirect URI reflects the current origin.
 export const getLoginUrl = () => {
   const oauthPortalUrl = import.meta.env.VITE_OAUTH_PORTAL_URL;
@@ -59,7 +58,7 @@ export const SERVICES = [
       "Growth Strategy & Roadmapping",
       "Technology Stack Optimization",
     ],
-    technicalDetails: "Comprehensive evaluation of current business processes, technology maturity, and data infrastructure to identify high-impact automation opportunities aligned with your growth trajectory.",
+    technicalDetails: "We begin with a structured discovery process — interviewing key stakeholders, mapping your existing workflows in tools like Lucidchart or Miro, and scoring processes against an automation feasibility matrix (volume, rule-based complexity, error rate, and time cost). From this we produce a Technology Maturity Index specific to your business, identifying quick wins (typically 2-4 week implementations) versus strategic long-term plays. Our roadmap is delivered as a phased implementation plan with effort/impact scoring, recommended tooling (Zapier, Make, n8n, HubSpot, custom APIs), estimated ROI per initiative, and a risk register. We also benchmark your tech stack against industry peers to surface gaps and redundancies before you spend a cent.",
   },
   {
     id: "marketing-automation",
@@ -90,7 +89,7 @@ export const SERVICES = [
       "Automated Lead Generation Systems",
       "Content Marketing Automation",
     ],
-    technicalDetails: "Implementation of AI-driven search optimization, CRM automation, email marketing sequences, and social media scheduling to nurture leads and accelerate customer acquisition.",
+    technicalDetails: "Our marketing automation stack typically combines a CRM (HubSpot, ActiveCampaign, or GoHighLevel) with a workflow engine (Make or Zapier) and an AI content layer. Lead capture is handled via smart forms, chatbot funnels, and enrichment tools like Apollo or Clay that auto-populate contact records with firmographic data. Email sequences are built with behavioural triggers — open rates, link clicks, page visits — so each lead receives messaging based on their actual actions, not a fixed timer. For AI Search Optimization, we audit your content against how LLMs like ChatGPT and Perplexity currently answer questions in your category, then restructure your site content, FAQs, and schema markup to improve AI citation probability. Social scheduling is handled via Buffer or Later with AI-assisted caption generation trained on your brand voice. All campaigns feed into a unified attribution dashboard so you can see exactly which touchpoints are driving revenue.",
   },
   {
     id: "business-automation",
@@ -121,7 +120,7 @@ export const SERVICES = [
       "Workflow Automation",
       "Custom AI Chatbots",
     ],
-    technicalDetails: "Analysis of existing workflows to identify bottlenecks, deployment of software robots for rule-based tasks, and development of intelligent chatbots trained on business-specific knowledge.",
+    technicalDetails: "We use a combination of native app integrations, iPaaS platforms (Make, Zapier, n8n), and where needed, custom API middleware to connect your systems. For rule-based, high-volume tasks — data entry, invoice processing, report generation — we deploy software bots that run on a schedule or trigger-based logic, with error handling and fallback notifications built in. Document processing uses OCR combined with LLM extraction (via tools like Mindee, Textract, or custom GPT-4 pipelines) to pull structured data from PDFs, emails, and forms directly into your CRM or ERP. AI chatbots are built on retrieval-augmented generation (RAG) — trained on your product docs, FAQs, and past support tickets — and deployed via website embed, WhatsApp, or Slack depending on where your customers are. Every automation includes logging, alerting, and a manual override path so your team is never left in the dark if something breaks.",
   },
   {
     id: "ai-integration",
@@ -152,7 +151,7 @@ export const SERVICES = [
       "Generative AI Solutions",
       "System Integration",
     ],
-    technicalDetails: "Integration of AI models for predictive analytics, customer segmentation, advanced content generation, and seamless connection with existing CRM, ERP, and accounting platforms.",
+    technicalDetails: "AI integration starts with a data audit — assessing the quality, structure, and accessibility of your existing data sources (CRM records, transaction history, support tickets, website events). From there we identify which AI use cases are viable: predictive churn models require at least 12 months of customer data; recommendation engines need transaction history; sentiment analysis can work from as few as 500 tagged records. We connect AI models to your stack via API or direct database integration, with outputs surfaced in tools your team already uses (Salesforce, HubSpot dashboards, Notion, or custom React dashboards). For generative AI, we build prompt pipelines with guardrails — brand voice rules, output validation, and human-in-the-loop review steps for high-stakes content. Analytics dashboards are built in Metabase, Looker Studio, or custom-built depending on your existing infrastructure, with automated daily/weekly report distribution to stakeholders.",
   },
   {
     id: "managed-services",
@@ -182,7 +181,7 @@ export const SERVICES = [
       "Performance Monitoring & Optimization",
       "Team Training & Upskilling",
     ],
-    technicalDetails: "Continuous monitoring and refinement of deployed solutions, regular performance reviews, and comprehensive training programs to empower your team to manage and optimize new technologies.",
+    technicalDetails: "All managed service clients are onboarded into our monitoring infrastructure — every automation we've built is instrumented with execution logs, error alerting (via Slack or email), and uptime tracking. We conduct monthly performance reviews using a standardised scorecard: task success rate, error frequency, processing time, and business impact metrics like leads captured or hours saved. When performance dips or a tool's API changes (which happens regularly with platforms like Meta, Google, and HubSpot), we handle the fix proactively before it impacts your business. Team training is delivered as live sessions, recorded walkthroughs, and written SOPs stored in your preferred knowledge base (Notion, Confluence, Google Drive). For clients scaling rapidly, we also provide quarterly strategy reviews — reassessing your automation roadmap as your business evolves and identifying new opportunities to add.",
   },
   {
     id: "ai-search-optimization",
@@ -213,7 +212,7 @@ export const SERVICES = [
       "AI Search Optimization (AIO)",
       "Cross-Platform Monitoring",
     ],
-    technicalDetails: "Comprehensive optimization strategy to maximize visibility across AI-powered search platforms, generative AI engines, and AI chatbots. Ensures your business is recommended to users across all major AI tools and discovery platforms.",
+    technicalDetails: "AI Search Optimization operates across three distinct but overlapping disciplines. AEO (AI Answer Optimization) focuses on making your content the source LLMs cite when answering questions — this involves restructuring content into direct-answer formats, adding FAQ schema, building authoritative backlink profiles, and ensuring your brand entity is clearly defined across the web. GEO (Generative Engine Optimization) targets platforms like Perplexity, Gemini, and Claude — we analyse which sources these engines pull from, ensure your content appears on those reference sites, and structure your pages with clear entity relationships and factual density. AIO (AI Search Optimization) covers AI-powered discovery within Google's AI Overview and Bing Copilot — requiring technical SEO hygiene (Core Web Vitals, structured data, crawlability) combined with E-E-A-T signals (author credentials, original research, expert citations). We track AI citation frequency across platforms using a combination of manual sampling, rank-tracking tools, and custom monitoring scripts, with monthly reporting showing your share of AI-generated answers in your category.",
   },
 ];
 
