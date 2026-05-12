@@ -131,7 +131,7 @@ export default function FreeAudit() {
                         type="text"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent"
+                        className="w-full bg-white/80 border-2 border-purple-300/60 rounded-lg px-4 py-3 shadow-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                         placeholder="John Doe"
                         required
                       />
@@ -142,7 +142,7 @@ export default function FreeAudit() {
                         type="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent"
+                        className="w-full bg-white/80 border-2 border-purple-300/60 rounded-lg px-4 py-3 shadow-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                         placeholder="john@company.com"
                         required
                       />
@@ -153,7 +153,7 @@ export default function FreeAudit() {
                         type="text"
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent"
+                        className="w-full bg-white/80 border-2 border-purple-300/60 rounded-lg px-4 py-3 shadow-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                         placeholder="Your Company"
                         required
                       />
@@ -163,7 +163,7 @@ export default function FreeAudit() {
                       <select
                         value={formData.teamSize}
                         onChange={(e) => setFormData({ ...formData, teamSize: e.target.value })}
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent"
+                        className="w-full bg-white/80 border-2 border-purple-300/60 rounded-lg px-4 py-3 shadow-sm text-foreground focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                       >
                         <option value="1-10">1-10 employees</option>
                         <option value="11-50">11-50 employees</option>
@@ -251,7 +251,7 @@ export default function FreeAudit() {
                         rows={4}
                         value={formData.currentChallenges}
                         onChange={(e) => setFormData({ ...formData, currentChallenges: e.target.value })}
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent"
+                        className="w-full bg-white/80 border-2 border-purple-300/60 rounded-lg px-4 py-3 shadow-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                         placeholder="Describe the processes that are slowing you down..."
                         required
                       />
@@ -262,7 +262,7 @@ export default function FreeAudit() {
                         rows={4}
                         value={formData.automationGoals}
                         onChange={(e) => setFormData({ ...formData, automationGoals: e.target.value })}
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent"
+                        className="w-full bg-white/80 border-2 border-purple-300/60 rounded-lg px-4 py-3 shadow-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                         placeholder="What would success look like for your business?"
                         required
                       />
@@ -272,7 +272,7 @@ export default function FreeAudit() {
                       <select
                         value={formData.timeline}
                         onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent"
+                        className="w-full bg-white/80 border-2 border-purple-300/60 rounded-lg px-4 py-3 shadow-sm text-foreground focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                       >
                         <option value="1-3">Quick wins (1-3 months)</option>
                         <option value="3-6">Medium-term (3-6 months)</option>
@@ -284,7 +284,7 @@ export default function FreeAudit() {
                       <select
                         value={formData.budget}
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                        className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-foreground focus:outline-none focus:border-accent"
+                        className="w-full bg-white/80 border-2 border-purple-300/60 rounded-lg px-4 py-3 shadow-sm text-foreground focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                       >
                         <option value="tight">Tight budget (looking for ROI quickly)</option>
                         <option value="moderate">Moderate budget (willing to invest)</option>
