@@ -136,4 +136,3 @@ export async function sendEmail(subject: string, body: string, replyTo?: string)
     console.warn("[Email] Failed to send email:", err);
   }
 }
-
