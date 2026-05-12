@@ -172,16 +172,16 @@ export default function Home() {
                 className="flex gap-8 pt-8 border-t border-white/10 justify-center flex-wrap"
               >
                 <div>
-                  <p className="text-2xl font-bold text-accent">150+</p>
-                  <p className="text-foreground/70 text-sm">Projects Completed</p>
+                  <p className="text-2xl font-bold text-accent">40+ Hours</p>
+                  <p className="text-foreground/70 text-sm">Freed Up Every Month</p>
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-accent">$50M+</p>
-                  <p className="text-foreground/70 text-sm">Client Savings</p>
+                  <p className="text-2xl font-bold text-accent">15 Days</p>
+                  <p className="text-foreground/70 text-sm">See First Results</p>
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-accent">98%</p>
-                  <p className="text-foreground/70 text-sm">Client Satisfaction</p>
+                  <p className="text-2xl font-bold text-accent">5 Stars</p>
+                  <p className="text-foreground/70 text-sm">Rated by Every Client</p>
                 </div>
               </motion.div>
             </motion.div>
