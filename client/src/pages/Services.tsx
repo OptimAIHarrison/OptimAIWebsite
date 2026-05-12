@@ -264,12 +264,20 @@ export default function Services() {
                         {/* Footer CTA */}
                         <div className="px-6 pb-6 flex items-center justify-between flex-wrap gap-4 border-t border-white/10 pt-5">
                           <p className="text-sm text-foreground/60">Ready to get started with {service.title}?</p>
-                          <Link href="/free-audit">
-                            <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white">
-                              Get a Free Audit
-                              <ArrowRight size={15} className="ml-2" />
-                            </Button>
-                          </Link>
+                          <div className="flex items-center gap-3">
+                            <Link href="/free-audit">
+                              <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white">
+                                Get a Free Audit
+                                <ArrowRight size={15} className="ml-2" />
+                              </Button>
+                            </Link>
+                            <Link href="/contact">
+                              <Button variant="outline" className="border-purple-400/50 text-foreground hover:bg-purple-500/10">
+                                Start Now
+                                <ArrowRight size={15} className="ml-2" />
+                              </Button>
+                            </Link>
+                          </div>
                         </div>
                       </div>
                     </motion.div>
@@ -290,12 +298,20 @@ export default function Services() {
           <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-10 max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-white mb-4">Not sure which service fits?</h2>
             <p className="text-white/90 mb-8 text-lg">Get a free audit and we'll map the right services to your business goals.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/free-audit">
               <Button className="bg-white text-purple-600 hover:bg-white/90 text-lg px-8 py-5 font-bold">
                 Get Your Free AI Audit
                 <ArrowRight className="ml-2" size={20} />
               </Button>
             </Link>
+            <Link href="/contact">
+              <Button variant="outline" className="border-white/50 text-white hover:bg-white/10 text-lg px-8 py-5 font-bold">
+                Start Now
+                <ArrowRight className="ml-2" size={20} />
+              </Button>
+            </Link>
+            </div>
           </div>
         </motion.div>
       </section>
