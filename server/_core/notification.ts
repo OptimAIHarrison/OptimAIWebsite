@@ -113,3 +113,52 @@ export async function notifyOwner(
   }
 }
 
+// ---------------------------------------------------------------------------
+// Email via Resend
+// ---------------------------------------------------------------------------
+// Install: pnpm add resend
+// Add to your environment: RESEND_API_KEY=re_xxxxxxxxxxxxxxxx
+// Verify optimai.com.au as a sending domain at resend.com/domains
+// ---------------------------------------------------------------------------
+
+let _resend: import("resend").Resend | null = null;
+
+function getResend() {
+  if (!_resend) {
+    const { Resend } = require("resend");
+    _resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  return _resend!;
+}
+
+/**
+ * Sends a plain-text email to hello@optimai.com.au via Resend.
+ * - `replyTo` is set to the submitter's email so you can reply directly
+ *   from your inbox without copy-pasting their address.
+ * - Silently skips (with a warning) if RESEND_API_KEY is not set,
+ *   so local dev without the key doesn't crash.
+ */
+export async function sendEmail(
+  subject: string,
+  body: string,
+  replyTo?: string
+): Promise<void> {
+  if (!process.env.RESEND_API_KEY) {
+    console.warn("[Email] RESEND_API_KEY not set — skipping email send.");
+    return;
+  }
+
+  try {
+    const resend = getResend();
+    await resend.emails.send({
+      from: "OptimAI <hello@optimai.com.au>",
+      to: "hello@optimai.com.au",
+      subject,
+      text: body,
+      ...(replyTo ? { replyTo } : {}),
+    });
+  } catch (err) {
+    // Non-fatal — notifyOwner already fired, so don't swallow the form submission
+    console.warn("[Email] Failed to send email via Resend:", err);
+  }
+}
