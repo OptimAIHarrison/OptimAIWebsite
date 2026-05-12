@@ -3,276 +3,268 @@ import { Link } from "wouter";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, Search, ClipboardList, Eye, Hammer, CheckSquare, Rocket, TrendingUp, Zap } from "lucide-react";
+import { ArrowRight, Search, Hammer, TrendingUp, CheckCircle, Wrench, Sprout, Building2 } from "lucide-react";
+
+const ENGAGEMENT_TYPES = [
+  {
+    icon: <Search size={28} className="text-purple-500" />,
+    label: "Just starting out",
+    title: "Audit & Roadmap",
+    description: "Not sure where to begin? We map your business, find the bottlenecks, and hand you a clear plan — with zero obligation to take it further.",
+    examples: ["Process audit", "Automation opportunity report", "Tool recommendations", "Priority roadmap"],
+    cta: "Perfect if you want clarity before committing.",
+  },
+  {
+    icon: <Wrench size={28} className="text-purple-500" />,
+    label: "Got a specific problem",
+    title: "Fix One Thing",
+    description: "You know what's broken. We fix it. One workflow, one integration, one system — done properly, deployed fast.",
+    examples: ["A leaking lead process", "A manual task eating hours", "Two tools that don't talk", "A follow-up that never happens"],
+    cta: "Perfect if you have one clear pain point.",
+  },
+  {
+    icon: <Hammer size={28} className="text-purple-500" />,
+    label: "Ready to build",
+    title: "Build Something New",
+    description: "You want a proper system — a CRM, an onboarding flow, a reporting dashboard. We scope it, build it, and hand it over ready to run.",
+    examples: ["CRM setup and automation", "Client onboarding system", "AI chatbot for your site", "Invoice and payment automation"],
+    cta: "Perfect if you know what you want built.",
+  },
+  {
+    icon: <Sprout size={28} className="text-purple-500" />,
+    label: "Growing fast",
+    title: "Scale What's Working",
+    description: "You've got traction. Now you need systems that grow with you — without hiring more people for every new thing.",
+    examples: ["Expand automations across teams", "Add analytics and reporting", "Integrate new tools as you grow", "Reduce manual load as volume increases"],
+    cta: "Perfect if you're scaling and need to keep up.",
+  },
+  {
+    icon: <Building2 size={28} className="text-purple-500" />,
+    label: "Want the full picture",
+    title: "Full Stack Transformation",
+    description: "You're ready to go end-to-end — from strategy through to fully automated operations. We become your long-term automation partner.",
+    examples: ["Full business process audit", "All systems connected and automated", "AI integrated across operations", "Ongoing support and optimisation"],
+    cta: "Perfect if you want a long-term partner.",
+  },
+];
+
+const HOW_IT_WORKS = [
+  {
+    step: "01",
+    title: "We listen first",
+    description: "Every engagement starts the same way — we ask questions, understand your business, and figure out what actually matters. No assumptions, no templates.",
+  },
+  {
+    step: "02",
+    title: "We show you what's possible",
+    description: "We map out exactly what we'd do, why, and what it's worth to you. You see the plan before you commit to anything.",
+  },
+  {
+    step: "03",
+    title: "We build it with you",
+    description: "You're involved throughout. Nothing is hidden in a black box. You understand what we're building and why — so your team can own it.",
+  },
+  {
+    step: "04",
+    title: "We hand it over properly",
+    description: "Documentation, training, and a handover your team actually understands. You're not dependent on us forever — unless you want to be.",
+  },
+];
+
+const PRINCIPLES = [
+  "No lock-in contracts",
+  "Plain English, always",
+  "You own everything we build",
+  "We tell you if something isn't worth doing",
+  "Results before complexity",
+  "Your team learns alongside you",
+];
 
 export default function WhatWeActuallyDo() {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-  };
-
-  const phases = [
-    {
-      number: "1",
-      title: "Look & Audit",
-      description: "We take a close look at how your business actually works right now.",
-      details: [
-        "Meet with your team",
-        "Understand your current processes",
-        "Identify pain points and bottlenecks",
-        "Document what's working and what's not",
-      ],
-      complexity: "Simple",
-      icon: Search,
-    },
-    {
-      number: "2",
-      title: "Take a Brief",
-      description: "We listen to what you need and what success looks like for you.",
-      details: [
-        "Understand your business goals",
-        "Learn about your team's challenges",
-        "Define what 'success' means",
-        "Discuss budget and timeline",
-      ],
-      complexity: "Simple",
-      icon: ClipboardList,
-    },
-    {
-      number: "3",
-      title: "See What You Already Do",
-      description: "We map out your existing systems and tools to work with what you have.",
-      details: [
-        "Audit existing software and tools",
-        "Understand your data flow",
-        "Identify what can be improved",
-        "Plan integration points",
-      ],
-      complexity: "Simple → Intermediate",
-      icon: Eye,
-    },
-    {
-      number: "4",
-      title: "Build",
-      description: "We create custom solutions that fit your business perfectly.",
-      details: [
-        "Design automation workflows",
-        "Build custom integrations",
-        "Set up AI tools and chatbots",
-        "Create your personalized solution",
-      ],
-      complexity: "Intermediate",
-      icon: Hammer,
-    },
-    {
-      number: "5",
-      title: "Test",
-      description: "We make sure everything works smoothly before going live.",
-      details: [
-        "Test all workflows and integrations",
-        "Check for errors and edge cases",
-        "Verify data accuracy",
-        "Get your approval before launch",
-      ],
-      complexity: "Intermediate",
-      icon: CheckSquare,
-    },
-    {
-      number: "6",
-      title: "Implement",
-      description: "We launch your solution with minimal disruption to your business.",
-      details: [
-        "Deploy to your live environment",
-        "Monitor performance closely",
-        "Train your team on new systems",
-        "Provide hands-on support",
-      ],
-      complexity: "Intermediate → Advanced",
-      icon: Rocket,
-    },
-    {
-      number: "7",
-      title: "Keep It Going & Evolve",
-      description: "We continuously optimize and advance your automation as your business grows.",
-      details: [
-        "Monitor system performance",
-        "Optimize based on real usage",
-        "Add new features and capabilities",
-        "Scale as your business grows",
-      ],
-      complexity: "Advanced",
-      icon: TrendingUp,
-    },
-    {
-      number: "8",
-      title: "Full End-to-End AI & Automation",
-      description: "Your business runs on intelligent, fully automated systems with AI management.",
-      details: [
-        "Complete process automation",
-        "AI-powered decision making",
-        "Predictive analytics and insights",
-        "Continuous improvement engine",
-      ],
-      complexity: "Full Advanced",
-      icon: Zap,
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
-      {/* Hero Section */}
-      <section className="pt-40 pb-20 bg-gradient-to-b from-purple-100/40 via-transparent to-transparent">
-        <motion.div
-          className="container mx-auto px-4 text-center"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.h1 variants={itemVariants} className="text-5xl lg:text-6xl font-bold mb-6">
-            What We <span className="gradient-text">Actually Do</span>
-          </motion.h1>
-          <motion.p variants={itemVariants} className="text-xl text-foreground/70 max-w-3xl mx-auto mb-4">
-            No jargon. No fluff. Just a simple, step-by-step journey from where you are now to a fully automated, AI-powered business.
-          </motion.p>
-          <motion.p variants={itemVariants} className="text-lg text-foreground/60 max-w-3xl mx-auto italic">
-            You can enter at any stage, go as simple or technical as you need, and stay for as long or short as works for you.
-          </motion.p>
-        </motion.div>
+
+      {/* Hero */}
+      <section className="pt-40 pb-24 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
+        <div className="container mx-auto px-4 max-w-3xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="inline-block mb-6 px-4 py-2 bg-purple-600/10 border border-purple-400/30 rounded-full text-sm font-semibold text-purple-700">
+              No jargon. No fluff.
+            </div>
+            <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+              What we{" "}
+              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                actually do
+              </span>
+            </h1>
+            <p className="text-xl text-foreground/70 leading-relaxed">
+              We help businesses automate the work that shouldn't need a human — so you and your team can focus on the work that does.
+            </p>
+            <p className="text-lg text-foreground/60 mt-4">
+              You don't need to buy the whole package. We work with you at whatever stage makes sense.
+            </p>
+          </motion.div>
+        </div>
       </section>
 
-      {/* Workflow Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
+      {/* Engagement Types */}
+      <section className="py-20 border-b border-white/10">
+        <div className="container mx-auto px-4 max-w-5xl">
           <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="text-center mb-14"
           >
-            {/* Flexibility & Partnership Message */}
-            <motion.div variants={itemVariants} className="mb-16 text-center">
-              <div className="glass-card p-8 rounded-2xl bg-gradient-to-r from-purple-600/10 to-pink-600/10 border-2 border-purple-300/50">
-                <h2 className="text-2xl font-bold mb-4 text-foreground">Your Journey, Your Way</h2>
-                <p className="text-lg text-foreground/70 max-w-2xl mx-auto mb-4">
-                  This isn't a one-size-fits-all process. You can enter at any stage and exit whenever you're ready. Need just an audit? Perfect. Want a quick automation fix? We've got you. Ready for a full transformation? Let's go.
-                </p>
-                <p className="text-lg text-foreground/70 max-w-2xl mx-auto mb-4">
-                  Whether you need simple solutions or advanced AI integration, short-term projects or long-term partnerships, we adapt to what works for you.
-                </p>
-                <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-                  Throughout every step, we're here with you as your consultancy partner. We guide you, explain everything in simple terms, and make sure your team understands and owns the process.
-                </p>
-              </div>
-            </motion.div>
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">We meet you where you are</h2>
+            <p className="text-foreground/60 text-lg">Pick the one that sounds like you right now.</p>
+          </motion.div>
 
-            {/* Workflow Phases */}
-            <div className="space-y-8">
-              {phases.map((phase, idx) => {
-                const IconComponent = phase.icon;
-                return (
-                  <motion.div key={idx} variants={itemVariants}>
-                    <div className="glass-card p-8 rounded-2xl">
-                      <div className="flex gap-6">
-                        {/* Left: Number and Icon */}
-                        <div className="flex flex-col items-center gap-4">
-                          <div className="flex-shrink-0">
-                            <div className="w-16 h-16 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center text-white font-bold text-2xl">
-                              {phase.number}
-                            </div>
-                          </div>
-                          <IconComponent size={40} className="text-purple-600" />
-                          {idx < phases.length - 1 && (
-                            <div className="hidden sm:block w-1 h-12 bg-gradient-to-b from-purple-400 to-pink-400 rounded-full" />
-                          )}
-                        </div>
-
-                        {/* Right: Content */}
-                        <div className="flex-1 pt-2">
-                          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-4">
-                            <div>
-                              <h3 className="text-2xl font-bold text-foreground mb-2">{phase.title}</h3>
-                              <p className="text-foreground/70 text-lg mb-4">{phase.description}</p>
-                            </div>
-                            <div className="flex-shrink-0">
-                              <span className="inline-block px-4 py-2 bg-purple-100/50 text-purple-700 rounded-full text-sm font-semibold whitespace-nowrap">
-                                {phase.complexity}
-                              </span>
-                            </div>
-                          </div>
-
-                          {/* Details */}
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            {phase.details.map((detail, detailIdx) => (
-                              <div key={detailIdx} className="flex items-start gap-3">
-                                <CheckCircle size={20} className="text-purple-600 flex-shrink-0 mt-0.5" />
-                                <span className="text-foreground/80">{detail}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
+          <div className="space-y-5">
+            {ENGAGEMENT_TYPES.map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.07 }}
+                className="p-6 lg:p-8 rounded-2xl bg-white/5 border-2 border-purple-900/20 hover:border-purple-500/40 transition-all"
+              >
+                <div className="flex flex-col lg:flex-row lg:items-start gap-6">
+                  {/* Left */}
+                  <div className="flex items-start gap-4 lg:w-80 flex-shrink-0">
+                    <div className="p-3 rounded-xl bg-purple-600/10 flex-shrink-0">
+                      {item.icon}
                     </div>
-                  </motion.div>
-                );
-              })}
-            </div>
+                    <div>
+                      <div className="text-xs font-bold text-purple-500 uppercase tracking-widest mb-1">{item.label}</div>
+                      <h3 className="text-xl font-bold text-foreground">{item.title}</h3>
+                    </div>
+                  </div>
 
-            {/* Summary Section */}
-            <motion.div variants={itemVariants} className="mt-16 glass-card p-12 rounded-2xl bg-gradient-to-r from-purple-600/10 to-pink-600/10 border-2 border-purple-300/50">
-              <h2 className="text-3xl font-bold mb-6 text-center">The Journey in Simple Terms</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                <div>
-                  <h3 className="text-xl font-bold mb-4 text-foreground">Phases 1-3: Understanding</h3>
-                  <p className="text-foreground/70 leading-relaxed">
-                    We start by understanding your business, your challenges, and your goals. We listen more than we talk and make sure we truly understand what matters to you. Many clients stop here with just the audit and recommendations.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-4 text-foreground">Phases 4-6: Building & Launching</h3>
-                  <p className="text-foreground/70 leading-relaxed">
-                    We design, build, test, and launch your custom solution. Every step is done with your input, and we make sure your team is trained and ready. You can go simple or technical, depending on your needs.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-4 text-foreground">Phases 7-8: Growing & Evolving</h3>
-                  <p className="text-foreground/70 leading-relaxed">
-                    We don't just launch and leave. We continuously monitor, optimize, and evolve your systems as your business grows and your needs change. Stay with us for as long as it makes sense.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold mb-4 text-foreground">Throughout: Your Way</h3>
-                  <p className="text-foreground/70 leading-relaxed">
-                    You're in control. Enter at any stage. Exit whenever you're ready. Need just an audit? Perfect. Want a quick fix? We've got you. Ready for a full transformation? Let's go. We adapt to you.
-                  </p>
-                </div>
-              </div>
-              <div className="border-t border-purple-300/50 pt-8">
-                <p className="text-center text-foreground/70 leading-relaxed">
-                  We're your consultancy partner every step of the way. We explain everything in simple, human terms. No jargon. No confusion. Just clarity and results.
-                </p>
-              </div>
-            </motion.div>
+                  {/* Middle */}
+                  <div className="flex-1">
+                    <p className="text-foreground/75 leading-relaxed mb-4">{item.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {item.examples.map((ex, i) => (
+                        <span key={i} className="text-xs px-3 py-1.5 bg-purple-600/10 text-purple-700 font-medium rounded-full ring-1 ring-purple-400/20">
+                          {ex}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
 
-            {/* CTA Section */}
-            <motion.div variants={itemVariants} className="mt-16 text-center">
-              <h2 className="text-3xl font-bold mb-6">Ready to Start Your Journey?</h2>
-              <p className="text-foreground/70 mb-8 max-w-2xl mx-auto">
-                Let's have a conversation about where you are now and where you want to go. No pressure, no sales pitch. Just honest, practical guidance.
-              </p>
+                  {/* Right */}
+                  <div className="lg:w-56 flex-shrink-0">
+                    <p className="text-sm text-foreground/50 italic leading-snug">{item.cta}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="py-20 border-b border-white/10">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-14"
+          >
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">How every engagement works</h2>
+            <p className="text-foreground/60 text-lg">Regardless of where you start, the approach is the same.</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {HOW_IT_WORKS.map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08 }}
+                className="flex gap-5 p-6 rounded-2xl bg-white/5 border-2 border-purple-900/20"
+              >
+                <div className="text-3xl font-bold text-purple-500/30 flex-shrink-0 leading-none mt-1">
+                  {item.step}
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-foreground/65 leading-relaxed text-sm">{item.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Principles */}
+      <section className="py-20 border-b border-white/10">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Our non-negotiables</h2>
+            <p className="text-foreground/60 text-lg">Things that are true regardless of project size or scope.</p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {PRINCIPLES.map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, x: -16 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.07 }}
+                className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-purple-900/20"
+              >
+                <CheckCircle size={18} className="text-green-500 flex-shrink-0" />
+                <span className="text-foreground/80 font-medium">{item}</span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-12 text-center"
+          >
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+              Not sure which stage you're at?
+            </h2>
+            <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
+              Start with a free audit. We'll work it out together — no pressure, no sales pitch, just an honest conversation about what makes sense for your business.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/free-audit">
-                <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 text-lg px-8 py-6 rounded-xl inline-flex items-center gap-2">
-                  Get Your Free AI Audit
-                  <ArrowRight size={20} />
+                <Button className="bg-white text-purple-600 hover:bg-white/90 text-lg px-8 py-5 font-bold">
+                  Get Your Free Audit
+                  <ArrowRight className="ml-2" size={20} />
                 </Button>
               </Link>
-            </motion.div>
+              <Link href="/services">
+                <Button variant="outline" className="border-white/50 text-white hover:bg-white/10 text-lg px-8 py-5">
+                  Explore Our Services
+                </Button>
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
