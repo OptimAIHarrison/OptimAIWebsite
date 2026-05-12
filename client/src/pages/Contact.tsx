@@ -64,27 +64,19 @@ export default function Contact() {
                     <Mail className="text-accent mt-1 flex-shrink-0" size={24} />
                     <div>
                       <p className="font-bold">Email</p>
-                      <a href="mailto:hello@optimai.com" className="text-foreground/70 hover:text-accent transition-colors">
-                        hello@optimai.com
+                      <a href="mailto:hello@optimai.com.au" className="text-foreground/70 hover:text-accent transition-colors">
+                        hello@optimai.com.au
                       </a>
                     </div>
                   </div>
-                  <div className="flex items-start gap-4">
-                    <Phone className="text-accent mt-1 flex-shrink-0" size={24} />
-                    <div>
-                      <p className="font-bold">Phone</p>
-                      <a href="tel:+1234567890" className="text-foreground/70 hover:text-accent transition-colors">
-                        +1 (234) 567-890
-                      </a>
-                    </div>
-                  </div>
+             
                   <div className="flex items-start gap-4">
                     <MapPin className="text-accent mt-1 flex-shrink-0" size={24} />
                     <div>
                       <p className="font-bold">Office</p>
                       <p className="text-foreground/70">
-                        123 Innovation Street<br />
-                        Tech City, TC 12345
+                        Melbourne<br />
+                        Victoria, Aus
                       </p>
                     </div>
                   </div>
