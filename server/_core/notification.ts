@@ -113,26 +113,3 @@ export async function notifyOwner(
   }
 }
 
-
-
-import { Resend } from "resend";
-
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-export async function sendEmail(subject: string, body: string, replyTo?: string) {
-  if (!process.env.RESEND_API_KEY) {
-    console.warn("[Email] RESEND_API_KEY not set, skipping email.");
-    return;
-  }
-  try {
-    await resend.emails.send({
-      from: "OptimAI <hello@optimai.com.au>",
-      to: "hello@optimai.com.au",
-      subject,
-      text: body,
-      ...(replyTo ? { replyTo } : {}),
-    });
-  } catch (err) {
-    console.warn("[Email] Failed to send email:", err);
-  }
-}
