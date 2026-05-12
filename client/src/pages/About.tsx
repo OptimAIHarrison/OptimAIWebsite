@@ -193,21 +193,39 @@ export default function About() {
             viewport={{ once: true }}
           >
             <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-center">Who we're built for</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
               {[
-                { label: "Startups", desc: "Moving fast and need systems that scale with them without hiring a 10-person ops team." },
-                { label: "SMEs", desc: "Established businesses with proven models who are ready to stop doing things manually." },
-                { label: "Agencies & Services", desc: "Client-facing teams who need to reclaim time and deliver better work without burning out." },
+                {
+                  label: "Everyday Business Owners",
+                  examples: "Tradies, hairdressers, clinics, real estate agents, cleaners, consultants, retailers",
+                  desc: "You're great at what you do — the admin, follow-ups, and manual work are just getting in the way. We cut through the noise and build simple systems that give you your time back.",
+                },
+                {
+                  label: "Startups",
+                  examples: "Early-stage founders, product teams, solo operators with big ambitions",
+                  desc: "Moving fast and need systems that scale without hiring a 10-person ops team. We help you build the infrastructure to grow without the growing pains.",
+                },
+                {
+                  label: "SMEs",
+                  examples: "10–200 person businesses ready to stop doing things manually",
+                  desc: "You've got a proven model and a real team. Now it's time to stop repeating the same manual work and start compounding the results you've already earned.",
+                },
+                {
+                  label: "Agencies & Service Providers",
+                  examples: "Marketing agencies, law firms, accountants, coaches, recruiters",
+                  desc: "Client-facing work is your product. We automate the backend — onboarding, reporting, follow-ups, admin — so you can deliver better work without burning out.",
+                },
               ].map((item, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="p-6 rounded-2xl bg-gradient-to-br from-purple-600/10 to-pink-600/5 border-2 border-purple-500/20 text-center"
+                  transition={{ delay: idx * 0.08 }}
+                  className="p-6 rounded-2xl bg-gradient-to-br from-purple-600/10 to-pink-600/5 border-2 border-purple-500/20"
                 >
-                  <div className="text-lg font-bold text-foreground mb-2">{item.label}</div>
+                  <div className="text-lg font-bold text-foreground mb-1">{item.label}</div>
+                  <div className="text-xs text-purple-600 font-medium mb-3">{item.examples}</div>
                   <p className="text-sm text-foreground/65 leading-relaxed">{item.desc}</p>
                 </motion.div>
               ))}
@@ -216,8 +234,8 @@ export default function About() {
               If you're a Fortune 500 looking for a 12-month engagement and a 200-page strategy deck —{" "}
               <span className="text-foreground/80 font-medium">we're probably not the right fit.</span>
               <br />
-              If you want practical results from someone who works alongside you —{" "}
-              <span className="text-purple-600 font-semibold">you're in the right place.</span>
+              If you're a business owner who just wants things to run better —{" "}
+              <span className="text-purple-600 font-semibold">you're exactly who we built this for.</span>
             </p>
           </motion.div>
         </div>
