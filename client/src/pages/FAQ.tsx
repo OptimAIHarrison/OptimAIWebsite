@@ -77,7 +77,7 @@ export default function FAQ() {
                   setSearchQuery(e.target.value);
                   setSelectedCategory(null);
                 }}
-                className="w-full pl-12 pr-4 py-4 rounded-lg border border-white/20 bg-white/5 backdrop-blur-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
+                className="w-full pl-12 pr-4 py-4 rounded-lg border-2 border-purple-300/60 bg-white/80 backdrop-blur-sm text-foreground placeholder-foreground/40 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all shadow-sm"
               />
             </div>
           </motion.div>
@@ -97,7 +97,7 @@ export default function FAQ() {
               className={`px-4 py-2 rounded-full font-medium transition-all ${
                 selectedCategory === null
                   ? "bg-accent text-white"
-                  : "bg-white/10 text-foreground hover:bg-white/20"
+                  : "bg-white/80 text-foreground/80 border border-purple-200 hover:bg-purple-50 hover:text-foreground"
               }`}
             >
               All FAQs
@@ -112,7 +112,7 @@ export default function FAQ() {
                 className={`px-4 py-2 rounded-full font-medium transition-all ${
                   selectedCategory === category
                     ? "bg-accent text-white"
-                    : "bg-white/10 text-foreground hover:bg-white/20"
+                    : "bg-white/80 text-foreground/80 border border-purple-200 hover:bg-purple-50 hover:text-foreground"
                 }`}
               >
                 {category}
@@ -143,7 +143,7 @@ export default function FAQ() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto space-y-4"
+            className="max-w-3xl mx-auto space-y-5"
           >
             {filteredFAQs.length > 0 ? (
               filteredFAQs.map((faq) => (
@@ -154,16 +154,16 @@ export default function FAQ() {
                 >
                   <button
                     onClick={() => setExpandedId(expandedId === faq.id ? null : faq.id)}
-                    className="w-full px-6 py-4 flex items-start justify-between gap-4 hover:bg-white/5 transition-colors"
+                    className="w-full px-6 py-5 flex items-start justify-between gap-4 hover:bg-white/5 transition-colors"
                   >
                     <div className="text-left flex-1">
-                      <h3 className="text-lg font-bold text-foreground mb-2">{faq.question}</h3>
-                      <div className="flex flex-wrap gap-2">
-                        <span className="inline-block px-2 py-1 bg-accent/20 text-accent text-xs rounded-full font-medium">
+                      <h3 className="text-lg font-bold text-foreground mb-3">{faq.question}</h3>
+                      <div className="flex flex-wrap gap-2 items-center">
+                        <span className="inline-flex items-center px-2.5 py-1 bg-accent/15 text-accent font-semibold text-xs rounded-full ring-1 ring-accent/25">
                           {faq.category}
                         </span>
                         {faq.featured && (
-                          <span className="inline-block px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full font-medium flex items-center gap-1">
+                          <span className="inline-flex items-center gap-1 px-2 py-1 bg-purple-500/20 text-purple-400 text-xs rounded-full font-medium">
                             <Zap size={12} /> Featured
                           </span>
                         )}
@@ -186,8 +186,23 @@ export default function FAQ() {
                         transition={{ duration: 0.3 }}
                         className="border-t border-white/10"
                       >
-                        <div className="px-6 py-4 bg-white/5">
-                          <p className="text-foreground/80 leading-relaxed mb-4">{faq.answer}</p>
+                        <div className="px-6 py-6 bg-white/5">
+                          <div className="text-foreground/80 leading-relaxed mb-4 space-y-3">
+                            {faq.answer.split('\n').map((line, i) => {
+                              const trimmed = line.trim();
+                              if (!trimmed) return null;
+                              // Bullet lines starting with - or •
+                              if (trimmed.startsWith('- ') || trimmed.startsWith('• ')) {
+                                return (
+                                  <div key={i} className="flex items-start gap-2">
+                                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                                    <span>{trimmed.replace(/^[-•]\s+/, '')}</span>
+                                  </div>
+                                );
+                              }
+                              return <p key={i}>{trimmed}</p>;
+                            })}
+                          </div>
 
                           {/* CTA Button */}
                           {faq.cta && faq.ctaLink && (
