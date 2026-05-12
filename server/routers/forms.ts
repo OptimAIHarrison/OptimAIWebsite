@@ -19,17 +19,7 @@ export const formsRouter = router({
           title: "New Contact Form Submission - Website",
           content: `Name: ${input.name}\nEmail: ${input.email}\nCompany: ${input.company}\nMessage: ${input.message}\n\nReply to: ${input.email}`,
         });
-        await sendEmail(
-  "New Contact Form Submission - Website",
-  `Name: ${input.name}\nEmail: ${input.email}\nCompany: ${input.company}\nMessage: ${input.message}`,
-  input.email  // sets Reply-To so you can reply directly
-);
-        return { success: true, message: "Thank you! We'll be in touch soon." };
-      } catch (error) {
-        console.error("Contact form submission error:", error);
-        return { success: false, message: "Failed to submit. Please try again." };
-      }
-    }),
+     
 
   submitAudit: publicProcedure
     .input(
@@ -53,17 +43,7 @@ export const formsRouter = router({
           title: "New Free Audit Request",
           content: `Name: ${input.name}\nEmail: ${input.email}\nCompany: ${input.company}\nTeam Size: ${input.teamSize}\nChallenge: ${input.challenge}\n\nAudit Areas: ${auditAreasText}\n\nCurrent Challenges: ${input.currentChallenges}\n\nAutomation Goals: ${input.automationGoals}\n\nTimeline: ${input.timeline}\nBudget: ${input.budget}\n\nReply to: ${input.email}`,
         });
-        await sendEmail(
-  "New Free Audit Request",
-  `Name: ${input.name}\nEmail: ${input.email}\nCompany: ${input.company}\nMessage: ${input.message}`,
-  input.email  // sets Reply-To so you can reply directly
-);
-        return { success: true, message: "Audit request submitted! We'll contact you within 24 hours." };
-      } catch (error) {
-        console.error("Audit form submission error:", error);
-        return { success: false, message: "Failed to submit. Please try again." };
-      }
-    }),
+       
 
   submitChatbotMessage: publicProcedure
     .input(
@@ -77,17 +57,7 @@ export const formsRouter = router({
           title: "New Chatbot Message",
           content: `Message: ${input.message}`,
         });
-              await sendEmail(
-  "New Chatbot Message",
-  `Name: ${input.name}\nEmail: ${input.email}\nCompany: ${input.company}\nMessage: ${input.message}`,
-  input.email  // sets Reply-To so you can reply directly
-);
-        return { success: true, message: "Message sent!" };
-      } catch (error) {
-        console.error("Chatbot message error:", error);
-        return { success: false, message: "Failed to send message." };
-      }
-    }),
+             
 
   submitProductInquiry: publicProcedure
     .input(
@@ -106,12 +76,7 @@ export const formsRouter = router({
           content: `Product: ${input.product}\nName: ${input.name}\nEmail: ${input.email}\nCompany: ${input.company || "Not provided"}\nPhone: ${input.phone || "Not provided"}\n\nReply to: ${input.email}`,
         });
 
-         await sendEmail(
-  "New Product Inquiry",
-  `Name: ${input.name}\nEmail: ${input.email}\nCompany: ${input.company}\nMessage: ${input.message}`,
-  input.email  // sets Reply-To so you can reply directly
-);
-
+       
         
         return { success: true, message: "Thank you! We'll be in touch soon with details about " + input.product };
       } catch (error) {
