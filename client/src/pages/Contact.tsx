@@ -20,7 +20,7 @@ const QUICK_LINKS = [
     icon: <MessageCircle size={20} className="text-purple-500" />,
     label: "Not sure where to start?",
     description: "Browse our services or ready-to-go products.",
-    href: "/what-we-actually-do",
+    href: "/products",
     cta: "See How It Works",
   },
 ];
@@ -127,7 +127,7 @@ export default function Contact() {
               </div>
 
               {/* Quick links */}
-              <div className="space-y-3">
+              <div className="space-y-3 mt-8">
                 <p className="text-xs font-bold text-foreground/40 uppercase tracking-widest px-1">
                   Looking for something specific?
                 </p>
