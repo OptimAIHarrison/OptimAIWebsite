@@ -98,7 +98,7 @@ export default function Home() {
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
                 <span className="bg-gradient-to-r from-purple-600 to-purple-900 bg-clip-text text-transparent">Less manual work.</span>
                 <br />
-                <span className="text-foreground">More business growth.</span>
+                <span className="text-foreground">Automate your growth.</span>
               </h1>
 
               <p className="text-lg lg:text-xl text-foreground/70 max-w-xl mx-auto">
@@ -141,7 +141,7 @@ export default function Home() {
       </section>
 
       {/* ── MISSION ──────────────────────────────────────────────────── */}
-      <section className="py-24 border-b border-white/10 bg-gradient-to-br from-slate-900/60 via-purple-950/40 to-slate-900/60">
+      <section className="py-24 border-b border-white/10 bg-gradient-to-b from-purple-100/40 via-purple-50/20 to-transparent">
         <div className="container mx-auto px-4 max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -223,7 +223,7 @@ export default function Home() {
       </section>
 
       {/* ── CORE SERVICES (headings only) ────────────────────────────── */}
-      <section className="py-20 border-b border-white/10">
+      <section className="py-20 border-b border-white/10 bg-gradient-to-b from-pink-50/10 via-purple-50/5 to-transparent">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
