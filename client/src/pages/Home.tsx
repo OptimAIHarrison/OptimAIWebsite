@@ -103,23 +103,21 @@ export default function Home() {
                 AI & Automation for Real Businesses
               </span>
 
-              <h1 className="font-bold leading-tight space-y-3">
-                <div className="text-4xl lg:text-5xl text-foreground/80 font-semibold">Automate the</div>
-                <div className="relative flex justify-center items-center">
-                  <div className="relative h-16 lg:h-20 flex items-center justify-center px-6 lg:px-10 rounded-2xl bg-gradient-to-r from-purple-600/15 to-pink-600/15 border-2 border-purple-500/30 min-w-[280px] lg:min-w-[380px] overflow-hidden">
-                    <motion.div
-                      key={tickerIndex}
-                      initial={{ opacity: 0, scale: 0.85 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      exit={{ opacity: 0, scale: 1.1 }}
-                      transition={{ duration: 0.4, ease: "easeOut" }}
-                      className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap"
-                    >
-                      {TICKER_WORDS[tickerIndex]}
-                    </motion.div>
-                  </div>
+              <h1 className="font-bold leading-tight space-y-2">
+                <div className="text-5xl lg:text-7xl text-foreground font-bold">Automate the</div>
+                <div className="relative flex justify-center items-center py-1">
+                  <motion.div
+                    key={tickerIndex}
+                    initial={{ opacity: 0, scale: 0.85 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 1.1 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                    className="text-5xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap"
+                  >
+                    {TICKER_WORDS[tickerIndex]}
+                  </motion.div>
                 </div>
-                <div className="text-4xl lg:text-5xl bg-gradient-to-r from-purple-600 to-purple-900 bg-clip-text text-transparent">Scale what matters</div>
+                <div className="text-5xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 to-purple-900 bg-clip-text text-transparent">Scale what matters</div>
               </h1>
 
               <p className="text-lg lg:text-xl text-foreground/70 max-w-xl mx-auto">
