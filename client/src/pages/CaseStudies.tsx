@@ -1,26 +1,31 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { CASE_STUDIES } from "@/const";
-import { ArrowRight, TrendingUp } from "lucide-react";
+import { ArrowRight, ChevronDown, Clock, DollarSign, TrendingUp, CheckCircle, ArrowUpRight } from "lucide-react";
+
+const CATEGORY_COLORS = [
+  "from-purple-600 to-indigo-600",
+  "from-pink-600 to-purple-600",
+  "from-indigo-600 to-cyan-600",
+];
+
+const CATEGORY_BG = [
+  "bg-purple-600/10 border-purple-500/30",
+  "bg-pink-600/10 border-pink-500/30",
+  "bg-indigo-600/10 border-indigo-500/30",
+];
 
 export default function CaseStudies() {
-  const [expanded, setExpanded] = useState<number | null>(0);
+  const [expanded, setExpanded] = useState<number | null>(null);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  const totals = {
+    timeSaved: "67 hrs/week",
+    costSavings: "$27,500/month",
+    avgProductivity: "+117%",
   };
 
   return (
@@ -29,120 +34,206 @@ export default function CaseStudies() {
 
       {/* Hero */}
       <section className="pt-40 pb-20 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
-        <motion.div
-          className="container mx-auto px-4 text-center"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.h1 variants={itemVariants} className="text-5xl lg:text-6xl font-bold mb-6">
-            Client Success <span className="gradient-text">Stories</span>
-          </motion.h1>
-          <motion.p variants={itemVariants} className="text-xl text-foreground/70 max-w-2xl mx-auto">
-            Real results from real clients. See how we've helped businesses achieve significant growth and efficiency gains.
-          </motion.p>
-        </motion.div>
+        <div className="container mx-auto px-4 max-w-4xl text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <div className="inline-block mb-6 px-4 py-2 bg-purple-600/10 border border-purple-400/30 rounded-full text-sm font-semibold text-purple-700">
+              Real clients. Real numbers.
+            </div>
+            <h1 className="text-5xl lg:text-6xl font-bold mb-6">
+              Client Success{" "}
+              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                Stories
+              </span>
+            </h1>
+            <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
+              No fluff, no vague claims. Here's exactly what we built, what changed, and what it was worth.
+            </p>
+          </motion.div>
+
+          {/* Aggregate stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.7 }}
+            className="grid grid-cols-3 gap-6 mt-14 max-w-2xl mx-auto"
+          >
+            {[
+              { icon: <Clock size={20} />, value: totals.timeSaved, label: "Combined time saved" },
+              { icon: <DollarSign size={20} />, value: totals.costSavings, label: "Combined cost savings" },
+              { icon: <TrendingUp size={20} />, value: totals.avgProductivity, label: "Avg productivity gain" },
+            ].map((stat, idx) => (
+              <div key={idx} className="p-5 rounded-2xl bg-white/60 border-2 border-purple-200/60 backdrop-blur-sm">
+                <div className="text-purple-600 flex justify-center mb-2">{stat.icon}</div>
+                <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                  {stat.value}
+                </div>
+                <div className="text-xs text-foreground/60 mt-1">{stat.label}</div>
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </section>
 
       {/* Case Studies */}
       <section className="py-20">
-        <motion.div
-          className="container mx-auto px-4 max-w-4xl"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-        >
-          <div className="space-y-8">
-            {CASE_STUDIES.map((study, index) => (
+        <div className="container mx-auto px-4 max-w-4xl space-y-6">
+          {CASE_STUDIES.map((study, index) => {
+            const isOpen = expanded === index;
+            const gradient = CATEGORY_COLORS[index % CATEGORY_COLORS.length];
+            const bgColor = CATEGORY_BG[index % CATEGORY_BG.length];
+
+            return (
               <motion.div
                 key={index}
-                variants={itemVariants}
-                className="glass-card overflow-hidden cursor-pointer hover:border-purple-500/50 transition-all"
-                onClick={() => setExpanded(expanded === index ? null : index)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className={`rounded-2xl border-2 overflow-hidden transition-all duration-300 ${
+                  isOpen ? "border-purple-500/50 shadow-lg shadow-purple-600/10" : "border-purple-900/20 hover:border-purple-500/30"
+                }`}
               >
-                <div className="p-8">
-                  <div className="flex items-start justify-between mb-4">
+                {/* Card Header — always visible */}
+                <button
+                  onClick={() => setExpanded(isOpen ? null : index)}
+                  className="w-full text-left p-8 hover:bg-white/5 transition-colors"
+                >
+                  <div className="flex items-start justify-between gap-6">
                     <div className="flex-1">
-                      <p className="text-accent font-bold text-sm mb-2">CASE STUDY</p>
-                      <h3 className="text-2xl font-bold mb-2">{study.title}</h3>
-                      <p className="text-foreground/70">{study.client}</p>
+                      {/* Label + client */}
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className={`text-xs font-bold px-3 py-1 rounded-full border ${bgColor}`}>
+                          {study.client}
+                        </span>
+                      </div>
+
+                      <h3 className="text-2xl font-bold text-foreground mb-2">{study.title}</h3>
+                      <p className="text-foreground/60">{study.description}</p>
                     </div>
-                    <TrendingUp className="text-accent flex-shrink-0" size={32} />
+
+                    <motion.div
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ duration: 0.25 }}
+                      className="flex-shrink-0 mt-1"
+                    >
+                      <ChevronDown size={22} className="text-purple-500" />
+                    </motion.div>
                   </div>
 
-                  {/* Key Metrics */}
+                  {/* Key metrics row */}
                   <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-white/10">
                     <div>
-                      <p className="text-accent font-bold text-2xl">{study.results.timeSaved}</p>
-                      <p className="text-foreground/70 text-sm">Time Saved</p>
+                      <p className={`text-2xl font-bold bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
+                        {study.results.timeSaved}
+                      </p>
+                      <p className="text-foreground/50 text-xs mt-0.5">Time Saved</p>
                     </div>
                     <div>
-                      <p className="text-accent font-bold text-2xl">{study.results.costSavings}</p>
-                      <p className="text-foreground/70 text-sm">Cost Savings</p>
+                      <p className={`text-2xl font-bold bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
+                        {study.results.costSavings}
+                      </p>
+                      <p className="text-foreground/50 text-xs mt-0.5">Cost Savings</p>
                     </div>
                     <div>
-                      <p className="text-accent font-bold text-2xl">{study.results.productivityGain}</p>
-                      <p className="text-foreground/70 text-sm">Productivity</p>
+                      <p className={`text-2xl font-bold bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
+                        {study.results.productivityGain}
+                      </p>
+                      <p className="text-foreground/50 text-xs mt-0.5">Productivity</p>
                     </div>
                   </div>
+                </button>
 
-                  {/* Expandable Details */}
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{
-                      height: expanded === index ? "auto" : 0,
-                      opacity: expanded === index ? 1 : 0,
-                    }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="mt-6 pt-6 border-t border-white/10 space-y-6">
-                      <div>
-                        <p className="font-bold mb-2">Challenge</p>
-                        <p className="text-foreground/80">{study.challenge}</p>
-                      </div>
-                      <div>
-                        <p className="font-bold mb-2">Solution</p>
-                        <p className="text-foreground/80">{study.solution}</p>
-                      </div>
-                      <div>
-                        <p className="font-bold mb-4">Detailed Metrics</p>
-                        <div className="space-y-3">
-                          {study.metrics.map((metric, idx) => (
-                            <div key={idx} className="flex items-center justify-between bg-white/5 p-3 rounded-lg">
-                              <p className="text-foreground/80">{metric.label}</p>
-                              <div className="flex gap-4">
-                                <span className="text-foreground/70 line-through">{metric.before}</span>
-                                <span className="text-accent font-bold">{metric.after}</span>
+                {/* Expandable detail */}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key="detail"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="border-t border-white/10 p-8 space-y-8 bg-white/[0.02]">
+                        {/* Challenge + Solution */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                          <div className="p-5 rounded-xl bg-red-500/5 border border-red-400/15">
+                            <p className="text-xs font-bold text-red-400 uppercase tracking-widest mb-3">The Challenge</p>
+                            <p className="text-foreground/80 leading-relaxed">{study.challenge}</p>
+                          </div>
+                          <div className="p-5 rounded-xl bg-green-500/5 border border-green-400/15">
+                            <p className="text-xs font-bold text-green-400 uppercase tracking-widest mb-3">The Solution</p>
+                            <p className="text-foreground/80 leading-relaxed">{study.solution}</p>
+                          </div>
+                        </div>
+
+                        {/* Before / After metrics */}
+                        <div>
+                          <p className="text-sm font-bold text-foreground/50 uppercase tracking-widest mb-4">Before vs After</p>
+                          <div className="space-y-3">
+                            {study.metrics.map((metric, idx) => (
+                              <div
+                                key={idx}
+                                className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-purple-900/20"
+                              >
+                                <p className="text-foreground/80 font-medium">{metric.label}</p>
+                                <div className="flex items-center gap-3 text-sm">
+                                  <span className="text-foreground/40 line-through">{metric.before}</span>
+                                  <ArrowRight size={14} className="text-foreground/30 flex-shrink-0" />
+                                  <span className={`font-bold bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
+                                    {metric.after}
+                                  </span>
+                                </div>
                               </div>
-                            </div>
-                          ))}
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Result callout */}
+                        <div className="flex items-start gap-3 p-4 rounded-xl bg-purple-600/10 border border-purple-500/20">
+                          <CheckCircle size={18} className="text-green-500 flex-shrink-0 mt-0.5" />
+                          <p className="text-foreground/80 font-medium">{study.result}</p>
                         </div>
                       </div>
-                    </div>
-                  </motion.div>
-                </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </motion.div>
-            ))}
-          </div>
+            );
+          })}
+        </div>
 
-          {/* CTA */}
+        {/* CTA */}
+        <div className="container mx-auto px-4 max-w-3xl mt-20">
           <motion.div
-            variants={itemVariants}
-            className="mt-16 text-center"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-12 text-center"
           >
-            <p className="text-lg text-foreground/70 mb-6">
-              Ready to become our next success story?
+            <h2 className="text-3xl font-bold text-white mb-4">Ready to be the next one?</h2>
+            <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
+              Start with a free audit. We'll show you exactly what's possible for your business — with real numbers, not estimates.
             </p>
-            <Link href="/free-audit">
-              <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 text-lg px-8 py-6 rounded-xl">
-                Get Your Free AI Audit
-                <ArrowRight className="ml-2" size={20} />
-              </Button>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/free-audit">
+                <Button className="bg-white text-purple-600 hover:bg-white/90 text-lg px-8 py-5 font-bold">
+                  Get Your Free Audit
+                  <ArrowRight className="ml-2" size={20} />
+                </Button>
+              </Link>
+              <Link href="/contact">
+                <Button variant="outline" className="border-white/50 text-white hover:bg-white/10 text-lg px-8 py-5">
+                  Talk to the Team
+                </Button>
+              </Link>
+            </div>
           </motion.div>
-        </motion.div>
+        </div>
       </section>
 
       <Footer />
