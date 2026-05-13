@@ -46,6 +46,8 @@ const WHAT_WE_DO = [
 
 export default function Home() {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
+  const [tickerIndex, setTickerIndex] = useState(0);
+  const TICKER_WORDS = ["routine", "friction", "tedious", "boring", "noise", "repetition"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -54,6 +56,12 @@ export default function Home() {
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const ticker = setInterval(() => {
+      setTickerIndex((prev) => (prev + 1) % 6);
+    }, 2000);
+    return () => clearInterval(ticker);
+  }, []);
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -96,9 +104,22 @@ export default function Home() {
               </span>
 
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-purple-600 to-purple-900 bg-clip-text text-transparent">Less manual work.</span>
+                <span className="text-foreground">Automate the{" "}
+                  <span className="relative inline-block overflow-hidden" style={{ minWidth: "8ch", verticalAlign: "bottom" }}>
+                    <motion.span
+                      key={tickerIndex}
+                      initial={{ y: 40, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: -40, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: "easeOut" }}
+                      className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+                    >
+                      {TICKER_WORDS[tickerIndex]}
+                    </motion.span>
+                  </span>.
+                </span>
                 <br />
-                <span className="text-foreground">Automate your growth.</span>
+                <span className="bg-gradient-to-r from-purple-600 to-purple-900 bg-clip-text text-transparent">Scale what matters.</span>
               </h1>
 
               <p className="text-lg lg:text-xl text-foreground/70 max-w-xl mx-auto">
