@@ -47,7 +47,7 @@ const WHAT_WE_DO = [
 export default function Home() {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [tickerIndex, setTickerIndex] = useState(0);
-  const TICKER_WORDS = ["routine", "friction", "tedious", "boring", "noise", "repetition"];
+  const TICKER_WORDS = ["admin", "follow-ups", "invoicing", "scheduling", "reporting", "data entry", "onboarding", "emails", "quoting", "repetition"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -58,7 +58,7 @@ export default function Home() {
 
   useEffect(() => {
     const ticker = setInterval(() => {
-      setTickerIndex((prev) => (prev + 1) % 6);
+      setTickerIndex((prev) => (prev + 1) % 10);
     }, 2000);
     return () => clearInterval(ticker);
   }, []);
@@ -103,23 +103,23 @@ export default function Home() {
                 AI & Automation for Real Businesses
               </span>
 
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                <span className="text-foreground">Automate the{" "}
-                  <span className="relative inline-block overflow-hidden" style={{ minWidth: "8ch", verticalAlign: "bottom" }}>
-                    <motion.span
+              <h1 className="font-bold leading-tight space-y-3">
+                <div className="text-4xl lg:text-5xl text-foreground/80 font-semibold">Automate the</div>
+                <div className="relative flex justify-center items-center">
+                  <div className="relative h-16 lg:h-20 flex items-center justify-center px-6 lg:px-10 rounded-2xl bg-gradient-to-r from-purple-600/15 to-pink-600/15 border-2 border-purple-500/30 min-w-[280px] lg:min-w-[380px] overflow-hidden">
+                    <motion.div
                       key={tickerIndex}
-                      initial={{ y: 40, opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
-                      exit={{ y: -40, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: "easeOut" }}
-                      className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+                      initial={{ opacity: 0, scale: 0.85 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 1.1 }}
+                      transition={{ duration: 0.4, ease: "easeOut" }}
+                      className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap"
                     >
                       {TICKER_WORDS[tickerIndex]}
-                    </motion.span>
-                  </span>.
-                </span>
-                <br />
-                <span className="bg-gradient-to-r from-purple-600 to-purple-900 bg-clip-text text-transparent">Scale what matters.</span>
+                    </motion.div>
+                  </div>
+                </div>
+                <div className="text-4xl lg:text-5xl bg-gradient-to-r from-purple-600 to-purple-900 bg-clip-text text-transparent">Scale what matters</div>
               </h1>
 
               <p className="text-lg lg:text-xl text-foreground/70 max-w-xl mx-auto">
