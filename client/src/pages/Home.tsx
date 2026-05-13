@@ -96,9 +96,9 @@ export default function Home() {
               </span>
 
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-purple-600 to-purple-900 bg-clip-text text-transparent">Stop doing it manually.</span>
+                <span className="bg-gradient-to-r from-purple-600 to-purple-900 bg-clip-text text-transparent">Less manual work.</span>
                 <br />
-                <span className="text-foreground">Start doing it automatically.</span>
+                <span className="text-foreground">More business growth.</span>
               </h1>
 
               <p className="text-lg lg:text-xl text-foreground/70 max-w-xl mx-auto">
@@ -132,8 +132,8 @@ export default function Home() {
                 <p className="text-foreground/60 text-sm">To Measurable Impact</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-purple-700">5 Stars.</p>
-                <p className="text-foreground/60 text-sm">No Exceptions.</p>
+                <p className="text-2xl font-bold text-purple-700">5 Stars</p>
+                <p className="text-foreground/60 text-sm">No Exceptions</p>
               </div>
             </div>
           </div>
@@ -141,7 +141,7 @@ export default function Home() {
       </section>
 
       {/* ── MISSION ──────────────────────────────────────────────────── */}
-      <section className="py-20 border-b border-white/10">
+      <section className="py-24 border-b border-white/10 bg-gradient-to-br from-slate-900/60 via-purple-950/40 to-slate-900/60">
         <div className="container mx-auto px-4 max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -175,7 +175,7 @@ export default function Home() {
       </section>
 
       {/* ── WHAT WE ACTUALLY DO ──────────────────────────────────────── */}
-      <section className="py-20 border-b border-white/10">
+      <section className="py-24 border-b border-white/10 bg-gradient-to-b from-purple-50/5 to-transparent">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
