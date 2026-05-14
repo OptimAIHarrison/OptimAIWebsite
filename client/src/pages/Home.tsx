@@ -103,16 +103,16 @@ export default function Home() {
                 AI & Automation for Real Businesses
               </span>
 
-              <h1 className="font-bold" style={{ lineHeight: 1.15 }}>
+              <h1 className="font-bold" style={{ lineHeight: 1.45 }}>
                 <div className="text-4xl lg:text-5xl text-foreground font-bold">Automate the</div>
-                <div className="relative flex justify-center items-center overflow-visible" style={{ lineHeight: 1.15 }}>
+                <div className="relative flex justify-center items-center overflow-visible" style={{ lineHeight: 1.45 }}>
                   <motion.div
                     key={tickerIndex}
                     initial={{ opacity: 0, scale: 0.85 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.1 }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="text-5xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap uppercase tracking-tight"
+                    className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap uppercase tracking-tight"
                   >
                     {TICKER_WORDS[tickerIndex]}
                   </motion.div>
