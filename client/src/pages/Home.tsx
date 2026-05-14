@@ -47,7 +47,7 @@ const WHAT_WE_DO = [
 export default function Home() {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [tickerIndex, setTickerIndex] = useState(0);
-  const TICKER_WORDS = ["data entry", "proposals", "onboarding", "follow-ups", "reminders", "bookings", "invoicing", "reporting", "scheduling", "quoting", "paperwork", "client updates", "missed leads", "chasing payments", "admin"];
+  const TICKER_WORDS = ["onboarding", "admin", "social posting", "email campaigns", "quoting", "processes", "follow-ups", "workflows", "invoicing", "scheduling", "proposals", "reporting", "nurturing", "outreach", "client updates", "marketing", "business"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -58,7 +58,7 @@ export default function Home() {
 
   useEffect(() => {
     const ticker = setInterval(() => {
-      setTickerIndex((prev) => (prev + 1) % 15);
+      setTickerIndex((prev) => (prev + 1) % 17);
     }, 2000);
     return () => clearInterval(ticker);
   }, []);
@@ -112,7 +112,7 @@ export default function Home() {
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.1 }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap uppercase tracking-tight"
+                    className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap capitalize tracking-tight"
                   >
                     {TICKER_WORDS[tickerIndex]}
                   </motion.div>
