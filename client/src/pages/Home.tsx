@@ -103,7 +103,7 @@ export default function Home() {
                 AI & Automation for Real Businesses
               </span>
 
-              <h1 className="font-bold flex flex-col items-center gap-4">
+              <h1 className="font-bold flex flex-col items-center gap-2 lg:gap-4">
                 <div className="text-4xl lg:text-5xl text-foreground font-bold">Automate the</div>
                 <div className="relative flex justify-center items-center overflow-visible">
                   <motion.div
@@ -141,18 +141,18 @@ export default function Home() {
             </div>
 
             {/* Trust badges */}
-            <div className="flex gap-8 pt-6 border-t border-white/20 justify-center flex-wrap">
+            <div className="flex gap-4 sm:gap-8 pt-6 border-t border-white/20 justify-center flex-nowrap">
               <div>
-                <p className="text-2xl font-bold text-purple-700">40+ Hours</p>
-                <p className="text-foreground/60 text-sm">Back. Every Month.</p>
+                <p className="text-base sm:text-2xl font-bold text-purple-700">40+ Hours</p>
+                <p className="text-foreground/60 text-xs sm:text-sm">Back. Every Month.</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-purple-700">15 Days</p>
-                <p className="text-foreground/60 text-sm">To Measurable Impact</p>
+                <p className="text-base sm:text-2xl font-bold text-purple-700">15 Days</p>
+                <p className="text-foreground/60 text-xs sm:text-sm">To Measurable Impact</p>
               </div>
               <div>
-                <p className="text-2xl font-bold text-purple-700">5 Stars</p>
-                <p className="text-foreground/60 text-sm">No Exceptions</p>
+                <p className="text-base sm:text-2xl font-bold text-purple-700">5 Stars</p>
+                <p className="text-foreground/60 text-xs sm:text-sm">No Exceptions</p>
               </div>
             </div>
           </div>
@@ -329,7 +329,7 @@ export default function Home() {
             className="text-center mb-10"
           >
             <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 bg-purple-600/10 border border-purple-400/30 rounded-full text-sm font-semibold text-purple-700">
-              <Package size={16} />
+              <Package className="w-5 h-5 sm:w-4 sm:h-4" />
               Ready to Go Products
             </div>
             <h2 className="text-3xl lg:text-5xl font-bold mb-4">
