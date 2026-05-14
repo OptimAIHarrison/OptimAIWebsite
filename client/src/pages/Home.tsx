@@ -121,7 +121,7 @@ export default function Home() {
               </h1>
 
               <p className="text-lg lg:text-xl text-foreground/70 max-w-xl mx-auto">
-                We build practical AI and automation systems for SMEs, startups, and everyday business owners — and get them live in weeks, not months.
+                We build practical AI and automation systems for SMEs, startups, and everyday business owners, and get them live in weeks, not months.
               </p>
             </div>
 
