@@ -127,7 +127,7 @@ export default function Contact() {
               </div>
 
               {/* Quick links */}
-              <div className="space-y-3 mt-8">
+              <div className="flex flex-col gap-4 mt-8">
                 <p className="text-xs font-bold text-foreground/40 uppercase tracking-widest px-1">
                   Looking for something specific?
                 </p>
@@ -239,9 +239,7 @@ export default function Contact() {
                         <ArrowRight className="ml-2" size={20} />
                       </Button>
 
-                      <p className="text-xs text-center text-foreground/40">
-                        We reply within 24 hours. No spam, ever.
-                      </p>
+
                     </form>
                   </>
                 )}
