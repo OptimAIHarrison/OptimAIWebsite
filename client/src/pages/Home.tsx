@@ -47,7 +47,7 @@ const WHAT_WE_DO = [
 export default function Home() {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [tickerIndex, setTickerIndex] = useState(0);
-  const TICKER_WORDS = ["admin", "follow-ups", "invoicing", "scheduling", "reporting", "data entry", "onboarding", "emails", "quoting", "repetition"];
+  const TICKER_WORDS = ["data entry", "proposals", "onboarding", "follow-ups", "reminders", "bookings", "invoicing", "reporting", "scheduling", "quoting", "paperwork", "client updates", "missed leads", "chasing payments", "admin"];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -58,7 +58,7 @@ export default function Home() {
 
   useEffect(() => {
     const ticker = setInterval(() => {
-      setTickerIndex((prev) => (prev + 1) % 10);
+      setTickerIndex((prev) => (prev + 1) % 15);
     }, 2000);
     return () => clearInterval(ticker);
   }, []);
@@ -103,21 +103,21 @@ export default function Home() {
                 AI & Automation for Real Businesses
               </span>
 
-              <h1 className="font-bold leading-none">
-                <div className="text-4xl lg:text-5xl text-foreground font-bold mb-2">Automate the</div>
-                <div className="relative flex justify-center items-center py-3 overflow-visible">
+              <h1 className="font-bold" style={{ lineHeight: 1.15 }}>
+                <div className="text-4xl lg:text-5xl text-foreground font-bold">Automate the</div>
+                <div className="relative flex justify-center items-center overflow-visible" style={{ lineHeight: 1.15 }}>
                   <motion.div
                     key={tickerIndex}
                     initial={{ opacity: 0, scale: 0.85 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.1 }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="text-5xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap leading-normal"
+                    className="text-5xl lg:text-7xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap uppercase tracking-tight"
                   >
                     {TICKER_WORDS[tickerIndex]}
                   </motion.div>
                 </div>
-                <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-600 to-purple-900 bg-clip-text text-transparent mt-2">Scale what matters</div>
+                <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-600 to-purple-900 bg-clip-text text-transparent">Scale what matters</div>
               </h1>
 
               <p className="text-lg lg:text-xl text-foreground/70 max-w-xl mx-auto">
@@ -194,50 +194,78 @@ export default function Home() {
       </section>
 
       {/* ── WHAT WE ACTUALLY DO ──────────────────────────────────────── */}
-      <section className="py-24 border-b border-white/10 bg-gradient-to-b from-purple-50/5 to-transparent">
+      <section className="py-24 border-b border-white/10">
         <div className="container mx-auto px-4 max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
           >
-            <h2 className="text-3xl lg:text-5xl font-bold mb-4">
-              We meet you <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">where you are</span>
-            </h2>
-            <p className="text-foreground/60 text-lg">You don't need to buy the whole package. Start with what makes sense right now.</p>
+            {/* Liquid glass container */}
+            <div className="relative rounded-3xl overflow-hidden p-8 md:p-12"
+              style={{
+                background: "linear-gradient(135deg, rgba(255,255,255,0.18) 0%, rgba(168,85,247,0.08) 50%, rgba(236,72,153,0.06) 100%)",
+                backdropFilter: "blur(24px)",
+                WebkitBackdropFilter: "blur(24px)",
+                border: "1px solid rgba(168,85,247,0.25)",
+                boxShadow: "0 8px 32px rgba(168,85,247,0.12), inset 0 1px 0 rgba(255,255,255,0.3)",
+              }}
+            >
+              {/* Subtle inner glow */}
+              <div className="absolute inset-0 rounded-3xl pointer-events-none"
+                style={{
+                  background: "radial-gradient(ellipse at 30% 0%, rgba(168,85,247,0.12) 0%, transparent 60%), radial-gradient(ellipse at 70% 100%, rgba(236,72,153,0.08) 0%, transparent 60%)",
+                }}
+              />
+
+              <div className="relative z-10">
+                <div className="text-center mb-10">
+                  <h2 className="text-3xl lg:text-5xl font-bold mb-4">
+                    We meet you <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">where you are</span>
+                  </h2>
+                  <p className="text-foreground/60 text-lg">You don't need to buy the whole package. Start with what makes sense right now.</p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+                  {WHAT_WE_DO.map((item, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.07 }}
+                      className="flex gap-4 p-5 rounded-2xl transition-all"
+                      style={{
+                        background: "rgba(255,255,255,0.12)",
+                        border: "1px solid rgba(168,85,247,0.2)",
+                        backdropFilter: "blur(8px)",
+                      }}
+                    >
+                      <div className="flex-shrink-0 p-2.5 rounded-xl h-fit"
+                        style={{ background: "rgba(168,85,247,0.15)" }}
+                      >
+                        {item.icon}
+                      </div>
+                      <div>
+                        <div className="text-xs font-bold text-purple-500 uppercase tracking-widest mb-1">{item.label}</div>
+                        <h3 className="text-lg font-bold text-foreground mb-1.5">{item.title}</h3>
+                        <p className="text-foreground/65 text-sm leading-relaxed">{item.description}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <div className="text-center">
+                  <Link href="/what-we-actually-do">
+                    <Button variant="outline" className="border-purple-400/50 hover:bg-purple-500/10 backdrop-blur-sm">
+                      See the full picture
+                      <ArrowRight className="ml-2" size={16} />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
           </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
-            {WHAT_WE_DO.map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.07 }}
-                className="flex gap-4 p-6 rounded-2xl bg-white/5 border-2 border-purple-900/20 hover:border-purple-500/40 transition-all"
-              >
-                <div className="flex-shrink-0 p-2.5 rounded-xl bg-purple-600/10 h-fit">
-                  {item.icon}
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-purple-500 uppercase tracking-widest mb-1">{item.label}</div>
-                  <h3 className="text-lg font-bold text-foreground mb-1.5">{item.title}</h3>
-                  <p className="text-foreground/65 text-sm leading-relaxed">{item.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Link href="/what-we-actually-do">
-              <Button variant="outline" className="border-purple-400/50 hover:bg-purple-500/10">
-                See the full picture
-                <ArrowRight className="ml-2" size={16} />
-              </Button>
-            </Link>
-          </div>
         </div>
       </section>
 
