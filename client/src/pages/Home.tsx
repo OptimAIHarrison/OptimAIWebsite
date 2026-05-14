@@ -103,9 +103,9 @@ export default function Home() {
                 AI & Automation for Real Businesses
               </span>
 
-              <h1 className="font-bold" style={{ lineHeight: 1.45 }}>
+              <h1 className="font-bold flex flex-col items-center gap-4">
                 <div className="text-4xl lg:text-5xl text-foreground font-bold">Automate the</div>
-                <div className="relative flex justify-center items-center overflow-visible" style={{ lineHeight: 1.45 }}>
+                <div className="relative flex justify-center items-center overflow-visible">
                   <motion.div
                     key={tickerIndex}
                     initial={{ opacity: 0, scale: 0.85 }}
