@@ -47,7 +47,7 @@ const WHAT_WE_DO = [
 export default function Home() {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [tickerIndex, setTickerIndex] = useState(0);
-  const TICKER_WORDS = ["onboarding", "admin", "social posting", "email campaigns", "quoting", "processes", "follow-ups", "workflows", "invoicing", "scheduling", "proposals", "reporting", "nurturing", "outreach", "client updates", "marketing", "business"];
+  const TICKER_WORDS = ["processes", "marketing", "workflows", "outreach", "admin", "social posting", "email campaigns", "quoting", "onboarding", "follow-ups",  "invoicing", "scheduling", "proposals", "reporting", "nurturing", "client updates", "business"];
 
   useEffect(() => {
     const interval = setInterval(() => {
