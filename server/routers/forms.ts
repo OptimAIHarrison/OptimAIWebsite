@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { publicProcedure, router } from "../_core/trpc";
-import { notifyOwner, sendEmail } from "../_core/notification";
+import { sendEmail } from "../_core/notification";
 
 export const formsRouter = router({
   submitContact: publicProcedure
@@ -22,11 +22,6 @@ export const formsRouter = router({
           `Message:`,
           input.message,
         ].join("\n");
-
-        await notifyOwner({
-          title: "New Contact Form Submission - OptimAI",
-          content: body,
-        });
 
         await sendEmail(
           "New Contact Form Submission",
@@ -79,11 +74,6 @@ export const formsRouter = router({
           input.automationGoals,
         ].join("\n");
 
-        await notifyOwner({
-          title: "New Free Audit Request - OptimAI",
-          content: body,
-        });
-
         await sendEmail(
           "New Free Audit Request",
           body,
@@ -106,11 +96,6 @@ export const formsRouter = router({
     .mutation(async ({ input }) => {
       try {
         const body = `Chatbot Message:\n${input.message}`;
-
-        await notifyOwner({
-          title: "New Chatbot Message - OptimAI",
-          content: body,
-        });
 
         await sendEmail(
           "New Chatbot Message",
@@ -144,11 +129,6 @@ export const formsRouter = router({
           `Company: ${input.company || "Not provided"}`,
           `Phone:   ${input.phone || "Not provided"}`,
         ].join("\n");
-
-        await notifyOwner({
-          title: "New Product Inquiry - OptimAI",
-          content: body,
-        });
 
         await sendEmail(
           `New Product Inquiry — ${input.product}`,
