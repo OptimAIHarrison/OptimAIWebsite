@@ -9,7 +9,7 @@ export const formsRouter = router({
         name: z.string().min(1, "Name is required"),
         email: z.string().email("Invalid email"),
         company: z.string().min(1, "Company is required"),
-        message: z.string().min(10, "Message must be at least 10 characters"),
+        message: z.string().min(1, "Message is required"),
       })
     )
     .mutation(async ({ input }) => {
@@ -48,10 +48,10 @@ export const formsRouter = router({
         email: z.string().email("Invalid email"),
         company: z.string().min(1, "Company is required"),
         teamSize: z.string(),
-        challenge: z.string().min(10, "Challenge must be at least 10 characters"),
+        challenge: z.string().min(1, "Challenge is required"),
         auditAreas: z.array(z.string()).min(1, "Please select at least one audit area"),
-        currentChallenges: z.string().min(10, "Please describe your current challenges"),
-        automationGoals: z.string().min(10, "Please describe your automation goals"),
+        currentChallenges: z.string().min(1, "Please describe your current challenges"),
+        automationGoals: z.string().min(1, "Please describe your automation goals"),
         timeline: z.string(),
         budget: z.string(),
       })
