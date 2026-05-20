@@ -62,7 +62,10 @@ export default function FreeAudit() {
       return;
     }
     try {
-      const result = await submitAudit.mutateAsync(formData);
+      const result = await submitAudit.mutateAsync({
+          ...formData,
+          challenge: formData.currentChallenges || formData.automationGoals || "Not specified",
+        });
       if (result.success) {
         toast.success(result.message);
         setStep(4);
