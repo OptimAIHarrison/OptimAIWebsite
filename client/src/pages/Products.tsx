@@ -881,9 +881,31 @@ export default function Products() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
             Our <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Ready to Go</span> Products
           </h1>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto mb-8">
             Off-the-shelf solutions built to deploy fast. Pick what your business needs and get moving.
           </p>
+
+          {/* Search bar in hero */}
+          <div className="max-w-xl mx-auto">
+            <div className="relative">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-foreground/40" size={18} />
+              <input
+                type="text"
+                placeholder="Search products... (e.g. 'chatbot', 'email', 'CRM')"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-11 pr-10 py-4 bg-white/80 border-2 border-purple-300/60 rounded-xl text-foreground placeholder-foreground/40 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all shadow-sm"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-foreground/40 hover:text-foreground transition-colors"
+                >
+                  <X size={16} />
+                </button>
+              )}
+            </div>
+          </div>
         </motion.div>
       </section>
 
@@ -985,28 +1007,6 @@ export default function Products() {
               animate={{ opacity: 1 }}
               className="flex-1"
             >
-              {/* Search Bar — above the grid */}
-              <div className="mb-6">
-                <div className="relative">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-foreground/40" size={18} />
-                  <input
-                    type="text"
-                    placeholder="Search products... (e.g. 'chatbot', 'email', 'CRM')"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full pl-11 pr-10 py-3 bg-white/80 border-2 border-purple-300/60 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all shadow-sm"
-                  />
-                  {searchQuery && (
-                    <button
-                      onClick={() => setSearchQuery("")}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-foreground/40 hover:text-foreground transition-colors"
-                    >
-                      <X size={16} />
-                    </button>
-                  )}
-                </div>
-              </div>
-
               {filteredProducts.length === 0 ? (
                 <div className="text-center py-12 bg-white/5 border border-purple-900/20 rounded-xl p-8">
                   <p className="text-lg text-foreground/70 mb-4">No products found matching your filters.</p>
