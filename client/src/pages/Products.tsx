@@ -3,7 +3,31 @@ import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, X, Check, Clock, Package, Send, Search, Filter, ChevronDown } from "lucide-react";
+import { ArrowRight, X, Check, Clock, Package, Send, Search, Filter, ChevronDown, Bot, Mail, Database, Layers, Zap, Globe, BarChart2, Map, Star, FileText, CreditCard, FileEdit, Repeat, Brain, TrendingUp, Users, FileCheck, Receipt, PieChart, Share2, UserCheck, UserPlus, BadgeCheck } from "lucide-react";
+
+const PRODUCT_ICONS: Record<string, React.ReactNode> = {
+  "chatbot": <Bot size={36} className="text-purple-400" />,
+  "email-marketing": <Mail size={36} className="text-purple-400" />,
+  "crm-build": <Database size={36} className="text-purple-400" />,
+  "full-stack-setup": <Layers size={36} className="text-purple-400" />,
+  "process-automation": <Zap size={36} className="text-purple-400" />,
+  "website-optimization": <Globe size={36} className="text-purple-400" />,
+  "bi-dashboard": <BarChart2 size={36} className="text-purple-400" />,
+  "customer-journey": <Map size={36} className="text-purple-400" />,
+  "feedback-automation": <Star size={36} className="text-purple-400" />,
+  "proposal-automation": <FileText size={36} className="text-purple-400" />,
+  "subscription-management": <CreditCard size={36} className="text-purple-400" />,
+  "ai-content-generation": <Brain size={36} className="text-purple-400" />,
+  "seo-optimization": <TrendingUp size={36} className="text-purple-400" />,
+  "data-cleanup": <FileCheck size={36} className="text-purple-400" />,
+  "ai-search-optimization": <Search size={36} className="text-purple-400" />,
+  "social-media-automation": <Share2 size={36} className="text-purple-400" />,
+  "onboarding-automation": <UserCheck size={36} className="text-purple-400" />,
+  "hr-recruitment-automation": <UserPlus size={36} className="text-purple-400" />,
+  "invoice-payment-automation": <Receipt size={36} className="text-purple-400" />,
+  "reporting-automation": <PieChart size={36} className="text-purple-400" />,
+};
+
 
 interface Product {
   id: string;
@@ -998,38 +1022,54 @@ export default function Products() {
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: idx * 0.04 }}
-                      className="group bg-white/5 border border-purple-900/20 rounded-xl overflow-hidden hover:border-purple-600/50 transition-all hover:shadow-lg hover:shadow-purple-600/10"
+                      className="group bg-white/5 border border-purple-900/20 rounded-xl overflow-hidden hover:border-purple-600/50 transition-all hover:shadow-lg hover:shadow-purple-600/10 flex flex-col"
                     >
-                      <div className="relative h-48 overflow-hidden bg-gradient-to-br from-purple-500/20 to-pink-500/20">
-                        <img
-                          src={product.image}
-                          alt={product.name}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
+                      {/* Card Header — icon + tags */}
+                      <div className="relative p-6 pb-4 bg-gradient-to-br from-purple-600/10 via-purple-500/5 to-pink-600/5 border-b border-purple-900/20">
+                        <div className="flex items-start justify-between mb-4">
+                          <div className="p-3 rounded-xl bg-purple-600/15 ring-1 ring-purple-500/20">
+                            {PRODUCT_ICONS[product.id] ?? <Package size={36} className="text-purple-400" />}
+                          </div>
+                          <div className="flex flex-wrap gap-1.5 justify-end">
+                            {product.tags.map(tag => (
+                              <span
+                                key={tag}
+                                className="text-xs px-2.5 py-1 bg-purple-600/15 text-purple-700 font-semibold rounded-full ring-1 ring-purple-400/30"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                        <h3 className="text-lg font-bold text-foreground mb-1">{product.name}</h3>
+                        <p className="text-foreground/60 text-sm">{product.shortDescription}</p>
                       </div>
 
-                      <div className="p-6">
-                        <div className="mb-3 flex flex-wrap gap-2">
-                          {product.tags.map(tag => (
-                            <span
-                              key={tag}
-                              className="text-xs px-2.5 py-1 bg-purple-600/15 text-purple-700 font-semibold rounded-full ring-1 ring-purple-400/30"
-                            >
-                              {tag}
-                            </span>
+                      {/* Card Body — bullets + price + CTA */}
+                      <div className="p-6 flex flex-col flex-1">
+                        {/* Top 4 deliverables as bullets */}
+                        <ul className="space-y-2 mb-5 flex-1">
+                          {product.deliverables.slice(0, 4).map((item, i) => (
+                            <li key={i} className="flex items-start gap-2.5 text-sm text-foreground/75">
+                              <Check size={14} className="text-purple-500 flex-shrink-0 mt-0.5" />
+                              <span>{item}</span>
+                            </li>
                           ))}
-                        </div>
+                          {product.deliverables.length > 4 && (
+                            <li className="text-xs text-foreground/40 pl-[22px]">
+                              +{product.deliverables.length - 4} more included
+                            </li>
+                          )}
+                        </ul>
 
-                        <h3 className="text-xl font-bold text-foreground mb-2">{product.name}</h3>
-                        <p className="text-foreground/70 text-sm mb-4">{product.shortDescription}</p>
-
-                        <div className="flex items-center gap-4 mb-6 text-sm">
-                          <div className="flex items-center gap-1.5 text-foreground/60">
-                            <Clock size={15} />
+                        {/* Price + timeline */}
+                        <div className="flex items-center justify-between mb-4 pt-4 border-t border-purple-900/20 text-sm">
+                          <div className="flex items-center gap-1.5 text-foreground/50">
+                            <Clock size={13} />
                             {product.timeline}
                           </div>
                           <div className="text-xl font-bold text-purple-600">
-                            ${product.price.toLocaleString()} {product.currency}
+                            ${product.price.toLocaleString()} <span className="text-sm font-medium text-foreground/50">{product.currency}</span>
                           </div>
                         </div>
 
