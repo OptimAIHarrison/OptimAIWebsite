@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { SERVICES } from "@/const";
 import { ChevronDown, ArrowRight, Target, TrendingUp, Settings, Cpu, Shield, Search, CheckCircle, Clock, Users, Zap } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 const SERVICE_ICONS: Record<string, React.ReactNode> = {
   target: <Target size={32} className="text-purple-500" />,
@@ -43,6 +44,35 @@ export default function Services() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <SEO
+        title="AI & Automation Services — Strategy, Marketing, Business Process & More | OptimAI"
+        description="OptimAI offers six core AI and automation services: Strategic Advisory, Marketing Automation, Business Process Automation, AI Integration, Managed Services, and AI Search Optimisation. Serving Melbourne and Australia-wide."
+        canonical="/services"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Service",
+          "name": "AI & Automation Services",
+          "provider": {
+            "@type": "Organization",
+            "name": "OptimAI",
+            "url": "https://optimai.com.au"
+          },
+          "areaServed": "AU",
+          "description": "Comprehensive AI and automation services including strategic advisory, marketing automation, business process automation, AI integration, managed services and AI search optimisation.",
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "OptimAI Services",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Strategic Advisory" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing Automation" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Business Process Automation" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Integration" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Managed Services" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Search Optimisation" } }
+            ]
+          }
+        }}
+      />
 
       {/* Hero */}
       <section className="pt-40 pb-16 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
