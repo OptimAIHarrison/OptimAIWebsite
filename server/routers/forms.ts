@@ -14,24 +14,19 @@ export const formsRouter = router({
     )
     .mutation(async ({ input }) => {
       try {
-        const body = [
-          `Name:    ${input.name}`,
-          `Email:   ${input.email}`,
-          `Company: ${input.company}`,
-          ``,
-          `Message:`,
-          input.message,
-        ].join("\n");
-
         await sendEmail(
           "New Contact Form Submission",
-          body,
+          [
+            { label: "Name",    value: input.name },
+            { label: "Email",   value: input.email },
+            { label: "Company", value: input.company },
+            { label: "Message", value: input.message },
+          ],
           input.email
         );
-
         return { success: true, message: "Thank you! We'll be in touch soon." };
       } catch (error) {
-        console.error("Contact form submission error:", error);
+        console.error("Contact form error:", error);
         return { success: false, message: "Failed to submit. Please try again." };
       }
     }),
@@ -53,36 +48,25 @@ export const formsRouter = router({
     )
     .mutation(async ({ input }) => {
       try {
-        const body = [
-          `Name:      ${input.name}`,
-          `Email:     ${input.email}`,
-          `Company:   ${input.company}`,
-          `Team Size: ${input.teamSize}`,
-          `Timeline:  ${input.timeline}`,
-          `Budget:    ${input.budget}`,
-          ``,
-          `Audit Areas:`,
-          input.auditAreas.map(a => `  - ${a}`).join("\n"),
-          ``,
-          `Primary Challenge:`,
-          input.challenge,
-          ``,
-          `Current Challenges:`,
-          input.currentChallenges,
-          ``,
-          `Automation Goals:`,
-          input.automationGoals,
-        ].join("\n");
-
         await sendEmail(
           "New Free Audit Request",
-          body,
+          [
+            { label: "Name",                value: input.name },
+            { label: "Email",               value: input.email },
+            { label: "Company",             value: input.company },
+            { label: "Team Size",           value: input.teamSize },
+            { label: "Timeline",            value: input.timeline },
+            { label: "Budget",              value: input.budget },
+            { label: "Audit Areas",         value: input.auditAreas.join(", ") },
+            { label: "Primary Challenge",   value: input.challenge },
+            { label: "Current Challenges",  value: input.currentChallenges },
+            { label: "Automation Goals",    value: input.automationGoals },
+          ],
           input.email
         );
-
         return { success: true, message: "Audit request submitted! We'll contact you within 24 hours." };
       } catch (error) {
-        console.error("Audit form submission error:", error);
+        console.error("Audit form error:", error);
         return { success: false, message: "Failed to submit. Please try again." };
       }
     }),
@@ -95,13 +79,12 @@ export const formsRouter = router({
     )
     .mutation(async ({ input }) => {
       try {
-        const body = `Chatbot Message:\n${input.message}`;
-
         await sendEmail(
           "New Chatbot Message",
-          body
+          [
+            { label: "Message", value: input.message },
+          ]
         );
-
         return { success: true, message: "Message sent!" };
       } catch (error) {
         console.error("Chatbot message error:", error);
@@ -121,24 +104,20 @@ export const formsRouter = router({
     )
     .mutation(async ({ input }) => {
       try {
-        const body = [
-          `Product: ${input.product}`,
-          ``,
-          `Name:    ${input.name}`,
-          `Email:   ${input.email}`,
-          `Company: ${input.company || "Not provided"}`,
-          `Phone:   ${input.phone || "Not provided"}`,
-        ].join("\n");
-
         await sendEmail(
           `New Product Inquiry — ${input.product}`,
-          body,
+          [
+            { label: "Product", value: input.product },
+            { label: "Name",    value: input.name },
+            { label: "Email",   value: input.email },
+            { label: "Company", value: input.company || "Not provided" },
+            { label: "Phone",   value: input.phone   || "Not provided" },
+          ],
           input.email
         );
-
         return { success: true, message: `Thank you! We'll be in touch soon with details about ${input.product}` };
       } catch (error) {
-        console.error("Product inquiry submission error:", error);
+        console.error("Product inquiry error:", error);
         return { success: false, message: "Failed to submit inquiry. Please try again." };
       }
     }),
