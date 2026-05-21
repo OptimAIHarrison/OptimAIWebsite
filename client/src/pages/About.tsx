@@ -4,6 +4,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Target, Users, TrendingUp } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 const WHAT_WE_DO = [
   {
@@ -55,6 +56,26 @@ export default function About() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <SEO
+        title="About OptimAI — Why We Built Australia's Practical AI Automation Agency"
+        description="OptimAI was founded to make AI and automation accessible to SMEs, startups, tradies, and everyday business owners across Australia — not just enterprise companies. Learn our story."
+        canonical="/about"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "About OptimAI",
+          "url": "https://optimai.com.au/about",
+          "description": "OptimAI was founded to make AI and automation accessible to every business — not just the ones with enterprise budgets.",
+          "publisher": {
+            "@type": "Organization",
+            "name": "OptimAI",
+            "url": "https://optimai.com.au",
+            "foundingLocation": "Melbourne, VIC, Australia",
+            "areaServed": "AU",
+            "description": "AI and automation agency helping SMEs, startups and everyday business owners across Australia."
+          }
+        }}
+      />
 
       {/* Hero */}
       <section className="pt-40 pb-24 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
