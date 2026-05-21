@@ -4,6 +4,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Search, Hammer, TrendingUp, CheckCircle, Wrench, Sprout, Building2 } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 const ENGAGEMENT_TYPES = [
   {
@@ -84,6 +85,41 @@ export default function WhatWeActuallyDo() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <SEO
+        title="What OptimAI Actually Does — AI Automation From Audit to Full Transformation"
+        description="OptimAI works with businesses at every stage — from a simple process audit and roadmap, to fixing one thing fast, building new systems, scaling what's working, or a full-stack business transformation. No lock-in. Plain English."
+        canonical="/what-we-actually-do"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What does OptimAI actually do?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "OptimAI helps businesses automate repetitive work — from a quick process audit and roadmap, to fixing a single broken workflow, building new systems like CRMs and chatbots, scaling existing automations, or a full end-to-end business transformation. You don't need to buy the whole package — OptimAI works with you at whatever stage makes sense."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does OptimAI's process work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Every OptimAI engagement starts with listening — understanding your business and what actually matters. Then we show you exactly what we'd do and what it's worth before you commit. We build it with you, then hand it over with documentation and training so your team owns it."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to commit to a long-term contract with OptimAI?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. OptimAI has no lock-in contracts. You can start with an audit, fix one thing, or go all-in — the choice is yours at every step."
+              }
+            }
+          ]
+        }}
+      />
 
       {/* Hero */}
       <section className="pt-40 pb-24 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
