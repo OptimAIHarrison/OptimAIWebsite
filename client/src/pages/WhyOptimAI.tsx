@@ -4,6 +4,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock, DollarSign, Zap, Users, Shield, TrendingUp, CheckCircle, XCircle } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 const PAIN_POINTS = [
   "Spending hours on tasks that should take minutes",
@@ -61,6 +62,41 @@ export default function WhyOptimAI() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <SEO
+        title="Why Choose OptimAI? Results in 15 Days, No Lock-In, SME-Friendly Pricing"
+        description="OptimAI delivers first results in 15 days, saves clients 40+ hours per month, and has a 5-star rating across every client. See how we compare to typical agencies — no lock-in contracts, direct access, built for your business."
+        canonical="/why-optimai"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Why choose OptimAI over other automation agencies?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "OptimAI delivers first results in 15 days (not 6 months), has no lock-in contracts, charges SME-friendly pricing, and provides direct access to the team — not junior account managers. 100% of clients see ROI within 90 days."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How quickly does OptimAI get results?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most OptimAI clients have their first automation live within 15 days of the first call. We prioritise high-impact quick wins before long-term projects."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does OptimAI require long-term contracts?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. OptimAI has no lock-in contracts. You can start with a single project and scale from there."
+              }
+            }
+          ]
+        }}
+      />
 
       {/* Hero */}
       <section className="pt-40 pb-24 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
