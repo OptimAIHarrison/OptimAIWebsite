@@ -16,7 +16,7 @@ function buildEmailHtml(title: string, fields: { label: string; value: string }[
     .map(
       ({ label, value }) => `
         <tr>
-          <td style="padding:10px 16px;background:#f9f7ff;font-weight:600;color:#6d28d9;font-size:13px;width:160px;border-bottom:1px solid #ede9fe;white-space:nowrap;vertical-align:top;">${label}</td>
+          <td style="padding:10px 16px;background:#f9f7ff;font-weight:600;color:#6d28d9;font-size:13px;width:25%;border-bottom:1px solid #ede9fe;white-space:nowrap;vertical-align:top;">${label}</td>
           <td style="padding:10px 16px;background:#ffffff;color:#1f1f2e;font-size:13px;border-bottom:1px solid #ede9fe;vertical-align:top;line-height:1.6;">${value.replace(/\n/g, "<br/>")}</td>
         </tr>`
     )
