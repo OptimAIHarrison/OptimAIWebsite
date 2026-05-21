@@ -22,25 +22,25 @@ const WHAT_WE_DO = [
     icon: <Search size={24} className="text-purple-500" />,
     label: "Just starting out",
     title: "Audit & Roadmap",
-    description: "We map your business, find the hours being wasted, and hand you a clear plan. Zero obligation to go further.",
+    description: "OptimAI maps your business, finds the hours being wasted, and hands you a clear plan. Zero obligation to go further.",
   },
   {
     icon: <Wrench size={24} className="text-purple-500" />,
     label: "Got a specific problem",
     title: "Fix One Thing",
-    description: "You know what's broken. We fix it fast — one workflow, one integration, done properly.",
+    description: "You know what's broken. OptimAI fixes it fast — one workflow, one integration, done properly.",
   },
   {
     icon: <Zap size={24} className="text-purple-500" />,
     label: "Ready to build",
     title: "Build Something New",
-    description: "A CRM, onboarding flow, chatbot, dashboard. We scope it, build it, hand it over ready to run.",
+    description: "A CRM, onboarding flow, chatbot, dashboard. OptimAI scopes it, builds it, hands it over ready to run.",
   },
   {
     icon: <Sprout size={24} className="text-purple-500" />,
     label: "Growing fast",
     title: "Scale What's Working",
-    description: "You've got traction. We build the systems to keep up — without adding headcount for every new thing.",
+    description: "You've got traction. OptimAI builds the systems to keep up — without adding headcount for every new thing.",
   },
 ];
 
@@ -121,7 +121,7 @@ export default function Home() {
               </h1>
 
               <p className="text-lg lg:text-xl text-foreground/70 max-w-xl mx-auto">
-                We build practical AI and automation systems for SMEs, startups, and everyday business owners, and get them live in weeks, not months.
+                OptimAI builds practical AI and automation systems for SMEs, startups, and everyday business owners — and gets them live in weeks, not months.
               </p>
             </div>
 
@@ -179,7 +179,7 @@ export default function Home() {
               Enterprise companies are automating entire departments. SMEs, startups, and everyday business owners — tradies, clinics, agencies, retailers — are still doing everything manually. Not because they don't want to change, but because no one's made it accessible.
             </p>
             <p className="text-xl font-semibold text-foreground/90 max-w-2xl mx-auto">
-              That's what we fix. Practical AI and automation, built for the businesses that need it most.
+              That's what OptimAI fixes. Practical AI and automation, built for the businesses that need it most.
             </p>
             <div className="mt-8">
               <Link href="/about">
@@ -337,7 +337,7 @@ export default function Home() {
               <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">deployed fast?</span>
             </h2>
             <p className="text-foreground/65 text-lg max-w-2xl mx-auto">
-              Pre-scoped, fixed-price products built for common business needs. Pick one, we deploy it in days — not weeks.
+              Pre-scoped, fixed-price products built by OptimAI for common business needs. Pick one, we deploy it in days — not weeks.
             </p>
           </motion.div>
 
@@ -495,10 +495,10 @@ export default function Home() {
             className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-12 text-center"
           >
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
-              Ready to stop doing it manually?
+              Ready to work with OptimAI?
             </h2>
             <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
-              Start with a free audit. We'll map exactly what to automate, what it's worth, and how fast we can get it live.
+              Start with a free OptimAI audit. We'll map exactly what to automate, what it's worth, and how fast we can get it live.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/free-audit">
