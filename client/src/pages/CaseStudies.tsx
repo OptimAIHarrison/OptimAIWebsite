@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { CASE_STUDIES } from "@/const";
 import { ArrowRight, ChevronDown, Clock, DollarSign, TrendingUp, CheckCircle, ArrowUpRight } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 const CATEGORY_COLORS = [
   "from-purple-600 to-indigo-600",
@@ -31,6 +32,23 @@ export default function CaseStudies() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <SEO
+        title="Client Success Stories — Real AI Automation Results | OptimAI"
+        description="See exactly what OptimAI built for real clients, what changed, and what it was worth. 67+ hours saved per week, $27,500/month in cost savings, +117% avg productivity gain across all case studies."
+        canonical="/case-studies"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "OptimAI Client Case Studies",
+          "description": "Real AI and automation results delivered by OptimAI for SMEs, startups and business owners across Australia.",
+          "itemListElement": CASE_STUDIES.map((study, idx) => ({
+            "@type": "ListItem",
+            "position": idx + 1,
+            "name": study.title,
+            "description": study.result
+          }))
+        }}
+      />
 
       {/* Hero */}
       <section className="pt-40 pb-20 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
