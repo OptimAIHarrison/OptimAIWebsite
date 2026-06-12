@@ -25,11 +25,11 @@ const OUTCOMES = [
 const DIFFERENTIATORS = [
   {
     title: "We don't sell software. We solve problems.",
-    description: "Most agencies push a tool and leave. We map your actual business, find the bottlenecks costing you time and money, then build solutions around your workflow — not the other way around.",
+    description: "Most agencies push a tool and leave. We map your actual business, find the bottlenecks costing you time and money, then build solutions around your workflow - not the other way around.",
   },
   {
-    title: "You're live in 15 days, not 6 months.",
-    description: "Enterprise consultants bill you for 3-month discovery phases. We move fast — most clients have their first automation running within two weeks of our first call.",
+    title: "You could be live in 15 days, not 6 months.",
+    description: "Enterprise consultants bill you for 3-month discovery phases. We move fast - most clients have their first automation running within two weeks of our first call.",
   },
   {
     title: "Plain English, no BS.",
@@ -41,7 +41,7 @@ const DIFFERENTIATORS = [
   },
   {
     title: "Tailored to your size, not a corporate template.",
-    description: "Whether you're a solo operator or a 200-person team, you get a solution that fits your budget, your tools, and your goals — not a one-size-fits-all package.",
+    description: "Whether you're a solo operator or a 200-person team, you get a solution that fits your budget, your tools, and your goals - not a one-size-fits-all package.",
   },
   {
     title: "Your team actually adopts it.",
@@ -63,7 +63,7 @@ export default function WhyOptimAI() {
       <Navigation />
       <SEO
         title="Why Choose OptimAI? Results in 15 Days, No Lock-In, SME-Friendly Pricing"
-        description="OptimAI delivers first results in 15 days, saves clients 40+ hours per month, and has a 5-star rating across every client. See how we compare to typical agencies — no lock-in contracts, direct access, built for your business."
+        description="OptimAI delivers first results in 15 days, saves clients 40+ hours per month, and has a 5-star rating across every client. See how we compare to typical agencies - no lock-in contracts, direct access, built for your business."
         canonical="/why-optimai"
         schema={{
           "@context": "https://schema.org",
@@ -74,7 +74,7 @@ export default function WhyOptimAI() {
               "name": "Why choose OptimAI over other automation agencies?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "OptimAI delivers first results in 15 days (not 6 months), has no lock-in contracts, charges SME-friendly pricing, and provides direct access to the team — not junior account managers. 100% of clients see ROI within 90 days."
+                "text": "OptimAI delivers first results in 15 days (not 6 months), has no lock-in contracts, charges SME-friendly pricing, and provides direct access to the team - not junior account managers. 100% of clients see ROI within 90 days."
               }
             },
             {
@@ -112,7 +112,7 @@ export default function WhyOptimAI() {
               Why <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">OptimAI?</span>
             </h1>
             <p className="text-xl lg:text-2xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
-              Because you're losing hours every week to work that shouldn't exist — and that's fixable.
+              Because you're losing hours every week to work that shouldn't exist - and that's fixable.
             </p>
           </motion.div>
         </div>
@@ -153,7 +153,7 @@ export default function WhyOptimAI() {
             viewport={{ once: true }}
             className="text-center mt-10 text-foreground/60 text-lg"
           >
-            These aren't signs of a broken business — they're signs of a business that's ready to scale.
+            These aren't signs of a broken business - they're signs of a business that's ready to scale.
             <span className="text-purple-600 font-semibold"> That's exactly what we fix.</span>
           </motion.p>
         </div>
@@ -294,7 +294,7 @@ export default function WhyOptimAI() {
               You won't get handed off to a junior account manager six weeks in. When you work with OptimAI, you're working directly with the people who build and maintain your automations.
             </p>
             <p className="text-lg text-foreground/70 leading-relaxed">
-              We're selective about who we take on because we only commit to work we can do exceptionally well. If we're not the right fit, we'll tell you — and point you in the right direction.
+              We're selective about who we take on because we only commit to work we can do exceptionally well. If we're not the right fit, we'll tell you - and point you in the right direction.
             </p>
           </motion.div>
         </div>
@@ -313,7 +313,7 @@ export default function WhyOptimAI() {
               Still not sure? Let's find out together.
             </h2>
             <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
-              Book a free audit. We'll map your biggest time and money leaks, tell you exactly what we'd fix — and there's zero obligation to work with us.
+              Book a free audit. We'll map your biggest time and money leaks, tell you exactly what we'd fix - and there's zero obligation to work with us.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/free-audit">
