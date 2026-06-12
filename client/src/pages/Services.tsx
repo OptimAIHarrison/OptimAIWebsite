@@ -45,7 +45,7 @@ export default function Services() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <SEO
-        title="AI & Automation Services — Strategy, Marketing, Business Process & More | OptimAI"
+        title="AI & Automation Services, Strategy, Marketing, Business Process & More | OptimAI"
         description="OptimAI offers six core AI and automation services: Strategic Advisory, Marketing Automation, Business Process Automation, AI Integration, Managed Services, and AI Search Optimisation. Serving Melbourne and Australia-wide."
         canonical="/services"
         schema={{
@@ -88,7 +88,7 @@ export default function Services() {
             </span>
           </h1>
           <p className="text-xl text-foreground/70">
-            Six specialised practices — from strategy through to ongoing support — designed to transform how your business operates and grows.
+            Six specialised practices - from strategy through to ongoing support - designed to transform how your business operates and grows.
           </p>
         </motion.div>
       </section>
