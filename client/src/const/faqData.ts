@@ -42,7 +42,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "gs-002",
     question: "How is OptimAI different from other automation agencies?",
-    answer: "OptimAI stands out through our human-centered approach. We don't just implement technology—we enhance your team's capabilities. Our key differentiators include: (1) Practical, understandable solutions that your team can actually use, (2) Proven track record with 3-6 month ROI timelines, (3) Scalable solutions from quick wins to enterprise transformations, (4) Ongoing support and continuous optimization, (5) Focus on real business outcomes, not just technology for technology's sake.",
+    answer: "OptimAI stands out through our human-centered approach. We don't just implement technology - we enhance your team's capabilities. Our key differentiators include: (1) Practical, understandable solutions that your team can actually use, (2) Proven track record with 3-6 month ROI timelines, (3) Scalable solutions from quick wins to enterprise transformations, (4) Ongoing support and continuous optimization, (5) Focus on real business outcomes, not just technology for technology's sake.",
     category: "Getting Started",
     keywords: ["difference", "why OptimAI", "unique", "better than", "competitive advantage"],
     relatedQuestions: ["gs-001", "case-001"],
@@ -51,7 +51,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "gs-003",
     question: "Is OptimAI right for my business?",
-    answer: "OptimAI is ideal if you: (1) Spend significant time on manual, repetitive tasks, (2) Want to improve efficiency and reduce operational costs, (3) Are looking to scale without proportionally increasing headcount, (4) Want to make data-driven decisions with better insights, (5) Are ready to invest in automation and AI solutions. We work with businesses of all sizes—from 1-person startups to 500+ employee enterprises. The key is having clear goals and a willingness to embrace automation.",
+    answer: "OptimAI is ideal if you: (1) Spend significant time on manual, repetitive tasks, (2) Want to improve efficiency and reduce operational costs, (3) Are looking to scale without proportionally increasing headcount, (4) Want to make data-driven decisions with better insights, (5) Are ready to invest in automation and AI solutions. We work with businesses of all sizes - from 1-person startups to 500+ employee enterprises. The key is having clear goals and a willingness to embrace automation.",
     category: "Getting Started",
     keywords: ["right for me", "suitable", "fit", "qualify", "good fit", "startup", "enterprise"],
     relatedQuestions: ["gs-004", "pricing-001"],
@@ -70,7 +70,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "svc-001",
     question: "What are OptimAI's core services?",
-    answer: "OptimAI offers five core services: (1) Strategic Advisory & Consulting—Expert guidance on automation and AI adoption, (2) Marketing & Growth Automation—Automate campaigns and customer engagement, (3) Business Process Automation—Eliminate manual work and improve efficiency, (4) AI Integration & Analytics—Integrate AI for smarter decisions, (5) Managed Services & Support—Ongoing optimization and continuous improvement. Each service is designed to address specific business challenges and deliver measurable ROI.",
+    answer: "OptimAI offers five core services: (1) Strategic Advisory & Consulting - Expert guidance on automation and AI adoption, (2) Marketing & Growth Automation - Automate campaigns and customer engagement, (3) Business Process Automation - Eliminate manual work and improve efficiency, (4) AI Integration & Analytics - Integrate AI for smarter decisions, (5) Managed Services & Support (if needed) - Ongoing optimisation and continuous improvement. Each service is designed to address specific business challenges and deliver measurable ROI.",
     category: "Services",
     keywords: ["services", "what do you offer", "solutions", "offerings", "core services"],
     relatedQuestions: ["svc-002", "svc-003", "svc-004", "svc-005"],
@@ -79,7 +79,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "svc-002",
     question: "What is Strategic Advisory & Consulting?",
-    answer: "Strategic Advisory & Consulting helps you understand where automation can have the biggest business impact. We analyze your current processes, identify high-value opportunities, and create a clear implementation roadmap. This service includes: (1) Readiness Assessment—Evaluate your current processes and technology, (2) Strategy & Roadmap—Create a step-by-step implementation plan, (3) Technology Review—Assess your tools and recommend solutions, (4) ROI Projection—Show estimated time and cost savings.",
+    answer: "Strategic Advisory & Consulting helps you understand where automation can have the biggest business impact. We analyze your current processes, identify high-value opportunities, and create a clear implementation roadmap. This service includes: (1) Readiness Assessment - Evaluate your current processes and technology, (2) Strategy & Roadmap - Create a step-by-step implementation plan, (3) Technology Review - Assess your tools and recommend solutions, (4) ROI Projection - Show estimated time and cost savings.",
     category: "Services",
     subcategory: "Strategic Advisory",
     keywords: ["strategic advisory", "consulting", "readiness assessment", "roadmap", "strategy"],
@@ -118,7 +118,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "pricing-001",
     question: "How much does OptimAI cost?",
-    answer: "We offer flexible pricing models to fit different business needs: (1) Fixed Fee Projects—Ideal for specific, well-defined projects, (2) Project-Based Pricing—For larger initiatives with variable scope, (3) Managed Retainer—Ongoing support with predictable monthly costs. Most implementations range from $5,000 to $50,000+ depending on complexity. We typically see ROI within 3-6 months for most implementations. For a personalized quote, schedule a free audit.",
+    answer: "We offer flexible pricing models to fit different business needs: (1) Fixed Fee Projects - Ideal for specific, well-defined projects, (2) Project-Based Pricing - For larger initiatives with variable scope, (3) Managed Retainer - Ongoing support with predictable monthly costs. Most implementations range from $5,000 to $50,000+ depending on complexity. We typically see ROI within 3-6 months for most implementations. For a personalized quote, schedule a free audit.",
     category: "Pricing & ROI",
     keywords: ["cost", "price", "pricing", "how much", "investment", "budget"],
     relatedQuestions: ["pricing-002", "pricing-003"],
@@ -127,7 +127,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "pricing-002",
     question: "What's the typical ROI timeline?",
-    answer: "Most clients see measurable ROI within 3-6 months: (1) Quick Wins (1-3 months)—Small, focused automation projects with immediate impact, (2) Medium-term (3-6 months)—Larger initiatives with multiple processes, (3) Long-term (6+ months)—Enterprise-wide transformations. Many clients see initial results within the first month. The exact timeline depends on project scope, complexity, and your team's adoption speed.",
+    answer: "Most clients see measurable ROI within 3-6 months: (1) Quick Wins (1-3 months) - Small, focused automation projects with immediate impact, (2) Medium-term (3-6 months) - Larger initiatives with multiple processes, (3) Long-term (6+ months) - Enterprise-wide transformations. Many clients see initial results within the first month. The exact timeline depends on project scope, complexity, and your team's adoption speed.",
     category: "Pricing & ROI",
     keywords: ["ROI", "timeline", "return on investment", "payback", "how long"],
     relatedQuestions: ["pricing-001", "case-001"],
@@ -147,7 +147,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "impl-001",
     question: "What is your typical implementation process?",
-    answer: "Our implementation process follows a proven 6-step approach: (1) Discovery & Assessment—Analyze your current processes and identify opportunities, (2) Strategy & Planning—Create a detailed roadmap and timeline, (3) Setup & Configuration—Implement the automation solution, (4) Testing & Optimization—Thoroughly test and optimize performance, (5) Training & Handoff—Train your team on the new system, (6) Support & Optimization—Provide ongoing support and continuous improvement. The entire process typically takes 1-6 months depending on scope.",
+    answer: "Our implementation process follows a proven 6-step approach: (1) Discovery & Assessment - Analyze your current processes and identify opportunities, (2) Strategy & Planning - Create a detailed roadmap and timeline, (3) Setup & Configuration - Implement the automation solution, (4) Testing & Optimisation - Thoroughly test and optimize performance, (5) Training & Handoff - Train your team on the new system, (6) Support & Optimisation - Provide ongoing support and continuous improvement. The entire process typically takes 1-6 months depending on scope.",
     category: "Implementation",
     keywords: ["process", "how does it work", "steps", "implementation", "workflow"],
     relatedQuestions: ["impl-002", "impl-003"],
@@ -156,7 +156,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "impl-002",
     question: "How long does implementation typically take?",
-    answer: "Implementation timelines vary based on project scope: (1) Quick Wins (1-3 months)—Small, focused automation projects, (2) Medium-term (3-6 months)—Larger initiatives with multiple processes, (3) Long-term (6+ months)—Enterprise-wide transformations. Most clients see initial results within the first month. We work closely with you to minimize disruption to your business.",
+    answer: "Implementation timelines vary based on project scope: (1) Quick Wins (1-3 months) - Small, focused automation projects, (2) Medium-term (3-6 months) - Larger initiatives with multiple processes, (3) Long-term (6+ months) - Enterprise-wide transformations. Most clients see initial results within the first month. We work closely with you to minimize disruption to your business.",
     category: "Implementation",
     keywords: ["timeline", "how long", "duration", "implementation", "how fast"],
     relatedQuestions: ["impl-001", "impl-003"],
@@ -174,7 +174,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "tech-001",
     question: "What tools and platforms do you work with?",
-    answer: "We work with a wide range of industry-leading tools: (1) Automation Platforms—Zapier, Make, n8n, and custom solutions, (2) AI & Analytics—OpenAI, custom ML models, data warehouses, (3) CRM & Marketing—HubSpot, Salesforce, Marketo, (4) Business Tools—Airtable, Notion, Google Workspace, Microsoft 365, (5) Custom Integrations—We can integrate virtually any system. If your specific tool isn't listed, we likely can still work with it.",
+    answer: "We work with a wide range of industry-leading tools: (1) Automation Platforms - Zapier, Make, n8n, and custom solutions, (2) AI & Analytics - OpenAI, custom ML models, data warehouses, (3) CRM & Marketing - HubSpot, Salesforce, Marketo, (4) Business Tools - Airtable, Notion, Google Workspace, Microsoft 365, (5) Custom Integrations - We can integrate virtually any system. If your specific tool isn't listed, we likely can still work with it.",
     category: "Technology & Integration",
     keywords: ["tools", "platforms", "technology", "integration", "software", "systems"],
     relatedQuestions: ["tech-002", "tech-003"],
@@ -212,7 +212,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "supp-002",
     question: "How do I get help if something breaks?",
-    answer: "We provide multiple support channels: (1) Email support—Response within 24 hours, (2) Phone support—For urgent issues, (3) Live chat—Quick questions and troubleshooting, (4) Dedicated support portal—Track issues and solutions, (5) Emergency hotline—For critical business-impacting issues. Response times depend on your support plan. Most issues are resolved within 24-48 hours.",
+    answer: "We provide multiple support channels: (1) Email support - Response within 24 hours, (2) Phone support - For urgent issues, (3) Live chat - Quick questions and troubleshooting, (4) Dedicated support portal - Track issues and solutions, (5) Emergency hotline - For critical business-impacting issues. Response times depend on your support plan. Most issues are resolved within 24-48 hours.",
     category: "Support & Maintenance",
     keywords: ["help", "support", "issue", "problem", "broken", "emergency"],
     relatedQuestions: ["supp-001", "contact-001"],
@@ -231,7 +231,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "case-002",
     question: "What kind of time savings can we expect?",
-    answer: "Time savings vary by process, but typical results include: (1) Data entry & processing—40-80% time reduction, (2) Report generation—50-90% time reduction, (3) Customer follow-ups—60-85% time reduction, (4) Invoice processing—70-95% time reduction, (5) Scheduling—80-100% automation. For a business with 5 employees spending 20 hours/week on manual tasks, automation could free up 80-160 hours/month—equivalent to 1-2 full-time employees.",
+    answer: "Time savings vary by process, but typical results include: (1) Data entry & processing - 40-80% time reduction, (2) Report generation - 50-90% time reduction, (3) Customer follow-ups - 60-85% time reduction, (4) Invoice processing - 70-95% time reduction, (5) Scheduling - 80-100% automation. For a business with 5 employees spending 20 hours/week on manual tasks, automation could free up 80-160 hours/month - equivalent to 1-2 full-time employees.",
     category: "Case Studies & Results",
     keywords: ["time savings", "efficiency", "productivity", "hours saved", "time reduction"],
     relatedQuestions: ["case-001", "pricing-002"],
@@ -240,7 +240,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "case-003",
     question: "What's the average cost savings from automation?",
-    answer: "Cost savings depend on your current operations, but typical results include: (1) Labor cost reduction—$50K-$500K+ annually depending on team size, (2) Error reduction—5-15% fewer costly mistakes, (3) Faster processing—Reduced overhead and faster cash flow, (4) Improved efficiency—Lower operational costs per transaction. For example, a company automating invoice processing might save $100K+ annually in labor and error costs. We provide detailed ROI projections during your free audit.",
+    answer: "Cost savings depend on your current operations, but typical results include: (1) Labor cost reduction - $50K-$500K+ annually depending on team size, (2) Error reduction - 5-15% fewer costly mistakes, (3) Faster processing - Reduced overhead and faster cash flow, (4) Improved efficiency - Lower operational costs per transaction. For example, a company automating invoice processing might save $100K+ annually in labor and error costs. We provide detailed ROI projections during your free audit.",
     category: "Case Studies & Results",
     keywords: ["cost savings", "savings", "ROI", "financial impact", "money saved"],
     relatedQuestions: ["case-001", "pricing-002"],
@@ -251,7 +251,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "contact-001",
     question: "How do I get started with OptimAI?",
-    answer: "Getting started is easy: (1) Schedule a Free Audit—Book a 30-minute consultation with our team, (2) Assessment—We analyze your business and identify opportunities, (3) Proposal—Receive a detailed proposal with timeline and pricing, (4) Implementation—We handle everything from setup to training, (5) Ongoing Support—Continuous optimization and support. Start with our free audit to see if OptimAI is right for you.",
+    answer: "Getting started is easy: (1) Schedule a Free Audit - Book a 30-minute consultation with our team, (2) Assessment - We analyze your business and identify opportunities, (3) Proposal - Receive a detailed proposal with timeline and pricing, (4) Implementation - We handle everything from setup to training, (5) Ongoing Support - Continuous optimization and support. Start with our free audit to see if OptimAI is right for you.",
     category: "Contact & Next Steps",
     keywords: ["get started", "start", "begin", "how to start", "next steps"],
     relatedQuestions: ["contact-002", "pricing-003"],
@@ -262,7 +262,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "contact-002",
     question: "How can I contact OptimAI?",
-    answer: "You can reach us through multiple channels: (1) Email—hello@optimai.com.au, (2) Contact Form—Fill out our contact form and we'll respond within 24 hours, (3) Free Audit—Start with our free AI & Automation Audit, (4) Live Chat—Chat with us right now using our chatbot, (5) Phone—Available during business hours. We're here to answer your questions and help you find the right solution.",
+    answer: "You can reach us through multiple channels: (1) Email - hello@optimai.com.au, (2) Contact Form - Fill out our contact form and we'll respond within 24 hours, (3) Free Audit - Start with our free AI & Automation Audit, (4) Live Chat - Chat with us right now using our chatbot, (5) Phone - Available during business hours. We're here to answer your questions and help you find the right solution.",
     category: "Contact & Next Steps",
     keywords: ["contact", "reach out", "get in touch", "call", "email", "message"],
     relatedQuestions: ["contact-001", "contact-003"],
@@ -273,7 +273,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "contact-003",
     question: "What's the next step after my free audit?",
-    answer: "After your free audit, here's what happens next: (1) Detailed Report—You receive a comprehensive report with findings and recommendations, (2) Proposal—We provide a detailed proposal with timeline, pricing, and expected ROI, (3) Q&A Session—We answer all your questions about the proposal, (4) Decision—You decide if you want to move forward, (5) Onboarding—If you say yes, we begin the implementation process. There's no obligation—the audit is completely free.",
+    answer: "After your free audit, here's what happens next: (1) Detailed Report - You receive a comprehensive report with findings and recommendations, (2) Proposal - We provide a detailed proposal with timeline, pricing, and expected ROI, (3) Q&A Session - We answer all your questions about the proposal, (4) Decision - You decide if you want to move forward, (5) Onboarding - If you say yes, we begin the implementation process. There's no obligation - the audit is completely free.",
     category: "Contact & Next Steps",
     keywords: ["next step", "after audit", "what happens next", "proposal", "timeline"],
     relatedQuestions: ["contact-001", "impl-001"],
