@@ -11,7 +11,7 @@ const ENGAGEMENT_TYPES = [
     icon: <Search size={28} className="text-purple-500" />,
     label: "Just starting out",
     title: "Audit & Roadmap",
-    description: "Not sure where to begin? We map your business, find the bottlenecks, and hand you a clear plan — with zero obligation to take it further.",
+    description: "Not sure where to begin? We map your business, find the bottlenecks, and hand you a clear plan, with zero obligation to take it further.",
     examples: ["Process audit", "Automation opportunity report", "Tool recommendations", "Priority roadmap"],
     cta: "Perfect if you want clarity before committing.",
   },
@@ -19,7 +19,7 @@ const ENGAGEMENT_TYPES = [
     icon: <Wrench size={28} className="text-purple-500" />,
     label: "Got a specific problem",
     title: "Fix One Thing",
-    description: "You know what's broken. We fix it. One workflow, one integration, one system — done properly, deployed fast.",
+    description: "You know what's broken. We fix it. One workflow, one integration, one system - done properly, deployed fast.",
     examples: ["A leaking lead process", "A manual task eating hours", "Two tools that don't talk", "A follow-up that never happens"],
     cta: "Perfect if you have one clear pain point.",
   },
@@ -27,7 +27,7 @@ const ENGAGEMENT_TYPES = [
     icon: <Hammer size={28} className="text-purple-500" />,
     label: "Ready to build",
     title: "Build Something New",
-    description: "You want a proper system — a CRM, an onboarding flow, a reporting dashboard. We scope it, build it, and hand it over ready to run.",
+    description: "You want a proper system? A CRM, an onboarding flow, a reporting dashboard. We scope it, build it, and hand it over ready to run.",
     examples: ["CRM setup and automation", "Client onboarding system", "AI chatbot for your site", "Invoice and payment automation"],
     cta: "Perfect if you know what you want built.",
   },
@@ -35,7 +35,7 @@ const ENGAGEMENT_TYPES = [
     icon: <Sprout size={28} className="text-purple-500" />,
     label: "Growing fast",
     title: "Scale What's Working",
-    description: "You've got traction. Now you need systems that grow with you — without hiring more people for every new thing.",
+    description: "You've got traction. Now you need systems that grow with you, without hiring more people for every new thing.",
     examples: ["Expand automations across teams", "Add analytics and reporting", "Integrate new tools as you grow", "Reduce manual load as volume increases"],
     cta: "Perfect if you're scaling and need to keep up.",
   },
@@ -43,7 +43,7 @@ const ENGAGEMENT_TYPES = [
     icon: <Building2 size={28} className="text-purple-500" />,
     label: "Want the full picture",
     title: "Full Stack Transformation",
-    description: "You're ready to go end-to-end — from strategy through to fully automated operations. We become your long-term automation partner.",
+    description: "You're ready to go end-to-end... From strategy through to fully automated operations. We become your long-term automation partner.",
     examples: ["Full business process audit", "All systems connected and automated", "AI integrated across operations", "Ongoing support and optimisation"],
     cta: "Perfect if you want a long-term partner.",
   },
@@ -53,7 +53,7 @@ const HOW_IT_WORKS = [
   {
     step: "01",
     title: "We listen first",
-    description: "Every engagement starts the same way — we ask questions, understand your business, and figure out what actually matters. No assumptions, no templates.",
+    description: "Every engagement starts the same way, we ask questions, understand your business, and figure out what actually matters. No assumptions, no templates.",
   },
   {
     step: "02",
@@ -63,12 +63,12 @@ const HOW_IT_WORKS = [
   {
     step: "03",
     title: "We build it with you",
-    description: "You're involved throughout. Nothing is hidden in a black box. You understand what we're building and why — so your team can own it.",
+    description: "You're involved throughout. You understand what we're building and why, so your team can own it.",
   },
   {
     step: "04",
     title: "We hand it over properly",
-    description: "Documentation, training, and a handover your team actually understands. You're not dependent on us forever — unless you want to be.",
+    description: "Documentation, training, and a handover your team actually understands. You're not dependent on us forever, unless you want to be.",
   },
 ];
 
@@ -86,8 +86,8 @@ export default function WhatWeActuallyDo() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <SEO
-        title="What OptimAI Actually Does — AI Automation From Audit to Full Transformation"
-        description="OptimAI works with businesses at every stage — from a simple process audit and roadmap, to fixing one thing fast, building new systems, scaling what's working, or a full-stack business transformation. No lock-in. Plain English."
+        title="What OptimAI Actually Does - AI Automation From Audit to Full Transformation"
+        description="OptimAI works with businesses at every stage, from a simple process audit and roadmap, to fixing one thing fast, building new systems, scaling what's working, or a full-stack business transformation. No lock-in. Plain English."
         canonical="/what-we-actually-do"
         schema={{
           "@context": "https://schema.org",
@@ -98,7 +98,7 @@ export default function WhatWeActuallyDo() {
               "name": "What does OptimAI actually do?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "OptimAI helps businesses automate repetitive work — from a quick process audit and roadmap, to fixing a single broken workflow, building new systems like CRMs and chatbots, scaling existing automations, or a full end-to-end business transformation. You don't need to buy the whole package — OptimAI works with you at whatever stage makes sense."
+                "text": "OptimAI helps businesses automate repetitive work, from a quick process audit and roadmap, to fixing a single broken workflow, building new systems like CRMs and chatbots, scaling existing automations, or a full end-to-end business transformation. You don't need to buy the whole package - OptimAI works with you at whatever stage makes sense."
               }
             },
             {
@@ -106,7 +106,7 @@ export default function WhatWeActuallyDo() {
               "name": "How does OptimAI's process work?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Every OptimAI engagement starts with listening — understanding your business and what actually matters. Then we show you exactly what we'd do and what it's worth before you commit. We build it with you, then hand it over with documentation and training so your team owns it."
+                "text": "Every OptimAI engagement starts with listening, understanding your business and what actually matters. Then we show you exactly what we'd do and what it's worth before you commit. We build it with you, then hand it over with documentation and training so your team owns it."
               }
             },
             {
@@ -114,7 +114,7 @@ export default function WhatWeActuallyDo() {
               "name": "Do I need to commit to a long-term contract with OptimAI?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "No. OptimAI has no lock-in contracts. You can start with an audit, fix one thing, or go all-in — the choice is yours at every step."
+                "text": "No. OptimAI has no lock-in contracts. Only pay for what you get, the usual stuff. You can start with an audit, fix one thing, or go all-in. The choice is yours at every step."
               }
             }
           ]
@@ -139,7 +139,7 @@ export default function WhatWeActuallyDo() {
               </span>
             </h1>
             <p className="text-xl text-foreground/70 leading-relaxed">
-              We help businesses automate the work that shouldn't need a human — so you and your team can focus on the work that does.
+              We help businesses automate the work that shouldn't need a human, so you and your team can focus on the work that does.
             </p>
             <p className="text-lg text-foreground/60 mt-4">
               You don't need to buy the whole package. We work with you at whatever stage makes sense.
@@ -286,7 +286,7 @@ export default function WhatWeActuallyDo() {
               Not sure which stage you're at?
             </h2>
             <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
-              Start with a free audit. We'll work it out together — no pressure, no sales pitch, just an honest conversation about what makes sense for your business.
+              Start with a free audit. We'll work it out together. No pressure, no sales pitch, just an honest conversation about what makes sense for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/free-audit">
