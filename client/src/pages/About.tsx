@@ -15,17 +15,17 @@ const WHAT_WE_DO = [
   {
     icon: <Zap size={24} className="text-purple-500" />,
     title: "We build and deploy fast",
-    description: "No 6-month roadmaps. We prioritise the highest-impact fixes first and get them live within weeks — so you see results before you've paid a fraction of what it saves.",
+    description: "No 6-month roadmaps. We prioritise the highest-impact fixes first and get them live within weeks, so you see results before you've paid a fraction of what it saves.",
   },
   {
     icon: <Users size={24} className="text-purple-500" />,
     title: "We make your team capable",
-    description: "Every system we build comes with training, documentation, and ongoing support. You own it. You understand it. You're not dependent on us forever.",
+    description: "Every system we build comes with training, documentation, and if needed, ongoing support. You own it. You understand it. You're not dependent on us forever.",
   },
   {
     icon: <TrendingUp size={24} className="text-purple-500" />,
     title: "We grow with you",
-    description: "As your business scales, your systems scale. We continuously optimise and expand what's working — so automation compounds over time, not just on day one.",
+    description: "As your business scales, your systems scale. We continuously optimise and expand what's working, so automation compounds over time, not just on day one.",
   },
 ];
 
@@ -33,22 +33,22 @@ const TIMELINE = [
   {
     year: "The Problem",
     heading: "AI was moving fast. Everyone else was getting left behind.",
-    body: "By 2023, the gap between businesses using AI and those that weren't had become impossible to ignore. Larger companies were automating entire departments. SMEs and startups were still doing everything manually — not because they didn't want to change, but because they had no idea where to start, who to trust, or what was actually worth the investment.",
+    body: "By 2023, the gap between businesses using AI and those that weren't had become impossible to ignore. Larger companies were automating entire departments. SMEs and startups were still doing everything manually, not because they didn't want to change, but because they had no idea where to start, who to trust, or what was actually worth the investment.",
   },
   {
     year: "The Gap",
     heading: "The advice out there was either too vague or too expensive.",
-    body: "Enterprise consultants charged six figures for strategy decks. SaaS tools promised to solve everything but required technical knowledge most small teams didn't have. YouTube tutorials went in circles. And the AI hype made it worse — everyone was talking about potential, nobody was delivering practical results for the businesses that needed it most.",
+    body: "Enterprise consultants charged six figures for strategy decks. SaaS tools promised to solve everything but required technical knowledge most small teams didn't have. YouTube tutorials went in circles. And the AI hype made it worse, everyone was talking about potential, nobody was delivering practical results for the businesses that needed it most.",
   },
   {
     year: "The Decision",
     heading: "So we built OptimAI for the businesses being left out.",
-    body: "OptimAI was founded on a simple belief: the productivity gains that AI and automation unlock shouldn't be reserved for companies with enterprise budgets. Startups and SMEs work harder, move faster, and have more to gain — they just need a practical partner who speaks plain English, works at their pace, and delivers results they can actually measure.",
+    body: "OptimAI was founded on a simple belief: the productivity gains that AI and automation unlock shouldn't be reserved for companies with enterprise budgets. Startups and SMEs work harder, move faster, and have more to gain, they just need a practical partner who speaks plain English, works at their pace, and delivers results they can actually measure.",
   },
   {
     year: "Today",
     heading: "We're the team that makes it real.",
-    body: "We work hands-on with founders, operators, and small teams to identify what to automate, build it properly, and make sure it sticks. No fluff, no jargon, no disappearing after go-live. Just genuine outcomes — hours reclaimed, leads captured, revenue protected.",
+    body: "We work hands-on with founders, operators, and small teams to identify what to automate, build it properly, and make sure it sticks. No fluff, no jargon, no disappearing after go-live. Just genuine outcomes - hours reclaimed, leads captured, revenue protected.",
   },
 ];
 
@@ -57,15 +57,15 @@ export default function About() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <SEO
-        title="About OptimAI — Why We Built Australia's Practical AI Automation Agency"
-        description="OptimAI was founded to make AI and automation accessible to SMEs, startups, tradies, and everyday business owners across Australia — not just enterprise companies. Learn our story."
+        title="About OptimAI - Why We Built Australia's Practical AI Automation Agency"
+        description="OptimAI was founded to make AI and automation accessible to SMEs, startups, tradies, and everyday business owners across Australia, not just enterprise companies. Learn our story."
         canonical="/about"
         schema={{
           "@context": "https://schema.org",
           "@type": "AboutPage",
           "name": "About OptimAI",
           "url": "https://optimai.com.au/about",
-          "description": "OptimAI was founded to make AI and automation accessible to every business — not just the ones with enterprise budgets.",
+          "description": "OptimAI was founded to make AI and automation accessible to every business, not just the ones with enterprise budgets.",
           "publisher": {
             "@type": "Organization",
             "name": "OptimAI",
@@ -96,7 +96,7 @@ export default function About() {
               </span>
             </h1>
             <p className="text-xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
-              OptimAI was built because SMEs and startups were being priced out of the AI revolution — and that felt wrong.
+              OptimAI was built because SMEs and startups were being priced out of the AI revolution and that felt wrong.
             </p>
           </motion.div>
         </div>
@@ -112,7 +112,7 @@ export default function About() {
             className="text-center mb-14"
           >
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">Why OptimAI exists</h2>
-            <p className="text-foreground/60 text-lg">The honest version — not the polished pitch.</p>
+            <p className="text-foreground/60 text-lg">The honest version, not the polished pitch.</p>
           </motion.div>
 
           <div className="relative">
@@ -157,10 +157,10 @@ export default function About() {
           >
             <h2 className="text-3xl lg:text-4xl font-bold mb-8">Our mission, simply put</h2>
             <blockquote className="text-2xl lg:text-3xl font-bold text-foreground/90 leading-relaxed border-l-4 border-purple-500 pl-6 text-left mb-8">
-              "Make the productivity gains of AI and automation accessible to every business — not just the ones with enterprise budgets."
+              "Make the productivity gains of AI and automation accessible to every business, not just the ones with enterprise budgets."
             </blockquote>
             <p className="text-lg text-foreground/70 leading-relaxed mb-4">
-              We don't believe in gatekeeping transformational technology. A 10-person agency or a 3-person startup deserves the same operational leverage as a 500-person corporate — they just need a partner who builds for their scale, their budget, and their reality.
+              We don't believe in gatekeeping transformational technology. A 10-person agency or a 3-person startup deserves the same operational leverage as a 500-person corporate - they just need a partner who builds for their scale, their budget, and their reality.
             </p>
             <p className="text-lg text-foreground/70 leading-relaxed">
               That's what we show up to do every day.
@@ -219,7 +219,7 @@ export default function About() {
                 {
                   label: "Everyday Business Owners",
                   examples: "Tradies, hairdressers, clinics, real estate agents, cleaners, consultants, retailers",
-                  desc: "You're great at what you do — the admin, follow-ups, and manual work are just getting in the way. We cut through the noise and build simple systems that give you your time back.",
+                  desc: "You're great at what you do: the admin, follow-ups, and manual work are just getting in the way. We cut through the noise and build simple systems that give you your time back.",
                 },
                 {
                   label: "Startups",
@@ -234,7 +234,7 @@ export default function About() {
                 {
                   label: "Agencies & Service Providers",
                   examples: "Marketing agencies, law firms, accountants, coaches, recruiters",
-                  desc: "Client-facing work is your product. We automate the backend — onboarding, reporting, follow-ups, admin — so you can deliver better work without burning out.",
+                  desc: "Client-facing work is your product. We automate the backend - onboarding, reporting, follow-ups, admin - so you can deliver better work without burning out.",
                 },
               ].map((item, idx) => (
                 <motion.div
@@ -252,10 +252,10 @@ export default function About() {
               ))}
             </div>
             <p className="text-center text-foreground/60 text-lg">
-              If you're a Fortune 500 looking for a 12-month engagement and a 200-page strategy deck —{" "}
+              If you're a Fortune 500 looking for a 12-month engagement and a 200-page strategy deck -{" "}
               <span className="text-foreground/80 font-medium">we're probably not the right fit.</span>
               <br />
-              If you're a business owner who just wants things to run better —{" "}
+              If you're a business owner who just wants things to run better -{" "}
               <span className="text-purple-600 font-semibold">you're exactly who we built this for.</span>
             </p>
           </motion.div>
