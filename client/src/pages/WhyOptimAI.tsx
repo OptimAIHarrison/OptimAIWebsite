@@ -36,8 +36,8 @@ const DIFFERENTIATORS = [
     description: "We don't hide behind jargon to justify our fees. You'll always know exactly what we're building, why we're building it, and what it's saving you.",
   },
   {
-    title: "We stay. We don't just deploy and disappear.",
-    description: "Your automations are monitored, maintained, and improved on an ongoing basis. When a tool updates its API and breaks your workflow at 2am, we fix it before you even notice.",
+    title: "When needed, we're there.",
+    description: "Your automations can be monitored, maintained, and improved on an on-going basis. If that is what you need. If you tools update API's and breaks your workflow, we can fix it.",
   },
   {
     title: "Tailored to your size, not a corporate template.",
@@ -54,7 +54,6 @@ const VERSUS = [
   { label: "Contracts required", them: "12-month lock-in", us: "No lock-in" },
   { label: "Communication", them: "Weekly status reports", us: "Direct access, always" },
   { label: "Setup approach", them: "Generic template", us: "Built for your business" },
-  { label: "After launch", them: "You're on your own", us: "Ongoing support included" },
   { label: "Pricing", them: "Enterprise rates", us: "SME-friendly pricing" },
 ];
 
