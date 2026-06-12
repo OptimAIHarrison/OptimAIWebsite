@@ -33,7 +33,7 @@ const TIMELINE = [
   {
     year: "The Problem",
     heading: "AI was moving fast. Everyone else was getting left behind.",
-    body: "By 2023, the gap between businesses using AI and those that weren't had become impossible to ignore. Larger companies were automating entire departments. SMEs and startups were still doing everything manually, not because they didn't want to change, but because they had no idea where to start, who to trust, or what was actually worth the investment.",
+    body: "By 2026, the gap between businesses using AI and those that weren't had become impossible to ignore. Larger companies were automating entire departments. SMEs and startups were still doing everything manually, not because they didn't want to change, but because they had no idea where to start, who to trust, or what was actually worth the investment.",
   },
   {
     year: "The Gap",
