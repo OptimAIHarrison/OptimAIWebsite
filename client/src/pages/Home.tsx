@@ -28,7 +28,7 @@ const WHAT_WE_DO = [
     icon: <Wrench size={24} className="text-purple-500" />,
     label: "Got a specific problem",
     title: "Fix One Thing",
-    description: "You know what's broken. OptimAI fixes it fast — one workflow, one integration, done properly.",
+    description: "You know what's broken. OptimAI fixes it fast, one workflow, one integration, done properly.",
   },
   {
     icon: <Zap size={24} className="text-purple-500" />,
@@ -40,7 +40,7 @@ const WHAT_WE_DO = [
     icon: <Sprout size={24} className="text-purple-500" />,
     label: "Growing fast",
     title: "Scale What's Working",
-    description: "You've got traction. OptimAI builds the systems to keep up — without adding headcount for every new thing.",
+    description: "You've got traction. OptimAI builds the systems to keep up, without adding headcount for every new thing.",
   },
 ];
 
@@ -121,7 +121,7 @@ export default function Home() {
               </h1>
 
               <p className="text-lg lg:text-xl text-foreground/70 max-w-xl mx-auto">
-                OptimAI builds practical AI and automation systems for SMEs, startups, and everyday business owners — and gets them live in weeks, not months.
+                OptimAI builds practical AI and automation systems for SMEs, startups, and everyday business owners. In weeks, not months.
               </p>
             </div>
 
@@ -176,7 +176,7 @@ export default function Home() {
               <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Most businesses are being left behind.</span>
             </h2>
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed mb-6">
-              Enterprise companies are automating entire departments. SMEs, startups, and everyday business owners — tradies, clinics, agencies, retailers — are still doing everything manually. Not because they don't want to change, but because no one's made it accessible.
+              Enterprise companies are automating entire departments. SMEs, startups, and everyday business owners - tradies, clinics, agencies, retailers - are still doing everything manually. Not because they don't want to change, but because no one's made it accessible.
             </p>
             <p className="text-xl font-semibold text-foreground/90 max-w-2xl mx-auto">
               That's what OptimAI fixes. Practical AI and automation, built for the businesses that need it most.
@@ -281,7 +281,7 @@ export default function Home() {
             <h2 className="text-3xl lg:text-5xl font-bold mb-4">
               Our <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Core Services</span>
             </h2>
-            <p className="text-foreground/60 text-lg">Six specialised practices — strategy through to ongoing support.</p>
+            <p className="text-foreground/60 text-lg">Six specialised practices, strategy through to ongoing support.</p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
@@ -337,7 +337,7 @@ export default function Home() {
               <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">deployed fast?</span>
             </h2>
             <p className="text-foreground/65 text-lg max-w-2xl mx-auto">
-              Pre-scoped, fixed-price products built by OptimAI for common business needs. Pick one, we deploy it in days — not weeks.
+              Pre-scoped, fixed-price products built by OptimAI for common business needs. Pick one, we deploy it in days, not weeks.
             </p>
           </motion.div>
 
