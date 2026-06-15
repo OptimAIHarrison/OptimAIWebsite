@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { FAQ_DATA, FAQ_CATEGORIES, searchFAQ, getFAQByCategory, getRelatedFAQs } from "@/const/faqData";
 import { ChevronDown, ArrowRight, Search, MessageCircle, Zap } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 export default function FAQ() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -42,6 +43,23 @@ export default function FAQ() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <SEO
+        title="FAQ — Common Questions About OptimAI AI & Automation Services"
+        description="Find answers to common questions about OptimAI services, pricing, implementation timelines, ROI, and how AI automation works for SMEs, startups, and everyday business owners across Australia."
+        canonical="/faq"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": FAQ_DATA.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.answer
+            }
+          }))
+        }}
+      />
 
       {/* Hero Section */}
       <section className="pt-40 pb-20 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
@@ -310,21 +328,7 @@ export default function FAQ() {
 
       <Footer />
 
-      {/* Schema Markup for AEO */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: FAQ_DATA.map((faq) => ({
-            "@type": "Question",
-            name: faq.question,
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: faq.answer,
-            },
-          })),
-        })}
-      </script>
+
     </div>
   );
 }
