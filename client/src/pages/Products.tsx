@@ -4,6 +4,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, X, Check, Clock, Package, Send, Search, Filter, ChevronDown, Bot, Mail, Database, Layers, Zap, Globe, BarChart2, Map, Star, FileText, CreditCard, FileEdit, Repeat, Brain, TrendingUp, Users, FileCheck, Receipt, PieChart, Share2, UserCheck, UserPlus, BadgeCheck } from "lucide-react";
+import { SEO } from "@/components/SEO";
 
 const PRODUCT_ICONS: Record<string, React.ReactNode> = {
   "chatbot": <Bot size={36} className="text-purple-400" />,
@@ -870,6 +871,33 @@ export default function Products() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <SEO
+        title="Ready-to-Go AI & Automation Products — Fixed Price, Fast Deployment | OptimAI"
+        description="20 pre-scoped AI and automation products from OptimAI. AI Chatbot Setup from $2,500, CRM Build from $3,500, Full Stack Business Setup from $5,500. All deployed in weeks, not months. Serving Australian SMEs, startups and business owners."
+        canonical="/products"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          "name": "OptimAI Ready-to-Go Products",
+          "description": "Pre-scoped, fixed-price AI and automation products for Australian SMEs and startups.",
+          "itemListElement": PRODUCTS.map((product, idx) => ({
+            "@type": "ListItem",
+            "position": idx + 1,
+            "item": {
+              "@type": "Product",
+              "name": product.name,
+              "description": product.shortDescription,
+              "offers": {
+                "@type": "Offer",
+                "price": product.price,
+                "priceCurrency": product.currency,
+                "availability": "https://schema.org/InStock",
+                "seller": { "@type": "Organization", "name": "OptimAI" }
+              }
+            }
+          }))
+        }}
+      />
 
       {/* Header */}
       <section className="pt-40 pb-20 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
