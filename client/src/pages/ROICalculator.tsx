@@ -4,6 +4,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Info } from "lucide-react";
+import { SEO } from "@/components/SEO";
 import { Link } from "wouter";
 
 const SERVICES_ROI = [
@@ -61,6 +62,30 @@ export default function ROICalculator() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50">
       <Navigation />
+      <SEO
+        title="AI Automation ROI Calculator — How Much Could You Save? | OptimAI"
+        description="Calculate how much time and money your business could save with AI and automation. Enter your team size, revenue, and manual hours to get an instant estimate. Free to use, no data stored."
+        canonical="/roi-calculator"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "OptimAI ROI Calculator",
+          "url": "https://optimai.com.au/roi-calculator",
+          "description": "Free AI and automation ROI calculator. Estimate how many hours and how much money your business could save by automating manual processes with OptimAI.",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "AUD"
+          },
+          "provider": {
+            "@type": "Organization",
+            "name": "OptimAI",
+            "url": "https://optimai.com.au"
+          }
+        }}
+      />
       <main className="pt-40 pb-20">
         <div className="container mx-auto px-4">
           <motion.div
