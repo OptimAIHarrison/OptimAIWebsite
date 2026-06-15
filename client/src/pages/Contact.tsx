@@ -5,6 +5,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Mail, MapPin, ArrowRight, Clock, MessageCircle, Zap } from "lucide-react";
+import { SEO } from "@/components/SEO";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 
@@ -49,6 +50,42 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      <SEO
+        title="Contact OptimAI — Get in Touch With Our AI Automation Team"
+        description="Contact OptimAI in Melbourne, Victoria. Email hello@optimai.com.au or send a message and we'll reply within 24 hours. No sales pressure — just an honest conversation about what you're trying to solve."
+        canonical="/contact"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Contact OptimAI",
+          "url": "https://optimai.com.au/contact",
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "OptimAI",
+            "url": "https://optimai.com.au",
+            "email": "hello@optimai.com.au",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Melbourne",
+              "addressRegion": "VIC",
+              "addressCountry": "AU"
+            },
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "email": "hello@optimai.com.au",
+              "contactType": "customer service",
+              "areaServed": "AU",
+              "availableLanguage": "English",
+              "hoursAvailable": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+                "opens": "09:00",
+                "closes": "17:00"
+              }
+            }
+          }
+        }}
+      />
 
       {/* Hero */}
       <section className="pt-40 pb-20 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
