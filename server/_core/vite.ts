@@ -58,10 +58,31 @@ export function serveStatic(app: Express) {
     );
   }
 
+  // Serve hashed assets (JS/CSS/images) with standard static middleware first.
   app.use(express.static(distPath));
 
-  // fall through to index.html if the file doesn't exist
-  app.use("*", (_req, res) => {
+  // For any other request, check whether a prerendered HTML file exists for
+  // this exact route (e.g. /services -> dist/public/services/index.html).
+  // This is what makes prerendering actually visible to crawlers — without
+  // this, every route would silently fall back to the root index.html and
+  // none of the per-page meta tags / schema baked in at build time would
+  // ever be served.
+  app.use("*", (req, res) => {
+    // Strip query string and trailing slash, e.g. "/services/" -> "/services"
+    const cleanPath = req.path.replace(/\/+$/, "") || "/";
+
+    const prerenderedPath =
+      cleanPath === "/"
+        ? path.join(distPath, "index.html")
+        : path.join(distPath, cleanPath.replace(/^\//, ""), "index.html");
+
+    if (fs.existsSync(prerenderedPath)) {
+      res.sendFile(prerenderedPath);
+      return;
+    }
+
+    // Fall back to the root SPA shell for any route without a prerendered
+    // file (e.g. /admin, /login, dynamic /articles/:slug, or 404s).
     res.sendFile(path.resolve(distPath, "index.html"));
   });
 }
