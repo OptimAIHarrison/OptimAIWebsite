@@ -1,0 +1,31 @@
+User-agent: *
+Allow: /
+
+# AI crawlers — explicitly allowed for AEO/GEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Disallow admin and internal tools
+Disallow: /admin
+Disallow: /admin/editor
+Disallow: /login
+
+Sitemap: https://optimai.com.au/sitemap.xml
