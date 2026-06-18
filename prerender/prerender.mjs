@@ -63,7 +63,10 @@ async function prerenderRoutes() {
   const { server, url } = await startStaticServer();
 
   console.log("[prerender] Launching headless browser...");
-  const browser = await chromium.launch();
+  const browser = await chromium.launch({
+  executablePath: process.env.CHROMIUM_PATH || '/nix/store/.../bin/chromium',
+  args: ['--no-sandbox', '--disable-setuid-sandbox']
+});
   const page = await browser.newPage();
 
   let successCount = 0;
