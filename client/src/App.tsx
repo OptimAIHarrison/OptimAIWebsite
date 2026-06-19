@@ -27,11 +27,36 @@ import ArticleEditor from "./pages/ArticleEditor";
 import ArticleDetail from "./pages/ArticleDetail";
 import Products from "./pages/Products";
 
+// GA4's gtag.js attaches `gtag` to the global window object via the
+// inline script in index.html. TypeScript doesn't know about it by
+// default, so this declares it for type-checking purposes only.
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 function Router() {
   const [location] = useLocation();
   
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, [location]);
+
+  // Manually fire a GA4 pageview on every route change. This is a
+  // client-side-routed SPA (wouter), so the browser never does a real
+  // navigation — GA4's automatic pageview tracking only fires once on
+  // initial script load and would never see subsequent route changes
+  // without this. send_page_view is set to false in index.html for
+  // exactly this reason, so this is the only place pageviews are sent.
+  useEffect(() => {
+    if (typeof window.gtag === "function") {
+      window.gtag("event", "page_view", {
+        page_path: location,
+        page_location: window.location.href,
+        page_title: document.title,
+      });
+    }
   }, [location]);
   
   return (
