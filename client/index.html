@@ -14,6 +14,20 @@
     <link rel="icon" type="image/png" href="https://files.manuscdn.com/user_upload_by_module/session_file/310519663450259077/tSRNClsDehcXKhxh.png" />
     <link rel="shortcut icon" href="https://files.manuscdn.com/user_upload_by_module/session_file/310519663450259077/tSRNClsDehcXKhxh.png" />
     <link rel="apple-touch-icon" href="https://files.manuscdn.com/user_upload_by_module/session_file/310519663450259077/ooKDvMyVouOUFoLh.png" />
+
+    <!-- Google Analytics 4. send_page_view is disabled here because this
+         is a client-side-routed SPA (wouter) — route changes don't trigger
+         a real page load, so the default auto-pageview would only ever
+         fire once. Pageviews are instead sent manually on every route
+         change from App.tsx's Router component, alongside its existing
+         scroll-to-top effect. -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XHXFW5Z150"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XHXFW5Z150', { send_page_view: false });
+    </script>
   </head>
 
   <body>
