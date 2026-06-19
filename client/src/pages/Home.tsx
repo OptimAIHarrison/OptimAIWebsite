@@ -5,7 +5,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { SERVICES, TESTIMONIALS, CASE_STUDIES } from "@/const";
-import { ArrowRight, Star, Target, TrendingUp, Settings, Cpu, Shield, Search, User, CheckCircle, Zap, Package, Wrench, Sprout } from "lucide-react";
+import { ArrowRight, Star, Target, TrendingUp, Settings, Cpu, Shield, Search, User, Zap, Package, Wrench, Sprout } from "lucide-react";
 import { ServiceFinderQuiz } from "@/components/ServiceFinderQuiz";
 
 const SERVICE_ICONS: Record<string, React.ReactNode> = {
@@ -394,33 +394,35 @@ export default function Home() {
             <p className="text-foreground/60 text-lg max-w-2xl mx-auto">Real results from real businesses.</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="max-w-4xl mx-auto space-y-3">
             {CASE_STUDIES.map((study, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                className="p-8 rounded-2xl bg-white/5 border-2 border-purple-900/20 hover:border-purple-500/40 transition-all"
-              >
-                <h3 className="text-xl font-bold mb-1">{study.title}</h3>
-                <p className="text-foreground/50 text-sm mb-6">{study.client}</p>
-                <div className="space-y-4 mb-6 border-t border-white/10 pt-5">
-                  <div>
-                    <p className="text-xs font-bold text-foreground/40 uppercase tracking-wider mb-1">Challenge</p>
-                    <p className="text-foreground/80 text-sm">{study.challenge}</p>
+              <Link href="/case-studies" key={index}>
+                <motion.div
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  whileHover={{ scale: 1.015 }}
+                  className="group flex items-center justify-between gap-4 sm:gap-6 px-5 sm:px-8 py-5 rounded-2xl bg-white/5 border-2 border-purple-900/20 hover:border-purple-500/50 hover:bg-purple-600/5 transition-all cursor-pointer"
+                >
+                  <div className="flex items-center gap-3 sm:gap-5 min-w-0">
+                    <span className="hidden sm:inline-block flex-shrink-0 text-xs font-bold px-3 py-1 rounded-full bg-purple-600/10 border border-purple-500/30 text-purple-700 whitespace-nowrap">
+                      {study.client}
+                    </span>
+                    <p className="font-bold text-foreground truncate">{study.title}</p>
                   </div>
-                  <div>
-                    <p className="text-xs font-bold text-foreground/40 uppercase tracking-wider mb-1">Solution</p>
-                    <p className="text-foreground/80 text-sm">{study.solution}</p>
+
+                  <div className="flex items-center gap-3 sm:gap-6 flex-shrink-0">
+                    <span className="hidden md:inline text-lg font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap">
+                      {study.results.productivityGain} productivity
+                    </span>
+                    <ArrowRight
+                      size={20}
+                      className="text-purple-500 group-hover:translate-x-1.5 transition-transform flex-shrink-0"
+                    />
                   </div>
-                </div>
-                <div className="border-t border-white/10 pt-5 flex items-center gap-2">
-                  <CheckCircle size={16} className="text-green-500 flex-shrink-0" />
-                  <p className="text-green-400 font-bold text-sm">{study.result}</p>
-                </div>
-              </motion.div>
+                </motion.div>
+              </Link>
             ))}
           </div>
 
