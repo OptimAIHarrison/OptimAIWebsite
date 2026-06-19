@@ -11,7 +11,7 @@ interface SEOProps {
 }
 
 const SITE_NAME = "OptimAI";
-const SITE_URL = "https://optimai.com.au";
+const SITE_URL = "https://www.optimai.com.au";
 const DEFAULT_IMAGE = "https://files.manuscdn.com/user_upload_by_module/session_file/310519663450259077/HbZCzrQQJzoEYBqv.png";
 
 export function SEO({
