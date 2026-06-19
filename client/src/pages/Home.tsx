@@ -5,7 +5,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { SERVICES, TESTIMONIALS, CASE_STUDIES } from "@/const";
-import { ArrowRight, Star, Target, TrendingUp, Settings, Cpu, Shield, Search, User, Zap, Package, Wrench, Sprout } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight, Star, Target, TrendingUp, Settings, Cpu, Shield, Search, User, Zap, Package, Wrench, Sprout } from "lucide-react";
 import { ServiceFinderQuiz } from "@/components/ServiceFinderQuiz";
 
 const SERVICE_ICONS: Record<string, React.ReactNode> = {
@@ -16,6 +16,37 @@ const SERVICE_ICONS: Record<string, React.ReactNode> = {
   shield: <Shield size={28} className="text-purple-500" />,
   search: <Search size={28} className="text-purple-500" />,
 };
+
+const CATEGORY_COLORS = [
+  "from-purple-600 to-indigo-600",
+  "from-pink-600 to-purple-600",
+  "from-indigo-600 to-cyan-600",
+];
+
+function CaseStudyCard({ study, gradient }: { study: (typeof CASE_STUDIES)[number]; gradient: string }) {
+  return (
+    <Link href="/case-studies">
+      <motion.div
+        whileHover={{ y: -4 }}
+        className="group h-full p-6 rounded-2xl bg-white/5 border-2 border-purple-900/20 hover:border-purple-500/50 hover:bg-purple-600/5 transition-all cursor-pointer flex flex-col"
+      >
+        <span className="self-start text-xs font-bold px-3 py-1 rounded-full bg-purple-600/10 border border-purple-500/30 text-purple-700 mb-4 whitespace-nowrap">
+          {study.client}
+        </span>
+        <h3 className="font-bold text-foreground text-lg mb-4 leading-snug">{study.title}</h3>
+        <div className="mt-auto pt-4 border-t border-white/10 flex items-center justify-between gap-2">
+          <span className={`text-2xl font-bold bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
+            {study.results.productivityGain}
+          </span>
+          <ArrowUpRight
+            size={18}
+            className="text-purple-500 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform flex-shrink-0"
+          />
+        </div>
+      </motion.div>
+    </Link>
+  );
+}
 
 const WHAT_WE_DO = [
   {
@@ -47,6 +78,11 @@ const WHAT_WE_DO = [
 export default function Home() {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [tickerIndex, setTickerIndex] = useState(0);
+  const [csIndex, setCsIndex] = useState(0);
+  const CS_VISIBLE = 3;
+  const csMaxStart = Math.max(0, CASE_STUDIES.length - CS_VISIBLE);
+  const handleCsPrev = () => setCsIndex((i) => Math.max(0, i - 1));
+  const handleCsNext = () => setCsIndex((i) => Math.min(csMaxStart, i + 1));
   const TICKER_WORDS = ["processes", "marketing", "workflows", "outreach", "admin", "social posting", "email campaigns", "quoting", "onboarding", "follow-ups",  "invoicing", "scheduling", "proposals", "reporting", "nurturing", "client updates", "business"];
 
   useEffect(() => {
@@ -394,36 +430,62 @@ export default function Home() {
             <p className="text-foreground/60 text-lg max-w-2xl mx-auto">Real results from real businesses.</p>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto space-y-3">
+          {/* Mobile: simple stacked list */}
+          <div className="md:hidden max-w-lg mx-auto space-y-4">
             {CASE_STUDIES.map((study, index) => (
-              <Link href="/case-studies" key={index}>
-                <motion.div
-                  initial={{ opacity: 0, x: -16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.08 }}
-                  whileHover={{ scale: 1.015 }}
-                  className="group flex items-center justify-between gap-4 sm:gap-6 px-5 sm:px-8 py-5 rounded-2xl bg-white/5 border-2 border-purple-900/20 hover:border-purple-500/50 hover:bg-purple-600/5 transition-all cursor-pointer"
-                >
-                  <div className="flex items-center gap-3 sm:gap-5 min-w-0">
-                    <span className="hidden sm:inline-block flex-shrink-0 text-xs font-bold px-3 py-1 rounded-full bg-purple-600/10 border border-purple-500/30 text-purple-700 whitespace-nowrap">
-                      {study.client}
-                    </span>
-                    <p className="font-bold text-foreground truncate">{study.title}</p>
-                  </div>
-
-                  <div className="flex items-center gap-3 sm:gap-6 flex-shrink-0">
-                    <span className="hidden md:inline text-lg font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap">
-                      {study.results.productivityGain} productivity
-                    </span>
-                    <ArrowRight
-                      size={20}
-                      className="text-purple-500 group-hover:translate-x-1.5 transition-transform flex-shrink-0"
-                    />
-                  </div>
-                </motion.div>
-              </Link>
+              <CaseStudyCard key={index} study={study} gradient={CATEGORY_COLORS[index % CATEGORY_COLORS.length]} />
             ))}
+          </div>
+
+          {/* Desktop: 3-up windowed carousel */}
+          <div className="hidden md:block relative max-w-6xl mx-auto">
+            <button
+              onClick={handleCsPrev}
+              disabled={csIndex === 0}
+              aria-label="Previous case studies"
+              className="absolute -left-5 top-[40%] -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white shadow-lg border border-purple-900/10 flex items-center justify-center text-purple-600 hover:bg-purple-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+            >
+              <ChevronLeft size={20} />
+            </button>
+            <button
+              onClick={handleCsNext}
+              disabled={csIndex >= csMaxStart}
+              aria-label="Next case studies"
+              className="absolute -right-5 top-[40%] -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-white shadow-lg border border-purple-900/10 flex items-center justify-center text-purple-600 hover:bg-purple-50 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+            >
+              <ChevronRight size={20} />
+            </button>
+
+            <div className="overflow-hidden">
+              <div
+                className="flex transition-transform duration-500 ease-out"
+                style={{
+                  width: `${(CASE_STUDIES.length / CS_VISIBLE) * 100}%`,
+                  transform: `translateX(-${csIndex * (100 / CASE_STUDIES.length)}%)`,
+                }}
+              >
+                {CASE_STUDIES.map((study, index) => (
+                  <div key={index} style={{ flex: `0 0 ${100 / CASE_STUDIES.length}%` }} className="px-3">
+                    <CaseStudyCard study={study} gradient={CATEGORY_COLORS[index % CATEGORY_COLORS.length]} />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {CASE_STUDIES.length > CS_VISIBLE && (
+              <div className="flex justify-center gap-2 mt-8">
+                {Array.from({ length: csMaxStart + 1 }).map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setCsIndex(i)}
+                    aria-label={`Go to slide ${i + 1}`}
+                    className={`h-2 rounded-full transition-all ${
+                      i === csIndex ? "bg-purple-600 w-8" : "bg-purple-900/20 w-2 hover:bg-purple-900/40"
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
           </div>
 
           <div className="text-center mt-10">
