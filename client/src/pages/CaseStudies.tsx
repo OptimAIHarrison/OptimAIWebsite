@@ -21,13 +21,18 @@ const CATEGORY_BG = [
 ];
 
 export default function CaseStudies() {
-  const [expanded, setExpanded] = useState<number | null>(null);
+  const [expanded, setExpanded] = useState<string | null>(null);
+  const [activeFilter, setActiveFilter] = useState<string>("All");
 
   const totals = {
     timeSaved: "67 hrs/week",
     costSavings: "$27,500/month",
     avgProductivity: "+117%",
   };
+
+  const categories = ["All", ...Array.from(new Set(CASE_STUDIES.map((s) => s.client)))];
+  const filteredStudies =
+    activeFilter === "All" ? CASE_STUDIES : CASE_STUDIES.filter((s) => s.client === activeFilter);
 
   return (
     <div className="min-h-screen bg-background">
@@ -51,7 +56,7 @@ export default function CaseStudies() {
       />
 
       {/* Hero */}
-      <section className="pt-40 pb-20 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
+      <section className="pt-40 pb-10 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -77,16 +82,16 @@ export default function CaseStudies() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
-            className="grid grid-cols-3 gap-6 mt-14 max-w-2xl mx-auto"
+            className="grid grid-cols-3 gap-3 mt-12 max-w-3xl mx-auto"
           >
             {[
               { icon: <Clock size={20} />, value: totals.timeSaved, label: "Combined time saved" },
               { icon: <DollarSign size={20} />, value: totals.costSavings, label: "Combined cost savings" },
               { icon: <TrendingUp size={20} />, value: totals.avgProductivity, label: "Avg productivity gain" },
             ].map((stat, idx) => (
-              <div key={idx} className="p-5 rounded-2xl bg-white/60 border-2 border-purple-200/60 backdrop-blur-sm">
+              <div key={idx} className="px-4 py-5 rounded-2xl bg-white/60 border-2 border-purple-200/60 backdrop-blur-sm">
                 <div className="text-purple-600 flex justify-center mb-2">{stat.icon}</div>
-                <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap">
                   {stat.value}
                 </div>
                 <div className="text-xs text-foreground/60 mt-1">{stat.label}</div>
@@ -96,28 +101,53 @@ export default function CaseStudies() {
         </div>
       </section>
 
+      {/* Filter tags */}
+      <section className="pt-12 pb-2">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {categories.map((cat) => {
+              const isActive = activeFilter === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => setActiveFilter(cat)}
+                  className={`text-xs sm:text-sm font-bold px-4 py-2 rounded-full border transition-colors ${
+                    isActive
+                      ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-transparent"
+                      : "bg-white/5 text-foreground/60 border-purple-900/20 hover:border-purple-500/40 hover:text-foreground"
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* Case Studies */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 max-w-4xl space-y-6">
-          {CASE_STUDIES.map((study, index) => {
-            const isOpen = expanded === index;
+      <section className="py-14">
+        <div className="container mx-auto px-4 max-w-4xl space-y-4">
+          {filteredStudies.map((study) => {
+            const index = CASE_STUDIES.indexOf(study);
+            const isOpen = expanded === study.title;
             const gradient = CATEGORY_COLORS[index % CATEGORY_COLORS.length];
             const bgColor = CATEGORY_BG[index % CATEGORY_BG.length];
 
             return (
               <motion.div
-                key={index}
+                key={study.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: 0.05 }}
                 className={`rounded-2xl border-2 overflow-hidden transition-all duration-300 ${
                   isOpen ? "border-purple-500/50 shadow-lg shadow-purple-600/10" : "border-purple-900/20 hover:border-purple-500/30"
                 }`}
               >
                 {/* Card Header — always visible */}
                 <button
-                  onClick={() => setExpanded(isOpen ? null : index)}
+                  onClick={() => setExpanded(isOpen ? null : study.title)}
                   className="w-full text-left p-8 hover:bg-white/5 transition-colors"
                 >
                   <div className="flex items-start justify-between gap-6">
