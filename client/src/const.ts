@@ -278,6 +278,7 @@ export const CASE_STUDIES = [
     testimonialName: "Aaron",
     testimonialRole: "Founder",
     testimonialQuote: "We used to scramble every week to get content out the door. Now it's scheduled a month ahead and actually sounds like us. It's freed up time I didn't know I had.",
+    punchline: "Content used to be a weekly scramble. Now it's scheduled a month out, on autopilot.",
     challenge: "Content was inconsistent because it depended on whoever had a spare hour that week. Posts were often late, off-brand, or skipped entirely when things got busy.",
     solution: "We built a content engine that generates on-brand draft posts and email copy from a simple content calendar input, routes them through a quick approval step, and auto-schedules everything across the brand's channels.",
     metrics: [
@@ -300,6 +301,7 @@ export const CASE_STUDIES = [
     testimonialName: "Jasmine",
     testimonialRole: "Head of Growth",
     testimonialQuote: "Before this, leads were falling through the cracks because nobody had time to follow up properly. Now every touchpoint is tracked and nothing gets missed. Our team can finally see the full picture.",
+    punchline: "Leads used to fall through the cracks. Now every touchpoint is tracked in one place.",
     challenge: "Leads and client touchpoints were scattered across email, spreadsheets and individual team members' memory. Follow-ups were inconsistent and BD activity wasn't tracked anywhere central.",
     solution: "We designed and built a CRM tailored to the agency's BD process, with automated nurture sequences, engagement tracking per contact, and a shared view of every touchpoint across the team.",
     metrics: [
@@ -322,6 +324,7 @@ export const CASE_STUDIES = [
     testimonialName: "Sarah Johnson",
     testimonialRole: "Founder",
     testimonialQuote: "OptimAI automated a big chunk of our manual reporting work. It's not flashy, it just quietly saves us a day or two every week.",
+    punchline: "Manual reporting was eating a full day a week. Now it runs itself.",
     challenge: "Manual data entry and report compilation was taking up a significant chunk of the team's week, with errors creeping in during busy periods.",
     solution: "We implemented automated workflows using Make and Zapier to pull data from source systems and assemble reports without manual intervention.",
     metrics: [
@@ -344,6 +347,7 @@ export const CASE_STUDIES = [
     testimonialName: "Priya",
     testimonialRole: "Sales Lead",
     testimonialQuote: "We were losing leads simply because nobody got to them fast enough. Now the first response goes out automatically and the sales team can focus on actually closing.",
+    punchline: "Leads used to sit for days. Now the first response goes out in minutes.",
     challenge: "Inbound leads were inconsistently followed up — some were contacted within the hour, others sat for days depending on team workload.",
     solution: "We deployed an automated lead capture and scoring system with a structured follow-up sequence, so every lead gets a timely first touch regardless of team capacity.",
     metrics: [
@@ -366,6 +370,7 @@ export const CASE_STUDIES = [
     testimonialName: "Michael Chen",
     testimonialRole: "Operations Manager",
     testimonialQuote: "The chatbot setup took the pressure off our support inbox. We still get plenty of questions, but the routine ones are handled before they ever reach a person.",
+    punchline: "Routine support questions used to clog the inbox. Now they're answered instantly.",
     challenge: "The support team was handling a high volume of repetitive questions (order status, returns, shipping times), which slowed down responses to more complex issues.",
     solution: "We implemented an AI chatbot connected to the brand's knowledge base and order system to handle common queries instantly, with a clear handoff to a human for anything it can't resolve.",
     metrics: [
