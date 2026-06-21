@@ -113,21 +113,21 @@ export default function Home() {
                 AI & Automation for Real Businesses
               </span>
 
-              <h1 className="font-bold flex flex-col items-center gap-1">
-                <div className="text-4xl lg:text-5xl text-foreground font-bold">Automate the</div>
-                <div className="relative flex justify-center items-center overflow-visible py-1">
+              <h1 className="font-bold flex flex-col items-center gap-2">
+                <div className="text-4xl lg:text-5xl text-foreground font-bold leading-[1.3]">Automate the</div>
+                <div className="relative flex justify-center items-center overflow-visible py-2 w-full">
                   <motion.div
                     key={tickerIndex}
                     initial={{ opacity: 0, scale: 0.85 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 1.1 }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap capitalize tracking-tight pb-1"
+                    className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap capitalize tracking-tight leading-[1.3] py-1"
                   >
                     {TICKER_WORDS[tickerIndex]}
                   </motion.div>
                 </div>
-                <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-600 to-purple-900 bg-clip-text text-transparent">Scale what matters</div>
+                <div className="text-4xl lg:text-5xl font-bold bg-gradient-to-r from-purple-600 to-purple-900 bg-clip-text text-transparent leading-[1.3] pb-1">Scale what matters</div>
               </h1>
 
               <p className="text-lg lg:text-xl text-foreground/70 max-w-xl mx-auto">
