@@ -5,41 +5,56 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { CASE_STUDIES } from "@/const";
-import { ArrowRight, ChevronDown, Clock, DollarSign, TrendingUp, CheckCircle, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ChevronDown, Clock, DollarSign, Layers, CheckCircle, Quote } from "lucide-react";
 import { SEO } from "@/components/SEO";
 
 const CATEGORY_COLORS = [
   "from-purple-600 to-indigo-600",
   "from-pink-600 to-purple-600",
   "from-indigo-600 to-cyan-600",
+  "from-fuchsia-600 to-purple-600",
+  "from-cyan-600 to-blue-600",
 ];
 
 const CATEGORY_BG = [
   "bg-purple-600/10 border-purple-500/30",
   "bg-pink-600/10 border-pink-500/30",
   "bg-indigo-600/10 border-indigo-500/30",
+  "bg-fuchsia-600/10 border-fuchsia-500/30",
+  "bg-cyan-600/10 border-cyan-500/30",
 ];
 
+// Derive aggregate stats directly from the case study data below so the
+// headline numbers can never drift out of sync with reality, and stay
+// grounded rather than rounded up for effect.
+function parseHours(value: string): number {
+  const match = value.match(/[\d.]+/);
+  return match ? parseFloat(match[0]) : 0;
+}
+
+function parseCost(value: string): number {
+  const match = value.replace(/,/g, "").match(/[\d.]+/);
+  return match ? parseFloat(match[0]) : 0;
+}
+
+const totalTimeSaved = CASE_STUDIES.reduce((sum, s) => sum + parseHours(s.results.timeSaved), 0);
+const totalCostSavings = CASE_STUDIES.reduce((sum, s) => sum + parseCost(s.results.costSavings), 0);
+
+const totals = {
+  timeSaved: `${totalTimeSaved} hrs/week`,
+  costSavings: `$${totalCostSavings.toLocaleString()}/month`,
+  projectCount: `${CASE_STUDIES.length} projects`,
+};
+
 export default function CaseStudies() {
-  const [expanded, setExpanded] = useState<string | null>(null);
-  const [activeFilter, setActiveFilter] = useState<string>("All");
-
-  const totals = {
-    timeSaved: "67 hrs/week",
-    costSavings: "$27,500/month",
-    avgProductivity: "+117%",
-  };
-
-  const categories = ["All", ...Array.from(new Set(CASE_STUDIES.map((s) => s.client)))];
-  const filteredStudies =
-    activeFilter === "All" ? CASE_STUDIES : CASE_STUDIES.filter((s) => s.client === activeFilter);
+  const [expanded, setExpanded] = useState<number | null>(null);
 
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       <SEO
         title="Client Success Stories — Real AI Automation Results | OptimAI"
-        description="See exactly what OptimAI built for real clients, what changed, and what it was worth. 67+ hours saved per week, $27,500/month in cost savings, +117% avg productivity gain across all case studies."
+        description="See exactly what OptimAI built for real clients, what changed, and what it was worth. Real before-and-after numbers across content automation, CRM builds, reporting, lead follow-up and customer support."
         canonical="/case-studies"
         schema={{
           "@context": "https://schema.org",
@@ -56,7 +71,12 @@ export default function CaseStudies() {
       />
 
       {/* Hero */}
-      <section className="pt-40 pb-10 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
+      <section className="relative pt-40 pb-20 overflow-hidden bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
+        <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+          <div className="absolute top-10 left-1/4 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl" />
+          <div className="absolute top-40 right-1/4 w-80 h-80 bg-pink-400/10 rounded-full blur-3xl" />
+        </div>
+
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
@@ -73,7 +93,7 @@ export default function CaseStudies() {
               </span>
             </h1>
             <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
-              No fluff, no vague claims. Here's exactly what we built, what changed, and what it was worth.
+              No fluff, no vague claims. Here's exactly what we built, what changed, and what it was worth — in the clients' own words.
             </p>
           </motion.div>
 
@@ -82,115 +102,94 @@ export default function CaseStudies() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
-            className="grid grid-cols-3 gap-3 mt-12 max-w-3xl mx-auto"
+            className="grid grid-cols-3 gap-6 mt-14 max-w-2xl mx-auto"
           >
             {[
-              { icon: <Clock size={20} />, value: totals.timeSaved, label: "Combined time saved" },
-              { icon: <DollarSign size={20} />, value: totals.costSavings, label: "Combined cost savings" },
-              { icon: <TrendingUp size={20} />, value: totals.avgProductivity, label: "Avg productivity gain" },
+              { icon: <Clock size={20} />, value: totals.timeSaved, label: "Combined time saved across these clients" },
+              { icon: <DollarSign size={20} />, value: totals.costSavings, label: "Combined cost savings across these clients" },
+              { icon: <Layers size={20} />, value: totals.projectCount, label: "Projects featured below" },
             ].map((stat, idx) => (
-              <div key={idx} className="px-4 py-5 rounded-2xl bg-white/60 border-2 border-purple-200/60 backdrop-blur-sm">
+              <div
+                key={idx}
+                className="p-5 rounded-2xl bg-white/70 border-2 border-purple-200/60 backdrop-blur-sm shadow-sm"
+              >
                 <div className="text-purple-600 flex justify-center mb-2">{stat.icon}</div>
-                <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap">
+                <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
                   {stat.value}
                 </div>
-                <div className="text-xs text-foreground/60 mt-1">{stat.label}</div>
+                <div className="text-xs text-foreground/60 mt-1.5 leading-snug">{stat.label}</div>
               </div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* Filter tags */}
-      <section className="pt-12 pb-2">
-        <div className="container mx-auto px-4 max-w-4xl">
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            {categories.map((cat) => {
-              const isActive = activeFilter === cat;
-              return (
-                <button
-                  key={cat}
-                  onClick={() => setActiveFilter(cat)}
-                  className={`text-xs sm:text-sm font-bold px-4 py-2 rounded-full border transition-colors ${
-                    isActive
-                      ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-transparent"
-                      : "bg-white/5 text-foreground/60 border-purple-900/20 hover:border-purple-500/40 hover:text-foreground"
-                  }`}
-                >
-                  {cat}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Case Studies */}
-      <section className="py-14">
-        <div className="container mx-auto px-4 max-w-4xl space-y-4">
-          {filteredStudies.map((study) => {
-            const index = CASE_STUDIES.indexOf(study);
-            const isOpen = expanded === study.title;
+      <section className="py-20">
+        <div className="container mx-auto px-4 max-w-4xl space-y-6">
+          {CASE_STUDIES.map((study, index) => {
+            const isOpen = expanded === index;
             const gradient = CATEGORY_COLORS[index % CATEGORY_COLORS.length];
             const bgColor = CATEGORY_BG[index % CATEGORY_BG.length];
 
             return (
               <motion.div
-                key={study.title}
+                key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.05 }}
-                className={`rounded-2xl border-2 overflow-hidden transition-all duration-300 ${
-                  isOpen ? "border-purple-500/50 shadow-lg shadow-purple-600/10" : "border-purple-900/20 hover:border-purple-500/30"
+                transition={{ delay: index * 0.08 }}
+                className={`rounded-3xl border-2 overflow-hidden transition-all duration-300 bg-white/[0.03] ${
+                  isOpen
+                    ? "border-purple-500/50 shadow-xl shadow-purple-600/10"
+                    : "border-purple-900/15 hover:border-purple-500/35 hover:shadow-lg hover:shadow-purple-600/5"
                 }`}
               >
                 {/* Card Header — always visible */}
                 <button
-                  onClick={() => setExpanded(isOpen ? null : study.title)}
-                  className="w-full text-left p-8 hover:bg-white/5 transition-colors"
+                  onClick={() => setExpanded(isOpen ? null : index)}
+                  className="w-full text-left p-8 hover:bg-white/[0.03] transition-colors"
                 >
                   <div className="flex items-start justify-between gap-6">
                     <div className="flex-1">
-                      {/* Label + client */}
                       <div className="flex items-center gap-3 mb-3">
                         <span className={`text-xs font-bold px-3 py-1 rounded-full border ${bgColor}`}>
                           {study.client}
                         </span>
                       </div>
 
-                      <h3 className="text-2xl font-bold text-foreground mb-2">{study.title}</h3>
+                      <h3 className="text-2xl font-bold text-foreground mb-2 leading-snug">{study.title}</h3>
                       <p className="text-foreground/60">{study.description}</p>
                     </div>
 
                     <motion.div
                       animate={{ rotate: isOpen ? 180 : 0 }}
                       transition={{ duration: 0.25 }}
-                      className="flex-shrink-0 mt-1"
+                      className="flex-shrink-0 mt-1 p-2 rounded-full bg-purple-600/10"
                     >
-                      <ChevronDown size={22} className="text-purple-500" />
+                      <ChevronDown size={20} className="text-purple-500" />
                     </motion.div>
                   </div>
 
                   {/* Key metrics row */}
                   <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t border-white/10">
                     <div>
-                      <p className={`text-2xl font-bold bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
+                      <p className={`text-xl lg:text-2xl font-bold bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
                         {study.results.timeSaved}
                       </p>
                       <p className="text-foreground/50 text-xs mt-0.5">Time Saved</p>
                     </div>
                     <div>
-                      <p className={`text-2xl font-bold bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
+                      <p className={`text-xl lg:text-2xl font-bold bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
                         {study.results.costSavings}
                       </p>
                       <p className="text-foreground/50 text-xs mt-0.5">Cost Savings</p>
                     </div>
                     <div>
-                      <p className={`text-2xl font-bold bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
+                      <p className={`text-sm lg:text-base font-bold bg-gradient-to-r ${gradient} bg-clip-text text-transparent leading-snug`}>
                         {study.results.productivityGain}
                       </p>
-                      <p className="text-foreground/50 text-xs mt-0.5">Productivity</p>
+                      <p className="text-foreground/50 text-xs mt-0.5">What Changed</p>
                     </div>
                   </div>
                 </button>
@@ -226,10 +225,10 @@ export default function CaseStudies() {
                             {study.metrics.map((metric, idx) => (
                               <div
                                 key={idx}
-                                className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-purple-900/20"
+                                className="flex items-center justify-between gap-4 p-4 rounded-xl bg-white/5 border border-purple-900/20"
                               >
-                                <p className="text-foreground/80 font-medium">{metric.label}</p>
-                                <div className="flex items-center gap-3 text-sm">
+                                <p className="text-foreground/80 font-medium text-sm md:text-base">{metric.label}</p>
+                                <div className="flex items-center gap-3 text-sm flex-shrink-0">
                                   <span className="text-foreground/40 line-through">{metric.before}</span>
                                   <ArrowRight size={14} className="text-foreground/30 flex-shrink-0" />
                                   <span className={`font-bold bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
@@ -246,6 +245,22 @@ export default function CaseStudies() {
                           <CheckCircle size={18} className="text-green-500 flex-shrink-0 mt-0.5" />
                           <p className="text-foreground/80 font-medium">{study.result}</p>
                         </div>
+
+                        {/* Testimonial */}
+                        {study.testimonialQuote && (
+                          <div className={`relative p-6 rounded-xl border ${bgColor} bg-white/[0.03]`}>
+                            <Quote size={28} className="text-purple-400/30 absolute top-4 right-4" />
+                            <p className="text-foreground/85 italic leading-relaxed pr-10 mb-4">
+                              "{study.testimonialQuote}"
+                            </p>
+                            <p className="text-sm font-bold text-foreground/70">
+                              {study.testimonialName}
+                              {study.testimonialRole && (
+                                <span className="font-normal text-foreground/50"> — {study.testimonialRole}, {study.client}</span>
+                              )}
+                            </p>
+                          </div>
+                        )}
                       </div>
                     </motion.div>
                   )}
