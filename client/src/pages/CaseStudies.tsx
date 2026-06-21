@@ -102,22 +102,26 @@ export default function CaseStudies() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.7 }}
-            className="grid grid-cols-3 gap-6 mt-14 max-w-2xl mx-auto"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mt-14 max-w-xl sm:max-w-3xl mx-auto"
           >
             {[
-              { icon: <Clock size={20} />, value: totals.timeSaved, label: "Combined time saved across these clients" },
-              { icon: <DollarSign size={20} />, value: totals.costSavings, label: "Combined cost savings across these clients" },
+              { icon: <Clock size={20} />, value: totals.timeSaved, label: "Combined time saved" },
+              { icon: <DollarSign size={20} />, value: totals.costSavings, label: "Combined cost savings" },
               { icon: <Layers size={20} />, value: totals.projectCount, label: "Projects featured below" },
             ].map((stat, idx) => (
               <div
                 key={idx}
-                className="p-5 rounded-2xl bg-white/70 border-2 border-purple-200/60 backdrop-blur-sm shadow-sm"
+                className="p-5 sm:p-6 rounded-2xl bg-white/70 border-2 border-purple-200/60 backdrop-blur-sm shadow-sm flex sm:flex-col items-center sm:items-center gap-4 sm:gap-0 text-left sm:text-center"
               >
-                <div className="text-purple-600 flex justify-center mb-2">{stat.icon}</div>
-                <div className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                  {stat.value}
+                <div className="text-purple-600 flex justify-center items-center flex-shrink-0 sm:mb-2 w-10 h-10 sm:w-auto sm:h-auto rounded-full bg-purple-600/10 sm:bg-transparent">
+                  {stat.icon}
                 </div>
-                <div className="text-xs text-foreground/60 mt-1.5 leading-snug">{stat.label}</div>
+                <div className="flex-1 sm:flex-none">
+                  <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap">
+                    {stat.value}
+                  </div>
+                  <div className="text-xs sm:text-sm text-foreground/60 mt-1 sm:mt-1.5 leading-snug">{stat.label}</div>
+                </div>
               </div>
             ))}
           </motion.div>
