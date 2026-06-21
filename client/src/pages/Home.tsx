@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { SERVICES, TESTIMONIALS, CASE_STUDIES } from "@/const";
-import { ArrowRight, Star, Target, TrendingUp, Settings, Cpu, Shield, Search, User, CheckCircle, Zap, Package, Wrench, Sprout } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Star, Target, TrendingUp, Settings, Cpu, Shield, Search, User, Zap, Package, Wrench, Sprout } from "lucide-react";
 import { ServiceFinderQuiz } from "@/components/ServiceFinderQuiz";
 
 const SERVICE_ICONS: Record<string, React.ReactNode> = {
@@ -47,7 +47,17 @@ const WHAT_WE_DO = [
 export default function Home() {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [tickerIndex, setTickerIndex] = useState(0);
+  const [caseStudyStart, setCaseStudyStart] = useState(0);
+  const CASE_STUDIES_VISIBLE = 3;
   const TICKER_WORDS = ["processes", "marketing", "workflows", "outreach", "admin", "social posting", "email campaigns", "quoting", "onboarding", "follow-ups",  "invoicing", "scheduling", "proposals", "reporting", "nurturing", "client updates", "business"];
+
+  const showPrevCaseStudies = () => {
+    setCaseStudyStart((prev) => (prev - 1 + CASE_STUDIES.length) % CASE_STUDIES.length);
+  };
+  const showNextCaseStudies = () => {
+    setCaseStudyStart((prev) => (prev + 1) % CASE_STUDIES.length);
+  };
+  const visibleCaseStudies = Array.from({ length: CASE_STUDIES_VISIBLE }, (_, i) => CASE_STUDIES[(caseStudyStart + i) % CASE_STUDIES.length]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -394,33 +404,99 @@ export default function Home() {
             <p className="text-foreground/60 text-lg max-w-2xl mx-auto">Real results from real businesses.</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {CASE_STUDIES.slice(0, 3).map((study, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
-                className="p-8 rounded-2xl bg-white/5 border-2 border-purple-900/20 hover:border-purple-500/40 transition-all"
-              >
-                <h3 className="text-xl font-bold mb-1">{study.title}</h3>
-                <p className="text-foreground/50 text-sm mb-6">{study.client}</p>
-                <div className="space-y-4 mb-6 border-t border-white/10 pt-5">
-                  <div>
-                    <p className="text-xs font-bold text-foreground/40 uppercase tracking-wider mb-1">Challenge</p>
-                    <p className="text-foreground/80 text-sm">{study.challenge}</p>
-                  </div>
-                  <div>
-                    <p className="text-xs font-bold text-foreground/40 uppercase tracking-wider mb-1">Solution</p>
-                    <p className="text-foreground/80 text-sm">{study.solution}</p>
-                  </div>
-                </div>
-                <div className="border-t border-white/10 pt-5 flex items-center gap-2">
-                  <CheckCircle size={16} className="text-green-500 flex-shrink-0" />
-                  <p className="text-green-400 font-bold text-sm">{study.result}</p>
-                </div>
-              </motion.div>
+          <div className="relative flex items-center gap-3 sm:gap-4">
+            {/* Left arrow */}
+            <button
+              onClick={showPrevCaseStudies}
+              aria-label="Previous case studies"
+              className="hidden sm:flex flex-shrink-0 items-center justify-center w-11 h-11 rounded-full border-2 border-purple-400/30 text-purple-500 hover:bg-purple-500/10 hover:border-purple-500/50 transition-all"
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-6">
+              <AnimatePresence mode="wait">
+                {visibleCaseStudies.map((study, index) => (
+                  <motion.div
+                    key={`${caseStudyStart}-${index}`}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.08, duration: 0.4 }}
+                    className={`p-6 rounded-2xl bg-white/5 border-2 border-purple-900/20 hover:border-purple-500/40 transition-all flex flex-col ${
+                      index === 0 ? "" : "hidden md:flex"
+                    }`}
+                  >
+                    <span className="text-xs font-bold px-3 py-1 rounded-full border border-purple-500/30 bg-purple-600/10 text-purple-400 w-fit mb-4">
+                      {study.client}
+                    </span>
+
+                    <h3 className="text-lg font-bold mb-2 leading-snug">{study.title}</h3>
+                    <p className="text-foreground/70 text-sm mb-5 flex-1">{study.punchline}</p>
+
+                    <div className="grid grid-cols-2 gap-3 pt-4 border-t border-white/10">
+                      <div>
+                        <p className="text-lg font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                          {study.results.timeSaved}
+                        </p>
+                        <p className="text-foreground/50 text-xs">Time saved</p>
+                      </div>
+                      <div>
+                        <p className="text-lg font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                          {study.results.costSavings}
+                        </p>
+                        <p className="text-foreground/50 text-xs">Cost savings</p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </AnimatePresence>
+            </div>
+
+            {/* Right arrow */}
+            <button
+              onClick={showNextCaseStudies}
+              aria-label="Next case studies"
+              className="hidden sm:flex flex-shrink-0 items-center justify-center w-11 h-11 rounded-full border-2 border-purple-400/30 text-purple-500 hover:bg-purple-500/10 hover:border-purple-500/50 transition-all"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
+
+          {/* Mobile arrows + position dots */}
+          <div className="flex sm:hidden items-center justify-center gap-6 mt-6">
+            <button
+              onClick={showPrevCaseStudies}
+              aria-label="Previous case studies"
+              className="flex items-center justify-center w-10 h-10 rounded-full border-2 border-purple-400/30 text-purple-500 hover:bg-purple-500/10"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <div className="flex gap-2">
+              {CASE_STUDIES.map((_, idx) => (
+                <span
+                  key={idx}
+                  className={`h-2 rounded-full transition-all ${idx === caseStudyStart ? "bg-purple-600 w-6" : "bg-white/20 w-2"}`}
+                />
+              ))}
+            </div>
+            <button
+              onClick={showNextCaseStudies}
+              aria-label="Next case studies"
+              className="flex items-center justify-center w-10 h-10 rounded-full border-2 border-purple-400/30 text-purple-500 hover:bg-purple-500/10"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </div>
+
+          {/* Desktop position dots */}
+          <div className="hidden sm:flex justify-center gap-2 mt-8">
+            {CASE_STUDIES.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCaseStudyStart(idx)}
+                aria-label={`Go to case study ${idx + 1}`}
+                className={`h-2 rounded-full transition-all ${idx === caseStudyStart ? "bg-purple-600 w-8" : "bg-white/20 w-2 hover:bg-white/40"}`}
+              />
             ))}
           </div>
 
