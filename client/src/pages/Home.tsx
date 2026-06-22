@@ -22,25 +22,25 @@ const WHAT_WE_DO = [
     icon: <Search size={24} className="text-purple-500" />,
     label: "Just starting out",
     title: "Audit & Roadmap",
-    description: "OptimAI maps your business, finds the hours being wasted, and hands you a clear plan. Zero obligation to go further.",
+    description: "OptimAI maps your business, finds the hours being wasted, and hands you a clear plan. Most clients uncover 10+ hours of waste in the very first session. Zero obligation to go further.",
   },
   {
     icon: <Wrench size={24} className="text-purple-500" />,
     label: "Got a specific problem",
     title: "Fix One Thing",
-    description: "You know what's broken. OptimAI fixes it fast, one workflow, one integration, done properly.",
+    description: "You know what's broken. OptimAI fixes it fast, one workflow, one integration, done properly and built to last, not patched together.",
   },
   {
     icon: <Zap size={24} className="text-purple-500" />,
     label: "Ready to build",
     title: "Build Something New",
-    description: "A CRM, onboarding flow, chatbot, dashboard. OptimAI scopes it, builds it, hands it over ready to run.",
+    description: "A CRM, onboarding flow, chatbot, dashboard. OptimAI scopes it, builds it, and hands it over ready to run, with your team trained to use it from day one.",
   },
   {
     icon: <Sprout size={24} className="text-purple-500" />,
     label: "Growing fast",
     title: "Scale What's Working",
-    description: "You've got traction. OptimAI builds the systems to keep up, without adding headcount for every new thing.",
+    description: "You've got traction. OptimAI builds the systems to keep up, without adding headcount for every new thing, so growth never stalls.",
   },
 ];
 
@@ -131,7 +131,7 @@ export default function Home() {
               </h1>
 
               <p className="text-lg lg:text-xl text-foreground/70 max-w-xl mx-auto">
-                OptimAI builds practical AI and automation systems for SMEs, startups, and everyday business owners. In weeks, not months.
+                OptimAI builds practical AI and automation systems for SMEs, startups, and everyday business owners, with no jargon and no lock-in contracts. Live in weeks, not months.
               </p>
             </div>
 
@@ -186,10 +186,10 @@ export default function Home() {
               <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Most businesses are being left behind.</span>
             </h2>
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto leading-relaxed mb-6">
-              Enterprise companies are automating entire departments. SMEs, startups, and everyday business owners - tradies, clinics, agencies, retailers - are still doing everything manually. Not because they don't want to change, but because no one's made it accessible.
+              Enterprise companies are automating entire departments. SMEs, startups, and everyday business owners - tradies, clinics, agencies, retailers - are still doing everything manually. Not because they don't want to change, but because no one's made it accessible, affordable, or easy to trust.
             </p>
             <p className="text-xl font-semibold text-foreground/90 max-w-2xl mx-auto">
-              That's what OptimAI fixes. Practical AI and automation, built for the businesses that need it most.
+              That's what OptimAI fixes. Practical AI and automation, built for the businesses that need it most, with no lock-in contracts and real ROI within 90 days.
             </p>
             <div className="mt-8">
               <Link href="/about">
@@ -233,7 +233,7 @@ export default function Home() {
                   <h2 className="text-3xl lg:text-5xl font-bold mb-4">
                     We meet you <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">where you are</span>
                   </h2>
-                  <p className="text-foreground/60 text-lg">You don't need to buy the whole package. Start with what makes sense right now.</p>
+                  <p className="text-foreground/60 text-lg">You don't need to buy the whole package or sign a 12 month contract. Start with what makes sense right now.</p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
@@ -291,7 +291,7 @@ export default function Home() {
             <h2 className="text-3xl lg:text-5xl font-bold mb-4">
               Our <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Core Services</span>
             </h2>
-            <p className="text-foreground/60 text-lg">Six specialised practices, strategy through to ongoing support.</p>
+            <p className="text-foreground/60 text-lg">Six specialised practices, from first strategy call to ongoing support, built around your business, not a one-size-fits-all template.</p>
           </motion.div>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
@@ -347,15 +347,15 @@ export default function Home() {
               <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">deployed fast?</span>
             </h2>
             <p className="text-foreground/65 text-lg max-w-2xl mx-auto">
-              Pre-scoped, fixed-price products built by OptimAI for common business needs. Pick one, we deploy it in days, not weeks.
+              Pre-scoped, fixed-price products built by OptimAI for common business needs. No lengthy discovery phase, just pick one and we get started within days.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-10">
             {[
-              { name: "AI Chatbot Setup", desc: "Automate customer interactions 24/7", timeline: "2–3 weeks", price: "$2,500" },
-              { name: "CRM Build & Setup", desc: "Organise leads and automate your sales workflow", timeline: "3–4 weeks", price: "$3,500" },
-              { name: "Full Stack Business Setup", desc: "Everything you need to run your business efficiently", timeline: "4–6 weeks", price: "$5,500" },
+              { name: "AI Chatbot Setup", desc: "Capture, qualify, and respond to leads 24/7, even while you sleep", timeline: "2–3 weeks", price: "$2,500" },
+              { name: "CRM Build & Setup", desc: "Organise every lead and automate your sales process from first contact to close", timeline: "3–4 weeks", price: "$3,500" },
+              { name: "Full Stack Business Setup", desc: "Every core system connected and automated, so your whole business runs efficiently", timeline: "4–6 weeks", price: "$5,500" },
             ].map((product, idx) => (
               <motion.div
                 key={idx}
@@ -401,7 +401,7 @@ export default function Home() {
             <h2 className="text-3xl lg:text-5xl font-bold mb-4">
               Client <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Success Stories</span>
             </h2>
-            <p className="text-foreground/60 text-lg max-w-2xl mx-auto">Real results from real businesses.</p>
+            <p className="text-foreground/60 text-lg max-w-2xl mx-auto">Real results from real businesses, not vague promises.</p>
           </motion.div>
 
           <div className="relative flex items-center gap-3 sm:gap-4">
@@ -574,7 +574,7 @@ export default function Home() {
               Ready to work with OptimAI?
             </h2>
             <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
-              Start with a free OptimAI audit. We'll map exactly what to automate, what it's worth, and how fast we can get it live.
+              Start with a free OptimAI audit. We'll map exactly what to automate, what it's worth, and how fast we can get it live, with zero obligation and no lock-in contracts.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/free-audit">
