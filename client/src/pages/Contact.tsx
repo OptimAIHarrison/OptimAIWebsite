@@ -52,7 +52,7 @@ export default function Contact() {
       <Navigation />
       <SEO
         title="Contact OptimAI — Get in Touch With Our AI Automation Team"
-        description="Contact OptimAI in Melbourne, Victoria. Email hello@optimai.com.au or send a message and we'll reply within 24 hours. No sales pressure — just an honest conversation about what you're trying to solve."
+        description="Contact OptimAI in Melbourne. Email hello@optimai.com.au or send a message and we'll reply within 24 hours. No sales pressure, no jargon."
         canonical="/contact"
         schema={{
           "@context": "https://schema.org",

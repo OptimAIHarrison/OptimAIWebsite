@@ -1,3 +1,4 @@
+import { SEO } from "@/components/SEO";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "wouter";
@@ -60,6 +61,20 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="OptimAI | AI and Automation for Real Businesses"
+        description="Practical AI and automation for SMEs, startups and everyday business owners. No jargon, no lock-in contracts, live in weeks not months. Get your free report."
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "OptimAI",
+          url: "https://optimai.com.au",
+          email: "hello@optimai.com.au",
+          description: "Practical AI and automation systems for SMEs, startups and everyday business owners.",
+          address: { "@type": "PostalAddress", addressLocality: "Melbourne", addressRegion: "Victoria", addressCountry: "AU" },
+          areaServed: "AU",
+        }}
+      />
       <Navigation />
 
       <HomeHero />

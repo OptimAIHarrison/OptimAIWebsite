@@ -54,7 +54,7 @@ export default function CaseStudies() {
       <Navigation />
       <SEO
         title="Client Success Stories — Real AI Automation Results | OptimAI"
-        description="See exactly what OptimAI built for real clients, what changed, and what it was worth. Real before-and-after numbers across content automation, CRM builds, reporting, lead follow-up and customer support."
+        description="See what OptimAI built for real clients, what changed, and what it was worth, with real before-and-after numbers."
         canonical="/case-studies"
         schema={{
           "@context": "https://schema.org",

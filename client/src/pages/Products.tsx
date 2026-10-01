@@ -75,7 +75,7 @@ const PRODUCTS: Product[] = [
       "24/7 customer support automation",
       "Lead capture and qualification",
       "Analytics dashboard",
-      "30 days of support and optimisation"
+      "30 days of support and improvements"
     ],
     whatsIncluded: [
       "Initial consultation and requirements gathering",
@@ -89,7 +89,7 @@ const PRODUCTS: Product[] = [
     process: [
       "Week 1: Discovery & Design — We learn about your business, customers, and goals",
       "Week 2: Development & Training — Build and train the chatbot on your data",
-      "Week 3: Integration & Testing — Deploy to your website and optimise performance"
+      "Week 3: Integration & Testing — Deploy to your website and improve performance"
     ]
   },
   {
@@ -111,7 +111,7 @@ const PRODUCTS: Product[] = [
       "Automation workflows configured",
       "Welcome series and nurture sequences",
       "Performance tracking setup",
-      "30 days of optimisation"
+      "30 days of improvements"
     ],
     whatsIncluded: [
       "Platform selection and setup",
@@ -186,7 +186,7 @@ const PRODUCTS: Product[] = [
       "Website contact forms and lead capture",
       "Chatbot for customer support",
       "Reporting and analytics dashboard",
-      "90 days of support and optimisation"
+      "90 days of support and improvements"
     ],
     whatsIncluded: [
       "Complete business process audit",
@@ -194,10 +194,10 @@ const PRODUCTS: Product[] = [
       "Email marketing system setup",
       "Booking system integration",
       "Invoice automation setup",
-      "Website optimisation for lead capture",
+      "Website improvements for lead capture",
       "Chatbot implementation",
       "Team training and documentation",
-      "Quarterly optimisation reviews"
+      "Quarterly improvements reviews"
     ],
     process: [
       "Week 1-2: Discovery & Planning — Understand your business and goals",
@@ -218,13 +218,13 @@ const PRODUCTS: Product[] = [
     image: "https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "Any Business, All Industries",
     deliverables: [
-      "Process audit and optimisation recommendations",
+      "Process audit and improvement recommendations",
       "Automated workflows for 3-5 key processes",
       "Integration between your tools",
       "Error handling and monitoring",
       "Documentation and runbooks",
       "Team training",
-      "30 days of monitoring and optimisation"
+      "30 days of monitoring and improvements"
     ],
     whatsIncluded: [
       "Current process mapping and analysis",
@@ -243,8 +243,8 @@ const PRODUCTS: Product[] = [
   },
   {
     id: "website-optimization",
-    name: "Website Lead Optimisation",
-    description: "Optimise your website to capture and convert more leads",
+    name: "Website Lead Capture",
+    description: "Improve your website to capture and convert more leads",
     shortDescription: "Turn website visitors into qualified leads",
     price: 1500,
     currency: "AUD",
@@ -260,20 +260,20 @@ const PRODUCTS: Product[] = [
       "Lead qualification system",
       "Follow-up automation",
       "Analytics tracking",
-      "Conversion optimisation report"
+      "Conversion improvements report"
     ],
     whatsIncluded: [
       "Website performance analysis",
       "Lead capture form design",
-      "Form placement optimisation",
+      "Form placement improvements",
       "Automation workflow setup",
       "Analytics and tracking setup",
       "A/B testing recommendations",
-      "Conversion optimisation report"
+      "Conversion improvements report"
     ],
     process: [
       "Week 1: Audit — Analyse your website and visitor behaviour",
-      "Week 1-2: Optimise — Add forms, automation, and tracking",
+      "Week 1-2: Improve — Add forms, automation, and tracking",
       "Week 2: Launch — Deploy changes and monitor performance"
     ]
   },
@@ -296,14 +296,14 @@ const PRODUCTS: Product[] = [
       "Mobile-friendly dashboard access",
       "Data visualisation and charts",
       "User access management",
-      "30 days of optimisation"
+      "30 days of improvements"
     ],
     whatsIncluded: [
       "Data source integration (CRM, accounting, sales)",
       "Dashboard design and customisation",
       "KPI selection and tracking setup",
       "Automated report scheduling",
-      "Mobile optimisation",
+      "Mobile improvements",
       "Team training on dashboard usage",
       "Documentation and best practices"
     ],
@@ -317,7 +317,7 @@ const PRODUCTS: Product[] = [
     id: "customer-journey",
     name: "Customer Journey Mapping",
     description: "Analyse and improve how customers interact with your business at every stage",
-    shortDescription: "Optimise every touchpoint in the customer experience",
+    shortDescription: "Improve every step of your customer's experience",
     price: 2500,
     currency: "AUD",
     timeline: "2-3 weeks",
@@ -327,11 +327,11 @@ const PRODUCTS: Product[] = [
     bestFor: "E-commerce, SaaS, Service Providers",
     deliverables: [
       "Complete customer journey map",
-      "Touchpoint analysis and optimisation",
+      "Touchpoint analysis and improvements",
       "Pain point identification and solutions",
       "Automation recommendations",
       "Implementation roadmap",
-      "Conversion optimisation strategy",
+      "Conversion improvements strategy",
       "60 days of support"
     ],
     whatsIncluded: [
@@ -339,14 +339,14 @@ const PRODUCTS: Product[] = [
       "Journey mapping workshop",
       "Touchpoint analysis",
       "Pain point documentation",
-      "Optimisation recommendations",
+      "Improvement recommendations",
       "Implementation roadmap",
       "Team training"
     ],
     process: [
       "Week 1: Research — Interview customers and analyse behaviour",
       "Week 2: Map — Create a detailed, actionable journey map",
-      "Week 3: Optimise — Develop targeted improvement strategies"
+      "Week 3: Improve — Develop targeted improvement strategies"
     ]
   },
   {
@@ -368,7 +368,7 @@ const PRODUCTS: Product[] = [
       "Automated follow-up workflows",
       "Feedback reporting and insights",
       "Integration with CRM",
-      "30 days of optimisation"
+      "30 days of improvements"
     ],
     whatsIncluded: [
       "Survey design and setup",
@@ -454,7 +454,7 @@ const PRODUCTS: Product[] = [
     process: [
       "Week 1: Setup — Configure your subscription platform",
       "Week 2: Build — Create billing and automation workflows",
-      "Week 3: Launch — Deploy, test, and optimise"
+      "Week 3: Launch — Deploy, test, and improve"
     ]
   },
   {
@@ -476,7 +476,7 @@ const PRODUCTS: Product[] = [
       "Social media content generation",
       "Email copy generation",
       "Blog post automation",
-      "30 days of optimisation"
+      "30 days of improvements"
     ],
     whatsIncluded: [
       "Brand voice documentation",
@@ -495,8 +495,8 @@ const PRODUCTS: Product[] = [
   },
   {
     id: "seo-optimization",
-    name: "SEO & Content Optimisation",
-    description: "AI-driven keyword research, content audits, and optimisation recommendations",
+    name: "SEO & Content Improvements",
+    description: "AI-driven keyword research, content audits, and improvement recommendations",
     shortDescription: "Improve your search rankings and grow organic traffic",
     price: 2300,
     currency: "AUD",
@@ -508,11 +508,11 @@ const PRODUCTS: Product[] = [
     deliverables: [
       "Comprehensive SEO audit",
       "Keyword research and strategy",
-      "Content optimisation recommendations",
+      "Content improvement recommendations",
       "Technical SEO fixes",
       "Backlink analysis and strategy",
       "Ranking tracking setup",
-      "Monthly optimisation recommendations"
+      "Monthly improvement recommendations"
     ],
     whatsIncluded: [
       "Website audit and analysis",
@@ -520,13 +520,13 @@ const PRODUCTS: Product[] = [
       "Content gap analysis",
       "Technical SEO review",
       "Competitor analysis",
-      "Optimisation roadmap",
+      "Improvements roadmap",
       "Team training"
     ],
     process: [
       "Week 1: Audit — Analyse your website and competitive landscape",
       "Week 2: Research — Conduct keyword and content gap research",
-      "Week 3: Optimise — Implement recommendations and track rankings"
+      "Week 3: Improve — Implement recommendations and track rankings"
     ]
   },
   {
@@ -567,7 +567,7 @@ const PRODUCTS: Product[] = [
   },
   {
     id: "ai-search-optimization",
-    name: "AI Search & Answer Optimisation",
+    name: "AI Search & Answer Improvements",
     description: "Get found by AI tools like ChatGPT, Perplexity, and Google's AI Overview",
     shortDescription: "Be the answer when AI tools respond to your customers",
     price: 2200,
@@ -578,25 +578,25 @@ const PRODUCTS: Product[] = [
     image: "https://images.pexels.com/photos/8438918/pexels-photo-8438918.jpeg?auto=compress&cs=tinysrgb&w=600",
     bestFor: "Any business wanting to be found by AI tools",
     deliverables: [
-      "AI Answer Optimisation (AEO) — Get featured in AI chatbot responses",
-      "Generative Engine Optimisation (GEO) — Appear in generative AI outputs",
-      "AI Search Optimisation (AIO) — Rank in AI-powered search platforms",
-      "Content audit and optimisation strategy",
+      "AI Answer Improvements (AEO) — Get featured in AI chatbot responses",
+      "Generative Engine Improvements (GEO) — Appear in generative AI outputs",
+      "AI Search Improvements (AIO) — Rank in AI-powered search platforms",
+      "Content audit and improvements strategy",
       "Cross-platform monitoring dashboard",
-      "Ongoing optimisation recommendations"
+      "Ongoing improvement recommendations"
     ],
     whatsIncluded: [
       "Audit of current AI visibility across platforms",
-      "Content optimisation for AI discovery",
-      "Knowledge base and FAQ optimisation",
+      "Content improvements for AI discovery",
+      "Knowledge base and FAQ improvements",
       "Entity recognition setup in AI systems",
       "Performance monitoring across ChatGPT, Perplexity, Google AI, and more",
-      "Monthly optimisation reports",
+      "Monthly improvements reports",
       "Strategy adjustments based on performance"
     ],
     process: [
       "Week 1: Analysis — Audit how AI tools currently answer questions in your industry",
-      "Week 2: Optimisation — Rewrite and structure your content for AI discovery",
+      "Week 2: Improvements — Rewrite and structure your content for AI discovery",
       "Week 3: Monitoring — Set up tracking and begin monitoring AI mentions"
     ]
   },
@@ -619,7 +619,7 @@ const PRODUCTS: Product[] = [
       "Engagement monitoring setup",
       "Hashtag and caption templates",
       "Analytics and performance reporting",
-      "30 days of optimisation"
+      "30 days of improvements"
     ],
     whatsIncluded: [
       "Platform selection and account connection",
@@ -763,7 +763,7 @@ const PRODUCTS: Product[] = [
       "Custom branding applied to reports",
       "Stakeholder distribution lists",
       "Analytics tracking on opens",
-      "30 days of optimisation"
+      "30 days of improvements"
     ],
     whatsIncluded: [
       "Report template design",
@@ -873,7 +873,7 @@ export default function Products() {
       <Navigation />
       <SEO
         title="Ready-to-Go AI & Automation Products — Fixed Price, Fast Deployment | OptimAI"
-        description="20 pre-scoped AI and automation products from OptimAI. AI Chatbot Setup from $2,500, CRM Build from $3,500, Full Stack Business Setup from $5,500. All deployed in weeks, not months. Serving Australian SMEs, startups and business owners."
+        description="20 ready-to-go AI and automation setups at fixed prices, from $2,500 for an AI chatbot to $5,500 for a full business setup. Live in weeks."
         canonical="/products"
         schema={{
           "@context": "https://schema.org",

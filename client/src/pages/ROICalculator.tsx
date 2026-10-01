@@ -64,7 +64,7 @@ export default function ROICalculator() {
       <Navigation />
       <SEO
         title="AI Automation ROI Calculator — How Much Could You Save? | OptimAI"
-        description="Calculate how much time and money your business could save with AI and automation. Enter your team size, revenue, and manual hours to get an instant estimate. Free to use, no data stored."
+        description="Estimate how much time and money AI and automation could save your business. Free calculator, instant result, no data stored."
         canonical="/roi-calculator"
         schema={{
           "@context": "https://schema.org",

@@ -25,19 +25,19 @@ const OUTCOMES = [
 const DIFFERENTIATORS = [
   {
     title: "We don't sell software. We solve problems.",
-    description: "Most agencies push a tool and leave. We map your actual business, find the bottlenecks costing you time and money, then build solutions around your workflow - not the other way around.",
+    description: "Most agencies push a tool and leave. We map your actual business, find the bottlenecks costing you time and money, then build around the way you already work, not the other way around.",
   },
   {
     title: "You could be live in 15 days, not 6 months.",
     description: "Enterprise consultants bill you for 3-month discovery phases. We move fast - most clients have their first automation running within two weeks of our first call.",
   },
   {
-    title: "Plain English, no BS.",
+    title: "Plain English, no jargon.",
     description: "We don't hide behind jargon to justify our fees. You'll always know exactly what we're building, why we're building it, and what it's saving you.",
   },
   {
     title: "When needed, we're there.",
-    description: "Your automations can be monitored, maintained, and improved on an on-going basis. If that is what you need. If you tools update API's and breaks your workflow, we can fix it.",
+    description: "We can monitor, maintain and improve your automations over time, if that's what you need. If one of your tools updates and breaks something, we'll fix it.",
   },
   {
     title: "Tailored to your size, not a corporate template.",
@@ -63,7 +63,7 @@ export default function WhyOptimAI() {
       <Navigation />
       <SEO
         title="Why Choose OptimAI? Results in 15 Days, No Lock-In, SME-Friendly Pricing"
-        description="OptimAI delivers first results in 15 days, saves clients 40+ hours per month, and has a 5-star rating across every client. See how we compare to typical agencies - no lock-in contracts, direct access, built for your business."
+        description="Why businesses choose OptimAI: plain English, no lock-in contracts, direct access to the people who build it, and results in weeks, not months."
         canonical="/why-optimai"
         schema={{
           "@context": "https://schema.org",

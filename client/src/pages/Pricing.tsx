@@ -81,7 +81,7 @@ export default function Pricing() {
       <Navigation />
       <SEO
         title="Pricing — Build Your Custom AI Automation Quote | OptimAI"
-        description="Get an instant estimate for your AI automation project. Select your services, business size, and complexity to see real pricing. Transparent, project-based, no hidden fees. SME-friendly."
+        description="Build an instant estimate for your AI and automation project. Pick your services, size and complexity. Get a fixed-price quote with your free report."
         canonical="/pricing"
         schema={{
           "@context": "https://schema.org",
@@ -248,7 +248,7 @@ export default function Pricing() {
               >
                 <div>
                   <h2 className="text-lg font-bold text-foreground mb-1">4. Add ongoing managed support?</h2>
-                  <p className="text-sm text-foreground/60">Monitoring, optimisation, and support after launch.</p>
+                  <p className="text-sm text-foreground/60">Monitoring, improvements and support after launch.</p>
                 </div>
                 <button
                   onClick={() => setIsManaged(!isManaged)}
@@ -348,7 +348,7 @@ export default function Pricing() {
             <Package size={32} className="text-purple-500 mx-auto mb-4" />
             <h2 className="text-2xl font-bold text-foreground mb-3">Want something pre-scoped instead?</h2>
             <p className="text-foreground/60 mb-6 max-w-xl mx-auto">
-              Browse our 20 Ready-to-Go Products — fixed-price solutions like AI Chatbot Setup, CRM Build, and Full Stack Business Setup, deployed in days.
+              Browse our 20 Ready-to-Go Products — fixed-price solutions like AI Chatbot Setup, CRM Build, and Full Stack Business Setup, live in days.
             </p>
             <Link href="/products">
               <Button variant="outline" className="border-purple-400/50 hover:bg-purple-500/10">
@@ -371,11 +371,11 @@ export default function Pricing() {
           >
             <h3 className="text-xl font-bold text-foreground mb-4">A note on usage-based costs</h3>
             <p className="text-foreground/70 mb-5">
-              For solutions that rely heavily on external AI APIs (like large language models), we transparently pass through usage costs. You only pay for what you use, with no surprises.
+              For solutions that rely heavily on outside AI services (like the models behind ChatGPT), we pass the usage costs through. You only pay for what you use, with no surprises.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {[
-                "Transparent API cost pass-through",
+                "Usage costs shown upfront",
                 "Scale up or down without fixed overheads",
                 "Small administrative markup for management",
                 "Detailed usage reports and recommendations",
@@ -404,8 +404,8 @@ export default function Pricing() {
           <div className="space-y-4">
             {[
               { q: "Can I switch plans or scope later?", a: "Yes. You can expand, reduce, or change scope at any time. We'll always quote changes upfront before any work begins." },
-              { q: "What's included in support?", a: "All projects include initial training and documentation. Managed Services adds ongoing monitoring, priority support, and continuous optimisation." },
-              { q: "Do you offer discounts for annual billing?", a: "Yes — annual billing for Managed Services includes a 15% discount. Contact us for custom enterprise pricing." },
+              { q: "What's included in support?", a: "All projects include initial training and documentation. Managed Services adds ongoing monitoring, priority support, and continuous improvements." },
+              { q: "Do you offer discounts for annual billing?", a: "Yes — annual billing for Managed Services includes a 15% discount. Contact us for custom pricing for larger teams." },
             ].map((item, idx) => (
               <motion.div
                 key={idx}

@@ -46,7 +46,7 @@ export default function Services() {
       <Navigation />
       <SEO
         title="AI & Automation Services, Strategy, Marketing, Business Process & More | OptimAI"
-        description="OptimAI offers six core AI and automation services: Strategic Advisory, Marketing Automation, Business Process Automation, AI Integration, Managed Services, and AI Search Optimisation. Serving Melbourne and Australia-wide."
+        description="Six practical AI and automation services for Australian businesses: advice, marketing, admin, AI tools, ongoing support and AI search. Melbourne-based."
         canonical="/services"
         schema={{
           "@context": "https://schema.org",

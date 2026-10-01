@@ -1,3 +1,4 @@
+import { SEO } from "@/components/SEO";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
@@ -79,6 +80,11 @@ export default function FreeReport() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Get Your Free AI and Automation Report | OptimAI"
+        description="Tell us how your business runs and get a free report showing where AI and automation can save you time, what it's worth, and how fast it can go live."
+        canonical="/free-report"
+      />
       <Navigation />
 
       <section className="pt-40 pb-16 bg-gradient-to-b from-[#F3EDFF] via-[#F8F5FF] to-white">
