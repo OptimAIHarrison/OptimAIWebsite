@@ -243,3 +243,29 @@
     @apply bg-purple-500;
   }
 }
+
+
+/* ---- OptimAI brand: violet to magenta, sampled from the logo mark ---- */
+:root {
+  --brand-violet: #6B28C4;
+  --brand-mid: #A71DCB;
+  --brand-pink: #E10BD6;
+  --brand-gradient: linear-gradient(100deg, #6B28C4 0%, #A71DCB 55%, #E10BD6 100%);
+}
+.bg-brand-gradient { background-image: var(--brand-gradient); }
+.text-brand-gradient {
+  background-image: var(--brand-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+/* Responsive page gutter: keeps content off the screen edges */
+.page-gutter { width: 100%; max-width: 1280px; margin-inline: auto; padding-inline: 1.5rem; }
+@media (min-width: 640px) { .page-gutter { padding-inline: 2.5rem; } }
+@media (min-width: 1024px) { .page-gutter { padding-inline: 4rem; } }
+
+/* Entrance animations that slide in from the side must never create sideways scroll */
+html, body { overflow-x: clip; }

@@ -81,11 +81,11 @@ export default function Home() {
 
       {/* PRACTICAL: the usual way vs our way */}
       <section className="py-24 bg-white border-y border-[#1E1038]/10">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#1E1038] max-w-2xl">
+        <div className="container mx-auto px-6 sm:px-8 max-w-5xl">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#1E1038] max-w-2xl text-center md:text-left mx-auto md:mx-0">
             Practical AI, not a science project.
           </h2>
-          <p className="mt-4 text-lg text-[#1E1038]/65 max-w-2xl">
+          <p className="mt-4 text-lg text-[#1E1038]/65 max-w-2xl text-center md:text-left mx-auto md:mx-0">
             You shouldn't need a tech team to use AI and automation. Here's how we keep it simple.
           </p>
           <div className="mt-10 grid md:grid-cols-2 gap-6">
@@ -100,7 +100,7 @@ export default function Home() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-3xl bg-gradient-to-br from-[#1E1038] to-[#3B1A7A] p-8 shadow-xl shadow-purple-900/20">
+            <div className="rounded-3xl bg-gradient-to-br from-[#1E1038] via-[#3B1A7A] to-[#8B1FA9] p-8 shadow-xl shadow-fuchsia-900/20">
               <p className="text-sm font-semibold text-white/60">The OptimAI way</p>
               <ul className="mt-5 space-y-4">
                 {OUR_WAY.map((t) => (
@@ -117,17 +117,17 @@ export default function Home() {
 
       {/* WHO WE HELP */}
       <section className="py-24 bg-[#F8F5FF]">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#1E1038] max-w-2xl">
+        <div className="container mx-auto px-6 sm:px-8 max-w-5xl">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#1E1038] max-w-2xl text-center md:text-left mx-auto md:mx-0">
             Built for businesses that are too busy to become tech experts.
           </h2>
-          <p className="mt-4 text-lg text-[#1E1038]/65 max-w-2xl">
+          <p className="mt-4 text-lg text-[#1E1038]/65 max-w-2xl text-center md:text-left mx-auto md:mx-0">
             You run the business. We handle the AI and automation side, in plain English.
           </p>
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {WHO_WE_HELP.map((item) => (
-              <div key={item.who} className="rounded-2xl bg-white border border-[#1E1038]/10 p-6 shadow-[0_1px_2px_rgba(30,16,56,0.04)] transition-all hover:shadow-lg hover:shadow-purple-900/5 hover:border-[#7C3AED]/30">
-                <span className="grid place-items-center w-11 h-11 rounded-xl bg-[#7C3AED]/10 text-[#7C3AED]"><item.icon size={20} /></span>
+              <div key={item.who} className="text-center sm:text-left rounded-2xl bg-white border border-[#1E1038]/10 p-6 shadow-[0_1px_2px_rgba(30,16,56,0.04)] transition-all hover:shadow-lg hover:shadow-purple-900/5 hover:border-[#7C3AED]/30">
+                <span className="grid place-items-center w-11 h-11 mx-auto sm:mx-0 rounded-xl bg-brand-gradient text-white shadow-md shadow-fuchsia-600/20"><item.icon size={20} /></span>
                 <h3 className="mt-4 font-semibold text-[#1E1038]">{item.who}</h3>
                 <p className="mt-2 text-sm text-[#1E1038]/65 leading-relaxed">{item.pain}</p>
               </div>
@@ -138,21 +138,21 @@ export default function Home() {
 
       {/* HOW IT WORKS */}
       <section className="py-24 bg-white">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <h2 className="text-3xl lg:text-4xl font-bold text-[#1E1038]">Three steps, no surprises.</h2>
+        <div className="container mx-auto px-6 sm:px-8 max-w-5xl">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#1E1038] text-center md:text-left">Three steps, no surprises.</h2>
           <ol className="relative mt-12 grid md:grid-cols-3 gap-10">
             <span aria-hidden className="hidden md:block absolute top-5 left-[8%] right-[8%] h-px bg-gradient-to-r from-[#7C3AED]/40 via-[#7C3AED]/20 to-[#7C3AED]/40" />
             {HOW_IT_WORKS.map((step, i) => (
-              <li key={step.title}>
-                <span className="relative grid place-items-center w-10 h-10 rounded-full bg-[#7C3AED] text-white font-bold ring-8 ring-white shadow-md shadow-purple-600/30">{i + 1}</span>
+              <li key={step.title} className="text-center md:text-left">
+                <span className="relative grid place-items-center w-10 h-10 mx-auto md:mx-0 rounded-full bg-brand-gradient text-white font-bold ring-8 ring-white shadow-md shadow-fuchsia-600/30">{i + 1}</span>
                 <h3 className="mt-4 text-xl font-semibold text-[#1E1038]">{step.title}</h3>
                 <p className="mt-2 text-[#1E1038]/65 leading-relaxed">{step.text}</p>
               </li>
             ))}
           </ol>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-10 flex flex-wrap justify-center md:justify-start gap-4">
             <Link href="/free-report">
-              <Button className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white rounded-xl px-6 py-5">
+              <Button className="bg-brand-gradient hover:brightness-110 text-white rounded-xl px-6 py-5">
                 Start with the free report
                 <ArrowRight className="ml-2" size={16} />
               </Button>
@@ -166,7 +166,7 @@ export default function Home() {
 
       {/* ── READY TO GO PRODUCTS ─────────────────────────────────────── */}
       <section className="py-24 bg-[#F8F5FF]">
-        <div className="container mx-auto px-4 max-w-4xl">
+        <div className="container mx-auto px-6 sm:px-8 max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -199,7 +199,7 @@ export default function Home() {
                 <p className="text-sm text-foreground/60 mb-4">{product.desc}</p>
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-foreground/50">{product.timeline}</span>
-                  <span className="font-bold text-purple-600">{product.price} AUD</span>
+                  <span className="font-bold text-brand-gradient">{product.price} AUD</span>
                 </div>
               </motion.div>
             ))}
@@ -221,7 +221,7 @@ export default function Home() {
 
       {/* ── CASE STUDIES ─────────────────────────────────────────────── */}
       <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 sm:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -305,7 +305,7 @@ export default function Home() {
               {CASE_STUDIES.map((_, idx) => (
                 <span
                   key={idx}
-                  className={`h-2 rounded-full transition-all ${idx === caseStudyStart ? "bg-purple-600 w-6" : "bg-white/20 w-2"}`}
+                  className={`h-2 rounded-full transition-all ${idx === caseStudyStart ? "bg-brand-gradient w-6" : "bg-white/20 w-2"}`}
                 />
               ))}
             </div>
@@ -325,7 +325,7 @@ export default function Home() {
                 key={idx}
                 onClick={() => setCaseStudyStart(idx)}
                 aria-label={`Go to case study ${idx + 1}`}
-                className={`h-2 rounded-full transition-all ${idx === caseStudyStart ? "bg-purple-600 w-8" : "bg-white/20 w-2 hover:bg-white/40"}`}
+                className={`h-2 rounded-full transition-all ${idx === caseStudyStart ? "bg-brand-gradient w-8" : "bg-white/20 w-2 hover:bg-white/40"}`}
               />
             ))}
           </div>
@@ -343,7 +343,7 @@ export default function Home() {
 
       {/* ── TESTIMONIALS ─────────────────────────────────────────────── */}
       <section className="py-24 bg-white">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 sm:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -383,7 +383,7 @@ export default function Home() {
                 <button
                   key={index}
                   onClick={() => setTestimonialIndex(index)}
-                  className={`h-2 rounded-full transition-all ${index === testimonialIndex ? "bg-purple-600 w-8" : "bg-white/20 w-2 hover:bg-white/40"}`}
+                  className={`h-2 rounded-full transition-all ${index === testimonialIndex ? "bg-brand-gradient w-8" : "bg-white/20 w-2 hover:bg-white/40"}`}
                 />
               ))}
             </div>
@@ -393,14 +393,14 @@ export default function Home() {
 
       {/* ── FINAL CTA ────────────────────────────────────────────────── */}
       <section className="py-24">
-        <div className="container mx-auto px-4 max-w-3xl">
+        <div className="container mx-auto px-6 sm:px-8 max-w-3xl">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden bg-gradient-to-br from-[#1E1038] to-[#3B1A7A] rounded-3xl p-12 md:p-16 text-center shadow-2xl shadow-purple-900/30"
+            className="relative overflow-hidden bg-gradient-to-br from-[#1E1038] via-[#3B1A7A] to-[#8B1FA9] rounded-3xl p-12 md:p-16 text-center shadow-2xl shadow-purple-900/30"
           >
-            <span aria-hidden className="absolute -top-24 -right-16 w-72 h-72 rounded-full bg-[#7C3AED]/50 blur-[90px]" />
+            <span aria-hidden className="absolute -top-24 -right-16 w-72 h-72 rounded-full bg-[#E10BD6]/40 blur-[90px]" />
             <h2 className="relative text-3xl lg:text-4xl font-bold text-white mb-4">
               Not sure where to start? That's normal.
             </h2>

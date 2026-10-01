@@ -62,7 +62,7 @@ export default function WhyOptimAI() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <SEO
-        title="Why Choose OptimAI? Results in 15 Days, No Lock-In, SME-Friendly Pricing"
+        title="Why OptimAI | Plain English, No Lock-In"
         description="Why businesses choose OptimAI: plain English, no lock-in contracts, direct access to the people who build it, and results in weeks, not months."
         canonical="/why-optimai"
         schema={{

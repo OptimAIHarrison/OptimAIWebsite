@@ -37,19 +37,19 @@ export function Footer() {
 
   return (
     <footer className="bg-white border-t border-[#1E1038]/10">
-      <div className="container mx-auto px-4 pt-16 pb-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_repeat(3,1fr)] gap-12 mb-14">
+      <div className="page-gutter pt-14 sm:pt-16 pb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_repeat(3,1fr)] gap-10 lg:gap-12 mb-12 sm:mb-14 text-center lg:text-left">
           {/* Brand + CTA */}
           <div>
-            <img src={LOGO_URL} alt="OptimAI" className="h-12 w-auto mb-5" />
-            <p className="text-[#1E1038] font-semibold text-lg leading-snug max-w-xs">
+            <img src={LOGO_URL} alt="OptimAI" className="h-12 w-auto mb-5 mx-auto lg:mx-0" />
+            <p className="text-[#1E1038] font-semibold text-lg leading-snug max-w-xs mx-auto lg:mx-0">
               AI and automation for real businesses.
             </p>
-            <p className="mt-2 text-sm text-[#1E1038]/60 max-w-xs">
+            <p className="mt-2 text-sm text-[#1E1038]/60 max-w-xs mx-auto lg:mx-0">
               Practical systems, no jargon, no lock-in contracts. Based in Melbourne, working with businesses across Australia.
             </p>
             <Link href="/free-report">
-              <a className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#7C3AED] hover:bg-[#6D28D9] text-white text-sm font-semibold px-5 py-3 transition-colors">
+              <a className="mt-6 inline-flex items-center gap-2 rounded-xl bg-brand-gradient hover:brightness-110 text-white text-sm font-semibold px-5 py-3 transition-colors">
                 Get your free report
                 <ArrowRight size={16} />
               </a>
@@ -72,7 +72,7 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="border-t border-[#1E1038]/10 pt-6 text-sm text-[#1E1038]/50">
+        <div className="border-t border-[#1E1038]/10 pt-6 text-sm text-[#1E1038]/50 text-center lg:text-left">
           © {currentYear} OptimAI. All rights reserved.
         </div>
       </div>

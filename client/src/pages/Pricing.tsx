@@ -80,7 +80,7 @@ export default function Pricing() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <SEO
-        title="Pricing — Build Your Custom AI Automation Quote | OptimAI"
+        title="Pricing | Build Your AI Automation Quote | OptimAI"
         description="Build an instant estimate for your AI and automation project. Pick your services, size and complexity. Get a fixed-price quote with your free report."
         canonical="/pricing"
         schema={{
@@ -325,7 +325,7 @@ export default function Pricing() {
                 </AnimatePresence>
 
                 <Link href="/free-report">
-                  <Button className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white py-5">
+                  <Button className="w-full bg-brand-gradient hover:brightness-110 text-white py-5">
                     Get Exact Pricing
                     <ArrowRight size={16} className="ml-2" />
                   </Button>

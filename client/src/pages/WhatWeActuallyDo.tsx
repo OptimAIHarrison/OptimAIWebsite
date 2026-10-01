@@ -86,7 +86,7 @@ export default function WhatWeActuallyDo() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <SEO
-        title="What OptimAI Actually Does - AI Automation From Audit to Full Transformation"
+        title="What OptimAI Does | From Free Report to Full Build"
         description="From a free report to a full build: how OptimAI works with your business at every stage. No lock-in contracts, plain English, live in weeks."
         canonical="/what-we-actually-do"
         schema={{

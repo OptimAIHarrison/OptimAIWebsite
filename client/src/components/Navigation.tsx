@@ -9,7 +9,7 @@ export function Navigation() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background backdrop-blur-xl border-b border-foreground/15">
-      <div className="container mx-auto px-4 py-5">
+      <div className="page-gutter py-5">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/">
@@ -81,7 +81,7 @@ export function Navigation() {
               </Button>
             </Link>
             <Link href="/free-report">
-              <Button className="hidden sm:inline-flex bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-0">
+              <Button className="hidden sm:inline-flex bg-brand-gradient hover:brightness-110 text-white border-0">
                 Get your free report
               </Button>
             </Link>
@@ -162,7 +162,7 @@ export function Navigation() {
               </Button>
             </Link>
             <Link href="/free-report">
-              <Button className="w-full mt-2 bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-0">
+              <Button className="w-full mt-2 bg-brand-gradient hover:brightness-110 text-white border-0">
                 Get your free report
               </Button>
             </Link>

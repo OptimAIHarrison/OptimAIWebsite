@@ -872,7 +872,7 @@ export default function Products() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <SEO
-        title="Ready-to-Go AI & Automation Products — Fixed Price, Fast Deployment | OptimAI"
+        title="Ready-to-Go AI and Automation Products | OptimAI"
         description="20 ready-to-go AI and automation setups at fixed prices, from $2,500 for an AI chatbot to $5,500 for a full business setup. Live in weeks."
         canonical="/products"
         schema={{
@@ -1106,7 +1106,7 @@ export default function Products() {
                             setSelectedProduct(product);
                             setShowForm(true);
                           }}
-                          className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white"
+                          className="w-full bg-brand-gradient hover:brightness-110 text-white"
                         >
                           Get Started
                           <ArrowRight size={16} className="ml-2" />
@@ -1226,7 +1226,7 @@ export default function Products() {
                     <Button
                       type="submit"
                       disabled={submitStatus === "loading"}
-                      className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white"
+                      className="w-full bg-brand-gradient hover:brightness-110 text-white"
                     >
                       {submitStatus === "loading" ? "Submitting..." : "Submit Inquiry"}
                       <Send size={16} className="ml-2" />
@@ -1236,7 +1236,7 @@ export default function Products() {
               ) : (
                 <Button
                   onClick={() => setShowForm(true)}
-                  className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white py-3 text-lg"
+                  className="w-full bg-brand-gradient hover:brightness-110 text-white py-3 text-lg"
                 >
                   Get Started
                   <ArrowRight size={18} className="ml-2" />

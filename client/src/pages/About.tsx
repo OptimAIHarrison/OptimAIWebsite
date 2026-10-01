@@ -57,7 +57,7 @@ export default function About() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <SEO
-        title="About OptimAI - Why We Built Australia's Practical AI Automation Agency"
+        title="About OptimAI | Practical AI for Everyday Businesses"
         description="OptimAI brings AI and automation within reach of SMEs, startups and everyday business owners across Australia. Plain English, no lock-in. Our story."
         canonical="/about"
         schema={{

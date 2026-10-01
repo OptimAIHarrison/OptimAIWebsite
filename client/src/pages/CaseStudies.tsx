@@ -53,7 +53,7 @@ export default function CaseStudies() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <SEO
-        title="Client Success Stories — Real AI Automation Results | OptimAI"
+        title="Client Results | AI Automation Case Studies | OptimAI"
         description="See what OptimAI built for real clients, what changed, and what it was worth, with real before-and-after numbers."
         canonical="/case-studies"
         schema={{

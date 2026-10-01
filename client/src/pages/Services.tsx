@@ -45,7 +45,7 @@ export default function Services() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <SEO
-        title="AI & Automation Services, Strategy, Marketing, Business Process & More | OptimAI"
+        title="AI and Automation Services for SMEs | OptimAI"
         description="Six practical AI and automation services for Australian businesses: advice, marketing, admin, AI tools, ongoing support and AI search. Melbourne-based."
         canonical="/services"
         schema={{
@@ -296,7 +296,7 @@ export default function Services() {
                           <p className="text-sm text-foreground/60">Ready to get started with {service.title}?</p>
                           <div className="flex items-center gap-3">
                             <Link href="/free-report">
-                              <Button className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white">
+                              <Button className="bg-brand-gradient hover:brightness-110 text-white">
                                 Get a Free Report
                                 <ArrowRight size={15} className="ml-2" />
                               </Button>

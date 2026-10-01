@@ -228,7 +228,7 @@ export default function ArticleDetail() {
             <h1 className="text-4xl font-bold mb-4">Article Not Found</h1>
             <p className="text-foreground/70 mb-8">The article you're looking for doesn't exist.</p>
             <a href="/resources">
-              <Button className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2">
+              <Button className="bg-brand-gradient hover:brightness-110 text-white px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2">
                 <ArrowLeft size={20} />
                 Back to Resources
               </Button>
@@ -317,7 +317,7 @@ export default function ArticleDetail() {
           {article.pdf && (
             <div className="mb-12">
               <a href={article.pdf} download>
-                <Button className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2">
+                <Button className="bg-brand-gradient hover:brightness-110 text-white px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2">
                   Download PDF Guide
                   <ArrowRight size={20} />
                 </Button>
@@ -332,7 +332,7 @@ export default function ArticleDetail() {
               Learn how OptimAI can help you implement AI and automation strategies tailored to your business needs.
             </p>
             <a href="/contact">
-              <Button className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2">
+              <Button className="bg-brand-gradient hover:brightness-110 text-white px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2">
                 Get in Touch
                 <ArrowRight size={20} />
               </Button>
