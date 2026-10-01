@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, Check, Mail, MessageSquare, FileText, CalendarCheck, Sparkles, Zap, BellRing } from "lucide-react";
+import { ArrowRight, Check, Mail, MessageSquare, FileText, CalendarCheck, Sparkles, Zap, BellRing, Database, Share2, BarChart3, UserPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type Chore = {
@@ -66,6 +66,58 @@ const CHORES: Chore[] = [
     ],
     toast: "Booking confirmed by client",
     hours: 2,
+  },
+  {
+    id: "database",
+    chip: "Customer database",
+    icon: <Database size={16} />,
+    said: "My customer details are scattered everywhere.",
+    steps: [
+      { label: "When this happens", text: "A new customer or enquiry comes in from anywhere" },
+      { label: "AI does the legwork", text: "Adds them to one clean database and fills in the details" },
+      { label: "You get", text: "One up-to-date list, with no copy and paste" },
+    ],
+    toast: "Customer added to your database",
+    hours: 3,
+  },
+  {
+    id: "social",
+    chip: "Social posting",
+    icon: <Share2 size={16} />,
+    said: "I never get time to post on social.",
+    steps: [
+      { label: "When this happens", text: "Once a week, or when you finish a job" },
+      { label: "AI does the legwork", text: "Drafts posts in your voice for you to approve" },
+      { label: "You get", text: "A steady social presence in minutes a week" },
+    ],
+    toast: "3 posts scheduled for this week",
+    hours: 4,
+  },
+  {
+    id: "reports",
+    chip: "Weekly reports",
+    icon: <BarChart3 size={16} />,
+    said: "Pulling numbers together takes half my Friday.",
+    steps: [
+      { label: "When this happens", text: "Every Friday afternoon" },
+      { label: "AI does the legwork", text: "Gathers sales, leads and jobs into one summary" },
+      { label: "You get", text: "A plain-English report in your inbox" },
+    ],
+    toast: "Weekly report sent to your inbox",
+    hours: 3,
+  },
+  {
+    id: "onboarding",
+    chip: "New client onboarding",
+    icon: <UserPlus size={16} />,
+    said: "Every new client means the same admin again.",
+    steps: [
+      { label: "When this happens", text: "A client says yes" },
+      { label: "AI does the legwork", text: "Sends the welcome pack, forms and first booking link" },
+      { label: "You get", text: "Clients set up properly, without you lifting a finger" },
+    ],
+    toast: "Welcome pack sent",
+    hours: 3,
   },
 ];
 
@@ -157,9 +209,9 @@ export function HomeHero() {
           </p>
 
           <div className="mt-9 flex flex-col sm:flex-row gap-3.5">
-            <Link href="/free-audit">
+            <Link href="/free-report">
               <Button className="h-13 bg-[#7C3AED] hover:bg-[#6D28D9] text-white text-base font-semibold px-7 py-6 rounded-xl shadow-lg shadow-purple-600/30 transition-all hover:-translate-y-0.5">
-                Get your free audit
+                Get your free report
                 <ArrowRight className="ml-2" size={18} />
               </Button>
             </Link>
@@ -204,14 +256,14 @@ export function HomeHero() {
 
             <div className="p-5 sm:p-6">
               <p className="text-sm text-[#1E1038]/60">Pick a job you'd love to hand off</p>
-              <div role="tablist" aria-label="Example jobs" className="mt-3 grid grid-cols-2 gap-2">
+              <div role="tablist" aria-label="Example jobs" className="mt-3 flex flex-wrap gap-2">
                 {CHORES.map((c, i) => (
                   <button
                     key={c.id}
                     role="tab"
                     aria-selected={i === active}
                     onClick={() => { setAuto(false); setActive(i); }}
-                    className={`flex items-center gap-2 rounded-xl px-3.5 py-2.5 text-sm font-medium border text-left transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7C3AED] ${
+                    className={`flex items-center gap-2 rounded-full px-3.5 py-2 text-sm font-medium border text-left transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7C3AED] ${
                       i === active
                         ? "bg-[#7C3AED] border-[#7C3AED] text-white shadow-md shadow-purple-600/25"
                         : "bg-white border-[#1E1038]/12 text-[#1E1038]/75 hover:border-[#7C3AED]/50 hover:bg-[#7C3AED]/5"
@@ -281,7 +333,7 @@ export function HomeHero() {
                   <span className="text-sm text-white/75">hours a week back</span>
                 </p>
               </div>
-              <Link href="/free-audit">
+              <Link href="/free-report">
                 <a className="text-sm font-semibold text-white bg-white/12 hover:bg-white/20 rounded-lg px-3.5 py-2 transition-colors whitespace-nowrap">
                   Find yours
                 </a>

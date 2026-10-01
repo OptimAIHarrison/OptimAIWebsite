@@ -10,7 +10,7 @@ const WHAT_WE_DO = [
   {
     icon: <Target size={24} className="text-purple-500" />,
     title: "We find what's costing you",
-    description: "A free audit that maps every manual task, missed lead, and broken process in your business. Most clients find 10+ hours of waste in the first session.",
+    description: "A free report that maps every manual task, missed lead, and broken process in your business. Most clients find 10+ hours of waste in the first session.",
   },
   {
     icon: <Zap size={24} className="text-purple-500" />,
@@ -275,12 +275,12 @@ export default function About() {
               Ready to see what's possible?
             </h2>
             <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
-              Start with a free audit. We'll show you exactly where automation fits in your business and what it would be worth.
+              Start with a free report. We'll show you exactly where automation fits in your business and what it would be worth.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/free-audit">
+              <Link href="/free-report">
                 <Button className="bg-white text-purple-600 hover:bg-white/90 text-lg px-8 py-5 font-bold">
-                  Get Your Free Audit
+                  Get Your Free Report
                   <ArrowRight className="ml-2" size={20} />
                 </Button>
               </Link>

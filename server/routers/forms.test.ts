@@ -77,7 +77,7 @@ describe("formsRouter", () => {
       });
 
       expect(result.success).toBe(true);
-      expect(result.message).toContain("Audit request submitted");
+      expect(result.message).toContain("Report request received");
     });
 
     it("should reject invalid email in audit form", async () => {

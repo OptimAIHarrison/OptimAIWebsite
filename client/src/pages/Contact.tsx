@@ -12,10 +12,10 @@ import { toast } from "sonner";
 const QUICK_LINKS = [
   {
     icon: <Zap size={20} className="text-purple-500" />,
-    label: "Want a free audit?",
+    label: "Want a free report?",
     description: "Get a full breakdown of your automation opportunities — free.",
-    href: "/free-audit",
-    cta: "Book Free Audit",
+    href: "/free-report",
+    cta: "Get Free Report",
   },
   {
     icon: <MessageCircle size={20} className="text-purple-500" />,

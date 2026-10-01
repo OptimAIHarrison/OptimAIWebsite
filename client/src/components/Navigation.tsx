@@ -80,9 +80,9 @@ export function Navigation() {
                 ROI Calculator
               </Button>
             </Link>
-            <Link href="/free-audit">
+            <Link href="/free-report">
               <Button className="hidden sm:inline-flex bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0">
-                Get Free AI & Automation Audit
+                Get Free AI & Automation Report
               </Button>
             </Link>
 
@@ -161,9 +161,9 @@ export function Navigation() {
                 ROI Calculator
               </Button>
             </Link>
-            <Link href="/free-audit">
+            <Link href="/free-report">
               <Button className="w-full mt-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0">
-                Get Free AI & Automation Audit
+                Get Free AI & Automation Report
               </Button>
             </Link>
           </div>

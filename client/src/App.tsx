@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { useEffect } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
-import { Route, Switch, useLocation } from "wouter";
+import { Route, Switch, useLocation, Redirect } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { ChatbotWidget } from "./components/ChatbotWidget";
@@ -18,7 +18,7 @@ import Pricing from "./pages/Pricing";
 import Resources from "./pages/Resources";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
-import FreeAudit from "./pages/FreeAudit";
+import FreeReport from "./pages/FreeReport";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 import Login from "./pages/Login";
@@ -74,7 +74,8 @@ function Router() {
       <Route path={"/products"} component={Products} />
       <Route path={"/faq"} component={FAQ} />
       <Route path={"/contact"} component={Contact} />
-      <Route path={"/free-audit"} component={FreeAudit} />
+      <Route path={"/free-report"} component={FreeReport} />
+      <Route path={"/free-audit"}>{() => <Redirect to="/free-report" />}</Route>
       <Route path={"/privacy"} component={Privacy} />
       <Route path={"/terms"} component={Terms} />
       <Route path={"/login"} component={Login} />

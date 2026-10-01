@@ -295,9 +295,9 @@ export default function Services() {
                         <div className="px-6 pb-6 flex items-center justify-between flex-wrap gap-4 border-t border-white/10 pt-5">
                           <p className="text-sm text-foreground/60">Ready to get started with {service.title}?</p>
                           <div className="flex items-center gap-3">
-                            <Link href="/free-audit">
+                            <Link href="/free-report">
                               <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white">
-                                Get a Free Audit
+                                Get a Free Report
                                 <ArrowRight size={15} className="ml-2" />
                               </Button>
                             </Link>
@@ -327,11 +327,11 @@ export default function Services() {
         >
           <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-10 max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-white mb-4">Not sure which service fits?</h2>
-            <p className="text-white/90 mb-8 text-lg">Get a free audit and we'll map the right services to your business goals.</p>
+            <p className="text-white/90 mb-8 text-lg">Get a free report and we'll map the right services to your business goals.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/free-audit">
+            <Link href="/free-report">
               <Button className="bg-white text-purple-600 hover:bg-white/90 text-lg px-8 py-5 font-bold">
-                Get Your Free AI Audit
+                Get Your Free AI Report
                 <ArrowRight className="ml-2" size={20} />
               </Button>
             </Link>

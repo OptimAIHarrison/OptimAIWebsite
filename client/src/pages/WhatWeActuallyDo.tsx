@@ -286,12 +286,12 @@ export default function WhatWeActuallyDo() {
               Not sure which stage you're at?
             </h2>
             <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
-              Start with a free audit. We'll work it out together. No pressure, no sales pitch, just an honest conversation about what makes sense for your business.
+              Start with a free report. We'll work it out together. No pressure, no sales pitch, just an honest conversation about what makes sense for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/free-audit">
+              <Link href="/free-report">
                 <Button className="bg-white text-purple-600 hover:bg-white/90 text-lg px-8 py-5 font-bold">
-                  Get Your Free Audit
+                  Get Your Free Report
                   <ArrowRight className="ml-2" size={20} />
                 </Button>
               </Link>

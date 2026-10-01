@@ -25,7 +25,7 @@ const knowledgeBase: Record<string, QAEntry[]> = {
         "[Our Core Services](#core-services)",
         "[Ready to Go Products](/products)",
         "[Take Our Service Finder Quiz](/services)",
-        "[Get Your Free Audit](/audit)"
+        "[Get Your Free Report](/free-report)"
       ]
     },
     {
@@ -34,7 +34,7 @@ const knowledgeBase: Record<string, QAEntry[]> = {
       pageSuggestions: [
         "[Learn More About Strategic Advisory](/services)",
         "[Our Core Services](#core-services)",
-        "[Get Your Free Audit](/audit)",
+        "[Get Your Free Report](/free-report)",
         "[Ready to Go Products](/products)"
       ]
     },
@@ -46,7 +46,7 @@ const knowledgeBase: Record<string, QAEntry[]> = {
         "[Our Core Services](#core-services)",
         "[See Case Studies](/case-studies)",
         "[Ready to Go Products](/products)",
-        "[Get Your Free Audit](/audit)"
+        "[Get Your Free Report](/free-report)"
       ]
     },
     {
@@ -57,7 +57,7 @@ const knowledgeBase: Record<string, QAEntry[]> = {
         "[Our Core Services](#core-services)",
         "[Check Our ROI Calculator](/roi-calculator)",
         "[Ready to Go Products](/products)",
-        "[Get Your Free Audit](/audit)"
+        "[Get Your Free Report](/free-report)"
       ]
     },
     {
@@ -66,7 +66,7 @@ const knowledgeBase: Record<string, QAEntry[]> = {
       pageSuggestions: [
         "[Learn More About AI Integration](/services)",
         "[Our Core Services](#core-services)",
-        "[Get Your Free Audit](/audit)",
+        "[Get Your Free Report](/free-report)",
         "[Ready to Go Products](/products)"
       ]
     },
@@ -77,7 +77,7 @@ const knowledgeBase: Record<string, QAEntry[]> = {
         "[Learn More About Managed Services](/services)",
         "[Our Core Services](#core-services)",
         "[Contact Us](/contact)",
-        "[Get Your Free Audit](/audit)"
+        "[Get Your Free Report](/free-report)"
       ]
     }
   ],
@@ -88,15 +88,15 @@ const knowledgeBase: Record<string, QAEntry[]> = {
       pageSuggestions: [
         "[View Pricing Details](/pricing)",
         "[Calculate Your ROI](/roi-calculator)",
-        "[Get Your Free Audit](/audit)",
+        "[Get Your Free Report](/free-report)",
         "[Ready to Go Products](/products)"
       ]
     },
     {
-      keywords: ["free", "trial", "consultation", "no cost", "audit"],
-      answer: "Yes! We offer a **Free AI & Automation Audit** where our experts analyze your business and provide personalized recommendations at no cost. This is a great way to understand where automation can help you and what the potential ROI could be.",
+      keywords: ["free", "trial", "consultation", "no cost", "audit", "report", "free report"],
+      answer: "Yes! We offer a **Free AI & Automation Report** where our experts analyze your business and provide personalized recommendations at no cost. This is a great way to understand where automation can help you and what the potential ROI could be.",
       pageSuggestions: [
-        "[Get Your Free Audit](/audit)",
+        "[Get Your Free Report](/free-report)",
         "[Contact Us](/contact)"
       ]
     }
@@ -106,7 +106,7 @@ const knowledgeBase: Record<string, QAEntry[]> = {
       keywords: ["timeline", "how long", "duration", "implementation", "how fast"],
       answer: "Implementation timelines vary based on project scope:\n\n- **Quick Wins (1-3 months)** - Small, focused automation projects\n- **Medium-term (3-6 months)** - Larger initiatives with multiple processes\n- **Long-term (6+ months)** - Enterprise-wide transformations\n\nMost clients see initial results within the first month.",
       pageSuggestions: [
-        "[Get Your Free Audit](/audit)",
+        "[Get Your Free Report](/free-report)",
         "[View Case Studies](/case-studies)",
         "[Contact Us](/contact)"
       ]
@@ -117,7 +117,7 @@ const knowledgeBase: Record<string, QAEntry[]> = {
       pageSuggestions: [
         "[Learn More About Our Process](/what-we-actually-do)",
         "[Our Core Services](#core-services)",
-        "[Get Your Free Audit](/audit)",
+        "[Get Your Free Report](/free-report)",
         "[Contact Us](/contact)"
       ]
     }
@@ -128,7 +128,7 @@ const knowledgeBase: Record<string, QAEntry[]> = {
       answer: "OptimAI is a great fit if you:\n- Spend significant time on manual, repetitive tasks\n- Want to improve efficiency and reduce costs\n- Are looking to scale without increasing headcount\n- Want to make data-driven decisions\n- Are ready to invest in automation and AI\n\n**Not sure?** Take our Service Finder Quiz to get personalized recommendations!",
       pageSuggestions: [
         "[Take Our Service Finder Quiz](/services)",
-        "[Get Your Free Audit](/audit)",
+        "[Get Your Free Report](/free-report)",
         "[View Case Studies](/case-studies)",
         "[Our Core Services](#core-services)"
       ]
@@ -137,7 +137,7 @@ const knowledgeBase: Record<string, QAEntry[]> = {
       keywords: ["company size", "startup", "enterprise", "small business", "large company"],
       answer: "We work with businesses of all sizes:\n\n- **1-10 employees** - Perfect for focused automation projects\n- **11-50 employees** - Growing businesses looking to scale\n- **50-200 employees** - Established companies optimizing operations\n- **200+ employees** - Enterprise-wide transformations\n\nThe key is having clear goals and a willingness to embrace automation.",
       pageSuggestions: [
-        "[Get Your Free Audit](/audit)",
+        "[Get Your Free Report](/free-report)",
         "[View Case Studies](/case-studies)",
         "[Ready to Go Products](/products)"
       ]
@@ -159,7 +159,7 @@ const knowledgeBase: Record<string, QAEntry[]> = {
       pageSuggestions: [
         "[Why Choose OptimAI](/why-optimai)",
         "[View Case Studies](/case-studies)",
-        "[Get Your Free Audit](/audit)"
+        "[Get Your Free Report](/free-report)"
       ]
     },
     {
@@ -167,7 +167,7 @@ const knowledgeBase: Record<string, QAEntry[]> = {
       answer: "Yes! We have several case studies showing how we've helped businesses achieve real results. Our clients have seen:\n\n- 80% reduction in manual work\n- 35% increase in conversion rates\n- 3-month ROI on automation investments\n- Significant time and cost savings",
       pageSuggestions: [
         "[View Case Studies](/case-studies)",
-        "[Get Your Free Audit](/audit)",
+        "[Get Your Free Report](/free-report)",
         "[Our Core Services](#core-services)"
       ]
     }
@@ -177,7 +177,7 @@ const knowledgeBase: Record<string, QAEntry[]> = {
       keywords: ["tools", "platforms", "technology", "integration", "software", "systems"],
       answer: "We work with a wide range of tools and platforms:\n\n- **Automation Platforms:** Zapier, Make, n8n, and custom solutions\n- **AI & Analytics:** OpenAI, custom ML models, data warehouses\n- **CRM & Marketing:** HubSpot, Salesforce, Marketo\n- **Business Tools:** Airtable, Notion, Google Workspace, Microsoft 365\n- **Custom Integrations:** We can integrate virtually any system",
       pageSuggestions: [
-        "[Get Your Free Audit](/audit)",
+        "[Get Your Free Report](/free-report)",
         "[Contact Us](/contact)",
         "[Our Core Services](#core-services)"
       ]
@@ -186,7 +186,7 @@ const knowledgeBase: Record<string, QAEntry[]> = {
       keywords: ["integrate", "integration", "existing", "current system", "compatibility"],
       answer: "Yes! We specialize in integrating with existing systems. Whether you use Salesforce, HubSpot, QuickBooks, or custom software, we can connect them with automation and AI solutions.\n\n**Our approach:**\n- Assess your current tech stack\n- Identify integration opportunities\n- Build custom connectors if needed\n- Ensure data flows seamlessly",
       pageSuggestions: [
-        "[Get Your Free Audit](/audit)",
+        "[Get Your Free Report](/free-report)",
         "[Contact Us](/contact)",
         "[AI Integration Service](/services)"
       ]
@@ -195,10 +195,10 @@ const knowledgeBase: Record<string, QAEntry[]> = {
   contact: [
     {
       keywords: ["contact", "reach out", "get in touch", "call", "email", "message"],
-      answer: "You can reach us in several ways:\n\n- **Email:** hello@optimai.com.au\n- **Contact Form:** Fill out our contact form and we'll get back to you within 24 hours\n- **Free Audit:** Start with our free AI & Automation Audit\n- **Live Chat:** You're chatting with us right now!",
+      answer: "You can reach us in several ways:\n\n- **Email:** hello@optimai.com.au\n- **Contact Form:** Fill out our contact form and we'll get back to you within 24 hours\n- **Free Report:** Start with our free AI & Automation Report\n- **Live Chat:** You're chatting with us right now!",
       pageSuggestions: [
         "[Contact Us](/contact)",
-        "[Get Your Free Audit](/audit)",
+        "[Get Your Free Report](/free-report)",
         "**[Send a Message](#send-message)** - Click here to send a detailed message"
       ]
     },
@@ -207,7 +207,7 @@ const knowledgeBase: Record<string, QAEntry[]> = {
       answer: "Absolutely! We offer free consultation calls to discuss your business needs and explore how OptimAI can help.",
       pageSuggestions: [
         "[Contact Us](/contact)",
-        "[Get Your Free Audit](/audit)"
+        "[Get Your Free Report](/free-report)"
       ]
     }
   ],
@@ -219,7 +219,7 @@ const knowledgeBase: Record<string, QAEntry[]> = {
         "[View Ready to Go Products](/products)",
         "[Our Marketplace](/products)",
         "[Our Core Services](#core-services)",
-        "[Get Your Free Audit](/audit)"
+        "[Get Your Free Report](/free-report)"
       ]
     },
     {
@@ -229,7 +229,7 @@ const knowledgeBase: Record<string, QAEntry[]> = {
         "[View Ready to Go Products](/products)",
         "[Our Marketplace](/products)",
         "**[Send a Message](#send-message)** - Ask about specific product timelines",
-        "[Get Your Free Audit](/audit)"
+        "[Get Your Free Report](/free-report)"
       ]
     }
   ]
@@ -320,11 +320,11 @@ export function findBestMatch(userMessage: string): MatchResult | null {
 export function getFallbackResponse(attemptCount: number): { answer: string; pageSuggestions: string[] } {
   if (attemptCount < 2) {
     return {
-      answer: "I'm not sure I understood that correctly. Here are some things I can help with:\n- Learn about our services\n- Understand pricing and ROI\n- Get your free audit\n- Browse Ready to Go Products\n- Schedule a consultation\n\nOr, send a message to our team and they'll get back to you within 24 hours.",
+      answer: "I'm not sure I understood that correctly. Here are some things I can help with:\n- Learn about our services\n- Understand pricing and ROI\n- Get your free report\n- Browse Ready to Go Products\n- Schedule a consultation\n\nOr, send a message to our team and they'll get back to you within 24 hours.",
       pageSuggestions: [
         "[View All Services](/services)",
         "[Our Core Services](#core-services)",
-        "[Get Your Free Audit](/audit)",
+        "[Get Your Free Report](/free-report)",
         "[Ready to Go Products](/products)",
         "[Contact Us](/contact)"
       ]

@@ -313,12 +313,12 @@ export default function WhyOptimAI() {
               Still not sure? Let's find out together.
             </h2>
             <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
-              Book a free audit. We'll map your biggest time and money leaks, tell you exactly what we'd fix - and there's zero obligation to work with us.
+              Get a free report. We'll map your biggest time and money leaks, tell you exactly what we'd fix - and there's zero obligation to work with us.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/free-audit">
+              <Link href="/free-report">
                 <Button className="bg-white text-purple-600 hover:bg-white/90 text-lg px-8 py-5 font-bold">
-                  Get Your Free Audit
+                  Get Your Free Report
                   <ArrowRight className="ml-2" size={20} />
                 </Button>
               </Link>

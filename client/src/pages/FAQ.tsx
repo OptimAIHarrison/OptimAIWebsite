@@ -309,9 +309,9 @@ export default function FAQ() {
               Get personalized answers and recommendations from our team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/audit">
+              <Link href="/free-report">
                 <Button className="bg-white text-accent hover:bg-white/90">
-                  Get Your Free Audit
+                  Get Your Free Report
                   <ArrowRight size={16} className="ml-2" />
                 </Button>
               </Link>

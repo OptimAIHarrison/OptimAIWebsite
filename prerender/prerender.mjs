@@ -40,7 +40,7 @@ const ROUTES = [
   "/products",
   "/faq",
   "/contact",
-  "/free-audit",
+  "/free-report",
 ];
 
 function startStaticServer() {

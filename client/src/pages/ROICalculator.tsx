@@ -274,9 +274,9 @@ export default function ROICalculator() {
                   <p className="text-foreground/70 text-lg font-semibold">
                     Ready to unlock these savings?
                   </p>
-                  <Link href="/free-audit">
+                  <Link href="/free-report">
                     <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-6 rounded-xl font-semibold inline-flex items-center gap-2 w-full justify-center text-lg">
-                      Get Your Free AI & Automation Audit
+                      Get Your Free AI & Automation Report
                       <ArrowRight size={24} />
                     </Button>
                   </Link>

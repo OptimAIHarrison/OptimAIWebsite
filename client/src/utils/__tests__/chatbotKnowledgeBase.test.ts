@@ -52,7 +52,7 @@ describe("Chatbot Knowledge Base", () => {
     it("should include audit links in service suggestions", () => {
       const result = findBestMatch("What services do you offer?");
       expect(result).not.toBeNull();
-      expect(result?.pageSuggestions.some((s) => s.includes("/audit"))).toBe(true);
+      expect(result?.pageSuggestions.some((s) => s.includes("/free-report"))).toBe(true);
     });
 
     it("should include core services section links", () => {
@@ -98,7 +98,7 @@ describe("Chatbot Knowledge Base", () => {
 
     it("should include audit link in fallback", () => {
       const result = getFallbackResponse(0);
-      expect(result.pageSuggestions.some((s) => s.includes("/audit"))).toBe(true);
+      expect(result.pageSuggestions.some((s) => s.includes("/free-report"))).toBe(true);
     });
 
     it("should include products link in fallback", () => {
@@ -216,7 +216,7 @@ describe("Chatbot Knowledge Base", () => {
       serviceQuestions.forEach((question) => {
         const result = findBestMatch(question);
         if (result && result.confidence > 0.5) {
-          expect(result.pageSuggestions.some((s) => s.includes("/audit"))).toBe(true);
+          expect(result.pageSuggestions.some((s) => s.includes("/free-report"))).toBe(true);
         }
       });
     });

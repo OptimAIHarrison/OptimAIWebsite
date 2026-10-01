@@ -19,7 +19,7 @@ const WHO_WE_HELP = [
 ];
 
 const HOW_IT_WORKS = [
-  { title: "We have a chat", text: "A free audit. You tell us what eats your week, we point out what can be handed off and what it's worth. No obligation." },
+  { title: "Tell us how you work", text: "Answer a few questions about what eats your week. We send you a free report showing where AI and automation can save you time, and what that's worth. No obligation." },
   { title: "We build it", text: "We set up the system and connect it to the tools you already use. Most projects are live in weeks, not months." },
   { title: "You run it", text: "We train your team, hand it over, and stay on call. No lock-in contract, so you stay because it works." },
 ];
@@ -101,9 +101,9 @@ export default function Home() {
             ))}
           </ol>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Link href="/free-audit">
+            <Link href="/free-report">
               <Button className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white rounded-xl px-6 py-5">
-                Start with the free audit
+                Start with the free report
                 <ArrowRight className="ml-2" size={16} />
               </Button>
             </Link>
@@ -355,12 +355,12 @@ export default function Home() {
               Not sure where to start? That's normal.
             </h2>
             <p className="relative text-white/80 text-lg mb-8 max-w-xl mx-auto">
-              Book a free audit. We'll show you what's worth automating, what it's worth to you, and how fast we can get it live. No jargon, no obligation, no lock-in.
+              Get your free report. It shows where AI and automation can save you time, what that's worth to you, and how fast we can get it live. No jargon, no obligation, no lock-in.
             </p>
             <div className="relative flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/free-audit">
+              <Link href="/free-report">
                 <Button className="bg-white text-[#3B1A7A] hover:bg-white/90 text-lg px-8 py-5 font-bold">
-                  Get Your Free Audit
+                  Get Your Free Report
                   <ArrowRight className="ml-2" size={20} />
                 </Button>
               </Link>

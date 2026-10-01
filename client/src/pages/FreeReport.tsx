@@ -16,7 +16,7 @@ const AUDIT_AREAS = [
   { id: "finance", label: "Finance & Accounting", description: "Automate financial processes" },
 ];
 
-export default function FreeAudit() {
+export default function FreeReport() {
   const [step, setStep] = useState(1);
   const [selectedAreas, setSelectedAreas] = useState<string[]>([]);
   const [formData, setFormData] = useState({
@@ -58,7 +58,7 @@ export default function FreeAudit() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.auditAreas.length === 0) {
-      toast.error("Please select at least one audit area");
+      toast.error("Please pick at least one area");
       return;
     }
     try {
@@ -73,7 +73,7 @@ export default function FreeAudit() {
         toast.error(result.message);
       }
     } catch (error: any) {
-      toast.error(error.message || "Failed to submit audit request");
+      toast.error(error.message || "Something went wrong sending your request. Please try again.");
     }
   };
 
@@ -89,10 +89,10 @@ export default function FreeAudit() {
           animate="visible"
         >
           <motion.h1 variants={itemVariants} className="text-5xl lg:text-6xl font-bold mb-6">
-            Get Your <span className="gradient-text">Free AI and Automation Audit</span>
+            Get Your Free AI and Automation Report
           </motion.h1>
           <motion.p variants={itemVariants} className="text-xl text-foreground/70 max-w-2xl mx-auto">
-            Discover where your business can optimize with AI and automation. Our experts will analyze your operations and provide actionable insights.
+            See where AI and automation could save your business time. Tell us how you work and we'll send a free report with practical recommendations and what they're worth.
           </motion.p>
         </motion.div>
       </section>
@@ -187,7 +187,7 @@ export default function FreeAudit() {
 
                 {step === 2 && (
                   <>
-                    <h2 className="text-2xl font-bold mb-6">Which areas would you like audited?</h2>
+                    <h2 className="text-2xl font-bold mb-6">Which areas should we look at?</h2>
                     <p className="text-foreground/70 mb-4">Select all areas relevant to your business:</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {AUDIT_AREAS.map((area) => (
@@ -308,7 +308,7 @@ export default function FreeAudit() {
                         disabled={submitAudit.isPending}
                         className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 text-lg py-6 rounded-xl disabled:opacity-50"
                       >
-                        {submitAudit.isPending ? "Submitting..." : "Get My Audit"}
+                        {submitAudit.isPending ? "Submitting..." : "Get My Free Report"}
                         <ArrowRight className="ml-2" size={20} />
                       </Button>
                     </div>
@@ -321,7 +321,7 @@ export default function FreeAudit() {
               <CheckCircle size={64} className="mx-auto mb-6 text-accent" />
               <h2 className="text-3xl font-bold mb-4">Thank You!</h2>
               <p className="text-foreground/70 mb-8">
-                Your audit request has been received. Our team will analyze your business and contact you within 24 hours with personalized recommendations for the areas you selected.
+                Your report request is in. We'll review how your business runs and get back to you within 24 hours with practical recommendations for the areas you picked.
               </p>
               <Button
                 onClick={() => (window.location.href = "/")}

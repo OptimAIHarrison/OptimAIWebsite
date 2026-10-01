@@ -317,14 +317,14 @@ export default function Pricing() {
 
                         <div className="flex items-start gap-2 mb-6 text-xs text-foreground/50">
                           <Info size={14} className="flex-shrink-0 mt-0.5" />
-                          <span>This is an estimate. Your free audit gives you an exact, fixed-price quote.</span>
+                          <span>This is an estimate. Your free report gives you an exact, fixed-price quote.</span>
                         </div>
                       </>
                     )}
                   </motion.div>
                 </AnimatePresence>
 
-                <Link href="/free-audit">
+                <Link href="/free-report">
                   <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-5">
                     Get Exact Pricing
                     <ArrowRight size={16} className="ml-2" />
@@ -434,11 +434,11 @@ export default function Pricing() {
           >
             <h2 className="text-3xl font-bold text-white mb-4">Ready for an exact number?</h2>
             <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
-              The estimate above is a starting point. A free audit gets you a fixed, no-surprises quote.
+              The estimate above is a starting point. A free report gets you a fixed, no-surprises quote.
             </p>
-            <Link href="/free-audit">
+            <Link href="/free-report">
               <Button className="bg-white text-purple-600 hover:bg-white/90 text-lg px-8 py-5 font-bold">
-                Get Your Free Audit
+                Get Your Free Report
                 <ArrowRight className="ml-2" size={20} />
               </Button>
             </Link>
