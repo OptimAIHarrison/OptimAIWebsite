@@ -215,13 +215,13 @@ export default function Home() {
 
                     <div className="grid grid-cols-2 gap-3 pt-4 border-t border-white/10">
                       <div>
-                        <p className="text-lg font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                        <p className="text-lg font-bold bg-[#7C3AED] bg-clip-text text-transparent">
                           {study.results.timeSaved}
                         </p>
                         <p className="text-foreground/50 text-xs">Time saved</p>
                       </div>
                       <div>
-                        <p className="text-lg font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                        <p className="text-lg font-bold bg-[#7C3AED] bg-clip-text text-transparent">
                           {study.results.costSavings}
                         </p>
                         <p className="text-foreground/50 text-xs">Cost savings</p>
@@ -321,7 +321,7 @@ export default function Home() {
             </motion.p>
             <motion.div key={`author-${testimonialIndex}`} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center">
               <div className="flex justify-center mb-3">
-                <div className="w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center">
+                <div className="w-14 h-14 rounded-full bg-[#7C3AED] flex items-center justify-center">
                   <User size={28} className="text-white" />
                 </div>
               </div>

@@ -216,7 +216,7 @@ export default function ArticleEditor() {
           <h1 className="text-2xl font-bold text-foreground">Article Editor</h1>
           <Button
             onClick={handleSave}
-            className="flex items-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-2 rounded-lg font-semibold"
+            className="flex items-center gap-2 bg-[#7C3AED] hover:bg-[#6D28D9] text-white px-6 py-2 rounded-lg font-semibold"
           >
             <Save className="w-5 h-5" />
             Save Article
@@ -290,7 +290,7 @@ export default function ArticleEditor() {
                   placeholder="Add a tag..."
                   className="flex-1 px-4 py-2 bg-white/5 border-2 border-purple-900/40 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50"
                 />
-                <Button onClick={handleAddTag} className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-lg">
+                <Button onClick={handleAddTag} className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white px-4 py-2 rounded-lg">
                   Add
                 </Button>
               </div>
@@ -309,7 +309,7 @@ export default function ArticleEditor() {
                       }}
                       className={`px-3 py-1 rounded-full text-xs font-semibold transition-all ${
                         article.tags.includes(tag)
-                          ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
+                          ? 'bg-[#7C3AED] text-white'
                           : 'bg-white/10 text-foreground/60 hover:bg-white/20'
                       }`}
                     >
@@ -347,7 +347,7 @@ export default function ArticleEditor() {
                     placeholder="https://example.com"
                     className="flex-1 px-4 py-2 bg-white/5 border-2 border-purple-900/40 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
-                  <Button onClick={handleAddLink} className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-lg">
+                  <Button onClick={handleAddLink} className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white px-4 py-2 rounded-lg">
                     Add Link
                   </Button>
                 </div>
@@ -376,7 +376,7 @@ export default function ArticleEditor() {
                     placeholder="https://youtube.com/watch?v=..."
                     className="flex-1 px-4 py-2 bg-white/5 border-2 border-purple-900/40 rounded-lg text-foreground placeholder-foreground/40 focus:outline-none focus:ring-2 focus:ring-accent/50"
                   />
-                  <Button onClick={handleAddVideo} className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-4 py-2 rounded-lg">
+                  <Button onClick={handleAddVideo} className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white px-4 py-2 rounded-lg">
                     Add Video
                   </Button>
                 </div>
@@ -547,7 +547,7 @@ export default function ArticleEditor() {
             {/* Save Button */}
             <Button
               onClick={handleSave}
-              className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 rounded-lg"
+              className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-semibold py-3 rounded-lg"
             >
               Save Article
             </Button>
@@ -586,7 +586,7 @@ export default function ArticleEditor() {
               <div className="flex gap-3">
                 <button
                   onClick={() => { setShowPreview(false); setShowConfirm(true); }}
-                  className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 rounded-lg"
+                  className="flex-1 bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-semibold py-3 rounded-lg"
                 >
                   Confirm & Publish
                 </button>
@@ -614,7 +614,7 @@ export default function ArticleEditor() {
               <div className="flex gap-3">
                 <button
                   onClick={() => { setShowConfirm(false); performSave(); }}
-                  className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold py-3 rounded-lg"
+                  className="flex-1 bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-semibold py-3 rounded-lg"
                 >
                   Yes, Publish
                 </button>

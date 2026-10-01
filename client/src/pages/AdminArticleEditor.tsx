@@ -160,7 +160,7 @@ export default function AdminArticleEditor() {
               </Button>
               <Button
                 onClick={handleSave}
-                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white flex items-center gap-2"
+                className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white flex items-center gap-2"
               >
                 <Save size={18} />
                 Save Article

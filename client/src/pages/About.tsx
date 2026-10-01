@@ -91,9 +91,9 @@ export default function About() {
             </div>
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
               AI is moving fast.<br />
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              
                 We help you keep up.
-              </span>
+              
             </h1>
             <p className="text-xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
               OptimAI was built because SMEs and startups were being priced out of the AI revolution and that felt wrong.
@@ -117,7 +117,7 @@ export default function About() {
 
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-600 to-pink-600 hidden md:block" />
+            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-[#7C3AED] hidden md:block" />
 
             <div className="space-y-10">
               {TIMELINE.map((item, idx) => (
@@ -130,7 +130,7 @@ export default function About() {
                   className="md:pl-16 relative"
                 >
                   {/* Dot */}
-                  <div className="hidden md:flex absolute left-0 top-1 w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 items-center justify-center text-white text-xs font-bold flex-shrink-0">
+                  <div className="hidden md:flex absolute left-0 top-1 w-12 h-12 rounded-full bg-[#7C3AED] items-center justify-center text-white text-xs font-bold flex-shrink-0">
                     {idx + 1}
                   </div>
 
@@ -243,7 +243,7 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.08 }}
-                  className="p-6 rounded-2xl bg-gradient-to-br from-purple-600/10 to-pink-600/5 border-2 border-purple-500/20"
+                  className="p-6 rounded-2xl bg-[#7C3AED]/5 border-2 border-purple-500/20"
                 >
                   <div className="text-lg font-bold text-foreground mb-1">{item.label}</div>
                   <div className="text-xs text-purple-600 font-medium mb-3">{item.examples}</div>
@@ -269,7 +269,7 @@ export default function About() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-12 text-center"
+            className="bg-[#7C3AED] rounded-2xl p-12 text-center"
           >
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
               Ready to see what's possible?

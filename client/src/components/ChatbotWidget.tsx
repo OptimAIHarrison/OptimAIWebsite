@@ -80,7 +80,7 @@ export function ChatbotWidget() {
     <>
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center"
+        className="fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full bg-[#7C3AED] text-white shadow-lg hover:shadow-xl transition-shadow flex items-center justify-center"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
       >
@@ -106,7 +106,7 @@ export function ChatbotWidget() {
             transition={{ duration: 0.2 }}
             className="fixed bottom-24 right-6 z-40 w-96 max-w-[calc(100vw-2rem)] h-96 rounded-2xl glass-card shadow-2xl flex flex-col overflow-hidden"
           >
-            <div className="bg-gradient-to-r from-purple-600 to-pink-600 p-4 text-white">
+            <div className="bg-[#7C3AED] p-4 text-white">
               <h3 className="font-bold">OptimAI Assistant</h3>
               <p className="text-sm opacity-90">We typically reply within 24 hours</p>
             </div>

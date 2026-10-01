@@ -81,8 +81,8 @@ export function Navigation() {
               </Button>
             </Link>
             <Link href="/free-report">
-              <Button className="hidden sm:inline-flex bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0">
-                Get Free AI & Automation Report
+              <Button className="hidden sm:inline-flex bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-0">
+                Get your free report
               </Button>
             </Link>
 
@@ -162,8 +162,8 @@ export function Navigation() {
               </Button>
             </Link>
             <Link href="/free-report">
-              <Button className="w-full mt-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0">
-                Get Free AI & Automation Report
+              <Button className="w-full mt-2 bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-0">
+                Get your free report
               </Button>
             </Link>
           </div>

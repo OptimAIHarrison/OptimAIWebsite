@@ -83,12 +83,12 @@ export default function Services() {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-              Our Core Services
-            </span>
+            
+              How we can help
+            
           </h1>
           <p className="text-xl text-foreground/70">
-            Six specialised practices - from strategy through to ongoing support - designed to transform how your business operates and grows.
+            Six practical services, from working out where to start through to keeping everything running smoothly. Pick one, or combine a few.
           </p>
         </motion.div>
       </section>
@@ -103,7 +103,7 @@ export default function Services() {
                 onClick={() => setViewMode("simple")}
                 className={`px-6 py-2 font-medium text-sm transition-all ${
                   viewMode === "simple"
-                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                    ? "bg-[#7C3AED] text-white"
                     : "bg-transparent text-foreground/70 hover:bg-purple-500/5"
                 }`}
               >
@@ -113,7 +113,7 @@ export default function Services() {
                 onClick={() => setViewMode("technical")}
                 className={`px-6 py-2 font-medium text-sm transition-all border-l-2 border-purple-300/50 ${
                   viewMode === "technical"
-                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                    ? "bg-[#7C3AED] text-white"
                     : "bg-transparent text-foreground/70 hover:bg-purple-500/5"
                 }`}
               >
@@ -130,7 +130,7 @@ export default function Services() {
                 onClick={() => handleServiceButtonClick(service.id)}
                 className={`px-4 py-2 rounded-full font-medium text-sm transition-all border-2 ${
                   expanded === service.id
-                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-purple-600"
+                    ? "bg-[#7C3AED] text-white border-purple-600"
                     : "bg-transparent text-foreground/70 border-purple-300/50 hover:border-purple-500 hover:bg-purple-500/5"
                 }`}
               >
@@ -255,7 +255,7 @@ export default function Services() {
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                 {service.process.map((step, idx) => (
                                   <div key={idx} className="flex gap-3 p-3 rounded-lg bg-white/5 border border-purple-900/20">
-                                    <div className="w-6 h-6 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">
+                                    <div className="w-6 h-6 rounded-full bg-[#7C3AED] flex items-center justify-center text-white text-xs font-bold flex-shrink-0 mt-0.5">
                                       {idx + 1}
                                     </div>
                                     <p className="text-sm text-foreground/80">{step}</p>
@@ -296,7 +296,7 @@ export default function Services() {
                           <p className="text-sm text-foreground/60">Ready to get started with {service.title}?</p>
                           <div className="flex items-center gap-3">
                             <Link href="/free-report">
-                              <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white">
+                              <Button className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white">
                                 Get a Free Report
                                 <ArrowRight size={15} className="ml-2" />
                               </Button>
@@ -325,7 +325,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-10 max-w-3xl mx-auto">
+          <div className="bg-[#7C3AED] rounded-2xl p-10 max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-white mb-4">Not sure which service fits?</h2>
             <p className="text-white/90 mb-8 text-lg">Get a free report and we'll map the right services to your business goals.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

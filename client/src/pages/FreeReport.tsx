@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, Clock, Calculator, Rocket } from "lucide-react";
 import { trpc } from "@/lib/trpc";
 import { toast } from "sonner";
 
@@ -81,7 +81,7 @@ export default function FreeReport() {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      <section className="pt-40 pb-20 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
+      <section className="pt-40 pb-16 bg-gradient-to-b from-[#F3EDFF] via-[#F8F5FF] to-white">
         <motion.div
           className="container mx-auto px-4 text-center"
           variants={containerVariants}
@@ -93,6 +93,22 @@ export default function FreeReport() {
           </motion.h1>
           <motion.p variants={itemVariants} className="text-xl text-foreground/70 max-w-2xl mx-auto">
             See where AI and automation could save your business time. Tell us how you work and we'll send a free report with practical recommendations and what they're worth.
+          </motion.p>
+          <motion.div variants={itemVariants} className="mt-12 grid sm:grid-cols-3 gap-5 max-w-4xl mx-auto text-left">
+            {[
+              { icon: Clock, title: "Where you can save time", text: "The jobs in your business that AI and automation can take off your plate." },
+              { icon: Calculator, title: "What it costs and what it's worth", text: "Plain numbers for each fix, so you can decide with confidence." },
+              { icon: Rocket, title: "How to get it live", text: "A simple plan and timeline. Most projects go live in weeks, not months." },
+            ].map((item) => (
+              <div key={item.title} className="rounded-2xl bg-white border border-[#1E1038]/10 p-5 shadow-sm">
+                <span className="grid place-items-center w-10 h-10 rounded-xl bg-[#7C3AED]/10 text-[#7C3AED]"><item.icon size={20} /></span>
+                <h3 className="mt-3 font-semibold text-[#1E1038]">{item.title}</h3>
+                <p className="mt-1 text-sm text-[#1E1038]/65 leading-relaxed">{item.text}</p>
+              </div>
+            ))}
+          </motion.div>
+          <motion.p variants={itemVariants} className="mt-6 text-sm text-[#1E1038]/60">
+            Three short steps. No obligation, no lock-in contract.
           </motion.p>
         </motion.div>
       </section>
@@ -106,20 +122,20 @@ export default function FreeReport() {
           viewport={{ once: true }}
         >
           {step < 4 ? (
-            <motion.div variants={itemVariants} className="glass-card p-8">
+            <motion.div variants={itemVariants} className="rounded-3xl bg-white border border-[#1E1038]/10 shadow-xl shadow-purple-900/5 p-8">
               <div className="flex justify-between mb-8">
                 {[1, 2, 3].map((s) => (
                   <div key={s} className="flex items-center">
                     <div
                       className={`w-10 h-10 rounded-full flex items-center justify-center font-bold ${
                         s <= step
-                          ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
-                          : "bg-white/10 text-foreground/50"
+                          ? "bg-[#7C3AED] text-white"
+                          : "bg-[#1E1038]/8 text-[#1E1038]/40"
                       }`}
                     >
                       {s}
                     </div>
-                    {s < 3 && <div className={`h-1 flex-1 mx-4 ${s < step ? "bg-accent" : "bg-white/10"}`} />}
+                    {s < 3 && <div className={`h-1 flex-1 mx-4 ${s < step ? "bg-[#7C3AED]" : "bg-[#1E1038]/10"}`} />}
                   </div>
                 ))}
               </div>
@@ -134,7 +150,7 @@ export default function FreeReport() {
                         type="text"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full bg-white/80 border-2 border-purple-300/60 rounded-lg px-4 py-3 shadow-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
+                        className="w-full bg-white border border-[#1E1038]/20 rounded-lg px-4 py-3 shadow-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                         placeholder="John Doe"
                         required
                       />
@@ -145,7 +161,7 @@ export default function FreeReport() {
                         type="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full bg-white/80 border-2 border-purple-300/60 rounded-lg px-4 py-3 shadow-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
+                        className="w-full bg-white border border-[#1E1038]/20 rounded-lg px-4 py-3 shadow-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                         placeholder="john@company.com"
                         required
                       />
@@ -156,7 +172,7 @@ export default function FreeReport() {
                         type="text"
                         value={formData.company}
                         onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        className="w-full bg-white/80 border-2 border-purple-300/60 rounded-lg px-4 py-3 shadow-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
+                        className="w-full bg-white border border-[#1E1038]/20 rounded-lg px-4 py-3 shadow-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                         placeholder="Your Company"
                         required
                       />
@@ -166,7 +182,7 @@ export default function FreeReport() {
                       <select
                         value={formData.teamSize}
                         onChange={(e) => setFormData({ ...formData, teamSize: e.target.value })}
-                        className="w-full bg-white/80 border-2 border-purple-300/60 rounded-lg px-4 py-3 shadow-sm text-foreground focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
+                        className="w-full bg-white border border-[#1E1038]/20 rounded-lg px-4 py-3 shadow-sm text-foreground focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                       >
                         <option value="1-10">1-10 employees</option>
                         <option value="11-50">11-50 employees</option>
@@ -177,7 +193,7 @@ export default function FreeReport() {
                     <Button
                       type="button"
                       onClick={() => setStep(2)}
-                      className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 text-lg py-6 rounded-xl"
+                      className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-0 text-lg py-6 rounded-xl"
                     >
                       Next
                       <ArrowRight className="ml-2" size={20} />
@@ -197,8 +213,8 @@ export default function FreeReport() {
                           onClick={() => handleAreaToggle(area.id)}
                           className={`p-4 rounded-lg border-2 transition-all text-left ${
                             selectedAreas.includes(area.id)
-                              ? "border-purple-600 bg-purple-600/15 shadow-md shadow-purple-600/20"
-                              : "border-purple-300/50 bg-white/5 hover:border-purple-500/80 hover:bg-white/10"
+                              ? "border-[#7C3AED] bg-[#7C3AED]/8 shadow-sm"
+                              : "border-[#1E1038]/15 bg-white hover:border-[#7C3AED]/60 hover:bg-purple-50"
                           }`}
                         >
                           <div className="flex items-start gap-3">
@@ -236,7 +252,7 @@ export default function FreeReport() {
                         type="button"
                         onClick={() => setStep(3)}
                         disabled={selectedAreas.length === 0}
-                        className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 text-lg py-6 rounded-xl disabled:opacity-50"
+                        className="flex-1 bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-0 text-lg py-6 rounded-xl disabled:opacity-50"
                       >
                         Next
                         <ArrowRight className="ml-2" size={20} />
@@ -254,7 +270,7 @@ export default function FreeReport() {
                         rows={4}
                         value={formData.currentChallenges}
                         onChange={(e) => setFormData({ ...formData, currentChallenges: e.target.value })}
-                        className="w-full bg-white/80 border-2 border-purple-300/60 rounded-lg px-4 py-3 shadow-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
+                        className="w-full bg-white border border-[#1E1038]/20 rounded-lg px-4 py-3 shadow-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                         placeholder="Describe the processes that are slowing you down..."
                         required
                       />
@@ -265,7 +281,7 @@ export default function FreeReport() {
                         rows={4}
                         value={formData.automationGoals}
                         onChange={(e) => setFormData({ ...formData, automationGoals: e.target.value })}
-                        className="w-full bg-white/80 border-2 border-purple-300/60 rounded-lg px-4 py-3 shadow-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
+                        className="w-full bg-white border border-[#1E1038]/20 rounded-lg px-4 py-3 shadow-sm text-foreground placeholder-foreground/50 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                         placeholder="What would success look like for your business?"
                         required
                       />
@@ -275,7 +291,7 @@ export default function FreeReport() {
                       <select
                         value={formData.timeline}
                         onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-                        className="w-full bg-white/80 border-2 border-purple-300/60 rounded-lg px-4 py-3 shadow-sm text-foreground focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
+                        className="w-full bg-white border border-[#1E1038]/20 rounded-lg px-4 py-3 shadow-sm text-foreground focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                       >
                         <option value="1-3">Quick wins (1-3 months)</option>
                         <option value="3-6">Medium-term (3-6 months)</option>
@@ -287,7 +303,7 @@ export default function FreeReport() {
                       <select
                         value={formData.budget}
                         onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                        className="w-full bg-white/80 border-2 border-purple-300/60 rounded-lg px-4 py-3 shadow-sm text-foreground focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
+                        className="w-full bg-white border border-[#1E1038]/20 rounded-lg px-4 py-3 shadow-sm text-foreground focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                       >
                         <option value="tight">Tight budget (looking for ROI quickly)</option>
                         <option value="moderate">Moderate budget (willing to invest)</option>
@@ -306,7 +322,7 @@ export default function FreeReport() {
                       <Button
                         type="submit"
                         disabled={submitAudit.isPending}
-                        className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 text-lg py-6 rounded-xl disabled:opacity-50"
+                        className="flex-1 bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-0 text-lg py-6 rounded-xl disabled:opacity-50"
                       >
                         {submitAudit.isPending ? "Submitting..." : "Get My Free Report"}
                         <ArrowRight className="ml-2" size={20} />
@@ -325,7 +341,7 @@ export default function FreeReport() {
               </p>
               <Button
                 onClick={() => (window.location.href = "/")}
-                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 text-lg py-6 rounded-xl"
+                className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-0 text-lg py-6 rounded-xl"
               >
                 Back to Home
               </Button>

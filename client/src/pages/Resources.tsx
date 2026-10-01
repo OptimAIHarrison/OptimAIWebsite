@@ -236,9 +236,9 @@ export default function Resources() {
             </div>
             <h1 className="text-5xl lg:text-6xl font-bold mb-6">
               Resources &{" "}
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              
                 Insights
-              </span>
+              
             </h1>
             <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
               No fluff. Practical guides on AI, automation, and how to make it work for your business.
@@ -257,7 +257,7 @@ export default function Resources() {
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 rounded-full font-medium text-sm transition-all ${
                   selectedCategory === category
-                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                    ? "bg-[#7C3AED] text-white"
                     : "bg-white/80 text-foreground/70 border border-purple-200 hover:border-purple-400/80 hover:bg-purple-50"
                 }`}
               >
@@ -294,7 +294,7 @@ export default function Resources() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent to-black/20" />
-                    <span className="absolute top-4 left-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                    <span className="absolute top-4 left-4 bg-[#7C3AED] text-white px-3 py-1 rounded-full text-xs font-bold">
                       Featured
                     </span>
                   </div>
@@ -335,7 +335,7 @@ export default function Resources() {
                           alt={article.title}
                           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                         />
-                        <span className="absolute top-3 left-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-2.5 py-1 rounded-full text-xs font-bold">
+                        <span className="absolute top-3 left-3 bg-[#7C3AED] text-white px-2.5 py-1 rounded-full text-xs font-bold">
                           {article.category}
                         </span>
                       </div>
@@ -394,7 +394,7 @@ export default function Resources() {
                 >
                   <X className="w-5 h-5 text-white" />
                 </button>
-                <span className="absolute bottom-4 left-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                <span className="absolute bottom-4 left-4 bg-[#7C3AED] text-white px-3 py-1 rounded-full text-xs font-bold">
                   {selectedArticleData.category}
                 </span>
               </div>
@@ -443,7 +443,7 @@ export default function Resources() {
                 )}
 
                 <a href={`/articles/${selectedArticleData.slug || selectedArticleData.id}`}>
-                  <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-5 text-base font-semibold">
+                  <Button className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white py-5 text-base font-semibold">
                     <BookOpen size={18} className="mr-2" />
                     Read Full Article
                     <ArrowRight size={16} className="ml-2" />
@@ -462,7 +462,7 @@ export default function Resources() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-12 text-center"
+            className="bg-[#7C3AED] rounded-2xl p-12 text-center"
           >
             <h2 className="text-3xl font-bold text-white mb-3">Stay in the loop</h2>
             <p className="text-white/90 mb-8 text-lg max-w-xl mx-auto">

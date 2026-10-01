@@ -60,7 +60,7 @@ export default function ROICalculator() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50">
       <Navigation />
       <SEO
         title="AI Automation ROI Calculator — How Much Could You Save? | OptimAI"
@@ -97,7 +97,7 @@ export default function ROICalculator() {
           >
             {/* Header */}
             <motion.div className="text-center mb-12" variants={itemVariants}>
-              <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <h1 className="text-5xl font-bold mb-4 bg-[#7C3AED] bg-clip-text text-transparent">
                 Calculate Your ROI
               </h1>
               <p className="text-xl text-foreground/70 mb-4">
@@ -210,7 +210,7 @@ export default function ROICalculator() {
                         onClick={() => toggleService(service.id)}
                         className={`p-4 rounded-lg border-2 font-semibold transition-all text-left ${
                           selectedServices.includes(service.id)
-                            ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-purple-600"
+                            ? "bg-[#7C3AED] text-white border-purple-600"
                             : "bg-white text-foreground border-purple-300/50 hover:border-purple-500 hover:bg-purple-50"
                         }`}
                       >
@@ -226,7 +226,7 @@ export default function ROICalculator() {
             {/* Results Row */}
             <motion.div variants={itemVariants} className="mb-8">
               <motion.div
-                className="glass-card p-8 rounded-2xl bg-gradient-to-r from-purple-600/10 to-pink-600/10 border-2 border-purple-300/50"
+                className="glass-card p-8 rounded-2xl bg-[#7C3AED]/10 border-2 border-purple-300/50"
                 variants={itemVariants}
               >
                 <h2 className="text-2xl font-bold mb-6 text-center">Your Potential Savings</h2>
@@ -238,7 +238,7 @@ export default function ROICalculator() {
                     <div className="text-foreground/70 text-sm">Hours Automated Per Year</div>
                   </div>
                   <div className="text-center pb-6 md:pb-0 md:border-r border-purple-200/50">
-                    <div className="text-4xl font-bold text-pink-600 mb-2">
+                    <div className="text-4xl font-bold text-purple-600 mb-2">
                       ${(yearlySavings / 1000).toFixed(0)}k
                     </div>
                     <div className="text-foreground/70 text-sm">Annual Cost Savings</div>
@@ -270,12 +270,12 @@ export default function ROICalculator() {
 
               {/* Right: CTA */}
               <motion.div variants={itemVariants} className="flex flex-col justify-center">
-                <motion.div className="glass-card p-12 rounded-2xl bg-gradient-to-r from-purple-600/10 to-pink-600/10 border-2 border-purple-300/50 text-center h-full flex flex-col justify-center gap-6" variants={itemVariants}>
+                <motion.div className="glass-card p-12 rounded-2xl bg-[#7C3AED]/10 border-2 border-purple-300/50 text-center h-full flex flex-col justify-center gap-6" variants={itemVariants}>
                   <p className="text-foreground/70 text-lg font-semibold">
                     Ready to unlock these savings?
                   </p>
                   <Link href="/free-report">
-                    <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-6 rounded-xl font-semibold inline-flex items-center gap-2 w-full justify-center text-lg">
+                    <Button className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white px-8 py-6 rounded-xl font-semibold inline-flex items-center gap-2 w-full justify-center text-lg">
                       Get Your Free AI & Automation Report
                       <ArrowRight size={24} />
                     </Button>

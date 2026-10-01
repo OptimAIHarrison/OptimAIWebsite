@@ -134,9 +134,9 @@ export default function WhatWeActuallyDo() {
             </div>
             <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               What we{" "}
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              
                 actually do
-              </span>
+              
             </h1>
             <p className="text-xl text-foreground/70 leading-relaxed">
               We help businesses automate the work that shouldn't need a human, so you and your team can focus on the work that does.
@@ -280,7 +280,7 @@ export default function WhatWeActuallyDo() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-12 text-center"
+            className="bg-[#7C3AED] rounded-2xl p-12 text-center"
           >
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
               Not sure which stage you're at?

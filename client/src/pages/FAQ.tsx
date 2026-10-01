@@ -71,7 +71,7 @@ export default function FAQ() {
             className="text-center mb-12"
           >
             <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-              Frequently Asked <span className="gradient-text">Questions</span>
+              Frequently Asked Questions
             </h1>
             <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
               Find answers to common questions about OptimAI services, pricing, implementation, and more.
@@ -296,7 +296,7 @@ export default function FAQ() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 to-pink-600">
+      <section className="py-20 bg-[#7C3AED]">
         <div className="container mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

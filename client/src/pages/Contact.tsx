@@ -100,9 +100,9 @@ export default function Contact() {
             </div>
             <h1 className="text-5xl lg:text-6xl font-bold mb-6">
               Let's have a{" "}
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              
                 conversation
-              </span>
+              
             </h1>
             <p className="text-xl text-foreground/70">
               No sales pressure. No jargon. Just an honest chat about what you're trying to solve.
@@ -199,7 +199,7 @@ export default function Contact() {
                     animate={{ opacity: 1, scale: 1 }}
                     className="text-center py-12"
                   >
-                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center mx-auto mb-6">
+                    <div className="w-16 h-16 rounded-full bg-[#7C3AED] flex items-center justify-center mx-auto mb-6">
                       <ArrowRight size={28} className="text-white" />
                     </div>
                     <h3 className="text-2xl font-bold text-foreground mb-3">Message sent!</h3>
@@ -270,7 +270,7 @@ export default function Contact() {
                       <Button
                         type="submit"
                         disabled={submitContact.isPending}
-                        className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 text-lg py-6 rounded-xl disabled:opacity-50"
+                        className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-0 text-lg py-6 rounded-xl disabled:opacity-50"
                       >
                         {submitContact.isPending ? "Sending..." : "Send Message"}
                         <ArrowRight className="ml-2" size={20} />

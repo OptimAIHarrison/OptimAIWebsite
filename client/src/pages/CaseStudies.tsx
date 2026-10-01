@@ -10,17 +10,17 @@ import { SEO } from "@/components/SEO";
 
 const CATEGORY_COLORS = [
   "from-purple-600 to-indigo-600",
-  "from-pink-600 to-purple-600",
+  "from-purple-600 to-purple-600",
   "from-indigo-600 to-cyan-600",
-  "from-fuchsia-600 to-purple-600",
+  "from-purple-600 to-purple-600",
   "from-cyan-600 to-blue-600",
 ];
 
 const CATEGORY_BG = [
   "bg-purple-600/10 border-purple-500/30",
-  "bg-pink-600/10 border-pink-500/30",
+  "bg-purple-600/10 border-purple-500/30",
   "bg-indigo-600/10 border-indigo-500/30",
-  "bg-fuchsia-600/10 border-fuchsia-500/30",
+  "bg-purple-600/10 border-purple-500/30",
   "bg-cyan-600/10 border-cyan-500/30",
 ];
 
@@ -74,7 +74,7 @@ export default function CaseStudies() {
       <section className="relative pt-40 pb-20 overflow-hidden bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
         <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
           <div className="absolute top-10 left-1/4 w-96 h-96 bg-purple-400/10 rounded-full blur-3xl" />
-          <div className="absolute top-40 right-1/4 w-80 h-80 bg-pink-400/10 rounded-full blur-3xl" />
+          <div className="absolute top-40 right-1/4 w-80 h-80 bg-purple-400/10 rounded-full blur-3xl" />
         </div>
 
         <div className="container mx-auto px-4 max-w-4xl text-center">
@@ -87,13 +87,11 @@ export default function CaseStudies() {
               Real clients. Real numbers.
             </div>
             <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-              Client Success{" "}
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Stories
-              </span>
+              What our clients got
+              
             </h1>
             <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
-              No fluff, no vague claims. Here's exactly what we built, what changed, and what it was worth — in the clients' own words.
+              Here's what we built, what changed, and what it was worth, with the real numbers.
             </p>
           </motion.div>
 
@@ -117,7 +115,7 @@ export default function CaseStudies() {
                   {stat.icon}
                 </div>
                 <div className="flex-1 sm:flex-none">
-                  <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent whitespace-nowrap">
+                  <div className="text-xl sm:text-2xl font-bold bg-[#7C3AED] bg-clip-text text-transparent whitespace-nowrap">
                     {stat.value}
                   </div>
                   <div className="text-xs sm:text-sm text-foreground/60 mt-1 sm:mt-1.5 leading-snug">{stat.label}</div>
@@ -280,7 +278,7 @@ export default function CaseStudies() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-12 text-center"
+            className="bg-[#7C3AED] rounded-2xl p-12 text-center"
           >
             <h2 className="text-3xl font-bold text-white mb-4">Ready to be the next one?</h2>
             <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">

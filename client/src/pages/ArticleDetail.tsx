@@ -228,7 +228,7 @@ export default function ArticleDetail() {
             <h1 className="text-4xl font-bold mb-4">Article Not Found</h1>
             <p className="text-foreground/70 mb-8">The article you're looking for doesn't exist.</p>
             <a href="/resources">
-              <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2">
+              <Button className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2">
                 <ArrowLeft size={20} />
                 Back to Resources
               </Button>
@@ -270,7 +270,7 @@ export default function ArticleDetail() {
 
           {/* Metadata */}
           <div className="mb-8">
-            <span className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-full text-sm font-semibold inline-block mb-4">
+            <span className="bg-[#7C3AED] text-white px-4 py-2 rounded-full text-sm font-semibold inline-block mb-4">
               {article.category}
             </span>
             <h1 className="text-5xl font-bold mb-6 text-foreground">{article.title}</h1>
@@ -317,7 +317,7 @@ export default function ArticleDetail() {
           {article.pdf && (
             <div className="mb-12">
               <a href={article.pdf} download>
-                <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2">
+                <Button className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2">
                   Download PDF Guide
                   <ArrowRight size={20} />
                 </Button>
@@ -326,13 +326,13 @@ export default function ArticleDetail() {
           )}
 
           {/* CTA */}
-          <div className="mt-16 p-8 bg-gradient-to-r from-purple-600/10 to-pink-600/10 border border-purple-600/20 rounded-lg">
+          <div className="mt-16 p-8 bg-[#7C3AED]/10 border border-purple-600/20 rounded-lg">
             <h3 className="text-2xl font-bold mb-4 text-foreground">Ready to Transform Your Business?</h3>
             <p className="text-foreground/70 mb-6">
               Learn how OptimAI can help you implement AI and automation strategies tailored to your business needs.
             </p>
             <a href="/contact">
-              <Button className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2">
+              <Button className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white px-8 py-3 rounded-lg font-semibold inline-flex items-center gap-2">
                 Get in Touch
                 <ArrowRight size={20} />
               </Button>

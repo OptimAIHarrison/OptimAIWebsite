@@ -1,122 +1,79 @@
 import { Link } from "wouter";
-import { LOGO_URL, NAVIGATION } from "@/const";
+import { ArrowRight } from "lucide-react";
+import { LOGO_URL } from "@/const";
+
+const COLUMNS = [
+  {
+    title: "What we do",
+    links: [
+      { label: "Services", href: "/services" },
+      { label: "Ready-to-go products", href: "/products" },
+      { label: "Pricing", href: "/pricing" },
+      { label: "ROI calculator", href: "/roi-calculator" },
+    ],
+  },
+  {
+    title: "Learn more",
+    links: [
+      { label: "Case studies", href: "/case-studies" },
+      { label: "Why OptimAI", href: "/why-optimai" },
+      { label: "Resources", href: "/resources" },
+      { label: "FAQ", href: "/faq" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About us", href: "/about" },
+      { label: "Contact", href: "/contact" },
+      { label: "Privacy policy", href: "/privacy" },
+      { label: "Terms & conditions", href: "/terms" },
+    ],
+  },
+];
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-secondary border-t border-foreground/15 backdrop-blur-md">
-      <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-          {/* Brand */}
+    <footer className="bg-white border-t border-[#1E1038]/10">
+      <div className="container mx-auto px-4 pt-16 pb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_repeat(3,1fr)] gap-12 mb-14">
+          {/* Brand + CTA */}
           <div>
-            <img src={LOGO_URL} alt="OptimAI" className="h-12 w-auto mb-4" />
-            <p className="text-foreground/70 text-sm">
-              Your growth partner in AI & automation for SMEs and startups.
+            <img src={LOGO_URL} alt="OptimAI" className="h-12 w-auto mb-5" />
+            <p className="text-[#1E1038] font-semibold text-lg leading-snug max-w-xs">
+              AI and automation for real businesses.
             </p>
+            <p className="mt-2 text-sm text-[#1E1038]/60 max-w-xs">
+              Practical systems, no jargon, no lock-in contracts. Based in Melbourne, working with businesses across Australia.
+            </p>
+            <Link href="/free-report">
+              <a className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#7C3AED] hover:bg-[#6D28D9] text-white text-sm font-semibold px-5 py-3 transition-colors">
+                Get your free report
+                <ArrowRight size={16} />
+              </a>
+            </Link>
           </div>
 
-          {/* Product */}
-          <div>
-            <h3 className="font-bold text-foreground mb-4">Product</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/services">
-                  <a className="text-foreground/70 hover:text-accent transition-colors text-sm">
-                    Services
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/pricing">
-                  <a className="text-foreground/70 hover:text-accent transition-colors text-sm">
-                    Pricing
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/roi-calculator">
-                  <a className="text-foreground/70 hover:text-accent transition-colors text-sm">
-                    ROI Calculator
-                  </a>
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div>
-            <h3 className="font-bold text-foreground mb-4">Company</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/about">
-                  <a className="text-foreground/70 hover:text-accent transition-colors text-sm">
-                    About Us
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/case-studies">
-                  <a className="text-foreground/70 hover:text-accent transition-colors text-sm">
-                    Case Studies
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/resources">
-                  <a className="text-foreground/70 hover:text-accent transition-colors text-sm">
-                    Resources
-                  </a>
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div>
-            <h3 className="font-bold text-foreground mb-4">Legal</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/privacy">
-                  <a className="text-foreground/70 hover:text-accent transition-colors text-sm">
-                    Privacy Policy
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms">
-                  <a className="text-foreground/70 hover:text-accent transition-colors text-sm">
-                    Terms & Conditions
-                  </a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact">
-                  <a className="text-foreground/70 hover:text-accent transition-colors text-sm">
-                    Contact
-                  </a>
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {COLUMNS.map((col) => (
+            <nav key={col.title} aria-label={col.title}>
+              <h3 className="font-semibold text-[#1E1038] mb-4">{col.title}</h3>
+              <ul className="space-y-2.5">
+                {col.links.map((l) => (
+                  <li key={l.href}>
+                    <Link href={l.href}>
+                      <a className="text-sm text-[#1E1038]/65 hover:text-[#7C3AED] transition-colors">{l.label}</a>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
         </div>
 
-        {/* Bottom */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-foreground/50 text-sm">
-            © {currentYear} OptimAI. All rights reserved.
-          </p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="text-foreground/50 hover:text-accent transition-colors">
-              LinkedIn
-            </a>
-            <a href="#" className="text-foreground/50 hover:text-accent transition-colors">
-              Twitter
-            </a>
-            <a href="#" className="text-foreground/50 hover:text-accent transition-colors">
-              GitHub
-            </a>
-          </div>
+        <div className="border-t border-[#1E1038]/10 pt-6 text-sm text-[#1E1038]/50">
+          © {currentYear} OptimAI. All rights reserved.
         </div>
       </div>
     </footer>

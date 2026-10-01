@@ -128,9 +128,9 @@ export default function Pricing() {
             </div>
             <h1 className="text-5xl lg:text-6xl font-bold mb-6">
               Build your{" "}
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              
                 custom quote
-              </span>
+              
             </h1>
             <p className="text-xl text-foreground/70">
               Pick what you need, tell us your size, and see a real estimate — no sales call required to get started.
@@ -269,7 +269,7 @@ export default function Pricing() {
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="lg:sticky lg:top-24 p-6 rounded-2xl bg-gradient-to-br from-purple-600/15 to-pink-600/10 border-2 border-purple-500/30"
+                className="lg:sticky lg:top-24 p-6 rounded-2xl bg-[#7C3AED]/10 border-2 border-purple-500/30"
               >
                 <h2 className="text-lg font-bold text-foreground mb-1">Your Estimate</h2>
                 <p className="text-sm text-foreground/60 mb-6">Based on what you've selected</p>
@@ -285,7 +285,7 @@ export default function Pricing() {
                       <p className="text-foreground/50 text-sm py-8 text-center">Select at least one service to see your estimate.</p>
                     ) : (
                       <>
-                        <div className="text-3xl lg:text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-1">
+                        <div className="text-3xl lg:text-4xl font-bold bg-[#7C3AED] bg-clip-text text-transparent mb-1">
                           ${estimate.low.toLocaleString()} – ${estimate.high.toLocaleString()}
                         </div>
                         <p className="text-xs text-foreground/50 mb-6">AUD, one-time project investment</p>
@@ -325,7 +325,7 @@ export default function Pricing() {
                 </AnimatePresence>
 
                 <Link href="/free-report">
-                  <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-5">
+                  <Button className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white py-5">
                     Get Exact Pricing
                     <ArrowRight size={16} className="ml-2" />
                   </Button>
@@ -430,7 +430,7 @@ export default function Pricing() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-12 text-center"
+            className="bg-[#7C3AED] rounded-2xl p-12 text-center"
           >
             <h2 className="text-3xl font-bold text-white mb-4">Ready for an exact number?</h2>
             <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
