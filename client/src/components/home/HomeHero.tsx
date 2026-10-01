@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, Check, Mail, MessageSquare, FileText, CalendarCheck, Sparkles, Zap, BellRing, Database, Share2, BarChart3, UserPlus } from "lucide-react";
+import { ArrowRight, Check, Mail, MessageSquare, FileText, CalendarCheck, Sparkles, Zap, BellRing, Database, Share2, BarChart3, UserPlus, Send, Star, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type Chore = {
@@ -18,7 +18,7 @@ const CHORES: Chore[] = [
   {
     id: "invoices",
     chip: "Chasing invoices",
-    icon: <Mail size={16} />,
+    icon: <Mail size={14} />,
     said: "I hate chasing people for payment.",
     steps: [
       { label: "When this happens", text: "An invoice is 7 days overdue" },
@@ -31,7 +31,7 @@ const CHORES: Chore[] = [
   {
     id: "enquiries",
     chip: "New enquiries",
-    icon: <MessageSquare size={16} />,
+    icon: <MessageSquare size={14} />,
     said: "Leads go cold while I'm on the tools.",
     steps: [
       { label: "When this happens", text: "A new enquiry lands from your website or inbox" },
@@ -44,7 +44,7 @@ const CHORES: Chore[] = [
   {
     id: "quotes",
     chip: "Quote follow-ups",
-    icon: <FileText size={16} />,
+    icon: <FileText size={14} />,
     said: "I send quotes and never hear back.",
     steps: [
       { label: "When this happens", text: "You send a quote" },
@@ -57,7 +57,7 @@ const CHORES: Chore[] = [
   {
     id: "bookings",
     chip: "Booking reminders",
-    icon: <CalendarCheck size={16} />,
+    icon: <CalendarCheck size={14} />,
     said: "No-shows are costing me real money.",
     steps: [
       { label: "When this happens", text: "A booking is 24 hours away" },
@@ -70,7 +70,7 @@ const CHORES: Chore[] = [
   {
     id: "database",
     chip: "Customer database",
-    icon: <Database size={16} />,
+    icon: <Database size={14} />,
     said: "My customer details are scattered everywhere.",
     steps: [
       { label: "When this happens", text: "A new customer or enquiry comes in from anywhere" },
@@ -83,7 +83,7 @@ const CHORES: Chore[] = [
   {
     id: "social",
     chip: "Social posting",
-    icon: <Share2 size={16} />,
+    icon: <Share2 size={14} />,
     said: "I never get time to post on social.",
     steps: [
       { label: "When this happens", text: "Once a week, or when you finish a job" },
@@ -96,7 +96,7 @@ const CHORES: Chore[] = [
   {
     id: "reports",
     chip: "Weekly reports",
-    icon: <BarChart3 size={16} />,
+    icon: <BarChart3 size={14} />,
     said: "Pulling numbers together takes half my Friday.",
     steps: [
       { label: "When this happens", text: "Every Friday afternoon" },
@@ -109,7 +109,7 @@ const CHORES: Chore[] = [
   {
     id: "onboarding",
     chip: "New client onboarding",
-    icon: <UserPlus size={16} />,
+    icon: <UserPlus size={14} />,
     said: "Every new client means the same admin again.",
     steps: [
       { label: "When this happens", text: "A client says yes" },
@@ -119,9 +119,48 @@ const CHORES: Chore[] = [
     toast: "Welcome pack sent",
     hours: 3,
   },
+  {
+    id: "email",
+    chip: "Email campaigns",
+    icon: <Send size={14} />,
+    said: "I know I should email my customers, but I never get to it.",
+    steps: [
+      { label: "When this happens", text: "Every fortnight, or when you have news or an offer" },
+      { label: "AI does the legwork", text: "Drafts your email newsletter (EDM) in your voice and sends it to the right list" },
+      { label: "You get", text: "Regular emails that bring customers back, without the late-night writing" },
+    ],
+    toast: "Newsletter sent to your list",
+    hours: 3,
+  },
+  {
+    id: "reviews",
+    chip: "Getting reviews",
+    icon: <Star size={14} />,
+    said: "Happy customers never leave a review.",
+    steps: [
+      { label: "When this happens", text: "A job is finished or a customer has visited" },
+      { label: "AI does the legwork", text: "Sends a friendly message asking for a Google review" },
+      { label: "You get", text: "More great reviews, without the awkward asking" },
+    ],
+    toast: "Review request sent",
+    hours: 2,
+  },
+  {
+    id: "questions",
+    chip: "After-hours questions",
+    icon: <Bot size={14} />,
+    said: "Customers message at 9pm and I'm asleep.",
+    steps: [
+      { label: "When this happens", text: "A customer asks a question, any time of day" },
+      { label: "AI does the legwork", text: "Answers from your own info and offers to book them in" },
+      { label: "You get", text: "No missed customers, and it's handled by morning" },
+    ],
+    toast: "Customer question answered",
+    hours: 4,
+  },
 ];
 
-const CYCLE_MS = 7500;
+const CYCLE_MS = 6500;
 const STEP_ICONS = [Zap, Sparkles, Check];
 
 function CountUp({ value, reduce }: { value: number; reduce: boolean }) {
@@ -308,14 +347,14 @@ export function HomeHero() {
 
             <div className="p-5 sm:p-6">
               <p className="text-sm text-[#1E1038]/60">Pick a job you'd love to hand off</p>
-              <div role="tablist" aria-label="Example jobs" className="mt-3 flex flex-wrap justify-center sm:justify-start gap-2">
+              <div role="tablist" aria-label="Example jobs" className="mt-3 flex flex-wrap justify-center sm:justify-start gap-1.5">
                 {CHORES.map((c, i) => (
                   <button
                     key={c.id}
                     role="tab"
                     aria-selected={i === active}
                     onClick={() => { setAuto(false); setActive(i); }}
-                    className={`flex items-center gap-2 rounded-full px-3.5 py-2 text-sm font-medium border text-left transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7C3AED] ${
+                    className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] font-medium border text-left transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7C3AED] ${
                       i === active
                         ? "bg-brand-gradient border-transparent text-white shadow-md shadow-fuchsia-600/25"
                         : "bg-white border-[#1E1038]/12 text-[#1E1038]/75 hover:border-[#7C3AED]/50 hover:bg-[#7C3AED]/5"
