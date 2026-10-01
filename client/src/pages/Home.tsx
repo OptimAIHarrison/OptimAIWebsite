@@ -5,7 +5,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { TESTIMONIALS, CASE_STUDIES } from "@/const";
-import { ArrowRight, ChevronLeft, ChevronRight, Star, User, Hammer, Stethoscope, ShoppingBag, UtensilsCrossed, Briefcase, Rocket } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Star, User, Hammer, Stethoscope, ShoppingBag, UtensilsCrossed, Briefcase, Rocket, X, Check } from "lucide-react";
 import { ServiceFinderQuiz } from "@/components/ServiceFinderQuiz";
 import { HomeHero } from "@/components/home/HomeHero";
 
@@ -16,6 +16,20 @@ const WHO_WE_HELP = [
   { icon: UtensilsCrossed, who: "Hospitality", pain: "Enquiries, bookings and rosters live in five different places." },
   { icon: Briefcase, who: "Professional services", pain: "Proposals, onboarding and reporting are all manual." },
   { icon: Rocket, who: "Startups", pain: "You need systems that grow with you, without hiring for each one." },
+];
+
+const USUAL_WAY = [
+  "Months of planning before anything goes live",
+  "Jargon-heavy proposals and slide decks",
+  "Long contracts that lock you in",
+  "A system only the builder understands",
+];
+
+const OUR_WAY = [
+  "Live in weeks, not months",
+  "Plain English from the first conversation",
+  "No lock-in contracts, so you stay because it works",
+  "Connected to the tools you already use, with your team trained to run it",
 ];
 
 const HOW_IT_WORKS = [
@@ -50,17 +64,38 @@ export default function Home() {
 
       <HomeHero />
 
-      {/* RESULTS STRIP: pulled from the real case studies */}
-      <section className="border-y border-[#1E1038]/10 bg-white">
-        <div className="container mx-auto px-4 max-w-5xl py-10">
-          <p className="text-sm font-medium text-[#1E1038]/55 text-center">Recent client results</p>
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:divide-x divide-[#1E1038]/10">
-            {CASE_STUDIES.slice(0, 3).map((c) => (
-              <div key={c.client} className="sm:px-8 text-center">
-                <p className="text-4xl font-extrabold tracking-tight text-[#1E1038]">{c.results.timeSaved}</p>
-                <p className="mt-1 text-sm text-[#1E1038]/60">saved for a {c.client.toLowerCase()}</p>
-              </div>
-            ))}
+      {/* PRACTICAL: the usual way vs our way */}
+      <section className="py-24 bg-white border-y border-[#1E1038]/10">
+        <div className="container mx-auto px-4 max-w-5xl">
+          <h2 className="text-3xl lg:text-4xl font-bold text-[#1E1038] max-w-2xl">
+            Practical AI, not a science project.
+          </h2>
+          <p className="mt-4 text-lg text-[#1E1038]/65 max-w-2xl">
+            You shouldn't need a tech team to use AI and automation. Here's how we keep it simple.
+          </p>
+          <div className="mt-10 grid md:grid-cols-2 gap-6">
+            <div className="rounded-3xl bg-[#F4F2F8] border border-[#1E1038]/10 p-8">
+              <p className="text-sm font-semibold text-[#1E1038]/50">The usual way</p>
+              <ul className="mt-5 space-y-4">
+                {USUAL_WAY.map((t) => (
+                  <li key={t} className="flex gap-3 text-[#1E1038]/60">
+                    <span className="mt-0.5 grid place-items-center w-6 h-6 shrink-0 rounded-full bg-[#1E1038]/10 text-[#1E1038]/50"><X size={14} strokeWidth={3} /></span>
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="rounded-3xl bg-gradient-to-br from-[#1E1038] to-[#3B1A7A] p-8 shadow-xl shadow-purple-900/20">
+              <p className="text-sm font-semibold text-white/60">The OptimAI way</p>
+              <ul className="mt-5 space-y-4">
+                {OUR_WAY.map((t) => (
+                  <li key={t} className="flex gap-3 text-white">
+                    <span className="mt-0.5 grid place-items-center w-6 h-6 shrink-0 rounded-full bg-emerald-500 text-white"><Check size={14} strokeWidth={3.5} /></span>
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
