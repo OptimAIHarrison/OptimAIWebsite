@@ -146,7 +146,7 @@ const knowledgeBase: Record<string, QAEntry[]> = {
   general: [
     {
       keywords: ["about", "who are you", "company", "background", "OptimAI"],
-      answer: "OptimAI is an AI and automation consultancy dedicated to helping businesses scale with practical, understandable solutions. We make automation accessible and human-centered, so your team can focus on what matters most.\n\n**Our mission:** Help businesses eliminate manual work, make smarter decisions, and grow faster with AI and automation.",
+      answer: "OptimAI is an AI and automation consultancy dedicated to helping businesses scale with practical, understandable solutions. We make automation practical and human-centered, so your team can focus on what matters most.\n\n**Our mission:** Help businesses eliminate manual work, make smarter decisions, and grow faster with AI and automation.",
       pageSuggestions: [
         "[Learn About OptimAI](/about)",
         "[Why Choose OptimAI](/why-optimai)",

@@ -232,8 +232,8 @@ export function ServiceFinderQuiz() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-                Find Your <span className="gradient-text">Perfect Service</span>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-[#1E1038]">
+                Find the right service for you
               </h2>
               <p className="text-foreground/70 text-lg">
                 Not sure which OptimAI service is right for you? Answer a few

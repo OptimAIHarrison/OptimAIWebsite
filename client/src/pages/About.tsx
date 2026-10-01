@@ -58,14 +58,14 @@ export default function About() {
       <Navigation />
       <SEO
         title="About OptimAI - Why We Built Australia's Practical AI Automation Agency"
-        description="OptimAI was founded to make AI and automation accessible to SMEs, startups, tradies, and everyday business owners across Australia, not just enterprise companies. Learn our story."
+        description="OptimAI was founded to bring AI and automation within reach of SMEs, startups, tradies, and everyday business owners across Australia, not just enterprise companies. Learn our story."
         canonical="/about"
         schema={{
           "@context": "https://schema.org",
           "@type": "AboutPage",
           "name": "About OptimAI",
           "url": "https://optimai.com.au/about",
-          "description": "OptimAI was founded to make AI and automation accessible to every business, not just the ones with enterprise budgets.",
+          "description": "OptimAI was founded to bring AI and automation within reach of every business, not just the ones with enterprise budgets.",
           "publisher": {
             "@type": "Organization",
             "name": "OptimAI",
@@ -157,7 +157,7 @@ export default function About() {
           >
             <h2 className="text-3xl lg:text-4xl font-bold mb-8">Our mission, simply put</h2>
             <blockquote className="text-2xl lg:text-3xl font-bold text-foreground/90 leading-relaxed border-l-4 border-purple-500 pl-6 text-left mb-8">
-              "Make the productivity gains of AI and automation accessible to every business, not just the ones with enterprise budgets."
+              "Put the productivity gains of AI and automation within reach of every business, not just the ones with enterprise budgets."
             </blockquote>
             <p className="text-lg text-foreground/70 leading-relaxed mb-4">
               We don't believe in gatekeeping transformational technology. A 10-person agency or a 3-person startup deserves the same operational leverage as a 500-person corporate - they just need a partner who builds for their scale, their budget, and their reality.

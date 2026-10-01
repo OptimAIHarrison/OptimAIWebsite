@@ -5,17 +5,17 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { TESTIMONIALS, CASE_STUDIES } from "@/const";
-import { ArrowRight, ChevronLeft, ChevronRight, Star, User } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Star, User, Hammer, Stethoscope, ShoppingBag, UtensilsCrossed, Briefcase, Rocket } from "lucide-react";
 import { ServiceFinderQuiz } from "@/components/ServiceFinderQuiz";
-import { AccessibleHero } from "@/components/home/AccessibleHero";
+import { HomeHero } from "@/components/home/HomeHero";
 
 const WHO_WE_HELP = [
-  { who: "Trades and construction", pain: "Quotes, scheduling and follow-ups eat your evenings." },
-  { who: "Clinics and allied health", pain: "Bookings, reminders and patient admin pile up at the front desk." },
-  { who: "Retail and e-commerce", pain: "Orders, stock and customer emails never stop." },
-  { who: "Hospitality", pain: "Enquiries, bookings and rosters live in five different places." },
-  { who: "Professional services", pain: "Proposals, onboarding and reporting are all manual." },
-  { who: "Startups", pain: "You need systems that grow with you, without hiring for each one." },
+  { icon: Hammer, who: "Trades and construction", pain: "Quotes, scheduling and follow-ups eat your evenings." },
+  { icon: Stethoscope, who: "Clinics and allied health", pain: "Bookings, reminders and patient admin pile up at the front desk." },
+  { icon: ShoppingBag, who: "Retail and e-commerce", pain: "Orders, stock and customer emails never stop." },
+  { icon: UtensilsCrossed, who: "Hospitality", pain: "Enquiries, bookings and rosters live in five different places." },
+  { icon: Briefcase, who: "Professional services", pain: "Proposals, onboarding and reporting are all manual." },
+  { icon: Rocket, who: "Startups", pain: "You need systems that grow with you, without hiring for each one." },
 ];
 
 const HOW_IT_WORKS = [
@@ -48,10 +48,25 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      <AccessibleHero />
+      <HomeHero />
+
+      {/* RESULTS STRIP: pulled from the real case studies */}
+      <section className="border-y border-[#1E1038]/10 bg-white">
+        <div className="container mx-auto px-4 max-w-5xl py-10">
+          <p className="text-sm font-medium text-[#1E1038]/55 text-center">Recent client results</p>
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-8 sm:divide-x divide-[#1E1038]/10">
+            {CASE_STUDIES.slice(0, 3).map((c) => (
+              <div key={c.client} className="sm:px-8 text-center">
+                <p className="text-4xl font-extrabold tracking-tight text-[#1E1038]">{c.results.timeSaved}</p>
+                <p className="mt-1 text-sm text-[#1E1038]/60">saved for a {c.client.toLowerCase()}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* WHO WE HELP */}
-      <section className="py-20 border-y border-[#1E1038]/10 bg-white/50">
+      <section className="py-24 bg-[#F8F5FF]">
         <div className="container mx-auto px-4 max-w-5xl">
           <h2 className="text-3xl lg:text-4xl font-bold text-[#1E1038] max-w-2xl">
             Built for businesses that are too busy to become tech experts.
@@ -61,8 +76,9 @@ export default function Home() {
           </p>
           <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {WHO_WE_HELP.map((item) => (
-              <div key={item.who} className="rounded-2xl bg-white border border-[#1E1038]/10 p-6">
-                <h3 className="font-semibold text-[#1E1038]">{item.who}</h3>
+              <div key={item.who} className="rounded-2xl bg-white border border-[#1E1038]/10 p-6 shadow-[0_1px_2px_rgba(30,16,56,0.04)] transition-all hover:shadow-lg hover:shadow-purple-900/5 hover:border-[#7C3AED]/30">
+                <span className="grid place-items-center w-11 h-11 rounded-xl bg-[#7C3AED]/10 text-[#7C3AED]"><item.icon size={20} /></span>
+                <h3 className="mt-4 font-semibold text-[#1E1038]">{item.who}</h3>
                 <p className="mt-2 text-sm text-[#1E1038]/65 leading-relaxed">{item.pain}</p>
               </div>
             ))}
@@ -71,13 +87,14 @@ export default function Home() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="py-20">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4 max-w-5xl">
           <h2 className="text-3xl lg:text-4xl font-bold text-[#1E1038]">Three steps, no surprises.</h2>
-          <ol className="mt-10 grid md:grid-cols-3 gap-8">
+          <ol className="relative mt-12 grid md:grid-cols-3 gap-10">
+            <span aria-hidden className="hidden md:block absolute top-5 left-[8%] right-[8%] h-px bg-gradient-to-r from-[#7C3AED]/40 via-[#7C3AED]/20 to-[#7C3AED]/40" />
             {HOW_IT_WORKS.map((step, i) => (
               <li key={step.title}>
-                <span className="grid place-items-center w-10 h-10 rounded-full bg-[#7C3AED] text-white font-bold">{i + 1}</span>
+                <span className="relative grid place-items-center w-10 h-10 rounded-full bg-[#7C3AED] text-white font-bold ring-8 ring-white shadow-md shadow-purple-600/30">{i + 1}</span>
                 <h3 className="mt-4 text-xl font-semibold text-[#1E1038]">{step.title}</h3>
                 <p className="mt-2 text-[#1E1038]/65 leading-relaxed">{step.text}</p>
               </li>
@@ -98,7 +115,7 @@ export default function Home() {
       </section>
 
       {/* ── READY TO GO PRODUCTS ─────────────────────────────────────── */}
-      <section className="py-20 border-b border-white/10 bg-gradient-to-b from-purple-600/5 to-transparent">
+      <section className="py-24 bg-[#F8F5FF]">
         <div className="container mx-auto px-4 max-w-4xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -106,7 +123,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-10"
           >
-            <h2 className="text-3xl lg:text-5xl font-bold mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-[#1E1038]">
               Need something sorted fast?
             </h2>
             <p className="text-foreground/65 text-lg max-w-2xl mx-auto">
@@ -126,7 +143,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.08 }}
-                className="p-5 rounded-2xl bg-white/5 border-2 border-purple-900/20 hover:border-purple-500/40 transition-all"
+                className="p-5 rounded-2xl bg-white border border-[#1E1038]/10 shadow-sm hover:border-[#7C3AED]/40 hover:shadow-lg hover:shadow-purple-900/5 transition-all"
               >
                 <h3 className="font-bold text-foreground mb-1.5">{product.name}</h3>
                 <p className="text-sm text-foreground/60 mb-4">{product.desc}</p>
@@ -153,7 +170,7 @@ export default function Home() {
       <ServiceFinderQuiz />
 
       {/* ── CASE STUDIES ─────────────────────────────────────────────── */}
-      <section className="py-20 border-b border-white/10">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -161,7 +178,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-14"
           >
-            <h2 className="text-3xl lg:text-5xl font-bold mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-[#1E1038]">
               What our clients got
             </h2>
             <p className="text-foreground/60 text-lg max-w-2xl mx-auto">Real businesses, real before-and-after numbers.</p>
@@ -185,7 +202,7 @@ export default function Home() {
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.08, duration: 0.4 }}
-                    className={`p-6 rounded-2xl bg-white/5 border-2 border-purple-900/20 hover:border-purple-500/40 transition-all flex flex-col ${
+                    className={`p-6 rounded-2xl bg-white border border-[#1E1038]/10 shadow-sm hover:border-[#7C3AED]/40 hover:shadow-lg hover:shadow-purple-900/5 transition-all flex flex-col ${
                       index === 0 ? "" : "hidden md:flex"
                     }`}
                   >
@@ -275,7 +292,7 @@ export default function Home() {
       </section>
 
       {/* ── TESTIMONIALS ─────────────────────────────────────────────── */}
-      <section className="py-20 border-b border-white/10">
+      <section className="py-24 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -283,7 +300,7 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-14"
           >
-            <h2 className="text-3xl lg:text-5xl font-bold mb-4">
+            <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-[#1E1038]">
               In their words
             </h2>
           </motion.div>
@@ -292,7 +309,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="max-w-3xl mx-auto p-12 rounded-2xl bg-white/5 border-2 border-purple-900/20 text-center"
+            className="max-w-3xl mx-auto p-12 rounded-2xl bg-white border border-[#1E1038]/10 shadow-sm text-center"
           >
             <div className="flex justify-center gap-1 mb-6">
               {[...Array(5)].map((_, i) => (
@@ -331,23 +348,24 @@ export default function Home() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-[#7C3AED] rounded-3xl p-12 text-center"
+            className="relative overflow-hidden bg-gradient-to-br from-[#1E1038] to-[#3B1A7A] rounded-3xl p-12 md:p-16 text-center shadow-2xl shadow-purple-900/30"
           >
-            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+            <span aria-hidden className="absolute -top-24 -right-16 w-72 h-72 rounded-full bg-[#7C3AED]/50 blur-[90px]" />
+            <h2 className="relative text-3xl lg:text-4xl font-bold text-white mb-4">
               Not sure where to start? That's normal.
             </h2>
-            <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
+            <p className="relative text-white/80 text-lg mb-8 max-w-xl mx-auto">
               Book a free audit. We'll show you what's worth automating, what it's worth to you, and how fast we can get it live. No jargon, no obligation, no lock-in.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="relative flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/free-audit">
-                <Button className="bg-white text-purple-600 hover:bg-white/90 text-lg px-8 py-5 font-bold">
+                <Button className="bg-white text-[#3B1A7A] hover:bg-white/90 text-lg px-8 py-5 font-bold">
                   Get Your Free Audit
                   <ArrowRight className="ml-2" size={20} />
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button variant="outline" className="border-white/50 text-white hover:bg-white/10 text-lg px-8 py-5">
+                <Button variant="outline" className="border-white/40 bg-white/10 text-white hover:bg-white/20 hover:text-white text-lg px-8 py-5">
                   Just say hello
                 </Button>
               </Link>

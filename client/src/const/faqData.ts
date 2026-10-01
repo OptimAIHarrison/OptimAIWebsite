@@ -33,7 +33,7 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: "gs-001",
     question: "What is OptimAI and what do you do?",
-    answer: "OptimAI is an AI and automation consultancy that helps businesses scale with practical, understandable solutions. We specialize in eliminating manual work, improving efficiency, and enabling data-driven decision-making through intelligent automation and AI integration. Our mission is to make automation accessible and human-centered, so your team can focus on high-value work.",
+    answer: "OptimAI is an AI and automation consultancy that helps businesses scale with practical, understandable solutions. We specialize in eliminating manual work, improving efficiency, and enabling data-driven decision-making through intelligent automation and AI integration. Our mission is to make automation practical and human-centered, so your team can focus on high-value work.",
     category: "Getting Started",
     keywords: ["OptimAI", "AI automation", "consultancy", "what is OptimAI", "about OptimAI"],
     relatedQuestions: ["gs-002", "svc-001"],
