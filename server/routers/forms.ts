@@ -39,7 +39,7 @@ export const formsRouter = router({
         company: z.string().min(1, "Company is required"),
         teamSize: z.string(),
         challenge: z.string().min(1, "Challenge is required"),
-        auditAreas: z.array(z.string()).min(1, "Please select at least one audit area"),
+        auditAreas: z.array(z.string()).min(1, "Please select at least one area"),
         currentChallenges: z.string().min(1, "Please describe your current challenges"),
         automationGoals: z.string().min(1, "Please describe your automation goals"),
         timeline: z.string(),
@@ -49,7 +49,7 @@ export const formsRouter = router({
     .mutation(async ({ input }) => {
       try {
         await sendEmail(
-          "New Free Audit Request",
+          "New Free Report Request",
           [
             { label: "Name",                value: input.name },
             { label: "Email",               value: input.email },
@@ -57,16 +57,16 @@ export const formsRouter = router({
             { label: "Team Size",           value: input.teamSize },
             { label: "Timeline",            value: input.timeline },
             { label: "Budget",              value: input.budget },
-            { label: "Audit Areas",         value: input.auditAreas.join(", ") },
+            { label: "Focus Areas",         value: input.auditAreas.join(", ") },
             { label: "Primary Challenge",   value: input.challenge },
             { label: "Current Challenges",  value: input.currentChallenges },
             { label: "Automation Goals",    value: input.automationGoals },
           ],
           input.email
         );
-        return { success: true, message: "Audit request submitted! We'll contact you within 24 hours." };
+        return { success: true, message: "Report request received! We'll be in touch within 24 hours." };
       } catch (error) {
-        console.error("Audit form error:", error);
+        console.error("Free report form error:", error);
         return { success: false, message: "Failed to submit. Please try again." };
       }
     }),

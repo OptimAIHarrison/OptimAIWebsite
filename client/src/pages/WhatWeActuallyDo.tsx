@@ -134,9 +134,9 @@ export default function WhatWeActuallyDo() {
             </div>
             <h1 className="text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               What we{" "}
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              
                 actually do
-              </span>
+              
             </h1>
             <p className="text-xl text-foreground/70 leading-relaxed">
               We help businesses automate the work that shouldn't need a human, so you and your team can focus on the work that does.
@@ -280,18 +280,18 @@ export default function WhatWeActuallyDo() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-12 text-center"
+            className="bg-[#7C3AED] rounded-2xl p-12 text-center"
           >
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
               Not sure which stage you're at?
             </h2>
             <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
-              Start with a free audit. We'll work it out together. No pressure, no sales pitch, just an honest conversation about what makes sense for your business.
+              Start with a free report. We'll work it out together. No pressure, no sales pitch, just an honest conversation about what makes sense for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/free-audit">
+              <Link href="/free-report">
                 <Button className="bg-white text-purple-600 hover:bg-white/90 text-lg px-8 py-5 font-bold">
-                  Get Your Free Audit
+                  Get Your Free Report
                   <ArrowRight className="ml-2" size={20} />
                 </Button>
               </Link>

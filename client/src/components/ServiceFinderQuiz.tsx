@@ -232,8 +232,8 @@ export function ServiceFinderQuiz() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-                Find Your <span className="gradient-text">Perfect Service</span>
+              <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-[#1E1038]">
+                Find the right service for you
               </h2>
               <p className="text-foreground/70 text-lg">
                 Not sure which OptimAI service is right for you? Answer a few
@@ -254,7 +254,7 @@ export function ServiceFinderQuiz() {
               </div>
               <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
                 <motion.div
-                  className="h-full bg-gradient-to-r from-purple-600 to-pink-600"
+                  className="h-full bg-[#7C3AED]"
                   initial={{ width: 0 }}
                   animate={{
                     width: `${((currentQuestion + 1) / QUIZ_QUESTIONS.length) * 100}%`,
@@ -338,7 +338,7 @@ export function ServiceFinderQuiz() {
                     />
                   </motion.div>
                   <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-                    We Found Your <span className="gradient-text">Perfect Match</span>
+                    We Found Your Perfect Match
                   </h2>
                   <p className="text-foreground/70 text-lg">
                     Based on your answers, here are the services we recommend
@@ -381,7 +381,7 @@ export function ServiceFinderQuiz() {
                 >
                   <Button
                     onClick={() => setShowLeadForm(true)}
-                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 px-8 py-6 rounded-xl text-lg"
+                    className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-0 px-8 py-6 rounded-xl text-lg"
                   >
                     Get Started
                     <ArrowRight className="ml-2" size={20} />
@@ -453,7 +453,7 @@ export function ServiceFinderQuiz() {
                   <Button
                     onClick={handleLeadCapture}
                     disabled={!email || !name}
-                    className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white border-0 py-3 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-all mt-6"
+                    className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-0 py-3 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-all mt-6"
                   >
                     Send My Recommendations
                     <ArrowRight className="ml-2" size={18} />

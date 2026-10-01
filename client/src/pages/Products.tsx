@@ -907,7 +907,7 @@ export default function Products() {
           animate={{ opacity: 1, y: 0 }}
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            Our <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">Ready to Go</span> Products
+            Our Ready to Go Products
           </h1>
           <p className="text-lg text-foreground/70 max-w-2xl mx-auto mb-8">
             Off-the-shelf solutions built to deploy fast. Pick what your business needs and get moving.
@@ -972,7 +972,7 @@ export default function Products() {
                   <div>
                     <button
                       onClick={clearFilters}
-                      className="w-full text-left px-4 py-3 rounded-lg font-bold bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700 transition-all"
+                      className="w-full text-left px-4 py-3 rounded-lg font-bold bg-[#7C3AED] text-white hover:bg-[#6D28D9] transition-all"
                     >
                       All Products
                     </button>
@@ -987,7 +987,7 @@ export default function Products() {
                           onClick={() => handleTagClick(tag)}
                           className={`w-full text-left px-3 py-2 rounded-lg font-medium transition-all ${
                             selectedTags.includes(tag)
-                              ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                              ? "bg-[#7C3AED] text-white"
                               : "bg-white/10 text-foreground/70 hover:text-foreground hover:bg-white/20"
                           }`}
                         >
@@ -1006,7 +1006,7 @@ export default function Products() {
                           onClick={() => setSelectedBusinessType(type)}
                           className={`w-full text-left px-3 py-2 rounded-lg font-medium transition-all ${
                             selectedBusinessType === type
-                              ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white"
+                              ? "bg-[#7C3AED] text-white"
                               : "bg-white/10 text-foreground/70 hover:text-foreground hover:bg-white/20"
                           }`}
                         >
@@ -1053,7 +1053,7 @@ export default function Products() {
                       className="group bg-white/5 border border-purple-900/20 rounded-xl overflow-hidden hover:border-purple-600/50 transition-all hover:shadow-lg hover:shadow-purple-600/10 flex flex-col"
                     >
                       {/* Card Header — icon + tags */}
-                      <div className="relative p-6 pb-4 bg-gradient-to-br from-purple-600/10 via-purple-500/5 to-pink-600/5 border-b border-purple-900/20">
+                      <div className="relative p-6 pb-4 bg-[#7C3AED]/5 border-b border-purple-900/20">
                         <div className="flex items-start justify-between mb-4">
                           <div className="p-3 rounded-xl bg-purple-600/15 ring-1 ring-purple-500/20">
                             {PRODUCT_ICONS[product.id] ?? <Package size={36} className="text-purple-400" />}
@@ -1106,7 +1106,7 @@ export default function Products() {
                             setSelectedProduct(product);
                             setShowForm(true);
                           }}
-                          className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+                          className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white"
                         >
                           Get Started
                           <ArrowRight size={16} className="ml-2" />
@@ -1184,7 +1184,7 @@ export default function Products() {
                 <div className="space-y-3">
                   {selectedProduct.process.map((step, idx) => (
                     <div key={idx} className="flex gap-4">
-                      <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-sm">
+                      <div className="flex-shrink-0 w-8 h-8 bg-[#7C3AED] rounded-full flex items-center justify-center text-white font-bold text-sm">
                         {idx + 1}
                       </div>
                       <p className="text-foreground/80 pt-1">{step}</p>
@@ -1226,7 +1226,7 @@ export default function Products() {
                     <Button
                       type="submit"
                       disabled={submitStatus === "loading"}
-                      className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white"
+                      className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white"
                     >
                       {submitStatus === "loading" ? "Submitting..." : "Submit Inquiry"}
                       <Send size={16} className="ml-2" />
@@ -1236,7 +1236,7 @@ export default function Products() {
               ) : (
                 <Button
                   onClick={() => setShowForm(true)}
-                  className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white py-3 text-lg"
+                  className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white py-3 text-lg"
                 >
                   Get Started
                   <ArrowRight size={18} className="ml-2" />

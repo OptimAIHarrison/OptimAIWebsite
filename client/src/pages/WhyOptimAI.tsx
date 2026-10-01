@@ -109,7 +109,7 @@ export default function WhyOptimAI() {
               The honest answer
             </div>
             <h1 className="text-5xl lg:text-7xl font-bold mb-6 leading-tight">
-              Why <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">OptimAI?</span>
+              Why OptimAI?
             </h1>
             <p className="text-xl lg:text-2xl text-foreground/70 max-w-2xl mx-auto leading-relaxed">
               Because you're losing hours every week to work that shouldn't exist - and that's fixable.
@@ -183,7 +183,7 @@ export default function WhyOptimAI() {
                 className="text-center p-6 rounded-2xl bg-white/5 border-2 border-purple-500/20 hover:border-purple-500/50 transition-all"
               >
                 <div className="text-purple-500 flex justify-center mb-3">{item.icon}</div>
-                <div className="text-4xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
+                <div className="text-4xl font-bold bg-[#7C3AED] bg-clip-text text-transparent mb-2">
                   {item.stat}
                 </div>
                 <p className="text-sm text-foreground/60 leading-snug">{item.label}</p>
@@ -216,7 +216,7 @@ export default function WhyOptimAI() {
                 transition={{ delay: idx * 0.06 }}
                 className="flex gap-5 p-6 rounded-2xl bg-white/5 border-2 border-purple-900/20 hover:border-purple-500/40 transition-all"
               >
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white font-bold text-sm mt-0.5">
+                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#7C3AED] flex items-center justify-center text-white font-bold text-sm mt-0.5">
                   {idx + 1}
                 </div>
                 <div>
@@ -307,18 +307,18 @@ export default function WhyOptimAI() {
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl p-12 text-center"
+            className="bg-[#7C3AED] rounded-2xl p-12 text-center"
           >
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
               Still not sure? Let's find out together.
             </h2>
             <p className="text-white/90 text-lg mb-8 max-w-xl mx-auto">
-              Book a free audit. We'll map your biggest time and money leaks, tell you exactly what we'd fix - and there's zero obligation to work with us.
+              Get a free report. We'll map your biggest time and money leaks, tell you exactly what we'd fix - and there's zero obligation to work with us.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/free-audit">
+              <Link href="/free-report">
                 <Button className="bg-white text-purple-600 hover:bg-white/90 text-lg px-8 py-5 font-bold">
-                  Get Your Free Audit
+                  Get Your Free Report
                   <ArrowRight className="ml-2" size={20} />
                 </Button>
               </Link>

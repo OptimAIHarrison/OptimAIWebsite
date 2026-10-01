@@ -37,7 +37,7 @@ OptimAI offers five core services to help businesses scale with AI and automatio
 - [Our Core Services Section](#core-services) - See services on homepage
 - [Ready to Go Products](/products) - Pre-built solutions
 - [Take Our Service Finder Quiz](/services) - Find the right fit for you
-- [Get Your Free Audit](/audit) - Personalized recommendations
+- [Get Your Free Report](/free-report) - Personalized recommendations
 
 ---
 
@@ -55,7 +55,7 @@ Strategic Advisory & Consulting helps you understand where automation can have t
 **Page Suggestions:**
 - [Learn More About Strategic Advisory](/services) - Full details
 - [Our Core Services Section](#core-services) - See on homepage
-- [Get Your Free Audit](/audit) - Start your assessment
+- [Get Your Free Report](/free-report) - Start your assessment
 - [Ready to Go Products](/products) - Quick solutions
 
 ---
@@ -73,7 +73,7 @@ Business Process Automation (BPA) helps you eliminate repetitive manual tasks an
 - [Our Core Services Section](#core-services) - See on homepage
 - [See Case Studies](/case-studies) - Real results
 - [Ready to Go Products](/products) - Pre-built BPA solutions
-- [Get Your Free Audit](/audit) - Custom assessment
+- [Get Your Free Report](/free-report) - Custom assessment
 
 ---
 
@@ -94,7 +94,7 @@ Marketing & Growth Automation helps you generate more leads and engage customers
 - [Our Core Services Section](#core-services) - See on homepage
 - [Check Our ROI Calculator](/roi-calculator) - Estimate savings
 - [Ready to Go Products](/products) - Marketing automation solutions
-- [Get Your Free Audit](/audit) - Custom strategy
+- [Get Your Free Report](/free-report) - Custom strategy
 
 ---
 
@@ -113,7 +113,7 @@ AI Integration & Analytics helps you make smarter business decisions by integrat
 **Page Suggestions:**
 - [Learn More About AI Integration](/services) - Full details
 - [Our Core Services Section](#core-services) - See on homepage
-- [Get Your Free Audit](/audit) - Assess your data potential
+- [Get Your Free Report](/free-report) - Assess your data potential
 - [Ready to Go Products](/products) - Analytics solutions
 
 ---
@@ -134,7 +134,7 @@ Managed Services & Support provides ongoing optimization and peace of mind. We m
 - [Learn More About Managed Services](/services) - Full details
 - [Our Core Services Section](#core-services) - See on homepage
 - [Contact Us](/contact) - Discuss your needs
-- [Get Your Free Audit](/audit) - Assess current systems
+- [Get Your Free Report](/free-report) - Assess current systems
 
 ---
 
@@ -155,7 +155,7 @@ The exact cost depends on your specific needs, project scope, and complexity. We
 **Page Suggestions:**
 - [View Pricing Details](/pricing) - See all pricing tiers
 - [Calculate Your ROI](/roi-calculator) - Estimate potential savings
-- [Get Your Free Audit](/audit) - Custom quote
+- [Get Your Free Report](/free-report) - Custom quote
 - [Ready to Go Products](/products) - Affordable quick solutions
 
 ---
@@ -177,18 +177,18 @@ Additional services like ongoing optimization, advanced analytics, or custom int
 **Page Suggestions:**
 - [View Pricing Details](/pricing) - Full breakdown
 - [Contact Us](/contact) - Discuss your specific needs
-- [Get Your Free Audit](/audit) - Detailed assessment
+- [Get Your Free Report](/free-report) - Detailed assessment
 
 ---
 
 #### Q2.3: Do you offer a free trial or consultation?
-**Keywords:** `free`, `trial`, `consultation`, `no cost`, `audit`
+**Keywords:** `free`, `trial`, `consultation`, `no cost`, `audit`, `report`, `free report`
 
 **Answer:**
-Yes! We offer a **Free AI & Automation Audit** where our experts analyze your business and provide personalized recommendations at no cost. This is a great way to understand where automation can help you and what the potential ROI could be.
+Yes! We offer a **Free AI & Automation Report** where our experts analyze your business and provide personalized recommendations at no cost. This is a great way to understand where automation can help you and what the potential ROI could be.
 
 **Page Suggestions:**
-- [Get Your Free Audit](/audit) - Takes about 15 minutes
+- [Get Your Free Report](/free-report) - Takes about 15 minutes
 - [Contact Us](/contact) - Schedule a consultation call
 
 ---
@@ -204,7 +204,7 @@ Our ROI Calculator can help you estimate potential savings based on your situati
 **Page Suggestions:**
 - [Use Our ROI Calculator](/roi-calculator) - Interactive estimation
 - [View Case Studies](/case-studies) - See real results
-- [Get Your Free Audit](/audit) - Custom ROI projection
+- [Get Your Free Report](/free-report) - Custom ROI projection
 
 ---
 
@@ -223,7 +223,7 @@ Implementation timelines vary based on project scope:
 Most clients see initial results within the first month, with full optimization taking 3-6 months.
 
 **Page Suggestions:**
-- [Get Your Free Audit](/audit) - Discuss timeline for your needs
+- [Get Your Free Report](/free-report) - Discuss timeline for your needs
 - [View Case Studies](/case-studies) - See implementation examples
 - [Contact Us](/contact) - Schedule consultation
 
@@ -245,7 +245,7 @@ Our typical implementation process includes:
 **Page Suggestions:**
 - [Learn More About Our Process](/what-we-actually-do) - Detailed workflow
 - [Our Core Services Section](#core-services) - See on homepage
-- [Get Your Free Audit](/audit) - Start the process
+- [Get Your Free Report](/free-report) - Start the process
 - [Contact Us](/contact) - Discuss your project
 
 ---
@@ -264,7 +264,7 @@ Yes! Training and documentation are included in all our projects. We provide:
 **Page Suggestions:**
 - [Contact Us](/contact) - Discuss training needs
 - [View Managed Services](/services) - Ongoing support options
-- [Get Your Free Audit](/audit) - Include training in scope
+- [Get Your Free Report](/free-report) - Include training in scope
 
 ---
 
@@ -285,7 +285,7 @@ OptimAI is a great fit if you:
 
 **Page Suggestions:**
 - [Take Our Service Finder Quiz](/services) - Personalized recommendations
-- [Get Your Free Audit](/audit) - Custom assessment
+- [Get Your Free Report](/free-report) - Custom assessment
 - [View Case Studies](/case-studies) - See if we've helped similar businesses
 - [Our Core Services Section](#core-services) - See on homepage
 
@@ -305,7 +305,7 @@ We work with businesses of all sizes, from startups to enterprises:
 The key is having clear goals and a willingness to embrace automation.
 
 **Page Suggestions:**
-- [Get Your Free Audit](/audit) - Assess your fit
+- [Get Your Free Report](/free-report) - Assess your fit
 - [View Case Studies](/case-studies) - See businesses like yours
 - [Ready to Go Products](/products) - Quick solutions for any size
 
@@ -329,7 +329,7 @@ The principles of automation and AI apply across industries.
 
 **Page Suggestions:**
 - [View Case Studies](/case-studies) - See industry examples
-- [Get Your Free Audit](/audit) - Industry-specific assessment
+- [Get Your Free Report](/free-report) - Industry-specific assessment
 - [Contact Us](/contact) - Discuss your industry
 
 ---
@@ -340,7 +340,7 @@ The principles of automation and AI apply across industries.
 **Keywords:** `about`, `who are you`, `company`, `background`, `OptimAI`
 
 **Answer:**
-OptimAI is an AI and automation consultancy dedicated to helping businesses scale with practical, understandable solutions. We make automation accessible and human-centered, so your team can focus on what matters most.
+OptimAI is an AI and automation consultancy dedicated to helping businesses scale with practical, understandable solutions. We make automation practical and human-centered, so your team can focus on what matters most.
 
 Our mission: Help businesses eliminate manual work, make smarter decisions, and grow faster with AI and automation.
 
@@ -366,7 +366,7 @@ Here's what sets OptimAI apart:
 **Page Suggestions:**
 - [Why Choose OptimAI](/why-optimai) - Our unique approach
 - [View Case Studies](/case-studies) - Proven results
-- [Get Your Free Audit](/audit) - Experience our approach
+- [Get Your Free Report](/free-report) - Experience our approach
 
 ---
 
@@ -383,7 +383,7 @@ Yes! We have several case studies showing how we've helped businesses like yours
 
 **Page Suggestions:**
 - [View Case Studies](/case-studies) - Full success stories
-- [Get Your Free Audit](/audit) - See if we can help you
+- [Get Your Free Report](/free-report) - See if we can help you
 - [Our Core Services Section](#core-services) - See on homepage
 
 ---
@@ -405,7 +405,7 @@ We work with a wide range of tools and platforms depending on your needs:
 We choose the best tools for your specific situation.
 
 **Page Suggestions:**
-- [Get Your Free Audit](/audit) - Discuss your tech stack
+- [Get Your Free Report](/free-report) - Discuss your tech stack
 - [Contact Us](/contact) - Technical consultation
 - [Our Core Services Section](#core-services) - See capabilities
 
@@ -424,7 +424,7 @@ Our approach:
 - We ensure data flows seamlessly
 
 **Page Suggestions:**
-- [Get Your Free Audit](/audit) - Tech stack assessment
+- [Get Your Free Report](/free-report) - Tech stack assessment
 - [Contact Us](/contact) - Discuss your systems
 - [AI Integration Service](/services) - See capabilities
 
@@ -447,7 +447,7 @@ We're happy to discuss security requirements and certifications for your specifi
 **Page Suggestions:**
 - [Contact Us](/contact) - Discuss security requirements
 - [View Privacy Policy](/privacy) - Our commitments
-- [Get Your Free Audit](/audit) - Security assessment
+- [Get Your Free Report](/free-report) - Security assessment
 
 ---
 
@@ -461,12 +461,12 @@ You can reach us in several ways:
 
 - **Email:** hello@optimai.com.au
 - **Contact Form:** Fill out our contact form and we'll get back to you within 24 hours
-- **Free Audit:** Start with our free AI & Automation Audit for a personalized consultation
+- **Free Report:** Start with our free AI & Automation Report for a personalized consultation
 - **Live Chat:** You're chatting with us right now!
 
 **Page Suggestions:**
 - [Contact Us](/contact) - Contact form
-- [Get Your Free Audit](/audit) - Personalized consultation
+- [Get Your Free Report](/free-report) - Personalized consultation
 - **[Send a Message](#send-message)** - Click here to send a detailed message to our team
 
 ---
@@ -491,7 +491,7 @@ Absolutely! We offer free consultation calls to discuss your business needs and 
 
 **Page Suggestions:**
 - [Contact Us](/contact) - Schedule a call
-- [Get Your Free Audit](/audit) - Includes a consultation
+- [Get Your Free Report](/free-report) - Includes a consultation
 
 ---
 
@@ -514,7 +514,7 @@ Our current Ready to Go Products include solutions for:
 - [View Ready to Go Products](/products) - Browse all solutions
 - [Our Marketplace](/products) - Shop pre-built solutions
 - [Our Core Services Section](#core-services) - See on homepage
-- [Get Your Free Audit](/audit) - Custom solutions
+- [Get Your Free Report](/free-report) - Custom solutions
 
 ---
 
@@ -528,7 +528,7 @@ Ready to Go Products are designed for speed! Most can be set up and running with
 - [View Ready to Go Products](/products) - Browse marketplace
 - [Our Marketplace](/products) - Shop solutions
 - **[Send a Message](#send-message)** - Ask about specific product timelines
-- [Get Your Free Audit](/audit) - Custom timeline
+- [Get Your Free Report](/free-report) - Custom timeline
 
 ---
 
@@ -577,7 +577,7 @@ If no match is found:
 "I'm not sure I understood that correctly. Here are some things I can help with:
 - Learn about our services
 - Understand pricing and ROI
-- Get your free audit
+- Get your free report
 - Browse Ready to Go Products
 - Schedule a consultation
 
@@ -596,7 +596,7 @@ After each answer, the chatbot suggests relevant pages:
 - **CTA suggestion:** Action to take (audit, contact, products, etc.)
 
 Example format:
-"[Learn More About X](/page) | [View Case Studies](/case-studies) | **[Get Your Free Audit](/audit)**"
+"[Learn More About X](/page) | [View Case Studies](/case-studies) | **[Get Your Free Report](/free-report)**"
 
 ---
 
@@ -610,26 +610,26 @@ Bot: "OptimAI helps businesses scale with AI and automation. We offer five core 
 
 User: "I'm spending too much time on manual tasks"
 Bot: "That sounds like Business Process Automation could help! We eliminate repetitive tasks..."
-     [Suggests: Learn More About BPA, See Case Studies, Get Your Free Audit]
+     [Suggests: Learn More About BPA, See Case Studies, Get Your Free Report]
 
 User: "How much does that cost?"
 Bot: "We offer flexible pricing models: Fixed Fee, Project-Based, or Managed Retainer..."
-     [Suggests: View Pricing, Calculate ROI, Get Your Free Audit]
+     [Suggests: View Pricing, Calculate ROI, Get Your Free Report]
 ```
 
 ### Example 2: Qualification
 ```
 User: "Is this for small businesses?"
 Bot: "We work with businesses of all sizes, from startups to enterprises..."
-     [Suggests: View Case Studies, Get Your Free Audit]
+     [Suggests: View Case Studies, Get Your Free Report]
 
 User: "What's the timeline?"
 Bot: "Implementation typically takes 1-6 months depending on scope..."
-     [Suggests: Get Your Free Audit, Contact Us]
+     [Suggests: Get Your Free Report, Contact Us]
 
 User: "I want to learn more"
 Bot: "Great! Here are your next steps:
-     1. [Get Your Free Audit](/audit) - 15 minutes, personalized recommendations
+     1. [Get Your Free Report](/free-report) - 15 minutes, personalized recommendations
      2. [Contact Us](/contact) - Schedule a consultation call
      3. [View Case Studies](/case-studies) - See real results
      4. [Browse Ready to Go Products](/products) - Quick solutions"
@@ -639,7 +639,7 @@ Bot: "Great! Here are your next steps:
 ```
 User: "Do you have quick solutions?"
 Bot: "Yes! Our Ready to Go Products are pre-built automation solutions..."
-     [Suggests: View Ready to Go Products, Browse Marketplace, Get Your Free Audit]
+     [Suggests: View Ready to Go Products, Browse Marketplace, Get Your Free Report]
 
 User: "How fast can I get started?"
 Bot: "Most Ready to Go Products are set up within 1-2 weeks..."
