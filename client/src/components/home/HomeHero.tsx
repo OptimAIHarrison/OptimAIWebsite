@@ -297,18 +297,27 @@ export function HomeHero() {
             OptimAI builds practical AI and automation systems for SMEs, startups, and everyday business owners, with no jargon and no lock-in contracts. Live in weeks, not months.
           </p>
 
-          <div className="mt-9 flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start">
-            <Link href="/free-report" className="w-full sm:w-auto">
-              <Button className="w-full sm:w-auto h-13 bg-brand-gradient hover:brightness-110 text-white text-base font-semibold px-7 py-6 rounded-xl shadow-lg shadow-purple-600/30 transition-all hover:-translate-y-0.5">
-                Get your free report
-                <ArrowRight className="ml-2" size={18} />
-              </Button>
-            </Link>
-            <Link href="/what-we-actually-do" className="w-full sm:w-auto">
-              <Button variant="outline" className="w-full sm:w-auto bg-white/70 border-[#1E1038]/15 text-[#1E1038] hover:bg-white text-base font-semibold px-7 py-6 rounded-xl">
-                See how it works
-              </Button>
-            </Link>
+          <div className="mt-9 flex flex-col items-center lg:items-start gap-5">
+            <div className="flex flex-col sm:flex-row gap-3.5 w-full sm:w-auto justify-center lg:justify-start">
+              <Link href="/contact" className="w-full sm:w-auto">
+                <Button className="w-full sm:w-auto h-13 bg-brand-gradient hover:brightness-110 text-white text-base font-semibold px-8 py-6 rounded-xl shadow-lg shadow-purple-600/30 transition-all hover:-translate-y-0.5">
+                  Let's chat
+                  <ArrowRight className="ml-2" size={18} />
+                </Button>
+              </Link>
+              <Link href="/what-we-actually-do" className="w-full sm:w-auto">
+                <Button variant="outline" className="w-full sm:w-auto bg-white/70 border-[#1E1038]/15 text-[#1E1038] hover:bg-white text-base font-semibold px-7 py-6 rounded-xl">
+                  See how it works
+                </Button>
+              </Link>
+            </div>
+            <p className="text-[0.95rem] text-[#1E1038]/70 max-w-sm sm:max-w-md text-balance">
+              Or get your free{" "}
+              <Link href="/free-report" className="font-semibold whitespace-nowrap text-[#7C3AED] underline underline-offset-4 decoration-[#7C3AED]/40 hover:decoration-[#7C3AED] transition-colors">
+                AI and Automation Time-Saving Report
+              </Link>{" "}
+              and see where they can help your business.
+            </p>
           </div>
 
           <ul className="mt-9 flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-2.5 text-sm font-medium text-[#1E1038]/75">
