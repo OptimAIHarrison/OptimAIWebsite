@@ -34,7 +34,7 @@ export const SERVICES = [
   {
     id: "strategic-advisory",
     title: "Strategic Advisory & Consulting",
-    description: "Expert guidance on automation and AI adoption tailored for your business",
+    description: "Straight advice on where AI and automation fit in your business, and what to do first",
     icon: "target",
     whatWeDo: "We analyze your business, identify where automation can save time and money, and create a clear roadmap for implementing AI and automation solutions that fit your goals.",
     options: [
@@ -56,14 +56,14 @@ export const SERVICES = [
     details: [
       "Automation & AI Readiness Assessment",
       "Growth Strategy & Roadmapping",
-      "Technology Stack Optimization",
+      "Getting More From Your Current Tools",
     ],
     technicalDetails: "We begin with a structured discovery process - talking with key stakeholders, mapping your existing workflows in tools like Lucidchart or Miro, and scoring processes against an automation feasibility matrix (volume, rule-based complexity, error rate, and time cost). From this we produce a Technology Maturity Index specific to your business, identifying quick wins (typically 2-4 week implementations) versus strategic long-term plays. Our roadmap is delivered as a phased implementation plan with effort/impact scoring, recommended tooling (Zapier, Make, n8n, HubSpot, custom APIs), estimated ROI per initiative, and a risk register. We also benchmark your tech stack against industry peers to surface gaps and redundancies before you spend a cent.",
   },
   {
     id: "marketing-automation",
     title: "Marketing & Growth Automation",
-    description: "Automated marketing systems to enhance visibility and lead generation",
+    description: "Marketing that runs itself: lead capture, follow-ups and emails that work while you're busy",
     icon: "trending-up",
     whatWeDo: "We set up automated systems that find potential customers, nurture them with personalized content, and turn them into paying clients - all while you sleep.",
     options: [
@@ -94,12 +94,12 @@ export const SERVICES = [
   {
     id: "business-automation",
     title: "Business Process Automation",
-    description: "Streamline operational workflows and reduce manual effort",
+    description: "Take repetitive admin off your plate: quotes, bookings, invoices, onboarding and reporting",
     icon: "settings",
     whatWeDo: "We identify repetitive tasks in your business and automate them using AI and software robots, freeing up your team to focus on high-value work.",
     options: [
       { name: "Workflow Automation", description: "Automate routine tasks like data entry, approvals, and reporting" },
-      { name: "AI Chatbots", description: "Deploy intelligent chatbots to handle customer inquiries 24/7" },
+      { name: "AI Chatbots", description: "Set up a chatbot that answers customer questions 24/7" },
       { name: "Document Processing", description: "Automatically extract and process information from documents" },
       { name: "System Integration", description: "Connect your tools so data flows automatically between systems" },
     ],
@@ -125,13 +125,13 @@ export const SERVICES = [
   {
     id: "ai-integration",
     title: "AI Integration & Analytics",
-    description: "Seamless integration of advanced AI capabilities with existing systems",
+    description: "Add AI to the tools you already use, like chatbots, smart replies and automatic reports",
     icon: "cpu",
     whatWeDo: "We integrate powerful AI tools into your existing systems so you can make smarter decisions, predict trends, and automate complex tasks.",
     options: [
       { name: "Predictive Analytics", description: "Use AI to forecast trends and make data-driven decisions" },
       { name: "Customer Intelligence", description: "Analyze customer behavior to personalize experiences and increase sales" },
-      { name: "Content Generation", description: "Use AI to create marketing copy, reports, and content at scale" },
+      { name: "Content Generation", description: "Use AI to create marketing copy, reports and content in a fraction of the time" },
       { name: "System Integration", description: "Connect AI tools with your CRM, accounting, and other platforms" },
     ],
     useCases: [
@@ -156,12 +156,12 @@ export const SERVICES = [
   {
     id: "managed-services",
     title: "Managed Services & Support",
-    description: "Ongoing support, optimization, and team upskilling",
+    description: "We keep it running, fix things when they break, and train your team",
     icon: "shield",
     whatWeDo: "We don't just build and leave. We continuously monitor, optimize, and support your automation systems to ensure they keep delivering results.",
     options: [
       { name: "Ongoing Support", description: "Get help when you need it - technical support and troubleshooting" },
-      { name: "Performance Optimisation", description: "We monitor your systems and continuously improve performance" },
+      { name: "Regular Improvements", description: "We keep an eye on your systems and keep making them work better" },
       { name: "Team Training", description: "Train your team to use and manage automation tools effectively" },
       { name: "System Updates", description: "Keep your automation systems current with the latest features" },
     ],
@@ -185,8 +185,8 @@ export const SERVICES = [
   },
   {
     id: "ai-search-optimization",
-    title: "AI Search & Answer Optimization",
-    description: "Get found by AI tools and appear in AI-powered search results and recommendations",
+    title: "Get Found in AI Search",
+    description: "Help customers find you when they ask ChatGPT, Google AI and other AI tools",
     icon: "search",
     whatWeDo: "We optimize your content so AI tools like ChatGPT, Perplexity, and Google's AI Overview recommend your business as the answer to customer questions. We cover AI Answer Optimization (AEO), Generative Engine Optimization (GEO), and AI Search Optimization (AIO) in one comprehensive strategy.",
     options: [

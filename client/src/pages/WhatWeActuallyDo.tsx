@@ -10,16 +10,16 @@ const ENGAGEMENT_TYPES = [
   {
     icon: <Search size={28} className="text-purple-500" />,
     label: "Just starting out",
-    title: "Audit & Roadmap",
+    title: "Free Report & Roadmap",
     description: "Not sure where to begin? We map your business, find the bottlenecks, and hand you a clear plan, with zero obligation to take it further.",
-    examples: ["Process audit", "Automation opportunity report", "Tool recommendations", "Priority roadmap"],
+    examples: ["A review of how you work", "Automation opportunity report", "Tool recommendations", "Priority roadmap"],
     cta: "Perfect if you want clarity before committing.",
   },
   {
     icon: <Wrench size={28} className="text-purple-500" />,
     label: "Got a specific problem",
     title: "Fix One Thing",
-    description: "You know what's broken. We fix it. One workflow, one integration, one system - done properly, deployed fast.",
+    description: "You know what's broken. We fix it. One process, one connection between tools, one system. Done properly and live fast.",
     examples: ["A leaking lead process", "A manual task eating hours", "Two tools that don't talk", "A follow-up that never happens"],
     cta: "Perfect if you have one clear pain point.",
   },
@@ -36,15 +36,15 @@ const ENGAGEMENT_TYPES = [
     label: "Growing fast",
     title: "Scale What's Working",
     description: "You've got traction. Now you need systems that grow with you, without hiring more people for every new thing.",
-    examples: ["Expand automations across teams", "Add analytics and reporting", "Integrate new tools as you grow", "Reduce manual load as volume increases"],
+    examples: ["Expand automations across teams", "Add analytics and reporting", "Connect new tools as you grow", "Reduce manual load as volume increases"],
     cta: "Perfect if you're scaling and need to keep up.",
   },
   {
     icon: <Building2 size={28} className="text-purple-500" />,
     label: "Want the full picture",
-    title: "Full Stack Transformation",
-    description: "You're ready to go end-to-end... From strategy through to fully automated operations. We become your long-term automation partner.",
-    examples: ["Full business process audit", "All systems connected and automated", "AI integrated across operations", "Ongoing support and optimisation"],
+    title: "Full Stack Setup",
+    description: "You're ready to do it all, from the first plan through to a fully automated business. We become your long-term automation partner.",
+    examples: ["A full review of how your business runs", "All systems connected and automated", "AI built into your day-to-day work", "Ongoing support and improvements"],
     cta: "Perfect if you want a long-term partner.",
   },
 ];
@@ -86,8 +86,8 @@ export default function WhatWeActuallyDo() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <SEO
-        title="What OptimAI Actually Does - AI Automation From Audit to Full Transformation"
-        description="OptimAI works with businesses at every stage, from a simple process audit and roadmap, to fixing one thing fast, building new systems, scaling what's working, or a full-stack business transformation. No lock-in. Plain English."
+        title="What OptimAI Does | From Free Report to Full Build"
+        description="From a free report to a full build: how OptimAI works with your business at every stage. No lock-in contracts, plain English, live in weeks."
         canonical="/what-we-actually-do"
         schema={{
           "@context": "https://schema.org",

@@ -381,7 +381,7 @@ export function ServiceFinderQuiz() {
                 >
                   <Button
                     onClick={() => setShowLeadForm(true)}
-                    className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-0 px-8 py-6 rounded-xl text-lg"
+                    className="bg-brand-gradient hover:brightness-110 text-white border-0 px-8 py-6 rounded-xl text-lg"
                   >
                     Get Started
                     <ArrowRight className="ml-2" size={20} />
@@ -453,7 +453,7 @@ export function ServiceFinderQuiz() {
                   <Button
                     onClick={handleLeadCapture}
                     disabled={!email || !name}
-                    className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-0 py-3 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-all mt-6"
+                    className="w-full bg-brand-gradient hover:brightness-110 text-white border-0 py-3 rounded-lg font-medium disabled:opacity-50 disabled:cursor-not-allowed transition-all mt-6"
                   >
                     Send My Recommendations
                     <ArrowRight className="ml-2" size={18} />

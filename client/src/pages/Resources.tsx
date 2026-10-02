@@ -443,7 +443,7 @@ export default function Resources() {
                 )}
 
                 <a href={`/articles/${selectedArticleData.slug || selectedArticleData.id}`}>
-                  <Button className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white py-5 text-base font-semibold">
+                  <Button className="w-full bg-brand-gradient hover:brightness-110 text-white py-5 text-base font-semibold">
                     <BookOpen size={18} className="mr-2" />
                     Read Full Article
                     <ArrowRight size={16} className="ml-2" />

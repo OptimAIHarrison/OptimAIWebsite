@@ -63,8 +63,8 @@ export default function ROICalculator() {
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-purple-50">
       <Navigation />
       <SEO
-        title="AI Automation ROI Calculator — How Much Could You Save? | OptimAI"
-        description="Calculate how much time and money your business could save with AI and automation. Enter your team size, revenue, and manual hours to get an instant estimate. Free to use, no data stored."
+        title="AI Automation ROI Calculator | OptimAI"
+        description="Estimate how much time and money AI and automation could save your business. Free calculator, instant result, no data stored."
         canonical="/roi-calculator"
         schema={{
           "@context": "https://schema.org",
@@ -275,7 +275,7 @@ export default function ROICalculator() {
                     Ready to unlock these savings?
                   </p>
                   <Link href="/free-report">
-                    <Button className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white px-8 py-6 rounded-xl font-semibold inline-flex items-center gap-2 w-full justify-center text-lg">
+                    <Button className="bg-brand-gradient hover:brightness-110 text-white px-8 py-6 rounded-xl font-semibold inline-flex items-center gap-2 w-full justify-center text-lg">
                       Get Your Free AI & Automation Report
                       <ArrowRight size={24} />
                     </Button>

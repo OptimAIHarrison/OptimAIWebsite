@@ -1,3 +1,4 @@
+import { SEO } from "@/components/SEO";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
@@ -79,6 +80,11 @@ export default function FreeReport() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Free AI and Automation Report | OptimAI"
+        description="Tell us how your business runs and get a free report showing where AI and automation can save you time, what it's worth, and how fast it can go live."
+        canonical="/free-report"
+      />
       <Navigation />
 
       <section className="pt-40 pb-16 bg-gradient-to-b from-[#F3EDFF] via-[#F8F5FF] to-white">
@@ -101,7 +107,7 @@ export default function FreeReport() {
               { icon: Rocket, title: "How to get it live", text: "A simple plan and timeline. Most projects go live in weeks, not months." },
             ].map((item) => (
               <div key={item.title} className="rounded-2xl bg-white border border-[#1E1038]/10 p-5 shadow-sm">
-                <span className="grid place-items-center w-10 h-10 rounded-xl bg-[#7C3AED]/10 text-[#7C3AED]"><item.icon size={20} /></span>
+                <span className="grid place-items-center w-10 h-10 rounded-xl bg-brand-gradient text-white shadow-md shadow-fuchsia-600/20"><item.icon size={20} /></span>
                 <h3 className="mt-3 font-semibold text-[#1E1038]">{item.title}</h3>
                 <p className="mt-1 text-sm text-[#1E1038]/65 leading-relaxed">{item.text}</p>
               </div>
@@ -135,7 +141,7 @@ export default function FreeReport() {
                     >
                       {s}
                     </div>
-                    {s < 3 && <div className={`h-1 flex-1 mx-4 ${s < step ? "bg-[#7C3AED]" : "bg-[#1E1038]/10"}`} />}
+                    {s < 3 && <div className={`h-1 flex-1 mx-4 ${s < step ? "bg-brand-gradient" : "bg-[#1E1038]/10"}`} />}
                   </div>
                 ))}
               </div>
@@ -193,7 +199,7 @@ export default function FreeReport() {
                     <Button
                       type="button"
                       onClick={() => setStep(2)}
-                      className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-0 text-lg py-6 rounded-xl"
+                      className="w-full bg-brand-gradient hover:brightness-110 text-white border-0 text-lg py-6 rounded-xl"
                     >
                       Next
                       <ArrowRight className="ml-2" size={20} />
@@ -252,7 +258,7 @@ export default function FreeReport() {
                         type="button"
                         onClick={() => setStep(3)}
                         disabled={selectedAreas.length === 0}
-                        className="flex-1 bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-0 text-lg py-6 rounded-xl disabled:opacity-50"
+                        className="flex-1 bg-brand-gradient hover:brightness-110 text-white border-0 text-lg py-6 rounded-xl disabled:opacity-50"
                       >
                         Next
                         <ArrowRight className="ml-2" size={20} />
@@ -322,7 +328,7 @@ export default function FreeReport() {
                       <Button
                         type="submit"
                         disabled={submitAudit.isPending}
-                        className="flex-1 bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-0 text-lg py-6 rounded-xl disabled:opacity-50"
+                        className="flex-1 bg-brand-gradient hover:brightness-110 text-white border-0 text-lg py-6 rounded-xl disabled:opacity-50"
                       >
                         {submitAudit.isPending ? "Submitting..." : "Get My Free Report"}
                         <ArrowRight className="ml-2" size={20} />
@@ -341,7 +347,7 @@ export default function FreeReport() {
               </p>
               <Button
                 onClick={() => (window.location.href = "/")}
-                className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-0 text-lg py-6 rounded-xl"
+                className="bg-brand-gradient hover:brightness-110 text-white border-0 text-lg py-6 rounded-xl"
               >
                 Back to Home
               </Button>

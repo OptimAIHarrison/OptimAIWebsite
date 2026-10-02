@@ -44,8 +44,8 @@ export default function FAQ() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <SEO
-        title="FAQ — Common Questions About OptimAI AI & Automation Services"
-        description="Find answers to common questions about OptimAI services, pricing, implementation timelines, ROI, and how AI automation works for SMEs, startups, and everyday business owners across Australia."
+        title="FAQ | AI and Automation Questions | OptimAI"
+        description="Answers to common questions about OptimAI: pricing, timelines, ROI and how AI and automation works for small businesses, startups and owners."
         canonical="/faq"
         schema={{
           "@context": "https://schema.org",

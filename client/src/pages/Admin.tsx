@@ -102,7 +102,7 @@ export default function Admin() {
             </div>
             <Button
               onClick={handleNewArticle}
-              className="flex items-center gap-2 bg-[#7C3AED] hover:bg-[#6D28D9] text-white px-6 py-3 rounded-lg font-semibold"
+              className="flex items-center gap-2 bg-brand-gradient hover:brightness-110 text-white px-6 py-3 rounded-lg font-semibold"
             >
               <Plus className="w-5 h-5" />
               New Article
@@ -115,7 +115,7 @@ export default function Admin() {
               <p className="text-foreground/60 mb-4">No articles yet. Create your first one!</p>
               <Button
                 onClick={handleNewArticle}
-                className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white px-6 py-2 rounded-lg font-semibold"
+                className="bg-brand-gradient hover:brightness-110 text-white px-6 py-2 rounded-lg font-semibold"
               >
                 Create Article
               </Button>

@@ -51,8 +51,8 @@ export default function Contact() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <SEO
-        title="Contact OptimAI — Get in Touch With Our AI Automation Team"
-        description="Contact OptimAI in Melbourne, Victoria. Email hello@optimai.com.au or send a message and we'll reply within 24 hours. No sales pressure — just an honest conversation about what you're trying to solve."
+        title="Contact OptimAI | AI and Automation in Melbourne"
+        description="Contact OptimAI in Melbourne. Email hello@optimai.com.au or send a message and we'll reply within 24 hours. No sales pressure, no jargon."
         canonical="/contact"
         schema={{
           "@context": "https://schema.org",
@@ -270,7 +270,7 @@ export default function Contact() {
                       <Button
                         type="submit"
                         disabled={submitContact.isPending}
-                        className="w-full bg-[#7C3AED] hover:bg-[#6D28D9] text-white border-0 text-lg py-6 rounded-xl disabled:opacity-50"
+                        className="w-full bg-brand-gradient hover:brightness-110 text-white border-0 text-lg py-6 rounded-xl disabled:opacity-50"
                       >
                         {submitContact.isPending ? "Sending..." : "Send Message"}
                         <ArrowRight className="ml-2" size={20} />

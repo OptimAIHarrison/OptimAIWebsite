@@ -10,12 +10,12 @@ const WHAT_WE_DO = [
   {
     icon: <Target size={24} className="text-purple-500" />,
     title: "We find what's costing you",
-    description: "A free report that maps every manual task, missed lead, and broken process in your business. Most clients find 10+ hours of waste in the first session.",
+    description: "A free report that shows where your time is going and what could be automated, with a clear idea of what each fix is worth.",
   },
   {
     icon: <Zap size={24} className="text-purple-500" />,
-    title: "We build and deploy fast",
-    description: "No 6-month roadmaps. We prioritise the highest-impact fixes first and get them live within weeks, so you see results before you've paid a fraction of what it saves.",
+    title: "We build it fast",
+    description: "No 6-month roadmaps. We start with the fixes that matter most and get them live within weeks, so you see results early.",
   },
   {
     icon: <Users size={24} className="text-purple-500" />,
@@ -25,7 +25,7 @@ const WHAT_WE_DO = [
   {
     icon: <TrendingUp size={24} className="text-purple-500" />,
     title: "We grow with you",
-    description: "As your business scales, your systems scale. We continuously optimise and expand what's working, so automation compounds over time, not just on day one.",
+    description: "As your business grows, your systems grow with it. We keep improving what's working, so the benefits keep building long after launch.",
   },
 ];
 
@@ -48,7 +48,7 @@ const TIMELINE = [
   {
     year: "Today",
     heading: "We're the team that makes it real.",
-    body: "We work hands-on with founders, operators, and small teams to identify what to automate, build it properly, and make sure it sticks. No fluff, no jargon, no disappearing after go-live. Just genuine outcomes - hours reclaimed, leads captured, revenue protected.",
+    body: "We work hands-on with founders, operators, and small teams to identify what to automate, build it properly, and make sure it sticks. No fluff, no jargon, no disappearing after launch. Just genuine outcomes - hours reclaimed, leads captured, revenue protected.",
   },
 ];
 
@@ -57,8 +57,8 @@ export default function About() {
     <div className="min-h-screen bg-background">
       <Navigation />
       <SEO
-        title="About OptimAI - Why We Built Australia's Practical AI Automation Agency"
-        description="OptimAI was founded to bring AI and automation within reach of SMEs, startups, tradies, and everyday business owners across Australia, not just enterprise companies. Learn our story."
+        title="About OptimAI | Practical AI for Everyday Businesses"
+        description="OptimAI brings AI and automation within reach of SMEs, startups and everyday business owners across Australia. Plain English, no lock-in. Our story."
         canonical="/about"
         schema={{
           "@context": "https://schema.org",
@@ -160,7 +160,7 @@ export default function About() {
               "Put the productivity gains of AI and automation within reach of every business, not just the ones with enterprise budgets."
             </blockquote>
             <p className="text-lg text-foreground/70 leading-relaxed mb-4">
-              We don't believe in gatekeeping transformational technology. A 10-person agency or a 3-person startup deserves the same operational leverage as a 500-person corporate - they just need a partner who builds for their scale, their budget, and their reality.
+              AI and automation shouldn't be reserved for big companies. A 10-person agency or a 3-person startup deserves the same time-saving tools as a 500-person corporate. You just need a partner who builds for your size, your budget and the way you actually work.
             </p>
             <p className="text-lg text-foreground/70 leading-relaxed">
               That's what we show up to do every day.
@@ -179,7 +179,7 @@ export default function About() {
             className="text-center mb-12"
           >
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">What we actually do</h2>
-            <p className="text-foreground/60 text-lg">From the first conversation to long after go-live.</p>
+            <p className="text-foreground/60 text-lg">From the first conversation to long after launch.</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -224,12 +224,12 @@ export default function About() {
                 {
                   label: "Startups",
                   examples: "Early-stage founders, product teams, solo operators with big ambitions",
-                  desc: "Moving fast and need systems that scale without hiring a 10-person ops team. We help you build the infrastructure to grow without the growing pains.",
+                  desc: "Moving fast and need systems that scale without hiring a 10-person ops team. We help you set up the systems to grow without the growing pains.",
                 },
                 {
                   label: "SMEs",
                   examples: "10–200 person businesses ready to stop doing things manually",
-                  desc: "You've got a proven model and a real team. Now it's time to stop repeating the same manual work and start compounding the results you've already earned.",
+                  desc: "You've got a proven model and a real team. Now it's time to stop repeating the same manual work and let your systems carry more of the load.",
                 },
                 {
                   label: "Agencies & Service Providers",

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Link } from "wouter";
-import { ArrowRight, Check, Mail, MessageSquare, FileText, CalendarCheck, Sparkles, Zap, BellRing, Database, Share2, BarChart3, UserPlus } from "lucide-react";
+import { ArrowRight, Check, Mail, MessageSquare, FileText, CalendarCheck, Sparkles, Zap, BellRing, Database, Share2, BarChart3, UserPlus, Send, Star, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type Chore = {
@@ -18,7 +18,7 @@ const CHORES: Chore[] = [
   {
     id: "invoices",
     chip: "Chasing invoices",
-    icon: <Mail size={16} />,
+    icon: <Mail size={14} />,
     said: "I hate chasing people for payment.",
     steps: [
       { label: "When this happens", text: "An invoice is 7 days overdue" },
@@ -31,7 +31,7 @@ const CHORES: Chore[] = [
   {
     id: "enquiries",
     chip: "New enquiries",
-    icon: <MessageSquare size={16} />,
+    icon: <MessageSquare size={14} />,
     said: "Leads go cold while I'm on the tools.",
     steps: [
       { label: "When this happens", text: "A new enquiry lands from your website or inbox" },
@@ -44,7 +44,7 @@ const CHORES: Chore[] = [
   {
     id: "quotes",
     chip: "Quote follow-ups",
-    icon: <FileText size={16} />,
+    icon: <FileText size={14} />,
     said: "I send quotes and never hear back.",
     steps: [
       { label: "When this happens", text: "You send a quote" },
@@ -57,7 +57,7 @@ const CHORES: Chore[] = [
   {
     id: "bookings",
     chip: "Booking reminders",
-    icon: <CalendarCheck size={16} />,
+    icon: <CalendarCheck size={14} />,
     said: "No-shows are costing me real money.",
     steps: [
       { label: "When this happens", text: "A booking is 24 hours away" },
@@ -70,7 +70,7 @@ const CHORES: Chore[] = [
   {
     id: "database",
     chip: "Customer database",
-    icon: <Database size={16} />,
+    icon: <Database size={14} />,
     said: "My customer details are scattered everywhere.",
     steps: [
       { label: "When this happens", text: "A new customer or enquiry comes in from anywhere" },
@@ -83,7 +83,7 @@ const CHORES: Chore[] = [
   {
     id: "social",
     chip: "Social posting",
-    icon: <Share2 size={16} />,
+    icon: <Share2 size={14} />,
     said: "I never get time to post on social.",
     steps: [
       { label: "When this happens", text: "Once a week, or when you finish a job" },
@@ -96,7 +96,7 @@ const CHORES: Chore[] = [
   {
     id: "reports",
     chip: "Weekly reports",
-    icon: <BarChart3 size={16} />,
+    icon: <BarChart3 size={14} />,
     said: "Pulling numbers together takes half my Friday.",
     steps: [
       { label: "When this happens", text: "Every Friday afternoon" },
@@ -109,7 +109,7 @@ const CHORES: Chore[] = [
   {
     id: "onboarding",
     chip: "New client onboarding",
-    icon: <UserPlus size={16} />,
+    icon: <UserPlus size={14} />,
     said: "Every new client means the same admin again.",
     steps: [
       { label: "When this happens", text: "A client says yes" },
@@ -119,9 +119,48 @@ const CHORES: Chore[] = [
     toast: "Welcome pack sent",
     hours: 3,
   },
+  {
+    id: "email",
+    chip: "Email campaigns",
+    icon: <Send size={14} />,
+    said: "I know I should email my customers, but I never get to it.",
+    steps: [
+      { label: "When this happens", text: "Every fortnight, or when you have news or an offer" },
+      { label: "AI does the legwork", text: "Drafts your email newsletter (EDM) in your voice and sends it to the right list" },
+      { label: "You get", text: "Regular emails that bring customers back, without the late-night writing" },
+    ],
+    toast: "Newsletter sent to your list",
+    hours: 3,
+  },
+  {
+    id: "reviews",
+    chip: "Getting reviews",
+    icon: <Star size={14} />,
+    said: "Happy customers never leave a review.",
+    steps: [
+      { label: "When this happens", text: "A job is finished or a customer has visited" },
+      { label: "AI does the legwork", text: "Sends a friendly message asking for a Google review" },
+      { label: "You get", text: "More great reviews, without the awkward asking" },
+    ],
+    toast: "Review request sent",
+    hours: 2,
+  },
+  {
+    id: "questions",
+    chip: "After-hours questions",
+    icon: <Bot size={14} />,
+    said: "Customers message at 9pm and I'm asleep.",
+    steps: [
+      { label: "When this happens", text: "A customer asks a question, any time of day" },
+      { label: "AI does the legwork", text: "Answers from your own info and offers to book them in" },
+      { label: "You get", text: "No missed customers, and it's handled by morning" },
+    ],
+    toast: "Customer question answered",
+    hours: 4,
+  },
 ];
 
-const CYCLE_MS = 7500;
+const CYCLE_MS = 6500;
 const STEP_ICONS = [Zap, Sparkles, Check];
 
 function CountUp({ value, reduce }: { value: number; reduce: boolean }) {
@@ -141,6 +180,54 @@ function CountUp({ value, reduce }: { value: number; reduce: boolean }) {
     return () => cancelAnimationFrame(raf);
   }, [value, reduce]);
   return <>{n}</>;
+}
+
+
+/** Infinity loop from the logo: draws itself, then a spark circles it. Decorative only. */
+function InfinityLoop({ reduce }: { reduce: boolean }) {
+  const d = "M250 130 C310 50 440 40 440 130 C440 220 310 210 250 130 C190 50 60 40 60 130 C60 220 190 210 250 130 Z";
+  return (
+    <motion.div
+      aria-hidden
+      className="absolute z-0 left-1/2 top-1/2 w-[135%] lg:w-[150%] max-w-none pointer-events-none"
+      style={{ x: "-50%", y: "-50%" }}
+      animate={reduce ? undefined : { y: ["-50%", "-52%", "-50%"] }}
+      transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+    >
+      <svg viewBox="0 0 500 260" className="w-full h-auto" fill="none">
+        <defs>
+          <linearGradient id="loopGrad" x1="60" y1="0" x2="440" y2="0" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stopColor="#6B28C4" />
+            <stop offset="0.55" stopColor="#A71DCB" />
+            <stop offset="1" stopColor="#E10BD6" />
+          </linearGradient>
+          <filter id="loopGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="5" />
+          </filter>
+        </defs>
+        <motion.path
+          d={d}
+          stroke="url(#loopGrad)"
+          strokeWidth="20"
+          strokeLinecap="round"
+          opacity="0.32"
+          initial={reduce ? false : { pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ duration: 2.4, ease: "easeInOut" }}
+        />
+        {!reduce && (
+          <g>
+            <circle r="9" fill="#E10BD6" filter="url(#loopGlow)" opacity="0.9">
+              <animateMotion dur="7s" repeatCount="indefinite" path={d} />
+            </circle>
+            <circle r="4" fill="#fff">
+              <animateMotion dur="7s" repeatCount="indefinite" path={d} />
+            </circle>
+          </g>
+        )}
+      </svg>
+    </motion.div>
+  );
 }
 
 export function HomeHero() {
@@ -175,13 +262,14 @@ export function HomeHero() {
     <section
       ref={heroRef}
       onMouseMove={onMove}
-      className="relative overflow-hidden pt-36 pb-20 lg:pt-44 lg:pb-28"
+      className="relative overflow-hidden pt-32 pb-16 sm:pt-36 lg:pt-44 lg:pb-28"
       style={{ ["--mx" as string]: "72%", ["--my" as string]: "35%" }}
     >
       {/* Backdrop: soft colour fields, a fading grid, and a cursor-following light */}
       <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-b from-[#F3EDFF] via-[#F8F5FF] to-white" />
       <div aria-hidden className="absolute -z-10 -top-40 -right-32 w-[640px] h-[640px] rounded-full bg-[#7C3AED]/20 blur-[120px]" />
       <div aria-hidden className="absolute -z-10 top-40 -left-40 w-[460px] h-[460px] rounded-full bg-indigo-400/15 blur-[110px]" />
+      <div aria-hidden className="absolute -z-10 bottom-0 right-1/4 w-[420px] h-[420px] rounded-full bg-[#E10BD6]/10 blur-[120px]" />
       <div
         aria-hidden
         className="absolute inset-0 -z-10 opacity-70"
@@ -194,35 +282,36 @@ export function HomeHero() {
         }}
       />
 
-      <div className="container mx-auto px-4 grid lg:grid-cols-[1.02fr_1fr] gap-14 lg:gap-12 items-center">
+      <div className="page-gutter grid lg:grid-cols-[1.02fr_1fr] gap-12 lg:gap-14 items-center">
         {/* LEFT */}
         <motion.div
+          className="text-center lg:text-left"
           initial={reduce ? false : { opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          <h1 className="font-extrabold text-[2.75rem] sm:text-6xl lg:text-[4.1rem] leading-[1.04] tracking-[-0.035em] text-[#1E1038]">
-            AI and automation for real businesses.
+          <h1 className="font-extrabold text-[2.5rem] sm:text-6xl lg:text-[4.1rem] leading-[1.08] lg:leading-[1.04] tracking-[-0.035em] text-[#1E1038]">
+            AI and automation for <span className="text-brand-gradient">real businesses.</span>
           </h1>
-          <p className="mt-6 text-lg lg:text-[1.2rem] text-[#1E1038]/70 max-w-[34rem] leading-relaxed">
+          <p className="mt-6 text-lg lg:text-[1.2rem] text-[#1E1038]/70 max-w-[34rem] mx-auto lg:mx-0 leading-relaxed">
             OptimAI builds practical AI and automation systems for SMEs, startups, and everyday business owners, with no jargon and no lock-in contracts. Live in weeks, not months.
           </p>
 
-          <div className="mt-9 flex flex-col sm:flex-row gap-3.5">
-            <Link href="/free-report">
-              <Button className="h-13 bg-[#7C3AED] hover:bg-[#6D28D9] text-white text-base font-semibold px-7 py-6 rounded-xl shadow-lg shadow-purple-600/30 transition-all hover:-translate-y-0.5">
+          <div className="mt-9 flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start">
+            <Link href="/free-report" className="w-full sm:w-auto">
+              <Button className="w-full sm:w-auto h-13 bg-brand-gradient hover:brightness-110 text-white text-base font-semibold px-7 py-6 rounded-xl shadow-lg shadow-purple-600/30 transition-all hover:-translate-y-0.5">
                 Get your free report
                 <ArrowRight className="ml-2" size={18} />
               </Button>
             </Link>
-            <Link href="/what-we-actually-do">
-              <Button variant="outline" className="bg-white/70 border-[#1E1038]/15 text-[#1E1038] hover:bg-white text-base font-semibold px-7 py-6 rounded-xl">
+            <Link href="/what-we-actually-do" className="w-full sm:w-auto">
+              <Button variant="outline" className="w-full sm:w-auto bg-white/70 border-[#1E1038]/15 text-[#1E1038] hover:bg-white text-base font-semibold px-7 py-6 rounded-xl">
                 See how it works
               </Button>
             </Link>
           </div>
 
-          <ul className="mt-9 flex flex-wrap gap-x-7 gap-y-2.5 text-sm font-medium text-[#1E1038]/75">
+          <ul className="mt-9 flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-2.5 text-sm font-medium text-[#1E1038]/75">
             {["No jargon", "No lock-in contracts", "Live in weeks, not months"].map((t) => (
               <li key={t} className="flex items-center gap-2">
                 <span className="grid place-items-center w-5 h-5 rounded-full bg-emerald-500 text-white">
@@ -241,7 +330,9 @@ export function HomeHero() {
           transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
           className="relative lg:pl-4"
         >
-          <div className="relative rounded-[28px] bg-white ring-1 ring-[#1E1038]/10 shadow-[0_40px_90px_-30px_rgba(76,29,149,0.45)] overflow-hidden">
+          <InfinityLoop reduce={reduce} />
+          <div className="relative z-10 rounded-[30px] p-[1.5px] bg-brand-gradient shadow-[0_40px_90px_-30px_rgba(167,29,203,0.5)]">
+          <div className="rounded-[28.5px] bg-white overflow-hidden">
             {/* header */}
             <div className="flex items-center justify-between px-6 py-4 border-b border-[#1E1038]/8 bg-[#FBFAFF]">
               <p className="text-sm font-semibold text-[#1E1038]">See it in action</p>
@@ -256,16 +347,16 @@ export function HomeHero() {
 
             <div className="p-5 sm:p-6">
               <p className="text-sm text-[#1E1038]/60">Pick a job you'd love to hand off</p>
-              <div role="tablist" aria-label="Example jobs" className="mt-3 flex flex-wrap gap-2">
+              <div role="tablist" aria-label="Example jobs" className="mt-3 flex flex-wrap justify-center sm:justify-start gap-1.5">
                 {CHORES.map((c, i) => (
                   <button
                     key={c.id}
                     role="tab"
                     aria-selected={i === active}
                     onClick={() => { setAuto(false); setActive(i); }}
-                    className={`flex items-center gap-2 rounded-full px-3.5 py-2 text-sm font-medium border text-left transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7C3AED] ${
+                    className={`flex items-center gap-1.5 rounded-full px-3 py-1.5 text-[13px] font-medium border text-left transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7C3AED] ${
                       i === active
-                        ? "bg-[#7C3AED] border-[#7C3AED] text-white shadow-md shadow-purple-600/25"
+                        ? "bg-brand-gradient border-transparent text-white shadow-md shadow-fuchsia-600/25"
                         : "bg-white border-[#1E1038]/12 text-[#1E1038]/75 hover:border-[#7C3AED]/50 hover:bg-[#7C3AED]/5"
                     }`}
                   >
@@ -275,7 +366,7 @@ export function HomeHero() {
                 ))}
               </div>
 
-              <div className="mt-5 min-h-[2.75rem]" aria-live="polite">
+              <div className="mt-5 min-h-[2.75rem] text-center sm:text-left" aria-live="polite">
                 <AnimatePresence mode="wait">
                   <motion.p
                     key={chore.id}
@@ -308,7 +399,7 @@ export function HomeHero() {
                       <span
                         className={`relative z-10 grid place-items-center w-11 h-11 rounded-xl shrink-0 transition-colors duration-300 ${
                           shown && last ? "bg-emerald-500 text-white shadow-md shadow-emerald-500/30"
-                          : shown ? "bg-[#7C3AED] text-white shadow-md shadow-purple-600/25"
+                          : shown ? "bg-brand-gradient text-white shadow-md shadow-fuchsia-600/25"
                           : "bg-[#1E1038]/8 text-[#1E1038]/35"
                         }`}
                       >
@@ -325,7 +416,7 @@ export function HomeHero() {
             </div>
 
             {/* result */}
-            <div className="flex items-end justify-between gap-4 px-6 py-5 bg-gradient-to-r from-[#1E1038] to-[#3B1A7A] text-white">
+            <div className="flex items-end justify-between gap-4 px-6 py-5 bg-gradient-to-r from-[#1E1038] via-[#4C1D95] to-[#9D1BB5] text-white">
               <div>
                 <p className="text-xs text-white/60">Example result</p>
                 <p className="mt-0.5 flex items-baseline gap-1.5">
@@ -340,6 +431,7 @@ export function HomeHero() {
               </Link>
             </div>
           </div>
+          </div>
 
           {/* floating confirmation */}
           <AnimatePresence>
@@ -350,7 +442,7 @@ export function HomeHero() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="hidden sm:flex absolute left-8 -top-11 items-center gap-2.5 rounded-xl bg-white px-3.5 py-2.5 shadow-xl shadow-purple-900/15 ring-1 ring-[#1E1038]/10"
+                className="hidden sm:flex absolute z-20 left-8 -top-11 items-center gap-2.5 rounded-xl bg-white px-3.5 py-2.5 shadow-xl shadow-purple-900/15 ring-1 ring-[#1E1038]/10"
               >
                 <span className="grid place-items-center w-7 h-7 rounded-full bg-emerald-500 text-white"><BellRing size={14} /></span>
                 <span className="text-xs font-semibold text-[#1E1038]">{chore.toast}<span className="block font-normal text-[#1E1038]/55">just now</span></span>
@@ -362,7 +454,7 @@ export function HomeHero() {
             <div aria-hidden className="mt-4 mx-6 h-1 rounded-full bg-[#7C3AED]/10 overflow-hidden">
               <motion.div
                 key={active}
-                className="h-full bg-[#7C3AED]/60"
+                className="h-full bg-brand-gradient"
                 initial={{ width: "0%" }}
                 animate={{ width: "100%" }}
                 transition={{ duration: CYCLE_MS / 1000, ease: "linear" }}
