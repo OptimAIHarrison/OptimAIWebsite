@@ -81,7 +81,7 @@ export default function FreeReport() {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Free AI and Automation Report | OptimAI"
+        title="Free AI and Automation Time-Saving Report | OptimAI"
         description="Tell us how your business runs and get a free report showing where AI and automation can save you time, what it's worth, and how fast it can go live."
         canonical="/free-report"
       />
@@ -95,7 +95,7 @@ export default function FreeReport() {
           animate="visible"
         >
           <motion.h1 variants={itemVariants} className="text-5xl lg:text-6xl font-bold mb-6">
-            Get Your Free AI and Automation Report
+            Get Your Free AI and Automation Time-Saving Report
           </motion.h1>
           <motion.p variants={itemVariants} className="text-xl text-foreground/70 max-w-2xl mx-auto">
             See where AI and automation could save your business time. Tell us how you work and we'll send a free report with practical recommendations and what they're worth.
