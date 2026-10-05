@@ -262,7 +262,7 @@ export function HomeHero() {
     <section
       ref={heroRef}
       onMouseMove={onMove}
-      className="relative overflow-hidden pt-32 pb-16 sm:pt-36 lg:pt-44 lg:pb-28"
+      className="relative overflow-hidden pt-40 pb-16 sm:pt-36 lg:pt-44 lg:pb-28"
       style={{ ["--mx" as string]: "72%", ["--my" as string]: "35%" }}
     >
       {/* Backdrop: soft colour fields, a fading grid, and a cursor-following light */}
