@@ -1,31 +1,33 @@
+# robots.txt for https://optimai.com.au
+#
+# Every public page is open to all crawlers: search engines (Google, Bing)
+# and AI search/assistant crawlers (ChatGPT, Claude, Perplexity, Apple).
+# Only the private admin and login areas are kept out.
+#
+# Note: a crawler that has its own named group ignores the "*" group, so the
+# same rules are deliberately repeated in the second group below.
+
 User-agent: *
-Allow: /
-
-# AI crawlers — explicitly allowed for AEO/GEO
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: ClaudeBot
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: Applebot-Extended
-Allow: /
-
-# Disallow admin and internal tools
 Disallow: /admin
-Disallow: /admin/editor
 Disallow: /login
+Allow: /
+
+User-agent: Googlebot
+User-agent: Bingbot
+User-agent: Applebot
+User-agent: OAI-SearchBot
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: Claude-Web
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+Disallow: /admin
+Disallow: /login
+Allow: /
 
 Sitemap: https://optimai.com.au/sitemap.xml
