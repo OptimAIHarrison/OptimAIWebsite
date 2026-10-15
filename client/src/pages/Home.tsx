@@ -5,7 +5,7 @@ import { Link } from "wouter";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-import { TESTIMONIALS, CASE_STUDIES } from "@/const";
+import { TESTIMONIALS, CASE_STUDIES, LOGO_URL } from "@/const";
 import { ArrowRight, ChevronLeft, ChevronRight, Star, User, Hammer, Stethoscope, ShoppingBag, UtensilsCrossed, Briefcase, Rocket, X, Check } from "lucide-react";
 import { ServiceFinderQuiz } from "@/components/ServiceFinderQuiz";
 import { HomeHero } from "@/components/home/HomeHero";
@@ -64,16 +64,32 @@ export default function Home() {
       <SEO
         title="OptimAI | AI and Automation for Real Businesses"
         description="Practical AI and automation for SMEs, startups and everyday business owners. No jargon, no lock-in contracts, live in weeks not months. Get your free report."
-        schema={{
-          "@context": "https://schema.org",
-          "@type": "Organization",
-          name: "OptimAI",
-          url: "https://optimai.com.au",
-          email: "hello@optimai.com.au",
-          description: "Practical AI and automation systems for SMEs, startups and everyday business owners.",
-          address: { "@type": "PostalAddress", addressLocality: "Melbourne", addressRegion: "Victoria", addressCountry: "AU" },
-          areaServed: "AU",
-        }}
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "@id": "https://optimai.com.au/#organization",
+            name: "OptimAI",
+            url: "https://optimai.com.au",
+            logo: LOGO_URL,
+            email: "hello@optimai.com.au",
+            description: "OptimAI builds practical AI and automation systems for SMEs, startups and everyday business owners. No jargon, no lock-in contracts, and most projects are live in weeks, not months.",
+            slogan: "AI and automation for real businesses.",
+            address: { "@type": "PostalAddress", addressLocality: "Melbourne", addressRegion: "Victoria", addressCountry: "AU" },
+            areaServed: { "@type": "Country", name: "Australia" },
+            knowsAbout: ["AI automation", "Business process automation", "Marketing automation", "AI chatbots", "CRM setup", "AI integration"],
+            contactPoint: { "@type": "ContactPoint", contactType: "customer service", email: "hello@optimai.com.au", availableLanguage: "en-AU" },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "@id": "https://optimai.com.au/#website",
+            url: "https://optimai.com.au",
+            name: "OptimAI",
+            inLanguage: "en-AU",
+            publisher: { "@id": "https://optimai.com.au/#organization" },
+          },
+        ]}
       />
       <Navigation />
 
