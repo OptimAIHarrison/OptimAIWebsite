@@ -7,8 +7,9 @@
  * each of those URLs as an "Alternate page with proper canonical tag" or a
  * soft 404. The rules below fix that:
  *
- *  - one address per page: www -> apex, no trailing slash,
- *    lowercase, /index.html -> /, /free-audit -> /free-report (all 301)
+ *  - one address per page: no trailing slash,
+ *    lowercase, /index.html -> /, /free-audit -> /free-report (all 301).
+ *    Host redirects (www/apex) and http->https are left to Cloudflare.
  *  - real pages are served from their prerendered HTML (status 200)
  *  - private pages get the app shell with noindex
  *  - everything else is a real 404 (with noindex), never the homepage
@@ -17,7 +18,6 @@ import express, { type Express, type Request, type Response } from "express";
 import fs from "fs";
 import path from "path";
 
-export const CANONICAL_HOST = "optimai.com.au";
 export const CLIENT_ONLY_ROUTES = new Set(["/login", "/admin", "/admin/editor"]);
 export const REDIRECTS: Record<string, string> = { "/free-audit": "/free-report" };
 
@@ -66,13 +66,11 @@ export function resolveRequest(req: RequestInfo, prerendered: Set<string>): Deci
   if (lower !== p && isKnown(lower)) p = lower;
   if (p in REDIRECTS) p = REDIRECTS[p];
 
-  // 2. One host. www -> apex. (http -> https is deliberately NOT done here:
-  // behind a proxy in "Flexible" SSL mode the app only ever sees http, so
-  // redirecting would loop forever. Use Cloudflare's "Always Use HTTPS".)
-  const needsHostFix = host === `www.${CANONICAL_HOST}`;
-  if (needsHostFix) {
-    return { type: "redirect", status: 301, location: `https://${CANONICAL_HOST}${p}${search}` };
-  }
+  // 2. Host and protocol (www vs apex, http vs https) are deliberately NOT
+  // handled here. Behind Cloudflare + a hosting proxy, a redirect in the app
+  // can fight with a redirect rule at the edge and send visitors round in an
+  // endless loop (ERR_TOO_MANY_REDIRECTS). Do host/https redirects in ONE
+  // place only: Cloudflare.
   if (p !== original) {
     return { type: "redirect", status: 301, location: `${p}${search}` };
   }
