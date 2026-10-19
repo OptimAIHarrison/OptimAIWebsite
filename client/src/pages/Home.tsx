@@ -75,6 +75,7 @@ export default function Home() {
             email: "hello@optimai.com.au",
             description: "OptimAI builds practical AI and automation systems for SMEs, startups and everyday business owners. No jargon, no lock-in contracts, and most projects are live in weeks, not months.",
             slogan: "AI and automation for real businesses.",
+            sameAs: ["https://www.linkedin.com/company/optimaiandautomation/"],
             address: { "@type": "PostalAddress", addressLocality: "Melbourne", addressRegion: "Victoria", addressCountry: "AU" },
             areaServed: { "@type": "Country", name: "Australia" },
             knowsAbout: ["AI automation", "Business process automation", "Marketing automation", "AI chatbots", "CRM setup", "AI integration"],
