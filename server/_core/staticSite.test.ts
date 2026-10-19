@@ -29,9 +29,13 @@ describe("resolveRequest: one address per page", () => {
   it("301s the old /free-audit address to /free-report", () => {
     expect(r("/free-audit")).toEqual({ type: "redirect", status: 301, location: "/free-report" });
   });
-  it("301s www to the apex in ONE hop, keeping path and query", () => {
-    expect(r("/about", { host: "www.optimai.com.au" })).toEqual({ type: "redirect", status: 301, location: "https://optimai.com.au/about" });
-    expect(r("/About/", { host: "www.optimai.com.au", search: "?x=1" })).toEqual({ type: "redirect", status: 301, location: "https://optimai.com.au/about?x=1" });
+  it("never redirects by host: www and apex are both served as-is (redirects between them live in Cloudflare only)", () => {
+    expect(r("/about", { host: "www.optimai.com.au" })).toEqual({ type: "prerendered", route: "/about" });
+    expect(r("/about", { host: "optimai.com.au" })).toEqual({ type: "prerendered", route: "/about" });
+    expect(r("/", { host: "www.optimai.com.au" })).toEqual({ type: "prerendered", route: "/" });
+  });
+  it("still normalises the path on any host, without changing the host", () => {
+    expect(r("/About/", { host: "www.optimai.com.au", search: "?x=1" })).toEqual({ type: "redirect", status: 301, location: "/about?x=1" });
   });
   it("never redirects http to https itself (would loop behind a Flexible-SSL proxy)", () => {
     expect(r("/about", { proto: "http" })).toEqual({ type: "prerendered", route: "/about" } as any);
@@ -135,9 +139,11 @@ describe("real HTTP behaviour", () => {
   it("does not expose the app shell file directly", async () => {
     expect((await get("/app-shell.html")).status).toBe(404);
   });
-  it("redirects www to the apex over https in one hop", async () => {
-    const s = await get("/services", { "x-forwarded-host": "www.optimai.com.au", "x-forwarded-proto": "https" });
-    expect(s.status).toBe(301);
-    expect(s.headers.get("location")).toBe("https://optimai.com.au/services");
+  it("never redirects on host: a request for www or apex gets the page, not a redirect", async () => {
+    for (const host of ["www.optimai.com.au", "optimai.com.au"]) {
+      const s = await get("/services", { "x-forwarded-host": host, "x-forwarded-proto": "https" });
+      expect(s.status).toBe(200);
+      expect(s.headers.get("location")).toBeNull();
+    }
   });
 });
