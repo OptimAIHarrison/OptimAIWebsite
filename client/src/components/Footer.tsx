@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Linkedin } from "lucide-react";
 import { LOGO_URL } from "@/const";
 
 const COLUMNS = [
@@ -72,8 +72,18 @@ export function Footer() {
           ))}
         </div>
 
-        <div className="border-t border-[#1E1038]/10 pt-6 text-sm text-[#1E1038]/50 text-center lg:text-left">
-          © {currentYear} OptimAI. All rights reserved.
+        <div className="border-t border-[#1E1038]/10 pt-6 text-sm text-[#1E1038]/50 flex flex-col-reverse items-center gap-4 sm:flex-row sm:justify-between">
+          <span>© {currentYear} OptimAI. All rights reserved.</span>
+          <a
+            href="https://www.linkedin.com/company/optimaiandautomation/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="OptimAI on LinkedIn"
+            className="inline-flex items-center gap-2 font-medium text-[#1E1038]/70 hover:text-[#7C3AED] transition-colors"
+          >
+            <Linkedin size={18} />
+            LinkedIn
+          </a>
         </div>
       </div>
     </footer>
