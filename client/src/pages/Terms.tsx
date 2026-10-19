@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/Footer";
 
 export default function Terms() {
   return (
     <div className="min-h-screen bg-background">
+      <SEO title="Terms and Conditions" description="The terms and conditions for using the OptimAI website and services." canonical="/terms" />
       <Navigation />
       <section className="pt-40 pb-20 bg-gradient-to-b from-purple-100 via-purple-50 to-transparent">
         <motion.div className="container mx-auto px-4">

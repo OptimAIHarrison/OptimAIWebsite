@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Navigation } from "@/components/Navigation";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, X, Clock, User, Download, ExternalLink, BookOpen } from "lucide-react";
@@ -221,6 +222,26 @@ export default function Resources() {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="AI and Automation Guides for Small Business | OptimAI"
+        description="Plain-English guides on AI and automation for small business owners: invoicing, chatbots, CRM, email marketing, hiring and more."
+        canonical="/resources"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "AI and automation guides for small business",
+          url: "https://optimai.com.au/resources",
+          mainEntity: {
+            "@type": "ItemList",
+            itemListElement: DEFAULT_ARTICLES.map((a, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              url: `https://optimai.com.au/articles/${a.slug}`,
+              name: a.title,
+            })),
+          },
+        }}
+      />
       <Navigation />
 
       {/* Hero */}
@@ -280,11 +301,11 @@ export default function Resources() {
             <>
               {/* Featured article */}
               {featured && (
-                <motion.div
+                <motion.a
+                  href={`/articles/${featured.slug || featured.id}`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  onClick={() => setSelectedArticle(featured.id)}
                   className="group grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-2xl overflow-hidden border-2 border-purple-900/20 hover:border-purple-500/40 transition-all cursor-pointer mb-12"
                 >
                   <div className="relative h-64 lg:h-auto overflow-hidden">
@@ -313,21 +334,21 @@ export default function Resources() {
                       Read article <ArrowRight size={16} />
                     </div>
                   </div>
-                </motion.div>
+                </motion.a>
               )}
 
               {/* Rest of articles grid */}
               {rest.length > 0 && (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {rest.map((article, idx) => (
-                    <motion.div
+                    <motion.a
                       key={article.id}
+                      href={`/articles/${article.slug || article.id}`}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: idx * 0.06 }}
-                      onClick={() => setSelectedArticle(article.id)}
-                      className="group rounded-2xl overflow-hidden border-2 border-purple-900/20 hover:border-purple-500/40 transition-all cursor-pointer bg-white/5"
+                      className="group block rounded-2xl overflow-hidden border-2 border-purple-900/20 hover:border-purple-500/40 transition-all cursor-pointer bg-white/5"
                     >
                       <div className="relative h-44 overflow-hidden">
                         <img
@@ -353,7 +374,7 @@ export default function Resources() {
                           <ArrowRight size={14} className="text-purple-500 group-hover:translate-x-1 transition-transform" />
                         </div>
                       </div>
-                    </motion.div>
+                    </motion.a>
                   ))}
                 </div>
               )}

@@ -1,6 +1,8 @@
 import { useRoute } from 'wouter';
 import { motion } from 'framer-motion';
 import { Navigation } from '@/components/Navigation';
+import { SEO } from '@/components/SEO';
+import { LOGO_URL } from '@/const';
 import { Footer } from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
@@ -12,6 +14,7 @@ const DEFAULT_ARTICLES = [
     id: "choosing-automation-partner",
     slug: "choosing-automation-partner",
     title: "How to Choose the Right Automation Partner for Your Business",
+    seoTitle: "How to Choose the Right Automation Partner",
     excerpt: "DIY automation tools are everywhere, but knowing when to bring in an expert — and how to pick the right one — can save you months of wasted effort.",
     category: "Industry Trends",
     readTime: "8 min read",
@@ -24,6 +27,7 @@ const DEFAULT_ARTICLES = [
     id: "data-driven-decisions-ai",
     slug: "data-driven-decisions-ai",
     title: "Making Data-Driven Decisions with AI: A Beginner's Guide for Business Owners",
+    seoTitle: "Making Data-Driven Decisions with AI",
     excerpt: "Your business already generates more data than you realise. Here's how AI can turn that scattered information into decisions you can actually trust.",
     category: "AI Integration",
     readTime: "9 min read",
@@ -36,6 +40,7 @@ const DEFAULT_ARTICLES = [
     id: "invoicing-finance-automation",
     slug: "invoicing-finance-automation",
     title: "Invoicing, Payments, and Bookkeeping: How to Automate Your Finances",
+    seoTitle: "Automate Invoicing, Payments and Bookkeeping",
     excerpt: "Chasing unpaid invoices and manually reconciling accounts eats hours every week. Here's how to automate the financial admin that's holding your business back.",
     category: "Best Practices",
     readTime: "7 min read",
@@ -48,6 +53,7 @@ const DEFAULT_ARTICLES = [
     id: "ai-chatbots-customer-service",
     slug: "ai-chatbots-customer-service",
     title: "AI Chatbots for Customer Service: A Practical Guide for Small Businesses",
+    seoTitle: "AI Chatbots for Small Business Customer Service",
     excerpt: "Customers expect fast answers, even outside business hours. Here's how small businesses can use AI chatbots to meet that expectation without hiring extra staff.",
     category: "AI & Automation",
     readTime: "8 min read",
@@ -60,6 +66,7 @@ const DEFAULT_ARTICLES = [
     id: "automating-hiring-onboarding",
     slug: "automating-hiring-onboarding",
     title: "Automating Hiring and Onboarding Without Losing the Human Touch",
+    seoTitle: "Automating Hiring and Onboarding",
     excerpt: "Hiring and onboarding are full of repetitive admin — but automating the wrong parts can make candidates feel like a number. Here's how to get the balance right.",
     category: "Process Automation",
     readTime: "7 min read",
@@ -72,6 +79,7 @@ const DEFAULT_ARTICLES = [
     id: "sop-documentation-automation",
     slug: "sop-documentation-automation",
     title: "Turning Your Tribal Knowledge into SOPs (and Automating Them)",
+    seoTitle: "Turn Tribal Knowledge into Automated SOPs",
     excerpt: "If half your business runs on knowledge that's only in your head, you're one resignation away from a crisis. Here's how to capture it — and automate it.",
     category: "Best Practices",
     readTime: "6 min read",
@@ -96,6 +104,7 @@ const DEFAULT_ARTICLES = [
     id: "email-marketing-sequences",
     slug: "email-marketing-sequences",
     title: "Building Email Sequences That Convert: A Step-by-Step Guide",
+    seoTitle: "Building Email Sequences That Convert",
     excerpt: "A well-built email sequence works around the clock, nurturing leads and customers without anyone lifting a finger. Here's how to build one that actually converts.",
     category: "Marketing",
     readTime: "7 min read",
@@ -178,6 +187,21 @@ const DEFAULT_ARTICLES = [
   }
 ];
 
+
+function toIsoDate(d?: string): string | undefined {
+  if (!d) return undefined;
+  const t = new Date(d);
+  if (isNaN(t.getTime())) return undefined;
+  return `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`;
+}
+
+function parseAuthor(a?: string): { name: string; jobTitle?: string } {
+  if (!a) return { name: "OptimAI" };
+  const [name, rest] = a.split(",").map((x) => x.trim());
+  const jobTitle = rest ? rest.split(/\s+at\s+/i)[0].trim() : undefined;
+  return { name: name || "OptimAI", jobTitle };
+}
+
 export default function ArticleDetail() {
   const [match, params] = useRoute('/articles/:slug');
   const [article, setArticle] = useState<any>(null);
@@ -222,6 +246,7 @@ export default function ArticleDetail() {
   if (!article) {
     return (
       <div className="min-h-screen bg-background">
+        <SEO title="Article not found" description="This article could not be found." noIndex />
         <Navigation />
         <div className="pt-40 pb-20">
           <div className="container mx-auto px-4 text-center">
@@ -240,8 +265,35 @@ export default function ArticleDetail() {
     );
   }
 
+  const authorInfo = parseAuthor(article.author);
+  const isoDate = toIsoDate(article.date);
+  const articlePath = `/articles/${article.slug}`;
+
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={article.seoTitle || article.title}
+        description={article.excerpt}
+        canonical={articlePath}
+        ogType="article"
+        ogImage={article.image}
+        publishedTime={isoDate}
+        author={authorInfo.name}
+        breadcrumbLeaf={article.title}
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          headline: article.title,
+          description: article.excerpt,
+          image: article.image,
+          datePublished: isoDate,
+          dateModified: isoDate,
+          articleSection: article.category,
+          author: { "@type": "Person", name: authorInfo.name, ...(authorInfo.jobTitle ? { jobTitle: authorInfo.jobTitle } : {}), worksFor: { "@type": "Organization", name: "OptimAI" } },
+          publisher: { "@type": "Organization", name: "OptimAI", url: "https://optimai.com.au", logo: { "@type": "ImageObject", url: LOGO_URL } },
+          mainEntityOfPage: { "@type": "WebPage", "@id": `https://optimai.com.au${articlePath}` },
+        }}
+      />
       <Navigation />
 
       {/* Hero Section with Image */}

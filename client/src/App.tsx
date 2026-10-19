@@ -2,6 +2,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { useEffect } from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
+import { SEO } from "@/components/SEO";
 import { Route, Switch, useLocation, Redirect } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
@@ -59,7 +60,11 @@ function Router() {
     }
   }, [location]);
   
+  const isPrivateArea = location.startsWith("/admin") || location.startsWith("/login");
+
   return (
+    <>
+    {isPrivateArea && <SEO title="Private area" description="Private area." noIndex />}
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/services"} component={Services} />
@@ -84,6 +89,7 @@ function Router() {
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
+    </>
   );
 }
 

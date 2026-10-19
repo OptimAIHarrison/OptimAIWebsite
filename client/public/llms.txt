@@ -1,0 +1,26 @@
+# OptimAI
+
+> OptimAI builds practical AI and automation systems for SMEs, startups and everyday business owners in Australia. No jargon, no lock-in contracts, and most projects are live in weeks, not months.
+
+OptimAI helps real businesses hand off everyday work such as chasing invoices, email campaigns, social posting, booking reminders, customer databases, reports, client onboarding and after-hours customer questions. We work in three steps: you tell us how you work and we send a free AI and Automation Time-Saving Report; we build it and connect it to the tools you already use; then your team is trained to run it and we stay on call.
+
+## Start here
+
+- [Free AI and Automation Time-Saving Report](https://optimai.com.au/free-report): a free report showing where AI and automation can save your business time and what it could be worth
+- [What we actually do](https://optimai.com.au/what-we-actually-do): the step-by-step journey from where you are now to an automated, AI-powered business
+- [Services](https://optimai.com.au/services): strategic advisory, marketing automation, business process automation, AI integration, managed services and getting found in AI search
+- [Pricing](https://optimai.com.au/pricing): build an instant estimate for your project
+- [Ready-to-go products](https://optimai.com.au/products): fixed-price AI and automation setups
+
+## Learn more
+
+- [Case studies](https://optimai.com.au/case-studies): what we built for real clients and what changed
+- [Guides and articles](https://optimai.com.au/resources): plain-English guides on AI and automation for small business
+- [Why OptimAI](https://optimai.com.au/why-optimai): how we work and what makes us different
+- [About](https://optimai.com.au/about): who we are and who we work with
+- [FAQ](https://optimai.com.au/faq): answers to common questions
+- [ROI calculator](https://optimai.com.au/roi-calculator): estimate the time and money AI and automation could save
+
+## Contact
+
+- [Contact OptimAI](https://optimai.com.au/contact): hello@optimai.com.au

@@ -84,6 +84,15 @@ export default function FreeReport() {
         title="Free AI and Automation Time-Saving Report | OptimAI"
         description="Tell us how your business runs and get a free report showing where AI and automation can save you time, what it's worth, and how fast it can go live."
         canonical="/free-report"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "Free AI and Automation Time-Saving Report",
+          url: "https://optimai.com.au/free-report",
+          description: "A free report showing where AI and automation can save your business time, what it could be worth, and how fast it can go live.",
+          isPartOf: { "@id": "https://optimai.com.au/#website" },
+          about: { "@id": "https://optimai.com.au/#organization" },
+        }}
       />
       <Navigation />
 
