@@ -29,10 +29,12 @@ describe("resolveRequest: one address per page", () => {
   it("301s the old /free-audit address to /free-report", () => {
     expect(r("/free-audit")).toEqual({ type: "redirect", status: 301, location: "/free-report" });
   });
-  it("301s www and plain http to https on the apex, in ONE hop, keeping path and query", () => {
+  it("301s www to the apex in ONE hop, keeping path and query", () => {
     expect(r("/about", { host: "www.optimai.com.au" })).toEqual({ type: "redirect", status: 301, location: "https://optimai.com.au/about" });
-    expect(r("/about", { proto: "http" })).toEqual({ type: "redirect", status: 301, location: "https://optimai.com.au/about" });
-    expect(r("/About/", { host: "www.optimai.com.au", proto: "http", search: "?x=1" })).toEqual({ type: "redirect", status: 301, location: "https://optimai.com.au/about?x=1" });
+    expect(r("/About/", { host: "www.optimai.com.au", search: "?x=1" })).toEqual({ type: "redirect", status: 301, location: "https://optimai.com.au/about?x=1" });
+  });
+  it("never redirects http to https itself (would loop behind a Flexible-SSL proxy)", () => {
+    expect(r("/about", { proto: "http" })).toEqual({ type: "prerendered", route: "/about" } as any);
   });
   it("does not redirect other hosts (localhost, health checks, preview domains)", () => {
     expect(r("/services", { host: "localhost:3000", proto: "http" })).toEqual({ type: "prerendered", route: "/services" });

@@ -7,7 +7,7 @@
  * each of those URLs as an "Alternate page with proper canonical tag" or a
  * soft 404. The rules below fix that:
  *
- *  - one address per page: www -> apex, http -> https, no trailing slash,
+ *  - one address per page: www -> apex, no trailing slash,
  *    lowercase, /index.html -> /, /free-audit -> /free-report (all 301)
  *  - real pages are served from their prerendered HTML (status 200)
  *  - private pages get the app shell with noindex
@@ -66,9 +66,10 @@ export function resolveRequest(req: RequestInfo, prerendered: Set<string>): Deci
   if (lower !== p && isKnown(lower)) p = lower;
   if (p in REDIRECTS) p = REDIRECTS[p];
 
-  // 2. One host, always https
-  const isSiteHost = host === CANONICAL_HOST || host === `www.${CANONICAL_HOST}`;
-  const needsHostFix = isSiteHost && (host.startsWith("www.") || req.proto === "http");
+  // 2. One host. www -> apex. (http -> https is deliberately NOT done here:
+  // behind a proxy in "Flexible" SSL mode the app only ever sees http, so
+  // redirecting would loop forever. Use Cloudflare's "Always Use HTTPS".)
+  const needsHostFix = host === `www.${CANONICAL_HOST}`;
   if (needsHostFix) {
     return { type: "redirect", status: 301, location: `https://${CANONICAL_HOST}${p}${search}` };
   }
